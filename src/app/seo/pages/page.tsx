@@ -102,6 +102,15 @@ export default function PageSeoCMSPage() {
                 rows={3}
               />
 
+              <InputField
+                label="Canonical URL"
+                value={selectedSeo.canonicalUrl || ""}
+                onChange={(e) =>
+                  setSelectedSeo({ ...selectedSeo, canonicalUrl: e.target.value })
+                }
+                placeholder="e.g. https://www.kumarpower.com/"
+              />
+
               <TextAreaField
                 label="Target Search Keywords (Comma Separated)"
                 value={selectedSeo.keywords}

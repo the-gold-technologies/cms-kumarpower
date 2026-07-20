@@ -2,23 +2,24 @@
 
 import { useState } from "react";
 import { InputField } from "@/components/InputField";
+import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import toast from "react-hot-toast";
 
-export function CTASectionCMS() {
+export function ContactHeroSectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    title: "Need Expert Assistance?",
-    primaryBtnLabel: "Talk to an Expert",
-    primaryBtnUrl: "/contact",
+    bannerHeading: "Powering Connections That Matter",
+    bannerSubtitle: "Let's build something extraordinary. Talk to our experts today.",
+    bannerBgImage: "",
+    primaryBtnLabel: "Start Your Inquiry",
     whatsappBtnLabel: "Connect on WhatsApp",
-    whatsappNumber: "919773851767",
-    backgroundImage: "",
+    whatsappNumber: "+919773851767",
   });
 
   const handleSave = () => {
@@ -26,7 +27,7 @@ export function CTASectionCMS() {
     setTimeout(() => {
       setIsSaving(false);
       setSaved(true);
-      toast.success("CTA Section saved!");
+      toast.success("Hero banner saved!");
       setTimeout(() => setSaved(false), 2000);
     }, 400);
   };
@@ -34,8 +35,8 @@ export function CTASectionCMS() {
   return (
     <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
-        title="CTA Assistance Section"
-        description="Configure the mid-page 'Need Expert Assistance?' banner, buttons, WhatsApp number & background image."
+        title="1. Hero Banner Section ('Powering Connections')"
+        description="Manage the contact hero banner headline, subtitle, background image, and CTA buttons."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
       />
@@ -49,48 +50,39 @@ export function CTASectionCMS() {
       >
         <div className="overflow-hidden flex flex-col gap-6 pt-1">
           <InputField
-            label="Banner Headline"
-            value={formData.title}
-            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-            placeholder="e.g. Need Expert Assistance?"
+            label="Banner Main Heading"
+            value={formData.bannerHeading}
+            onChange={(e) => setFormData({ ...formData, bannerHeading: e.target.value })}
+          />
+          <TextAreaField
+            label="Banner Subtitle"
+            value={formData.bannerSubtitle}
+            onChange={(e) => setFormData({ ...formData, bannerSubtitle: e.target.value })}
+            rows={2}
+          />
+          <ImageUploadField
+            label="Banner Background Image"
+            value={formData.bannerBgImage}
+            onChange={(val) => setFormData({ ...formData, bannerBgImage: val })}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <InputField
               label="Primary Button Label"
               value={formData.primaryBtnLabel}
               onChange={(e) => setFormData({ ...formData, primaryBtnLabel: e.target.value })}
-              placeholder="e.g. Talk to an Expert"
             />
-            <InputField
-              label="Primary Button URL"
-              value={formData.primaryBtnUrl}
-              onChange={(e) => setFormData({ ...formData, primaryBtnUrl: e.target.value })}
-              placeholder="e.g. /contact"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <InputField
               label="WhatsApp Button Label"
               value={formData.whatsappBtnLabel}
               onChange={(e) => setFormData({ ...formData, whatsappBtnLabel: e.target.value })}
-              placeholder="e.g. Connect on WhatsApp"
             />
             <InputField
-              label="WhatsApp Number (with country code)"
+              label="WhatsApp Phone Number"
               value={formData.whatsappNumber}
               onChange={(e) => setFormData({ ...formData, whatsappNumber: e.target.value })}
-              placeholder="e.g. 919773851767"
-              tooltip="Phone number formatted without + symbol (e.g. 919773851767)"
             />
           </div>
-
-          <ImageUploadField
-            label="Banner Background Image"
-            value={formData.backgroundImage}
-            onChange={(val) => setFormData({ ...formData, backgroundImage: val })}
-          />
 
           <div className="flex justify-end pt-4 border-t border-slate-100">
             <SaveButton isSaving={isSaving} saved={saved} onClick={handleSave} />

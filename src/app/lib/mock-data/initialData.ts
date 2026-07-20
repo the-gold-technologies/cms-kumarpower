@@ -103,6 +103,7 @@ export interface PageSeo {
   metaTitle: string;
   metaDescription: string;
   keywords: string;
+  canonicalUrl?: string;
   ogImage: string;
 }
 
@@ -447,8 +448,9 @@ export const INITIAL_SEO_SETTINGS: PageSeo[] = [
     id: "seo-1",
     pageName: "Home Page",
     slug: "/",
-    metaTitle: "Kumar Power - Kirloskar Authorized Generator Dealer & Power Solutions",
-    metaDescription: "Authorized dealer of Kirloskar Silent Diesel Generators, Gas Generators, AMF Panels, Servo Stabilizers & AMC services in Delhi NCR.",
+    metaTitle: "Kirloskar Generator Dealer | Authorized Distributor in Delhi NCR",
+    metaDescription: "Looking for a reliable Kirloskar Generator dealer? Explore affordable prices, expert installation, 24/7 service support & high-efficiency DG sets. Call now for details.",
+    canonicalUrl: "https://www.kumarpower.com/",
     keywords: "Kirloskar DG set, silent generator, generator dealer delhi, kirloskar generator 20kva to 1500kva, generator rental",
     ogImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop"
   },

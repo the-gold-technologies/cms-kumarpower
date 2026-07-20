@@ -1,25 +1,71 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
-import { ImageUploadField } from "@/components/ImageUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
+import { CloudUpload, Plus, X, Image as ImageIcon } from "lucide-react";
 import toast from "react-hot-toast";
+
+type GalleryImage = { id: string; url: string; caption: string };
+
+const INITIAL_IMAGES: GalleryImage[] = [
+  { id: "img-1", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery1_uhk3zd.png", caption: "Gallery image 1" },
+  { id: "img-2", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery2_ei3h9z.png", caption: "Gallery image 2" },
+  { id: "img-3", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175176/gallery3_dcqffp.png", caption: "Gallery image 3" },
+  { id: "img-4", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175202/gallery4_nwutsh.png", caption: "Gallery image 4" },
+  { id: "img-5", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175196/gallery5_zlyhc4.png", caption: "Gallery image 5" },
+  { id: "img-6", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175198/gallery6_ulastu.png", caption: "Gallery image 6" },
+];
 
 export function GallerySectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const [formData, setFormData] = useState({
-    title: "Installation Photo Gallery",
-    subtitle: "Recent on-site generator installations across Delhi NCR",
-    img1: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
-    img2: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop",
-    img3: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop",
-  });
+  const [title, setTitle] = useState("Photo Gallery");
+  const [subtitle, setSubtitle] = useState(
+    "Explore our installations, equipment, and team in action through these images"
+  );
+  const [images, setImages] = useState<GalleryImage[]>(INITIAL_IMAGES);
+
+  const handleFileUpload = (id: string, file: File) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const result = e.target?.result as string;
+      setImages((prev) => prev.map((img) => (img.id === id ? { ...img, url: result } : img)));
+      toast.success("Image updated!");
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleBulkFiles = (files: FileList | File[]) => {
+    Array.from(files).forEach((file) => {
+      if (!file.type.startsWith("image/")) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        setImages((prev) => [
+          ...prev,
+          { id: `img-${Date.now()}-${Math.random()}`, url: result, caption: file.name },
+        ]);
+      };
+      reader.readAsDataURL(file);
+    });
+    toast.success("Gallery images uploaded!");
+  };
+
+  const addImageSlot = () => {
+    const newId = `img-${Date.now()}`;
+    setImages((prev) => [...prev, { id: newId, url: "", caption: `Gallery image ${prev.length + 1}` }]);
+  };
+
+  const removeImage = (id: string) => {
+    setImages((prev) => prev.filter((img) => img.id !== id));
+    toast.success("Image removed");
+  };
 
   const handleSave = () => {
     setIsSaving(true);
@@ -32,52 +78,151 @@ export function GallerySectionCMS() {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50 space-y-6">
+    <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
-        title="Installation Photo Gallery"
-        description="Manage generator installation photos showcase."
+        title="Photo Gallery Section"
+        description="Manage the Photo Gallery title, description, and upload multiple gallery showcase photos."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
       />
 
-      {isOpen && (
-        <div className="flex flex-col gap-6 pt-2">
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "grid-rows-[1fr] opacity-100 mt-6"
+            : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
+        }`}
+      >
+        <div className="overflow-hidden flex flex-col gap-6 pt-1">
           <InputField
-            label="Section Title"
-            value={formData.title}
-            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+            label="Gallery Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="e.g. Photo Gallery"
           />
 
           <TextAreaField
-            label="Section Subtitle"
-            value={formData.subtitle}
-            onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
+            label="Gallery Subtitle"
+            value={subtitle}
+            onChange={(e) => setSubtitle(e.target.value)}
             rows={2}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-            <ImageUploadField
-              label="Photo 1"
-              value={formData.img1}
-              onChange={(val) => setFormData({ ...formData, img1: val })}
+          {/* Bulk Dropzone */}
+          <div className="space-y-4 pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-700">
+                  Gallery Photos ({images.length} photos)
+                </p>
+                <p className="text-[10px] text-slate-400 mt-0.5">
+                  Photos displayed in the responsive masonry grid
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="flex items-center gap-1.5 px-4 py-2 bg-[#2D6FBA] hover:bg-[#22548e] text-white text-xs font-bold rounded-xl transition shadow-xs cursor-pointer"
+              >
+                <Plus className="w-4 h-4" />
+                Upload Photos
+              </button>
+            </div>
+
+            <div
+              onClick={() => fileInputRef.current?.click()}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                if (e.dataTransfer.files?.length) handleBulkFiles(e.dataTransfer.files);
+              }}
+              className="w-full border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 hover:bg-gray-100/80 flex flex-col items-center justify-center p-6 lg:p-8 transition-colors cursor-pointer group"
+            >
+              <div className="p-3 rounded-full bg-white shadow-xs ring-1 ring-gray-100 mb-3 text-[#2D6FBA] group-hover:scale-110 transition-transform">
+                <CloudUpload className="w-6 h-6" strokeWidth={2} />
+              </div>
+              <p className="text-gray-500 text-sm mb-1 text-center font-medium">
+                <span className="text-[#2D6FBA] font-semibold hover:underline mr-1">
+                  Click to upload
+                </span>
+                or drag & drop gallery photo files
+              </p>
+              <p className="text-gray-400 text-xs text-center font-medium">
+                PNG, JPG, SVG or WebP supported
+              </p>
+            </div>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              className="hidden"
+              onChange={(e) => e.target.files && handleBulkFiles(e.target.files)}
             />
-            <ImageUploadField
-              label="Photo 2"
-              value={formData.img2}
-              onChange={(val) => setFormData({ ...formData, img2: val })}
-            />
-            <ImageUploadField
-              label="Photo 3"
-              value={formData.img3}
-              onChange={(val) => setFormData({ ...formData, img3: val })}
-            />
+
+            {/* List of uploaded gallery images matching exact design */}
+            <div className="space-y-2.5">
+              {images.map((img, idx) => (
+                <div
+                  key={img.id}
+                  className="bg-slate-50/70 border border-slate-200/70 rounded-2xl px-4 py-3 flex items-center justify-between transition hover:bg-slate-50"
+                >
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-2xs">
+                      {img.url ? (
+                        <img src={img.url} alt="Gallery Photo" className="w-full h-full object-cover rounded-lg" />
+                      ) : (
+                        <ImageIcon className="w-5 h-5 text-slate-300" />
+                      )}
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="text-xs font-bold text-slate-800 truncate">
+                        {img.url ? (img.caption || "Uploaded Image") : `Gallery Photo #${idx + 1}`}
+                      </h4>
+                      <p className="text-[11px] text-slate-400 font-medium">
+                        {img.url
+                          ? img.url.startsWith("data:")
+                            ? "Local File"
+                            : "Cloud / Remote"
+                          : "No file uploaded"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 shrink-0">
+                    <label className="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 hover:text-[#2D6FBA] hover:border-[#2D6FBA]/40 rounded-xl text-xs font-semibold cursor-pointer transition shadow-2xs">
+                      {img.url ? "Replace" : "Upload"}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) handleFileUpload(img.id, file);
+                        }}
+                      />
+                    </label>
+
+                    <button
+                      type="button"
+                      onClick={() => removeImage(img.id)}
+                      className="w-8 h-8 rounded-full border border-slate-200/80 bg-white flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-300 transition cursor-pointer shadow-2xs"
+                      title="Remove image"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="flex justify-end pt-4 border-t border-slate-100">
             <SaveButton isSaving={isSaving} saved={saved} onClick={handleSave} />
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -44,9 +44,11 @@ const sidebarLinks: SidebarLink[] = [
     icon: BookOpen,
     sublinks: [
       { title: "Home", href: "/static-pages/home" },
-      { title: "Our Story", href: "/static-pages/about" },
+      { title: "Our Profile", href: "/static-pages/our-profile" },
+      { title: "Testimonials", href: "/static-pages/testimonials" },
+      { title: "Our Clients", href: "/static-pages/our-clients" },
+      { title: "Photo Gallery", href: "/static-pages/photo-gallery" },
       { title: "Certifications", href: "/static-pages/certifications" },
-      { title: "Our Clients & Gallery", href: "/static-pages/clients" },
       { title: "Products Overview", href: "/static-pages/products" },
       { title: "Installation Services", href: "/static-pages/services" },
       { title: "Contact", href: "/static-pages/contact" },

@@ -7,6 +7,7 @@ import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SelectField } from "@/components/SelectField";
 import { ImagePickerField } from "@/components/ImagePickerField";
+import { RichTextEditor } from "@/components/RichTextEditor";
 import { SaveButton } from "@/components/SaveButton";
 import { useCMSStore } from "@/lib/cms-store";
 import { BlogItem } from "@/lib/mock-data/initialData";
@@ -217,11 +218,11 @@ export default function BlogCMSPage() {
                 rows={2}
               />
 
-              <TextAreaField
-                label="Article Content (Markdown / HTML Supported)"
+              <RichTextEditor
+                label="Article Content (WYSIWYG Rich Text)"
                 value={formData.content}
-                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                rows={6}
+                onChange={(html) => setFormData({ ...formData, content: html })}
+                tooltip="Format headings, bold text, lists, and links visually for your blog post."
               />
 
               <ImagePickerField
