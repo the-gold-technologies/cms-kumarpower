@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Page {
+  id              String    @id @default(cuid())
+  title           String?
+  slug            String    @unique
+  parent          String    @default("-")
+  order           Int       @default(0)
+  type            String    @default("standard")
+  visibility      String    @default("published")
+  isStatic        Boolean   @default(false)
+  description     String?
+  metaTitle       String?
+  metaDescription String?
+  keywords        String?
+  ogImage         String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  sections        Section[]
+}
+
+model Section {
+  id        String   @id @default(cuid())
+  pageId    String
+  type      String
+  content   Json     @default("{}")
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  page      Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  category    String
+  powerRating String
+  phase       String
+  cooling     String
+  fuelType    String
+  description String
+  image       String
+  status      String   @default("In Stock")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model NavLink {
+  id          String   @id @default(cuid())
+  label       String
+  url         String
+  type        String   @default("Main Link")
+  parent      String   @default("-")
+  order       Int      @default(0)
+  description String?
+  title       String?
+  isStatic    Boolean  @default(true)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Enquiry {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String
+  company      String?
+  interestedIn String?
+  message      String
+  status       String   @default("New")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model GlobalConfig {
+  id                  String   @id @default("global")
+  siteTitle           String
+  siteDescription     String
+  favicon             String?
+  googleAnalyticsId   String?
+  gtmId               String?
+  searchConsoleId     String?
+  customHeaderScripts String?
+  customFooterScripts String?
+  socialLinks         Json?
+  robotsTxt           String?  @default("User-agent: *\nAllow: /\n\nSitemap: https://www.kumarpower.com/sitemap.xml")
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?  @unique
+  password  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
