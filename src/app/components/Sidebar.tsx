@@ -9,6 +9,7 @@ import {
   Compass,
   BookOpen,
   Layers,
+  Package,
   LucideIcon,
   ChevronDown,
   LogOut,
@@ -40,7 +41,7 @@ const sidebarLinks: SidebarLink[] = [
     ],
   },
   {
-    title: "PAGES",
+    title: "STATIC PAGES",
     icon: BookOpen,
     sublinks: [
       { title: "Home", href: "/static-pages/home" },
@@ -51,14 +52,27 @@ const sidebarLinks: SidebarLink[] = [
       { title: "Certifications", href: "/static-pages/certifications" },
       { title: "Products Overview", href: "/static-pages/products" },
       { title: "Installation Services", href: "/static-pages/services" },
-      { title: "Contact", href: "/static-pages/contact" },
+      { title: "Contact Us", href: "/static-pages/contact" },
     ],
   },
   {
-    title: "SUB-SERVICES & FLEET",
+    title: "PRODUCT DROPDOWN PAGES",
+    icon: Package,
+    sublinks: [
+      { title: "Kirloskar Diesel Generator", href: "/static-pages/products/kirloskar-diesel-generator" },
+      { title: "Kirloskar Gas Generator", href: "/static-pages/products/kirloskar-gas-generator" },
+      { title: "Kirloskar Portable Generator", href: "/static-pages/products/kirloskar-portable-generator" },
+      { title: "Optiprime Generator", href: "/static-pages/products/optiprime" },
+      { title: "Electrical Panels", href: "/static-pages/products/panels" },
+      { title: "Servo Stabilizers", href: "/static-pages/products/servo-stabilizer" },
+      { title: "Transformers", href: "/static-pages/products/transformers" },
+    ],
+  },
+  {
+    title: "FLEET & CONTENT",
     icon: Layers,
     sublinks: [
-      { title: "Products Catalogue", href: "/products" },
+      { title: "Products Fleet List", href: "/products" },
       { title: "Generator Rentals", href: "/rentals" },
       { title: "Blog Articles", href: "/blog" },
     ],
