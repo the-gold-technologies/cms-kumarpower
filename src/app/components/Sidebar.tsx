@@ -146,9 +146,12 @@ export function Sidebar() {
           href="/"
           className="flex items-center gap-3 hover:opacity-90 transition-opacity"
         >
-          <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center text-[#0a192f] font-black italic shadow-md text-lg">
-            K
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/k-logo.png"
+            alt="Kumar Power Favicon Logo"
+            className="h-10 w-10 bg-white p-1 rounded-full shadow-md object-contain"
+          />
           <span className="font-bold text-lg tracking-tight">
             Kumar Power <span className="text-[#2D6FBA] font-semibold">CMS</span>
           </span>
