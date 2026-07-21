@@ -1,43 +1,85 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import toast from "react-hot-toast";
 
-export function FooterCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface FooterCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function FooterCMS({
+  saveUrl = "/api/home",
+  responseKey = "footer",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: FooterCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    aboutBio:
-      "Kumar Power is certified ISO 9001:2015 Company & have emerged as the leading Power Solution Providers. Being an authorized Channel Partner of Kirloskar Oil Engines Limited, Kumar Power is committed to provide quality power solutions.",
-    address: "904, Westend Mall, Janakpuri, New Delhi 110058",
-    mainPhone: "+91 97738 51767",
-    supportPhone: "+91 97738 77796",
-    landline: "011-46701273",
-    salesEmail: "sales@kumarpower.com",
-    supportEmail: "support@kumarpower.com",
-    accountsEmail: "accounts@kumarpower.com",
-    facebookUrl: "https://www.facebook.com/kumargenerator/",
-    instagramUrl: "https://www.instagram.com/Kumarpowerlimitless",
-    linkedinUrl: "https://www.linkedin.com/company/kumar-generator-house---india/",
-    copyrightText: "© 2026 Kumar Power. All rights reserved.",
-    developerCredit: "Crafted with ❤️ by The Gold Technologies",
-    developerUrl: "https://thegoldtechnologies.com/",
+    aboutBio: "",
+    address: "",
+    mainPhone: "",
+    supportPhone: "",
+    landline: "",
+    salesEmail: "",
+    supportEmail: "",
+    accountsEmail: "",
+    facebookUrl: "",
+    instagramUrl: "",
+    linkedinUrl: "",
+    copyrightText: "",
   });
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetchWithCache(saveUrl)
+      .then((json) => {
+        if (json.success && json.data) {
+          const footer = responseKey ? json.data?.[responseKey] : json.data;
+          if (footer && typeof footer === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              ...Object.fromEntries(Object.entries(footer).filter(([k]) => k in prev)),
+            }));
+          }
+        }
+      })
+      .catch(console.error);
+  }, [saveUrl, responseKey]);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch(saveUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: responseKey, content: formData }),
+      });
+      if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
-      toast.success("Footer settings saved!");
+      toast.success("Footer section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -134,21 +176,14 @@ export function FooterCMS() {
             </div>
           </div>
 
-          {/* Copyright & Credits */}
+          {/* Copyright Statement */}
           <div className="space-y-4 pt-2 border-t border-slate-100">
-            <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">Copyright & Developer Credits</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField
-                label="Copyright Statement"
-                value={formData.copyrightText}
-                onChange={(e) => setFormData({ ...formData, copyrightText: e.target.value })}
-              />
-              <InputField
-                label="Developer Credit Text"
-                value={formData.developerCredit}
-                onChange={(e) => setFormData({ ...formData, developerCredit: e.target.value })}
-              />
-            </div>
+            <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">Copyright Statement</p>
+            <InputField
+              label="Copyright Statement"
+              value={formData.copyrightText}
+              onChange={(e) => setFormData({ ...formData, copyrightText: e.target.value })}
+            />
           </div>
 
           <div className="flex justify-end pt-4 border-t border-slate-100">

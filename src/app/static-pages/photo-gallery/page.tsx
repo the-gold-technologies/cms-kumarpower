@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -89,11 +90,10 @@ export default function PhotoGalleryStaticPageCMS() {
 
   // Fetch from DB on mount
   useEffect(() => {
-    fetch("/api/pages/photo-gallery")
-      .then((res) => res.json())
+    fetchWithCache("/api/photo-gallery")
       .then((json) => {
-        if (json.success && json.data?.["photo-gallery"]) {
-          const data = json.data["photo-gallery"];
+        if (json.success && json.data) {
+          const data = json.data["photo-gallery"] || json.data;
           if (data.hero) {
             setHeroHeading(data.hero.heading || "");
             setHeroSubtitle(data.hero.subtitle || "");
@@ -121,11 +121,12 @@ export default function PhotoGalleryStaticPageCMS() {
         photos,
         experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
       };
-      await fetch("/api/pages/photo-gallery", {
-        method: "PUT",
+      await fetch("/api/photo-gallery", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ section: "photo-gallery", content: payload }),
       });
+      clearCache("/api/photo-gallery");
       setSavedHero(true);
       toast.success("Hero section saved to Database!");
       setTimeout(() => setSavedHero(false), 2000);
@@ -144,11 +145,12 @@ export default function PhotoGalleryStaticPageCMS() {
         photos,
         experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
       };
-      await fetch("/api/pages/photo-gallery", {
-        method: "PUT",
+      await fetch("/api/photo-gallery", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ section: "photo-gallery", content: payload }),
       });
+      clearCache("/api/photo-gallery");
       setSavedPhotos(true);
       toast.success("Photo gallery items saved to Database!");
       setTimeout(() => setSavedPhotos(false), 2000);
@@ -167,11 +169,12 @@ export default function PhotoGalleryStaticPageCMS() {
         photos,
         experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
       };
-      await fetch("/api/pages/photo-gallery", {
-        method: "PUT",
+      await fetch("/api/photo-gallery", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ section: "photo-gallery", content: payload }),
       });
+      clearCache("/api/photo-gallery");
       setSavedExp(true);
       toast.success("Experience section saved to Database!");
       setTimeout(() => setSavedExp(false), 2000);

@@ -33,6 +33,11 @@ export function QualityCommitmentSectionCMS({
   const [saved, setSaved] = useState(false);
 
   const [qualityTitle, setQualityTitle] = useState("");
+  const [cards, setCards] = useState<Array<{ id: string; title: string; description: string }>>([
+    { id: "card-1", title: "Timely Delivery", description: "We understand the critical nature of power solutions and ensure on-time delivery and installation." },
+    { id: "card-2", title: "Expert Engineering", description: "Our team of qualified engineers ensures robust design and flawless implementation of all projects." },
+    { id: "card-3", title: "Business Continuity", description: "Our solutions are designed to provide uninterrupted power supply, ensuring your operations never stop." }
+  ]);
   const [policyTitle, setPolicyTitle] = useState("");
   const [policyStatement, setPolicyStatement] = useState("");
   const [bullet1, setBullet1] = useState("");
@@ -43,13 +48,13 @@ export function QualityCommitmentSectionCMS({
   const [kirloskarCertImg, setKirloskarCertImg] = useState("");
 
   useEffect(() => {
-    fetch(saveUrl)
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
           const q = responseKey ? json.data?.[responseKey] : json.data;
           if (q) {
             if (q.qualityTitle !== undefined) setQualityTitle(q.qualityTitle);
+            if (Array.isArray(q.cards) && q.cards.length > 0) setCards(q.cards);
             if (q.policyTitle !== undefined) setPolicyTitle(q.policyTitle);
             if (q.policyStatement !== undefined) setPolicyStatement(q.policyStatement);
             if (q.bullet1 !== undefined) setBullet1(q.bullet1);
@@ -64,16 +69,23 @@ export function QualityCommitmentSectionCMS({
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
+  const updateCard = (index: number, field: "title" | "description", value: string) => {
+    const updated = [...cards];
+    updated[index] = { ...updated[index], [field]: value };
+    setCards(updated);
+  };
+
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { qualityTitle, policyTitle, policyStatement, bullet1, bullet2, bullet3, bullet4, isoCertImg, kirloskarCertImg };
+      const payload = { qualityTitle, cards, policyTitle, policyStatement, bullet1, bullet2, bullet3, bullet4, isoCertImg, kirloskarCertImg };
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Quality commitment section saved!");
       setTimeout(() => setSaved(false), 2000);
@@ -88,7 +100,7 @@ export function QualityCommitmentSectionCMS({
     <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
         title="4. Commitment to Quality & Certificates Section"
-        description="Manage Quality Policy statement, bullet points & certificate images (ISO 9001:2015 and Kirloskar Authorized)."
+        description="Manage Quality Policy statement, Commitment Cards, bullet points & certificate images."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
       />
@@ -106,6 +118,27 @@ export function QualityCommitmentSectionCMS({
             value={qualityTitle}
             onChange={(e) => setQualityTitle(e.target.value)}
           />
+
+          <div className="space-y-4 pt-2 border-t border-slate-100">
+            <h4 className="font-semibold text-slate-800 text-sm">Quality Commitment Cards (3 Pillars)</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {cards.map((card, idx) => (
+                <div key={card.id || idx} className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                  <InputField
+                    label={`Card ${idx + 1} Title`}
+                    value={card.title}
+                    onChange={(e) => updateCard(idx, "title", e.target.value)}
+                  />
+                  <TextAreaField
+                    label={`Card ${idx + 1} Description`}
+                    value={card.description}
+                    onChange={(e) => updateCard(idx, "description", e.target.value)}
+                    rows={2}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
           <div className="space-y-4 pt-2 border-t border-slate-100">
             <InputField

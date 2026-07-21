@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -36,8 +37,7 @@ export function AboutCTASectionCMS({
   const [ctaBtnUrl, setCtaBtnUrl] = useState("");
 
   useEffect(() => {
-    fetch(saveUrl)
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
           const cta = responseKey ? json.data?.[responseKey] : json.data;
@@ -62,6 +62,7 @@ export function AboutCTASectionCMS({
         body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Bottom CTA section saved!");
       setTimeout(() => setSaved(false), 2000);

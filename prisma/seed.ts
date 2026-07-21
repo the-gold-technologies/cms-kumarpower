@@ -394,6 +394,26 @@ async function main() {
           order: 4,
           content: {
             qualityTitle: "Our Commitment to Quality",
+            cards: [
+              {
+                id: "q-card-1",
+                title: "Timely Delivery",
+                description: "We understand the critical nature of power solutions and ensure on-time delivery and installation.",
+                path: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              },
+              {
+                id: "q-card-2",
+                title: "Expert Engineering",
+                description: "Our team of qualified engineers ensures robust design and flawless implementation of all projects.",
+                path: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              },
+              {
+                id: "q-card-3",
+                title: "Business Continuity",
+                description: "Our solutions are designed to provide uninterrupted power supply, ensuring your operations never stop.",
+                path: "M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
+              }
+            ],
             policyTitle: "Quality Policy Statement",
             policyStatement: "At Kumar Power, we are committed to delivering world-class power products and turnkey solutions that exceed customer expectations. Our robust design, meticulous manufacturing, and comprehensive testing ensure reliability and performance in every installation.",
             bullet1: "ISO 9001:2015 certified quality management system",
@@ -406,6 +426,86 @@ async function main() {
         },
         {
           id: "sec-our-profile-cta",
+          type: "cta",
+          order: 5,
+          content: {
+            ctaTitle: "Ready to Power Your Business?",
+            ctaDesc: "Contact us today for a consultation and discover how Kumar Generator House can provide reliable power solutions tailored to your needs.",
+            ctaBtnLabel: "Get in Touch →",
+            ctaBtnUrl: "/contact",
+          },
+        },
+      ],
+    },
+    {
+      title: "About Us",
+      slug: "about",
+      description: "About Kumar Power",
+      metaTitle: "About Us & Our Profile - Kumar Power",
+      metaDescription: "Learn about our 30+ years of power generation legacy in India.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-about-hero",
+          type: "hero",
+          order: 1,
+          content: {
+            title: "Know About Kumar Power",
+            subtitle: "–Trusted Name in Power Solutions Industry",
+            image: "",
+            paragraph1: "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
+            paragraph2: "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions.",
+            paragraph3: "As an authorized dealer and service provider for Kirloskar Green generators, we bring the reliability and efficiency of world-class power solutions to our clients. Our team of certified engineers and technicians ensures that every installation meets the highest standards of performance and safety.",
+            paragraph4: "With a customer-first approach and commitment to excellence, Kumar Power has successfully delivered over 10000+ power solutions across the country, building lasting relationships with our clients through exceptional service and support.",
+          },
+        },
+        {
+          id: "sec-about-story",
+          type: "story",
+          order: 2,
+          content: {
+            storyTitle: "Our Story",
+            storySub: "From humble beginnings to becoming India's premier power solutions provider, our journey has been defined by innovation, quality, and unwavering commitment to excellence.",
+            timeline: [
+              { id: "time-1", year: "1995", title: "Foundation", description: "Kumar Power was established with a vision to provide reliable power solutions to businesses across India.", image: "" },
+              { id: "time-2", year: "2001", title: "Kirloskar Partnership", description: "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.", image: "" },
+              { id: "time-3", year: "2012", title: "ISO Certification", description: "Achieved ISO 9001:2015 certification, validating our commitment to quality management systems.", image: "" },
+              { id: "time-4", year: "2020", title: "Nationwide Expansion", description: "Expanded operations to all major cities in India with service centers and technical support teams.", image: "" },
+            ],
+          },
+        },
+        {
+          id: "sec-about-leadership",
+          type: "leadership",
+          order: 3,
+          content: {
+            teamTitle: "Meet the Visionaries Behind the Power",
+            team: [
+              { id: "team-1", name: "RS KUMAR", role: "(Founder)", bio: "RS Kumar is the Founder of Kumar Generator House, a company he established with a vision to provide reliable and sustainable power solutions. With decades of industry experience, he has been the driving force behind the company's growth and success.", image: "" },
+              { id: "team-2", name: "MS KUMAR", role: "(Director)", bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence.", image: "" },
+              { id: "team-3", name: "JS KUMAR", role: "(Director)", bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives.", image: "" },
+            ],
+          },
+        },
+        {
+          id: "sec-about-quality",
+          type: "quality",
+          order: 4,
+          content: {
+            qualityTitle: "Our Commitment to Quality",
+            policyTitle: "Quality Policy Statement",
+            policyStatement: "At Kumar Power, we are committed to delivering world-class power products and turnkey solutions that exceed customer expectations. Our robust design, meticulous manufacturing, and comprehensive testing ensure reliability and performance in every installation.",
+            bullet1: "ISO 9001:2015 certified quality management system",
+            bullet2: "Rigorous testing protocols for all equipment",
+            bullet3: "Continuous improvement through customer feedback",
+            bullet4: "Regular training and skill enhancement for our team",
+            isoCertImg: "",
+            kirloskarCertImg: "",
+          },
+        },
+        {
+          id: "sec-about-cta",
           type: "cta",
           order: 5,
           content: {
@@ -590,6 +690,9 @@ async function main() {
             heroHeading: "POWERING INDIA'S SUCCESS STORIES",
             heroSubtitle: "Testimonials from industry leaders",
             heroBgImage: "",
+            storiesTitle: "Client Success Stories",
+            filterText: "Filter by industry...",
+            trustedTitle: "Trusted by India's Leading Organizations",
             testimonials: [
               { id: "test-1", authorName: "Khushi Aggarwal", roleCompany: "Founder, Platter Me Crazy", logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902468/Screenshot_2025-10-31_144115_lybhem.png", quote: "I, Khushi Aggarwal, Founder of Platter Me Crazy, a brand synonymous with culinary artistry and luxury dining experiences." },
               { id: "test-2", authorName: "Kaustubh Jain", roleCompany: "TEAM Construction Chemicals (TEAMCC)", logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902466/Screenshot_2025-10-31_144303_wgqqaq.png", quote: "I have had the pleasure of knowing Mr. Jasjot Singh, and I can confidently say he is a true professional in the generator industry." },
@@ -606,6 +709,10 @@ async function main() {
             stat3Text: "Installations Nationwide",
             ctaTitle: "Ready to join India's most reliable power network?",
             ctaDesc: "From hospitals to data centers, from factories to airports — Kumar power delivers uninterrupted power solutions tailored to your needs.",
+            ctaBtnText: "Request Consultation",
+            brochureBtnText: "Download Brochure",
+            whatsappText: "WhatsApp Support",
+            helplineLabel: "Helpline",
             whatsappPhone: "+919773877796",
             helplinePhone: "01140191273",
             brochurePdf: "",

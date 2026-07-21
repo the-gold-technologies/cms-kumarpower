@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -52,11 +53,10 @@ export default function OurClientsStaticPageCMS() {
   const [clients, setClients] = useState<ClientItem[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/our-clients")
-      .then((r) => r.json())
+    fetchWithCache("/api/our-clients")
       .then((json) => {
         if (json.success && json.data) {
-          const data = json.data["our-clients"] || {};
+          const data = json.data["our-clients"] || json.data;
           if (data.stat1Num !== undefined) setStat1Num(data.stat1Num);
           if (data.stat1Text !== undefined) setStat1Text(data.stat1Text);
           if (data.stat2Num !== undefined) setStat2Num(data.stat2Num);
@@ -72,12 +72,13 @@ export default function OurClientsStaticPageCMS() {
 
   const saveAllToDB = async () => {
     const payload = { stat1Num, stat1Text, stat2Num, stat2Text, stat3Num, stat3Text, logos, clients };
-    const res = await fetch("/api/pages/our-clients", {
-      method: "PUT",
+    const res = await fetch("/api/our-clients", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ section: "our-clients", content: payload }),
     });
     if (!res.ok) throw new Error("Save failed");
+    clearCache("/api/our-clients");
   };
 
   const handleBulkLogoFiles = (files: FileList | File[]) => {

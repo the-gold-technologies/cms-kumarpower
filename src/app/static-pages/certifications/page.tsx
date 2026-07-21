@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -64,11 +65,10 @@ export default function CertificationsCMSPage() {
   const [btn2Url, setBtn2Url] = useState("");
 
   useEffect(() => {
-    fetch("/api/pages/certifications")
-      .then((r) => r.json())
+    fetchWithCache("/api/certifications")
       .then((json) => {
         if (json.success && json.data) {
-          const certs = json.data.certifications || json.data["certifications"] || {};
+          const certs = json.data.certifications || json.data["certifications"] || json.data;
           if (certs.heroTitle !== undefined) setHeroTitle(certs.heroTitle);
           if (certs.heroSub !== undefined) setHeroSub(certs.heroSub);
           if (Array.isArray(certs.certificates)) setCertificates(certs.certificates);
@@ -97,12 +97,13 @@ export default function CertificationsCMSPage() {
       whyCard3Title, whyCard3Desc, commitTitle, commitText,
       btn1Label, btn1Url, btn2Label, btn2Url
     };
-    const res = await fetch("/api/pages/certifications", {
-      method: "PUT",
+    const res = await fetch("/api/certifications", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ section: "certifications", content: payload }),
     });
     if (!res.ok) throw new Error("Save failed");
+    clearCache("/api/certifications");
   };
 
   const handleCertChange = (id: string, field: keyof CertificateItem, val: string) => {

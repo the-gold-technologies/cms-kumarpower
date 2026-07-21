@@ -1,14 +1,33 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import toast from "react-hot-toast";
 
-export function ContactResumeSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface ContactResumeSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function ContactResumeSectionCMS({
+  saveUrl = "/api/contact",
+  responseKey = "resume",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: ContactResumeSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -18,29 +37,31 @@ export function ContactResumeSectionCMS() {
   });
 
   useEffect(() => {
-    fetch("/api/pages/contact")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const resume = json.data.resume || {};
-          setFormData((prev) => ({
-            ...prev,
-            ...Object.fromEntries(Object.entries(resume).filter(([k]) => k in prev)),
-          }));
+          const resume = responseKey ? json.data?.[responseKey] : json.data;
+          if (resume && typeof resume === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              ...Object.fromEntries(Object.entries(resume).filter(([k]) => k in prev)),
+            }));
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const res = await fetch("/api/pages/contact", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "resume", content: formData }),
+        body: JSON.stringify({ section: responseKey, content: formData }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Resume callout saved!");
       setTimeout(() => setSaved(false), 2000);

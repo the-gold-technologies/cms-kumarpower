@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -52,10 +53,15 @@ export default function TestimonialsStaticPageCMS() {
   const [heroSubtitle, setHeroSubtitle] = useState("");
   const [heroBgImage, setHeroBgImage] = useState("");
 
+  // Testimonials Cards Section Header & Filter
+  const [storiesTitle, setStoriesTitle] = useState("");
+  const [filterText, setFilterText] = useState("");
+
   // Testimonials Cards
   const [testimonials, setTestimonials] = useState<TestimonialCard[]>([]);
 
-  // Client Logos
+  // Client Logos Header & Array
+  const [trustedTitle, setTrustedTitle] = useState("");
   const [clientLogos, setClientLogos] = useState<ClientLogo[]>([]);
 
   // Stats Section
@@ -69,14 +75,17 @@ export default function TestimonialsStaticPageCMS() {
   // Bottom CTA
   const [ctaTitle, setCtaTitle] = useState("");
   const [ctaDesc, setCtaDesc] = useState("");
+  const [ctaBtnText, setCtaBtnText] = useState("");
+  const [brochureBtnText, setBrochureBtnText] = useState("");
+  const [whatsappText, setWhatsappText] = useState("");
+  const [helplineLabel, setHelplineLabel] = useState("");
   const [whatsappPhone, setWhatsappPhone] = useState("");
   const [helplinePhone, setHelplinePhone] = useState("");
   const [brochurePdf, setBrochurePdf] = useState("");
 
   // Load existing data from DB on mount
   useEffect(() => {
-    fetch("/api/pages/testimonials")
-      .then((res) => res.json())
+    fetchWithCache("/api/testimonials")
       .then((json) => {
         if (json.success && json.data) {
           const data = json.data["testimonials"] || json.data;
@@ -84,6 +93,10 @@ export default function TestimonialsStaticPageCMS() {
           if (data.heroHeading !== undefined) setHeroHeading(data.heroHeading);
           if (data.heroSubtitle !== undefined) setHeroSubtitle(data.heroSubtitle);
           if (data.heroBgImage !== undefined) setHeroBgImage(data.heroBgImage);
+
+          if (data.storiesTitle !== undefined) setStoriesTitle(data.storiesTitle);
+          if (data.filterText !== undefined) setFilterText(data.filterText);
+          if (data.trustedTitle !== undefined) setTrustedTitle(data.trustedTitle);
 
           if (Array.isArray(data.testimonials)) {
             setTestimonials(data.testimonials);
@@ -101,6 +114,10 @@ export default function TestimonialsStaticPageCMS() {
 
           if (data.ctaTitle !== undefined) setCtaTitle(data.ctaTitle);
           if (data.ctaDesc !== undefined) setCtaDesc(data.ctaDesc);
+          if (data.ctaBtnText !== undefined) setCtaBtnText(data.ctaBtnText);
+          if (data.brochureBtnText !== undefined) setBrochureBtnText(data.brochureBtnText);
+          if (data.whatsappText !== undefined) setWhatsappText(data.whatsappText);
+          if (data.helplineLabel !== undefined) setHelplineLabel(data.helplineLabel);
           if (data.whatsappPhone !== undefined) setWhatsappPhone(data.whatsappPhone);
           if (data.helplinePhone !== undefined) setHelplinePhone(data.helplinePhone);
           if (data.brochurePdf !== undefined) setBrochurePdf(data.brochurePdf);
@@ -114,6 +131,9 @@ export default function TestimonialsStaticPageCMS() {
       heroHeading,
       heroSubtitle,
       heroBgImage,
+      storiesTitle,
+      filterText,
+      trustedTitle,
       testimonials,
       clientLogos,
       stat1Num,
@@ -124,18 +144,23 @@ export default function TestimonialsStaticPageCMS() {
       stat3Text,
       ctaTitle,
       ctaDesc,
+      ctaBtnText,
+      brochureBtnText,
+      whatsappText,
+      helplineLabel,
       whatsappPhone,
       helplinePhone,
       brochurePdf,
     };
 
-    const res = await fetch("/api/pages/testimonials", {
-      method: "PUT",
+    const res = await fetch("/api/testimonials", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ section: "testimonials", content: payload }),
     });
 
     if (!res.ok) throw new Error("Failed to save to database");
+    clearCache("/api/testimonials");
   };
 
   const handleSaveHero = async () => {
@@ -282,6 +307,11 @@ export default function TestimonialsStaticPageCMS() {
         />
         <div className={`grid transition-all duration-300 ${isGridOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-2 border-b border-slate-100">
+              <InputField label="Section Title" value={storiesTitle} onChange={(e) => setStoriesTitle(e.target.value)} placeholder="Client Success Stories" />
+              <InputField label="Filter Button Label" value={filterText} onChange={(e) => setFilterText(e.target.value)} placeholder="Filter by industry..." />
+            </div>
+
             <div className="flex justify-end">
               <button
                 type="button"
@@ -330,6 +360,7 @@ export default function TestimonialsStaticPageCMS() {
         />
         <div className={`grid transition-all duration-300 ${isLogosOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <InputField label="Section Main Heading" value={trustedTitle} onChange={(e) => setTrustedTitle(e.target.value)} placeholder="Trusted by India's Leading Organizations" />
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-700">
@@ -464,6 +495,14 @@ export default function TestimonialsStaticPageCMS() {
             <div className="space-y-4 pt-2 border-t border-slate-100">
               <InputField label="Bottom CTA Title" value={ctaTitle} onChange={(e) => setCtaTitle(e.target.value)} />
               <TextAreaField label="Bottom CTA Description" value={ctaDesc} onChange={(e) => setCtaDesc(e.target.value)} rows={2} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <InputField label="Request Consultation Button Label" value={ctaBtnText} onChange={(e) => setCtaBtnText(e.target.value)} placeholder="Request Consultation" />
+                <InputField label="Download Brochure Button Label" value={brochureBtnText} onChange={(e) => setBrochureBtnText(e.target.value)} placeholder="Download Brochure" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <InputField label="WhatsApp Support Label" value={whatsappText} onChange={(e) => setWhatsappText(e.target.value)} placeholder="WhatsApp Support" />
+                <InputField label="Helpline Label" value={helplineLabel} onChange={(e) => setHelplineLabel(e.target.value)} placeholder="Helpline" />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <InputField label="WhatsApp Support Phone" value={whatsappPhone} onChange={(e) => setWhatsappPhone(e.target.value)} />
                 <InputField label="Helpline Phone" value={helplinePhone} onChange={(e) => setHelplinePhone(e.target.value)} />
