@@ -1,14 +1,33 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { ImageUploadField } from "@/components/ImageUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import toast from "react-hot-toast";
 
-export function CTASectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface CTASectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function CTASectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "cta",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: CTASectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -22,29 +41,31 @@ export function CTASectionCMS() {
   });
 
   useEffect(() => {
-    fetch("/api/pages/home")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const cta = json.data.cta || {};
-          setFormData((prev) => ({
-            ...prev,
-            ...Object.fromEntries(Object.entries(cta).filter(([k]) => k in prev)),
-          }));
+          const cta = responseKey ? json.data?.[responseKey] : json.data;
+          if (cta && typeof cta === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              ...Object.fromEntries(Object.entries(cta).filter(([k]) => k in prev)),
+            }));
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const res = await fetch("/api/pages/home", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "cta", content: formData }),
+        body: JSON.stringify({ section: responseKey, content: formData }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("CTA section saved!");
       setTimeout(() => setSaved(false), 2000);

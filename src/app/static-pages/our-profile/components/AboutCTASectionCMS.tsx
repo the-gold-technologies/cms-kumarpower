@@ -7,8 +7,26 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import toast from "react-hot-toast";
 
-export function AboutCTASectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface AboutCTASectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function AboutCTASectionCMS({
+  saveUrl = "/api/our-profile",
+  responseKey = "cta",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: AboutCTASectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -18,28 +36,30 @@ export function AboutCTASectionCMS() {
   const [ctaBtnUrl, setCtaBtnUrl] = useState("");
 
   useEffect(() => {
-    fetch("/api/pages/our-profile")
+    fetch(saveUrl)
       .then((r) => r.json())
       .then((json) => {
         if (json.success && json.data) {
-          const cta = json.data.cta || {};
-          if (cta.ctaTitle !== undefined) setCtaTitle(cta.ctaTitle);
-          if (cta.ctaDesc !== undefined) setCtaDesc(cta.ctaDesc);
-          if (cta.ctaBtnLabel !== undefined) setCtaBtnLabel(cta.ctaBtnLabel);
-          if (cta.ctaBtnUrl !== undefined) setCtaBtnUrl(cta.ctaBtnUrl);
+          const cta = responseKey ? json.data?.[responseKey] : json.data;
+          if (cta) {
+            if (cta.ctaTitle !== undefined) setCtaTitle(cta.ctaTitle);
+            if (cta.ctaDesc !== undefined) setCtaDesc(cta.ctaDesc);
+            if (cta.ctaBtnLabel !== undefined) setCtaBtnLabel(cta.ctaBtnLabel);
+            if (cta.ctaBtnUrl !== undefined) setCtaBtnUrl(cta.ctaBtnUrl);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
       const payload = { ctaTitle, ctaDesc, ctaBtnLabel, ctaBtnUrl };
-      const res = await fetch("/api/pages/our-profile", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "cta", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
       setSaved(true);

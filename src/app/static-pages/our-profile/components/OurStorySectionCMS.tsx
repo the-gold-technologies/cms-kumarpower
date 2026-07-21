@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -17,8 +18,26 @@ type TimelineItem = {
   image: string;
 };
 
-export function OurStorySectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface OurStorySectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function OurStorySectionCMS({
+  saveUrl = "/api/our-profile",
+  responseKey = "story",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: OurStorySectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -27,18 +46,19 @@ export function OurStorySectionCMS() {
   const [timeline, setTimeline] = useState<TimelineItem[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/our-profile")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const story = json.data.story || {};
-          if (story.storyTitle !== undefined) setStoryTitle(story.storyTitle);
-          if (story.storySub !== undefined) setStorySub(story.storySub);
-          if (Array.isArray(story.timeline)) setTimeline(story.timeline);
+          const story = responseKey ? json.data?.[responseKey] : json.data;
+          if (story) {
+            if (story.storyTitle !== undefined) setStoryTitle(story.storyTitle);
+            if (story.storySub !== undefined) setStorySub(story.storySub);
+            if (Array.isArray(story.timeline)) setTimeline(story.timeline);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleTimelineChange = (id: string, field: keyof TimelineItem, val: string) => {
     setTimeline((prev) => prev.map((t) => (t.id === id ? { ...t, [field]: val } : t)));
@@ -61,12 +81,13 @@ export function OurStorySectionCMS() {
     setIsSaving(true);
     try {
       const payload = { storyTitle, storySub, timeline };
-      const res = await fetch("/api/pages/our-profile", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "story", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Story section saved!");
       setTimeout(() => setSaved(false), 2000);

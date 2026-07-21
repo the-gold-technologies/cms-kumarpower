@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -134,8 +135,26 @@ function GeneratorCardForm({
   );
 }
 
-export function GeneratorRangeSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface GeneratorRangeSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function GeneratorRangeSectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "generator-range",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: GeneratorRangeSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -144,18 +163,19 @@ export function GeneratorRangeSectionCMS() {
   const [cards, setCards] = useState<GeneratorCard[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/home")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const genRange = json.data["generator-range"] || {};
-          if (genRange.sectionTitle !== undefined) setSectionTitle(genRange.sectionTitle);
-          if (genRange.sectionDesc !== undefined) setSectionDesc(genRange.sectionDesc);
-          if (Array.isArray(genRange.cards)) setCards(genRange.cards);
+          const genRange = responseKey ? json.data?.[responseKey] : json.data;
+          if (genRange) {
+            if (genRange.sectionTitle !== undefined) setSectionTitle(genRange.sectionTitle);
+            if (genRange.sectionDesc !== undefined) setSectionDesc(genRange.sectionDesc);
+            if (Array.isArray(genRange.cards)) setCards(genRange.cards);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleCardChange = (id: string, field: keyof GeneratorCard, value: string) => {
     setCards((prev) =>
@@ -186,12 +206,13 @@ export function GeneratorRangeSectionCMS() {
     setIsSaving(true);
     try {
       const payload = { sectionTitle, sectionDesc, cards };
-      const res = await fetch("/api/pages/home", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "generator-range", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Generator Range section saved!");
       setTimeout(() => setSaved(false), 2000);

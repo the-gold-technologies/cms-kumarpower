@@ -9,7 +9,6 @@ import { PowerSolutionsSectionCMS } from "./components/PowerSolutionsSectionCMS"
 import { UseCasesSectionCMS } from "./components/UseCasesSectionCMS";
 import { GallerySectionCMS } from "./components/GallerySectionCMS";
 import { TestimonialsSectionCMS } from "./components/TestimonialsSectionCMS";
-import { BlogSectionCMS } from "./components/BlogSectionCMS";
 import { FooterCMS } from "@/components/FooterCMS";
 
 export default function HomeCMSPage() {
@@ -17,7 +16,7 @@ export default function HomeCMSPage() {
     <section className="flex flex-col gap-6 pb-12">
       <PageHeader
         title="Home Page Layout Content"
-        description="Manage all layout sections of your homepage (Hero, About, Generator Range, Power Solutions, Use Cases, Gallery, Testimonials, Blogs & Footer). Expand any section to edit its details."
+        description="Manage all layout sections of your homepage (Hero, About, Generator Range, Power Solutions, Use Cases, Gallery, Testimonials & Footer). Expand any section to edit its details."
       />
 
       <HeroSectionCMS />
@@ -28,7 +27,6 @@ export default function HomeCMSPage() {
       <UseCasesSectionCMS />
       <GallerySectionCMS />
       <TestimonialsSectionCMS />
-      <BlogSectionCMS />
       <FooterCMS />
     </section>
   );

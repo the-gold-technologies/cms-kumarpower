@@ -1,11 +1,26 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { BookOpen, MessageSquare, Star } from "lucide-react";
-import { useCMSStore } from "@/lib/cms-store";
 
 export function OverviewStats() {
-  const { enquiries } = useCMSStore();
+  const [stats, setStats] = useState({
+    pages: 20,
+    enquiries: 0,
+    productsCount: 0,
+  });
+
+  useEffect(() => {
+    fetch("/api/dashboard/stats")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          setStats(json.data);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <div className="space-y-4">
@@ -62,7 +77,7 @@ export function OverviewStats() {
                 Enquiries
               </h3>
               <p className="text-[13px] font-medium text-gray-400 mt-0.5">
-                {enquiries.length} Submissions
+                {stats.enquiries} Submissions
               </p>
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -8,8 +9,26 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import toast from "react-hot-toast";
 
-export function AboutHeroSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface AboutHeroSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function AboutHeroSectionCMS({
+  saveUrl = "/api/our-profile",
+  responseKey = "hero",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: AboutHeroSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -24,29 +43,31 @@ export function AboutHeroSectionCMS() {
   });
 
   useEffect(() => {
-    fetch("/api/pages/our-profile")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const hero = json.data.hero || {};
-          setFormData((prev) => ({
-            ...prev,
-            ...Object.fromEntries(Object.entries(hero).filter(([k]) => k in prev)),
-          }));
+          const hero = responseKey ? json.data?.[responseKey] : json.data;
+          if (hero && typeof hero === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              ...Object.fromEntries(Object.entries(hero).filter(([k]) => k in prev)),
+            }));
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const res = await fetch("/api/pages/our-profile", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "hero", content: formData }),
+        body: JSON.stringify({ section: responseKey, content: formData }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Hero section saved!");
       setTimeout(() => setSaved(false), 2000);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -18,8 +19,26 @@ type BlogCardItem = {
   image: string;
 };
 
-export function BlogSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface BlogSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function BlogSectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "blog",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: BlogSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -38,20 +57,21 @@ export function BlogSectionCMS() {
   const [blogCards, setBlogCards] = useState<BlogCardItem[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/home")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const b = json.data.blog || {};
-          setFormData((prev) => ({
-            ...prev,
-            ...Object.fromEntries(Object.entries(b).filter(([k]) => k in prev)),
-          }));
-          if (Array.isArray(b.blogCards)) setBlogCards(b.blogCards);
+          const b = responseKey ? json.data?.[responseKey] : json.data;
+          if (b && typeof b === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              ...Object.fromEntries(Object.entries(b).filter(([k]) => k in prev)),
+            }));
+            if (Array.isArray(b.blogCards)) setBlogCards(b.blogCards);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleBlogChange = (id: string, field: keyof BlogCardItem, val: string) => {
     setBlogCards((prev) =>
@@ -83,12 +103,13 @@ export function BlogSectionCMS() {
     setIsSaving(true);
     try {
       const payload = { ...formData, blogCards };
-      const res = await fetch("/api/pages/home", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "blog", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Blog section saved!");
       setTimeout(() => setSaved(false), 2000);

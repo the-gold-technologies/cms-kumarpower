@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -17,8 +18,26 @@ type TeamMember = {
   image: string;
 };
 
-export function MeetTheTeamSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface MeetTheTeamSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function MeetTheTeamSectionCMS({
+  saveUrl = "/api/our-profile",
+  responseKey = "leadership",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: MeetTheTeamSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -26,17 +45,18 @@ export function MeetTheTeamSectionCMS() {
   const [team, setTeam] = useState<TeamMember[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/our-profile")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const leadership = json.data.leadership || {};
-          if (leadership.teamTitle !== undefined) setTeamTitle(leadership.teamTitle);
-          if (Array.isArray(leadership.team)) setTeam(leadership.team);
+          const leadership = responseKey ? json.data?.[responseKey] : json.data;
+          if (leadership) {
+            if (leadership.teamTitle !== undefined) setTeamTitle(leadership.teamTitle);
+            if (Array.isArray(leadership.team)) setTeam(leadership.team);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleTeamChange = (id: string, field: keyof TeamMember, val: string) => {
     setTeam((prev) => prev.map((tm) => (tm.id === id ? { ...tm, [field]: val } : tm)));
@@ -59,12 +79,13 @@ export function MeetTheTeamSectionCMS() {
     setIsSaving(true);
     try {
       const payload = { teamTitle, team };
-      const res = await fetch("/api/pages/our-profile", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "leadership", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Team section saved!");
       setTimeout(() => setSaved(false), 2000);

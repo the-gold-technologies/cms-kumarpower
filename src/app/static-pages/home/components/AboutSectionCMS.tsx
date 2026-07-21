@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -9,43 +10,78 @@ import { SaveButton } from "@/components/SaveButton";
 import { CheckCircle2 } from "lucide-react";
 import toast from "react-hot-toast";
 
-export function AboutSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface AboutSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function AboutSectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "about",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: AboutSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    // Black Banner
-    bannerTitle: "ABOUT KUMAR POWER",
-    bannerSubtitle: "Powering Progress.",
-
-    // Main section
-    mainHeadingLine1: "Engineering India's",
-    mainHeadingLine2: "Energy Backbone.",
-    description: "For over 30+ years, Kumar Power has engineered uninterrupted power across India's industries, infrastructure, and institutions. With Kirloskar certification and ISO 9001:2015 accreditation, we serve 500+ enterprise clients with unmatched reliability and scale.",
-
-    // Feature bullets
-    feature1: "Kirloskar Authorized Distributor",
-    feature2: "24/7 Service Infrastructure",
-    feature3: "500+ Enterprise Clients",
-    feature4: "ISO 9001:2015 Accredited",
-
-    // CTA Button
-    ctaLabel: "Explore Our Legacy",
-    ctaUrl: "/about/OurProfile",
-
-    // Team Image
+    bannerTitle: "",
+    bannerSubtitle: "",
+    mainHeadingLine1: "",
+    mainHeadingLine2: "",
+    description: "",
+    feature1: "",
+    feature2: "",
+    feature3: "",
+    feature4: "",
+    ctaLabel: "",
+    ctaUrl: "",
     teamImage: "",
   });
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetchWithCache(saveUrl)
+      .then((json) => {
+        if (json.success && json.data) {
+          const about = responseKey ? json.data?.[responseKey] : json.data;
+          if (about && typeof about === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              ...about,
+            }));
+          }
+        }
+      })
+      .catch(console.error);
+  }, [saveUrl, responseKey]);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch(saveUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: responseKey, content: formData }),
+      });
+      if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("About section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

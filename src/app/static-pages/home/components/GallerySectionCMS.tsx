@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -10,8 +11,26 @@ import toast from "react-hot-toast";
 
 type GalleryImage = { id: string; url: string; caption: string };
 
-export function GallerySectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface GallerySectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function GallerySectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "gallery",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: GallerySectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -21,18 +40,19 @@ export function GallerySectionCMS() {
   const [images, setImages] = useState<GalleryImage[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/home")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const gal = json.data.gallery || {};
-          if (gal.title !== undefined) setTitle(gal.title);
-          if (gal.subtitle !== undefined) setSubtitle(gal.subtitle);
-          if (Array.isArray(gal.images)) setImages(gal.images);
+          const gal = responseKey ? json.data?.[responseKey] : json.data;
+          if (gal) {
+            if (gal.title !== undefined) setTitle(gal.title);
+            if (gal.subtitle !== undefined) setSubtitle(gal.subtitle);
+            if (Array.isArray(gal.images)) setImages(gal.images);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleFileUpload = (id: string, file: File) => {
     const reader = new FileReader();
@@ -74,12 +94,13 @@ export function GallerySectionCMS() {
     setIsSaving(true);
     try {
       const payload = { title, subtitle, images };
-      const res = await fetch("/api/pages/home", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "gallery", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Gallery section saved!");
       setTimeout(() => setSaved(false), 2000);

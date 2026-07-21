@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -8,8 +9,26 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import toast from "react-hot-toast";
 
-export function QualityCommitmentSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface QualityCommitmentSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function QualityCommitmentSectionCMS({
+  saveUrl = "/api/our-profile",
+  responseKey = "quality",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: QualityCommitmentSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -24,33 +43,35 @@ export function QualityCommitmentSectionCMS() {
   const [kirloskarCertImg, setKirloskarCertImg] = useState("");
 
   useEffect(() => {
-    fetch("/api/pages/our-profile")
+    fetch(saveUrl)
       .then((r) => r.json())
       .then((json) => {
         if (json.success && json.data) {
-          const q = json.data.quality || {};
-          if (q.qualityTitle !== undefined) setQualityTitle(q.qualityTitle);
-          if (q.policyTitle !== undefined) setPolicyTitle(q.policyTitle);
-          if (q.policyStatement !== undefined) setPolicyStatement(q.policyStatement);
-          if (q.bullet1 !== undefined) setBullet1(q.bullet1);
-          if (q.bullet2 !== undefined) setBullet2(q.bullet2);
-          if (q.bullet3 !== undefined) setBullet3(q.bullet3);
-          if (q.bullet4 !== undefined) setBullet4(q.bullet4);
-          if (q.isoCertImg !== undefined) setIsoCertImg(q.isoCertImg);
-          if (q.kirloskarCertImg !== undefined) setKirloskarCertImg(q.kirloskarCertImg);
+          const q = responseKey ? json.data?.[responseKey] : json.data;
+          if (q) {
+            if (q.qualityTitle !== undefined) setQualityTitle(q.qualityTitle);
+            if (q.policyTitle !== undefined) setPolicyTitle(q.policyTitle);
+            if (q.policyStatement !== undefined) setPolicyStatement(q.policyStatement);
+            if (q.bullet1 !== undefined) setBullet1(q.bullet1);
+            if (q.bullet2 !== undefined) setBullet2(q.bullet2);
+            if (q.bullet3 !== undefined) setBullet3(q.bullet3);
+            if (q.bullet4 !== undefined) setBullet4(q.bullet4);
+            if (q.isoCertImg !== undefined) setIsoCertImg(q.isoCertImg);
+            if (q.kirloskarCertImg !== undefined) setKirloskarCertImg(q.kirloskarCertImg);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
       const payload = { qualityTitle, policyTitle, policyStatement, bullet1, bullet2, bullet3, bullet4, isoCertImg, kirloskarCertImg };
-      const res = await fetch("/api/pages/our-profile", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "quality", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
       setSaved(true);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -32,8 +33,26 @@ const CATEGORIES = [
   "Transformers",
 ];
 
-export function PowerSolutionsSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface PowerSolutionsSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function PowerSolutionsSectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "power-solutions",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: PowerSolutionsSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -52,22 +71,23 @@ export function PowerSolutionsSectionCMS() {
   const [products, setProducts] = useState<SolutionProduct[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/home")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const ps = json.data["power-solutions"] || {};
-          if (ps.topBannerImg !== undefined) setTopBannerImg(ps.topBannerImg);
-          if (ps.sectionTitle !== undefined) setSectionTitle(ps.sectionTitle);
-          if (ps.assocTitle !== undefined) setAssocTitle(ps.assocTitle);
-          if (ps.assocSubtitle !== undefined) setAssocSubtitle(ps.assocSubtitle);
-          if (Array.isArray(ps.assocLogos)) setAssocLogos(ps.assocLogos);
-          if (ps.actionTitle !== undefined) setActionTitle(ps.actionTitle);
-          if (Array.isArray(ps.products)) setProducts(ps.products);
+          const ps = responseKey ? json.data?.[responseKey] : json.data;
+          if (ps) {
+            if (ps.topBannerImg !== undefined) setTopBannerImg(ps.topBannerImg);
+            if (ps.sectionTitle !== undefined) setSectionTitle(ps.sectionTitle);
+            if (ps.assocTitle !== undefined) setAssocTitle(ps.assocTitle);
+            if (ps.assocSubtitle !== undefined) setAssocSubtitle(ps.assocSubtitle);
+            if (Array.isArray(ps.assocLogos)) setAssocLogos(ps.assocLogos);
+            if (ps.actionTitle !== undefined) setActionTitle(ps.actionTitle);
+            if (Array.isArray(ps.products)) setProducts(ps.products);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleProductChange = (id: string, field: keyof SolutionProduct, val: string) => {
     setProducts((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));
@@ -112,12 +132,13 @@ export function PowerSolutionsSectionCMS() {
     setIsSaving(true);
     try {
       const payload = { topBannerImg, sectionTitle, assocTitle, assocSubtitle, assocLogos, actionTitle, products };
-      const res = await fetch("/api/pages/home", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "power-solutions", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Power Solutions section saved!");
       setTimeout(() => setSaved(false), 2000);

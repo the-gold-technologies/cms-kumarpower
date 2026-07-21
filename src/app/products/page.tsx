@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { DataTable, Column } from "@/components/DataTable";
 import { InputField } from "@/components/InputField";
@@ -8,12 +8,11 @@ import { TextAreaField } from "@/components/TextAreaField";
 import { SelectField } from "@/components/SelectField";
 import { ImagePickerField } from "@/components/ImagePickerField";
 import { SaveButton } from "@/components/SaveButton";
-import { useCMSStore } from "@/lib/cms-store";
 import { ProductItem } from "@/lib/types";
 import toast from "react-hot-toast";
 
 export default function ProductsCMSPage() {
-  const { products, saveProducts } = useCMSStore();
+  const [products, setProducts] = useState<ProductItem[]>([]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -30,6 +29,17 @@ export default function ProductsCMSPage() {
     status: "In Stock",
     popular: false,
   });
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && Array.isArray(json.data)) {
+          setProducts(json.data);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -65,15 +75,15 @@ export default function ProductsCMSPage() {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (item: ProductItem) => {
+  const handleDelete = async (item: ProductItem) => {
     if (confirm(`Are you sure you want to delete "${item.name}"?`)) {
       const updated = products.filter((p) => p.id !== item.id);
-      saveProducts(updated);
+      setProducts(updated);
       toast.success("Product deleted successfully");
     }
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name) {
       toast.error("Please enter a product name");
@@ -84,14 +94,14 @@ export default function ProductsCMSPage() {
       const updated = products.map((p) =>
         p.id === editingId ? { ...formData, id: editingId } : p
       );
-      saveProducts(updated);
+      setProducts(updated);
       toast.success("Product updated successfully!");
     } else {
       const newProduct: ProductItem = {
-        ...formData,
         id: `prod-${Date.now()}`,
+        ...formData,
       };
-      saveProducts([newProduct, ...products]);
+      setProducts((prev) => [newProduct, ...prev]);
       toast.success("Product added successfully!");
     }
 

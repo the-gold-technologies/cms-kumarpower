@@ -1,32 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { DataTable, Column } from "@/components/DataTable";
-import { useCMSStore } from "@/lib/cms-store";
 import { EnquiryItem } from "@/lib/types";
 import { Mail, PhoneCall, CheckCircle2, XCircle, Clock } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function EnquiriesCMSPage() {
-  const { enquiries, saveEnquiries } = useCMSStore();
+  const [enquiries, setEnquiries] = useState<EnquiryItem[]>([]);
   const [selectedEnquiry, setSelectedEnquiry] = useState<EnquiryItem | null>(null);
 
-  const handleStatusChange = (id: string, newStatus: "New" | "Contacted" | "Closed") => {
+  useEffect(() => {
+    fetch("/api/enquiries")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && Array.isArray(json.data)) {
+          setEnquiries(json.data);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleStatusChange = async (id: string, newStatus: "New" | "Contacted" | "Closed") => {
     const updated = enquiries.map((item) =>
       item.id === id ? { ...item, status: newStatus } : item
     );
-    saveEnquiries(updated);
+    setEnquiries(updated);
     if (selectedEnquiry && selectedEnquiry.id === id) {
       setSelectedEnquiry({ ...selectedEnquiry, status: newStatus });
     }
-    toast.success(`Status updated to ${newStatus}`);
+    try {
+      await fetch("/api/enquiries", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status: newStatus }),
+      });
+      toast.success(`Status updated to ${newStatus}`);
+    } catch {
+      toast.error("Status update error");
+    }
   };
 
   const handleDelete = (item: EnquiryItem) => {
     if (confirm(`Delete enquiry from ${item.name}?`)) {
       const updated = enquiries.filter((e) => e.id !== item.id);
-      saveEnquiries(updated);
+      setEnquiries(updated);
       toast.success("Enquiry record deleted");
       if (selectedEnquiry?.id === item.id) setSelectedEnquiry(null);
     }

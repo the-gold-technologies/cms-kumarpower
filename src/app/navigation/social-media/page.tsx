@@ -1,28 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { SaveButton } from "@/components/SaveButton";
-import { useCMSStore } from "@/lib/cms-store";
 import { SocialLink } from "@/lib/types";
 import toast from "react-hot-toast";
 
 export default function SocialMediaCMSPage() {
-  const { socialLinks, saveSocialLinks } = useCMSStore();
-  const [links, setLinks] = useState<SocialLink[]>(socialLinks);
+  const [links, setLinks] = useState<SocialLink[]>([
+    { id: "1", platform: "LinkedIn", url: "https://linkedin.com/company/kumarpower" },
+    { id: "2", platform: "Facebook", url: "https://facebook.com/kumarpower" },
+    { id: "3", platform: "Instagram", url: "https://instagram.com/kumarpower" },
+    { id: "4", platform: "YouTube", url: "https://youtube.com/c/kumarpower" },
+  ]);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/nav-links")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && Array.isArray(json.socialLinks)) {
+          setLinks(json.socialLinks);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      saveSocialLinks(links);
+    try {
+      await fetch("/api/nav-links", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "social", links }),
+      });
       setIsSaving(false);
       setSaved(true);
       toast.success("Social links saved!");
       setTimeout(() => setSaved(false), 2500);
-    }, 400);
+    } catch {
+      setIsSaving(false);
+      toast.error("Save failed");
+    }
   };
 
   return (

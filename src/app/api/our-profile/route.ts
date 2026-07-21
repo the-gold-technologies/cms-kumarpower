@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
-const PAGE_SLUG = "home";
+const PAGE_SLUG = "our-profile";
 
 export async function GET() {
   try {
-    const page = await prisma.page.findUnique({
-      where: { slug: PAGE_SLUG },
+    const page = await prisma.page.findFirst({
+      where: {
+        OR: [{ slug: "our-profile" }, { slug: "about" }],
+      },
       include: {
         sections: {
           orderBy: { order: "asc" },
@@ -25,7 +27,7 @@ export async function GET() {
 
     return NextResponse.json({ success: true, data: sectionsMap });
   } catch (error) {
-    console.error("Error fetching home page content:", error);
+    console.error("Error fetching our-profile page content:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
       { status: 500 }
@@ -48,16 +50,22 @@ export async function PUT(request: Request) {
       );
     }
 
-    const page = await prisma.page.upsert({
-      where: { slug: PAGE_SLUG },
-      create: {
-        title: "Home",
-        slug: PAGE_SLUG,
-        type: "static",
-        visibility: "published",
+    let page = await prisma.page.findFirst({
+      where: {
+        OR: [{ slug: "our-profile" }, { slug: "about" }],
       },
-      update: {},
     });
+
+    if (!page) {
+      page = await prisma.page.create({
+        data: {
+          title: "Our Profile",
+          slug: PAGE_SLUG,
+          type: "static",
+          visibility: "published",
+        },
+      });
+    }
 
     const existingSection = await prisma.section.findFirst({
       where: { pageId: page.id, type: sectionType },
@@ -85,7 +93,7 @@ export async function PUT(request: Request) {
 
     return NextResponse.json({ success: true, data: savedSection });
   } catch (error) {
-    console.error("Error saving home page section:", error);
+    console.error("Error saving our-profile page section:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
       { status: 500 }

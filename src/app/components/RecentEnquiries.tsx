@@ -1,28 +1,49 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Inbox, PhoneCall, Mail, ArrowUpRight, CheckCircle2 } from "lucide-react";
-import { useCMSStore } from "@/lib/cms-store";
 import toast from "react-hot-toast";
 
 export function RecentEnquiries() {
-  const { enquiries, saveEnquiries } = useCMSStore();
+  const [enquiries, setEnquiries] = useState<any[]>([]);
 
-  const handleStatusToggle = (id: string) => {
-    const updated = enquiries.map((item) => {
-      if (item.id === id) {
-        const nextStatus =
-          item.status === "New"
-            ? "Contacted"
-            : item.status === "Contacted"
-            ? "Closed"
-            : "New";
-        return { ...item, status: nextStatus as any };
-      }
-      return item;
-    });
-    saveEnquiries(updated);
-    toast.success("Lead status updated!");
+  useEffect(() => {
+    fetch("/api/enquiries")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && Array.isArray(json.data)) {
+          setEnquiries(json.data);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleStatusToggle = async (id: string) => {
+    const item = enquiries.find((e) => e.id === id);
+    if (!item) return;
+
+    const nextStatus =
+      item.status === "New"
+        ? "Contacted"
+        : item.status === "Contacted"
+        ? "Closed"
+        : "New";
+
+    setEnquiries((prev) =>
+      prev.map((e) => (e.id === id ? { ...e, status: nextStatus } : e))
+    );
+
+    try {
+      await fetch("/api/enquiries", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status: nextStatus }),
+      });
+      toast.success("Lead status updated!");
+    } catch {
+      toast.error("Failed to update status");
+    }
   };
 
   return (

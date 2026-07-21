@@ -34,3 +34,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, message: "Database save error" }, { status: 500 });
   }
 }
+
+export async function PATCH(req: Request) {
+  try {
+    const body = await req.json();
+    const { id, status } = body;
+    if (!id || !status) {
+      return NextResponse.json({ success: false, message: "id and status required" }, { status: 400 });
+    }
+    const updated = await prisma.enquiry.update({
+      where: { id },
+      data: { status },
+    });
+    return NextResponse.json({ success: true, data: updated });
+  } catch (error) {
+    console.error("Database update error:", error);
+    return NextResponse.json({ success: false, message: "Database update error" }, { status: 500 });
+  }
+}

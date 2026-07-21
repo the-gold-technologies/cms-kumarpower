@@ -10,7 +10,6 @@ import { ImageUploadField } from "@/components/ImageUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { RichTextEditor } from "@/components/RichTextEditor";
 import { SaveButton } from "@/components/SaveButton";
-import { useCMSStore } from "@/lib/cms-store";
 import { BlogItem } from "@/lib/types";
 import {
   Plus,
@@ -27,7 +26,6 @@ import {
 import toast from "react-hot-toast";
 
 export default function StaticBlogCMSPage() {
-  const { blogs, saveBlogs, isLoaded } = useCMSStore();
   const [blogList, setBlogList] = useState<BlogItem[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -54,16 +52,24 @@ export default function StaticBlogCMSPage() {
     publishedDate: new Date().toISOString().split("T")[0],
     excerpt: "",
     content: "",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
     readTime: "4 min read",
     status: "Published",
   });
 
   useEffect(() => {
-    if (isLoaded && blogs) {
-      setBlogList(blogs);
-    }
-  }, [isLoaded, blogs]);
+    fetch("/api/pages/blogs")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          if (Array.isArray(json.data.articles)) {
+            setBlogList(json.data.articles);
+          }
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   useEffect(() => {
     fetch("/api/pages/blogs")
@@ -122,7 +128,8 @@ export default function StaticBlogCMSPage() {
       publishedDate: new Date().toISOString().split("T")[0],
       excerpt: "",
       content: "",
-      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
       readTime: "4 min read",
       status: "Published",
     });
@@ -150,7 +157,6 @@ export default function StaticBlogCMSPage() {
     if (confirm(`Are you sure you want to delete article "${item.title}"?`)) {
       const updated = blogList.filter((b) => b.id !== item.id);
       setBlogList(updated);
-      saveBlogs(updated);
       toast.success("Blog article deleted");
     }
   };
@@ -166,10 +172,11 @@ export default function StaticBlogCMSPage() {
 
     if (editingId) {
       const updated = blogList.map((b) =>
-        b.id === editingId ? { ...formData, slug: finalSlug, id: editingId } : b
+        b.id === editingId
+          ? { ...formData, slug: finalSlug, id: editingId }
+          : b,
       );
       setBlogList(updated);
-      saveBlogs(updated);
       toast.success("Blog article updated!");
     } else {
       const newBlog: BlogItem = {
@@ -179,7 +186,6 @@ export default function StaticBlogCMSPage() {
       };
       const updated = [newBlog, ...blogList];
       setBlogList(updated);
-      saveBlogs(updated);
       toast.success("New blog article created!");
     }
 
@@ -189,14 +195,17 @@ export default function StaticBlogCMSPage() {
   const filteredBlogs = blogList.filter((blog) => {
     const matchesSearch =
       blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (blog.excerpt || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
       blog.slug.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory =
       selectedCategory === "All" || blog.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
-  const categories = ["All", ...Array.from(new Set(blogList.map((b) => b.category)))];
+  const categories = [
+    "All",
+    ...Array.from(new Set(blogList.map((b) => b.category))),
+  ];
 
   return (
     <div className="space-y-6 pb-12">
@@ -215,7 +224,9 @@ export default function StaticBlogCMSPage() {
         />
         <div
           className={`grid transition-all duration-300 ${
-            isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
+            isHeroOpen
+              ? "grid-rows-[1fr] opacity-100 mt-6"
+              : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
           }`}
         >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
@@ -245,7 +256,11 @@ export default function StaticBlogCMSPage() {
             />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingHero} saved={savedHero} onClick={handleSaveHero} />
+              <SaveButton
+                isSaving={savingHero}
+                saved={savedHero}
+                onClick={handleSaveHero}
+              />
             </div>
           </div>
         </div>
@@ -271,7 +286,9 @@ export default function StaticBlogCMSPage() {
 
         <div
           className={`grid transition-all duration-300 ${
-            isArticlesOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none"
+            isArticlesOpen
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0 pointer-events-none"
           }`}
         >
           <div className="overflow-hidden space-y-6 pt-2">
@@ -308,8 +325,12 @@ export default function StaticBlogCMSPage() {
             {filteredBlogs.length === 0 ? (
               <div className="bg-slate-50 rounded-2xl p-12 text-center border border-slate-200">
                 <FileText className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                <h3 className="text-base font-bold text-slate-700">No blog articles found</h3>
-                <p className="text-xs text-slate-400 mt-1">Try adjusting your search query or click "Create New Article".</p>
+                <h3 className="text-base font-bold text-slate-700">
+                  No blog articles found
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  Try adjusting your search query or click "Create New Article".
+                </p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -431,7 +452,9 @@ export default function StaticBlogCMSPage() {
               <InputField
                 label="Generated URL Slug (/blog/your-slug) *"
                 value={formData.slug}
-                onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, slug: e.target.value })
+                }
                 placeholder="e.g. why-kirloskar-cpcb-iv-silent-generators-save-fuel"
                 required
               />
@@ -440,7 +463,9 @@ export default function StaticBlogCMSPage() {
                 <SelectField
                   label="Category"
                   value={formData.category}
-                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, category: e.target.value })
+                  }
                   options={[
                     { label: "Product Guide", value: "Product Guide" },
                     { label: "Technical Specs", value: "Technical Specs" },
@@ -453,21 +478,27 @@ export default function StaticBlogCMSPage() {
                 <InputField
                   label="Author"
                   value={formData.author}
-                  onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, author: e.target.value })
+                  }
                 />
 
                 <InputField
                   label="Publish Date"
                   type="date"
                   value={formData.publishedDate}
-                  onChange={(e) => setFormData({ ...formData, publishedDate: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, publishedDate: e.target.value })
+                  }
                 />
               </div>
 
               <TextAreaField
                 label="Article Summary Excerpt *"
                 value={formData.excerpt}
-                onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, excerpt: e.target.value })
+                }
                 rows={3}
                 placeholder="Provide a short 2-3 sentence overview for card previews..."
                 required
@@ -482,7 +513,7 @@ export default function StaticBlogCMSPage() {
 
               <ImagePickerField
                 label="Cover Image"
-                value={formData.image}
+                value={formData.image || ""}
                 onChange={(val) => setFormData({ ...formData, image: val })}
               />
 
@@ -494,7 +525,9 @@ export default function StaticBlogCMSPage() {
                 >
                   Cancel
                 </button>
-                <SaveButton label={editingId ? "Save Changes" : "Publish Article"} />
+                <SaveButton
+                  label={editingId ? "Save Changes" : "Publish Article"}
+                />
               </div>
             </form>
           </div>

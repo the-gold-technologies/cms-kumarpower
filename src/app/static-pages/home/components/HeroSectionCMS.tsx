@@ -1,17 +1,35 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { PDFUploadField } from "@/components/PDFUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import { Plus, X, Upload, UploadCloud, CloudUpload, Image as ImageIcon } from "lucide-react";
 import toast from "react-hot-toast";
-
 type TrustLogo = { id: string; url: string; alt: string };
 
-export function HeroSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface HeroSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function HeroSectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "hero",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: HeroSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const bulkInputRef = useRef<HTMLInputElement>(null);
@@ -35,13 +53,11 @@ export function HeroSectionCMS() {
   const [logos, setLogos] = useState<TrustLogo[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/home")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const homeData = json.data;
-          const hero = homeData.hero || homeData["hero"] || {};
-          if (typeof hero === "object") {
+          const hero = responseKey ? json.data?.[responseKey] : json.data;
+          if (hero && typeof hero === "object") {
             setFormData((prev) => ({
               ...prev,
               ...Object.fromEntries(
@@ -55,7 +71,7 @@ export function HeroSectionCMS() {
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleFileUpload = (id: string, file: File) => {
     const reader = new FileReader();
@@ -102,12 +118,13 @@ export function HeroSectionCMS() {
         ...formData,
         logos,
       };
-      const res = await fetch("/api/pages/home", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "hero", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Hero section saved!");
       setTimeout(() => setSaved(false), 2000);

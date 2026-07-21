@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -14,8 +15,26 @@ type UseCaseItem = {
   text: string;
 };
 
-export function UseCasesSectionCMS() {
-  const [isOpen, setIsOpen] = useState(false);
+interface UseCasesSectionCMSProps {
+  saveUrl?: string;
+  responseKey?: string;
+  isOpen?: boolean;
+  onToggle?: () => void;
+}
+
+export function UseCasesSectionCMS({
+  saveUrl = "/api/home",
+  responseKey = "use-cases",
+  isOpen: controlledIsOpen,
+  onToggle: controlledOnToggle,
+}: UseCasesSectionCMSProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = (val: any) => {
+    if (controlledOnToggle) controlledOnToggle();
+    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+  };
+
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -25,19 +44,20 @@ export function UseCasesSectionCMS() {
   const [items, setItems] = useState<UseCaseItem[]>([]);
 
   useEffect(() => {
-    fetch("/api/pages/home")
-      .then((r) => r.json())
+    fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const uc = json.data["use-cases"] || {};
-          if (uc.headingLine1 !== undefined) setHeadingLine1(uc.headingLine1);
-          if (uc.headingLine2 !== undefined) setHeadingLine2(uc.headingLine2);
-          if (uc.footerQuote !== undefined) setFooterQuote(uc.footerQuote);
-          if (Array.isArray(uc.items)) setItems(uc.items);
+          const uc = responseKey ? json.data?.[responseKey] : json.data;
+          if (uc) {
+            if (uc.headingLine1 !== undefined) setHeadingLine1(uc.headingLine1);
+            if (uc.headingLine2 !== undefined) setHeadingLine2(uc.headingLine2);
+            if (uc.footerQuote !== undefined) setFooterQuote(uc.footerQuote);
+            if (Array.isArray(uc.items)) setItems(uc.items);
+          }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [saveUrl, responseKey]);
 
   const handleItemChange = (id: string, field: keyof UseCaseItem, val: string) => {
     setItems((prev) => prev.map((it) => (it.id === id ? { ...it, [field]: val } : it)));
@@ -58,12 +78,13 @@ export function UseCasesSectionCMS() {
     setIsSaving(true);
     try {
       const payload = { headingLine1, headingLine2, footerQuote, items };
-      const res = await fetch("/api/pages/home", {
-        method: "PUT",
+      const res = await fetch(saveUrl, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "use-cases", content: payload }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
+      clearCache(saveUrl);
       setSaved(true);
       toast.success("Use Cases section saved!");
       setTimeout(() => setSaved(false), 2000);
