@@ -62,7 +62,7 @@ export default function PageSEODashboard() {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <div className="flex flex-col gap-6 max-w-6xl mx-auto pb-20 animate-in fade-in duration-500">
+    <div className="flex flex-col gap-6 w-full pb-20 animate-in fade-in duration-500">
       <PageHeader
         title="Page Specific SEO"
         description="Monitor and manage SEO metadata, OG tags, and canonical URLs for every page on your site."

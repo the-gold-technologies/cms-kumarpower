@@ -170,7 +170,7 @@ export default function SitemapRobotsPage() {
   }
 
   return (
-    <div className="flex flex-col gap-8 max-w-6xl mx-auto pb-20 animate-in fade-in duration-500">
+    <div className="flex flex-col gap-8 w-full pb-20 animate-in fade-in duration-500">
       <div className="flex justify-between items-end">
         <PageHeader
           title="Sitemap & Robots.txt"

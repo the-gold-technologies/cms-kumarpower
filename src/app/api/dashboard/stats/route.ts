@@ -14,7 +14,6 @@ export async function GET() {
       enquiries: enquiriesCount || 0,
       productsCount: productsCount || 0,
       servicesCount: 4,
-      rentalsCount: 0,
       blogsCount: 3,
       activities: [
         { type: "update", text: 'Static page "Photo Gallery" updated', time: new Date().toISOString() },
@@ -33,7 +32,6 @@ export async function GET() {
         enquiries: 0,
         productsCount: 0,
         servicesCount: 4,
-        rentalsCount: 0,
         blogsCount: 3,
         activities: [],
       },

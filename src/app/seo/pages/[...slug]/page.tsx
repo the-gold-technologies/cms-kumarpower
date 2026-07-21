@@ -134,8 +134,8 @@ export default function PageSEOEditor() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1">
-        <div className="lg:col-span-2 flex flex-col gap-6 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
+      <div className="w-full">
+        <div className="w-full flex flex-col gap-6 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2.5 bg-blue-50 text-[#2D6FBA] rounded-2xl">
               <Search className="w-5 h-5" />

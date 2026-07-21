@@ -39,22 +39,31 @@ async function main() {
   const navLinks = [
     { id: "nav-1", label: "Home", url: "/", order: 1, type: "Main Link", parent: "-", isStatic: true, isActive: true },
     { id: "nav-2", label: "About Us", url: "/about", order: 2, type: "Dropdown", parent: "-", isStatic: true, isActive: true },
-    { id: "nav-2-1", label: "Our Story", url: "/about/OurProfile", order: 1, type: "Sub Link", parent: "nav-2", isStatic: true, isActive: true },
+    { id: "nav-2-1", label: "Our Profile", url: "/about/OurProfile", order: 1, type: "Sub Link", parent: "nav-2", isStatic: true, isActive: true },
     { id: "nav-2-2", label: "Testimonials", url: "/about/Testimonials", order: 2, type: "Sub Link", parent: "nav-2", isStatic: true, isActive: true },
-    { id: "nav-2-3", label: "Photo gallery", url: "/about/PhotoGallery", order: 3, type: "Sub Link", parent: "nav-2", isStatic: true, isActive: true },
+    { id: "nav-2-3", label: "Photo Gallery", url: "/about/PhotoGallery", order: 3, type: "Sub Link", parent: "nav-2", isStatic: true, isActive: true },
     { id: "nav-2-4", label: "Certifications", url: "/about/Certifications", order: 4, type: "Sub Link", parent: "nav-2", isStatic: true, isActive: true },
+    { id: "nav-2-5", label: "Our Clients", url: "/about/OurClients", order: 5, type: "Sub Link", parent: "nav-2", isStatic: true, isActive: true },
     { id: "nav-3", label: "Products", url: "/products", order: 3, type: "Dropdown", parent: "-", isStatic: true, isActive: true },
     { id: "nav-3-1", label: "Kirloskar Diesel Generator", url: "/products/kirloskar-diesel-generator", order: 1, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
     { id: "nav-3-2", label: "Kirloskar Gas Generator", url: "/products/kirloskar-gas-generator", order: 2, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
     { id: "nav-3-3", label: "Kirloskar Portable Generator", url: "/products/kirloskar-portable-generator", order: 3, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
-    { id: "nav-3-4", label: "Panels", url: "/products/panels", order: 4, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
+    { id: "nav-3-4", label: "Electrical Panels", url: "/products/panels", order: 4, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
     { id: "nav-3-5", label: "Optiprime", url: "/products/optiprime", order: 5, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
     { id: "nav-3-6", label: "Servo Stabilizer", url: "/products/servo-stabilizer", order: 6, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
     { id: "nav-3-7", label: "Transformers", url: "/products/transformers", order: 7, type: "Sub Link", parent: "nav-3", isStatic: true, isActive: true },
-    { id: "nav-4", label: "Our Clients", url: "/about/OurClients", order: 4, type: "Main Link", parent: "-", isStatic: true, isActive: true },
-    { id: "nav-5", label: "Installation", url: "/installation", order: 5, type: "Main Link", parent: "-", isStatic: true, isActive: true },
-    { id: "nav-6", label: "Contact", url: "/contact", order: 6, type: "Main Link", parent: "-", isStatic: true, isActive: true },
-    { id: "nav-7", label: "Blog", url: "/blogs", order: 7, type: "Main Link", parent: "-", isStatic: true, isActive: true },
+    { id: "nav-4", label: "Services", url: "/services", order: 4, type: "Dropdown", parent: "-", isStatic: true, isActive: true },
+    { id: "nav-4-1", label: "Annual Maintenance (AMC)", url: "/services/annual-maintenance", order: 1, type: "Sub Link", parent: "nav-4", isStatic: true, isActive: true },
+    { id: "nav-4-2", label: "Turnkey SITC Installation", url: "/services/installation", order: 2, type: "Sub Link", parent: "nav-4", isStatic: true, isActive: true },
+    { id: "nav-4-3", label: "Engine Repair & Overhaul", url: "/services/repair-overhaul", order: 3, type: "Sub Link", parent: "nav-4", isStatic: true, isActive: true },
+    { id: "nav-4-4", label: "24/7 Emergency Support", url: "/services/emergency-support", order: 4, type: "Sub Link", parent: "nav-4", isStatic: true, isActive: true },
+    { id: "nav-5", label: "Our Clients", url: "/our-clients", order: 5, type: "Main Link", parent: "-", isStatic: true, isActive: true },
+    { id: "nav-6", label: "Installation", url: "/installation", order: 6, type: "Main Link", parent: "-", isStatic: true, isActive: true },
+    { id: "nav-7", label: "Contact", url: "/contact", order: 7, type: "Main Link", parent: "-", isStatic: true, isActive: true },
+    { id: "nav-8", label: "Blog & Articles", url: "/blogs", order: 8, type: "Dropdown", parent: "-", isStatic: true, isActive: true },
+    { id: "nav-8-1", label: "Kirloskar Silent Generator Guide", url: "/blog/kirloskar-silent-generator", order: 1, type: "Sub Link", parent: "nav-8", isStatic: true, isActive: true },
+    { id: "nav-8-2", label: "Industrial Kirloskar DG Set (750-1500kVA)", url: "/blog/industrial-kirloskar-dg-set-750kva-1500kva", order: 2, type: "Sub Link", parent: "nav-8", isStatic: true, isActive: true },
+    { id: "nav-8-3", label: "AMF Panel for DG Set Guide", url: "/blog/amf-panel-for-dg-set", order: 3, type: "Sub Link", parent: "nav-8", isStatic: true, isActive: true },
   ];
 
   try {
@@ -662,6 +671,94 @@ async function main() {
               landline: "01140191273",
               whatsapp: "+919773877796",
               sla: "120 Minutes Response SLA within Delhi-NCR",
+            },
+          },
+        },
+      ],
+    },
+    {
+      title: "Blog & Technical Articles Overview",
+      slug: "blogs",
+      description: "Blog Landing Page",
+      metaTitle: "Generator Guides, Maintenance Tips & Industry News | Kumar Power",
+      metaDescription: "Read expert guides on Kirloskar silent generators, CPCB IV+ compliance, AMF panels, and industrial power solutions.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-blogs-main",
+          type: "blogs",
+          order: 1,
+          content: {
+            hero: {
+              title: "Technical Insights, Generator Guides & Power Updates",
+              subtitle: "Stay informed with expert articles on Kirloskar silent generator selection, fuel efficiency tips, and CPCB IV+ compliance.",
+            },
+          },
+        },
+      ],
+    },
+    {
+      title: "Kirloskar Silent Generator Guide",
+      slug: "kirloskar-silent-generator",
+      description: "Kirloskar Silent Generator Article",
+      metaTitle: "Kirloskar Silent Generator: Low Noise, High Performance Power Backup",
+      metaDescription: "Discover how Kirloskar Silent Generators provide low-noise operation, fuel efficiency, and reliable power backup.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-blog-silent-gen",
+          type: "kirloskar-silent-generator",
+          order: 1,
+          content: {
+            hero: {
+              title: "Kirloskar Silent Generator for Home and Business: Diesel, Green & DG Set Guide",
+              subtitle: "CPCB IV+ compliant low-noise generators (<75 dBA).",
+            },
+          },
+        },
+      ],
+    },
+    {
+      title: "Industrial Kirloskar DG Set Guide",
+      slug: "industrial-kirloskar-dg-set-750kva-1500kva",
+      description: "Industrial DG Set Article",
+      metaTitle: "Industrial Kirloskar DG Set (750 kVA - 1500 kVA) Guide | Kumar Power",
+      metaDescription: "Technical guide on high-capacity Kirloskar heavy-duty diesel generator sets for manufacturing plants, data centres, and hospitals.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-blog-industrial-dg",
+          type: "industrial-kirloskar-dg-set-750kva-1500kva",
+          order: 1,
+          content: {
+            hero: {
+              title: "Industrial Kirloskar DG Set (750 kVA - 1500 kVA) Guide",
+              subtitle: "High capacity power solutions for industrial infrastructure.",
+            },
+          },
+        },
+      ],
+    },
+    {
+      title: "AMF Panel for DG Set Guide",
+      slug: "amf-panel-for-dg-set",
+      description: "AMF Panel Article",
+      metaTitle: "AMF Panel for DG Set: Complete Buying & Technical Installation Guide",
+      metaDescription: "Learn how Automatic Mains Failure (AMF) panels switch generator power automatically during mains outage.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-blog-amf-panel",
+          type: "amf-panel-for-dg-set",
+          order: 1,
+          content: {
+            hero: {
+              title: "AMF Panel for DG Set: Complete Buying & Technical Installation Guide",
+              subtitle: "Automatic mains failure switching and generator protection.",
             },
           },
         },

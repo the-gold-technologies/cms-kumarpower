@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { SaveButton } from "@/components/SaveButton";
 import { useCMSStore } from "@/lib/cms-store";
-import { SocialLink } from "@/lib/mock-data/initialData";
+import { SocialLink } from "@/lib/types";
 import toast from "react-hot-toast";
 
 export default function SocialMediaCMSPage() {

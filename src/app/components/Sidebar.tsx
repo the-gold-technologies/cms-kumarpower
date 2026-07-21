@@ -8,7 +8,6 @@ import {
   Settings,
   Compass,
   BookOpen,
-  Layers,
   Package,
   Wrench,
   LucideIcon,
@@ -16,6 +15,7 @@ import {
   LogOut,
   Globe,
   Inbox,
+  FileText,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -53,6 +53,7 @@ const sidebarLinks: SidebarLink[] = [
       { title: "Certifications", href: "/static-pages/certifications" },
       { title: "Products Overview", href: "/static-pages/products" },
       { title: "Services Overview", href: "/static-pages/services" },
+      { title: "Blogs Overview", href: "/static-pages/blog" },
       { title: "Contact Us", href: "/static-pages/contact" },
     ],
   },
@@ -80,15 +81,6 @@ const sidebarLinks: SidebarLink[] = [
     ],
   },
   {
-    title: "FLEET & CONTENT",
-    icon: Layers,
-    sublinks: [
-      { title: "Products Fleet List", href: "/products" },
-      { title: "Generator Rentals", href: "/rentals" },
-      { title: "Blog Articles", href: "/blog" },
-    ],
-  },
-  {
     title: "SEO MANAGEMENT",
     icon: Globe,
     sublinks: [
@@ -102,7 +94,6 @@ const sidebarLinks: SidebarLink[] = [
     icon: Inbox,
     sublinks: [
       { title: "Leads & Enquiries", href: "/submissions/enquiries" },
-      { title: "Resumes & Applications", href: "/submissions/resumes" },
     ],
   },
   {
