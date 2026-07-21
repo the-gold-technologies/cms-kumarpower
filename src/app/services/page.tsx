@@ -7,7 +7,7 @@ import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SaveButton } from "@/components/SaveButton";
 import { useCMSStore } from "@/lib/cms-store";
-import { ServiceItem } from "@/lib/mock-data/initialData";
+import { ServiceItem } from "@/lib/types";
 import toast from "react-hot-toast";
 
 export default function ServicesCMSPage() {

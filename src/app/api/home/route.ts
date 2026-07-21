@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import { INITIAL_HOMEPAGE_DATA } from "@/lib/mock-data/initialData";
 
 export async function GET() {
   try {
@@ -8,15 +7,13 @@ export async function GET() {
       where: { slug: "home" },
       include: { sections: true },
     });
-
-    if (page && page.sections.length > 0) {
-      return NextResponse.json({ success: true, data: page });
-    }
+    return NextResponse.json({ success: true, data: page });
   } catch (error) {
-    console.warn("PostgreSQL not active or unreachable, returning initial data:", error);
+    console.warn(
+      "PostgreSQL not active or unreachable, returning initial data:",
+      error,
+    );
   }
-
-  return NextResponse.json({ success: true, data: INITIAL_HOMEPAGE_DATA });
 }
 
 export async function POST(req: Request) {
@@ -42,9 +39,16 @@ export async function POST(req: Request) {
       });
     }
 
-    return NextResponse.json({ success: true, message: "Saved to PostgreSQL database", data: body });
+    return NextResponse.json({
+      success: true,
+      message: "Saved to PostgreSQL database",
+      data: body,
+    });
   } catch (error) {
-    console.error("PostgreSQL save error:", error);
-    return NextResponse.json({ success: true, message: "Saved locally (PostgreSQL offline)", data: await req.json().catch(() => ({})) });
+    console.error("Database save error:", error);
+    return NextResponse.json(
+      { success: false, message: "Database save error" },
+      { status: 500 },
+    );
   }
 }

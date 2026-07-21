@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { DataTable, Column } from "@/components/DataTable";
 import { useCMSStore } from "@/lib/cms-store";
-import { ResumeItem } from "@/lib/mock-data/initialData";
+import { ResumeItem } from "@/lib/types";
 import { FileText, Download, Mail, PhoneCall } from "lucide-react";
 import toast from "react-hot-toast";
 

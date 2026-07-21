@@ -20,7 +20,13 @@ model Page {
   metaTitle       String?
   metaDescription String?
   keywords        String?
+  canonicalUrl    String?
+  noIndex         Boolean   @default(false)
+  ogTitle         String?
+  ogDescription   String?
   ogImage         String?
+  schema          String?
+  headingOptions  String?
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
   sections        Section[]
@@ -91,6 +97,10 @@ model GlobalConfig {
   customHeaderScripts String?
   customFooterScripts String?
   socialLinks         Json?
+  schema              String?
+  headingOptions      String?
+  sitemapEnabled      Boolean  @default(true)
+  sitemapCustomContent String?
   robotsTxt           String?  @default("User-agent: *\nAllow: /\n\nSitemap: https://www.kumarpower.com/sitemap.xml")
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt

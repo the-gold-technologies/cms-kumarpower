@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { DataTable, Column } from "@/components/DataTable";
 import { useCMSStore } from "@/lib/cms-store";
-import { EnquiryItem } from "@/lib/mock-data/initialData";
+import { EnquiryItem } from "@/lib/types";
 import { Mail, PhoneCall, CheckCircle2, XCircle, Clock } from "lucide-react";
 import toast from "react-hot-toast";
 

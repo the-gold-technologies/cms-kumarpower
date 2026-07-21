@@ -5,7 +5,7 @@ import { InputField } from "@/components/InputField";
 import { PDFUploadField } from "@/components/PDFUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
-import { Plus, X, Upload, UploadCloud, Image as ImageIcon } from "lucide-react";
+import { Plus, X, Upload, UploadCloud, CloudUpload, Image as ImageIcon } from "lucide-react";
 import toast from "react-hot-toast";
 
 type TrustLogo = { id: string; url: string; alt: string };

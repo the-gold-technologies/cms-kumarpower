@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { useCMSStore } from "@/lib/cms-store";
-import { NavLink } from "@/lib/mock-data/initialData";
+import { NavLink } from "@/lib/types";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function MenuLinksCMSPage() {

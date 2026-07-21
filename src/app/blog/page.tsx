@@ -10,7 +10,7 @@ import { ImagePickerField } from "@/components/ImagePickerField";
 import { RichTextEditor } from "@/components/RichTextEditor";
 import { SaveButton } from "@/components/SaveButton";
 import { useCMSStore } from "@/lib/cms-store";
-import { BlogItem } from "@/lib/mock-data/initialData";
+import { BlogItem } from "@/lib/types";
 import toast from "react-hot-toast";
 
 export default function BlogCMSPage() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -17,12 +17,6 @@ type GalleryPhoto = {
   category: "installations" | "events" | "Award";
   src: string;
 };
-
-const INITIAL_PHOTOS: GalleryPhoto[] = [
-  { id: "g-1", alt: "Kirloskar DG Set Installation at Hospital", category: "installations", src: "" },
-  { id: "g-2", alt: "Annual Diwali Event Celebration", category: "events", src: "" },
-  { id: "g-3", alt: "Industry Leadership Award Ceremony", category: "Award", src: "" },
-];
 
 export default function PhotoGalleryStaticPageCMS() {
   const bulkPhotoInputRef = useRef<HTMLInputElement>(null);
@@ -50,7 +44,7 @@ export default function PhotoGalleryStaticPageCMS() {
   const [heroBgImage, setHeroBgImage] = useState("");
 
   // Gallery Photos
-  const [photos, setPhotos] = useState<GalleryPhoto[]>(INITIAL_PHOTOS);
+  const [photos, setPhotos] = useState<GalleryPhoto[]>([]);
 
   // Experience Power Excellence Section
   const [expTitle, setExpTitle] = useState("Experience Power Excellence");
@@ -93,34 +87,99 @@ export default function PhotoGalleryStaticPageCMS() {
     toast.success("Photos added successfully!");
   };
 
-  const handleSaveHero = () => {
+  // Fetch from DB on mount
+  useEffect(() => {
+    fetch("/api/pages/photo-gallery")
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && json.data?.["photo-gallery"]) {
+          const data = json.data["photo-gallery"];
+          if (data.hero) {
+            setHeroHeading(data.hero.heading || "");
+            setHeroSubtitle(data.hero.subtitle || "");
+            setHeroBgImage(data.hero.bgImage || "");
+          }
+          if (data.photos) {
+            setPhotos(data.photos);
+          }
+          if (data.experience) {
+            setExpTitle(data.experience.title || "");
+            setExpDesc(data.experience.description || "");
+            setExpImage(data.experience.bgImage || "");
+            setExpProfilePdf(data.experience.profilePdf || "");
+          }
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSaveHero = async () => {
     setSavingHero(true);
-    setTimeout(() => {
-      setSavingHero(false);
+    try {
+      const payload = {
+        hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
+        photos,
+        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
+      };
+      await fetch("/api/pages/photo-gallery", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "photo-gallery", content: payload }),
+      });
       setSavedHero(true);
-      toast.success("Hero section saved!");
+      toast.success("Hero section saved to Database!");
       setTimeout(() => setSavedHero(false), 2000);
-    }, 400);
+    } catch (e) {
+      toast.error("Save failed");
+    } finally {
+      setSavingHero(false);
+    }
   };
 
-  const handleSavePhotos = () => {
+  const handleSavePhotos = async () => {
     setSavingPhotos(true);
-    setTimeout(() => {
-      setSavingPhotos(false);
+    try {
+      const payload = {
+        hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
+        photos,
+        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
+      };
+      await fetch("/api/pages/photo-gallery", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "photo-gallery", content: payload }),
+      });
       setSavedPhotos(true);
-      toast.success("Photo gallery items saved!");
+      toast.success("Photo gallery items saved to Database!");
       setTimeout(() => setSavedPhotos(false), 2000);
-    }, 400);
+    } catch (e) {
+      toast.error("Save failed");
+    } finally {
+      setSavingPhotos(false);
+    }
   };
 
-  const handleSaveExp = () => {
+  const handleSaveExp = async () => {
     setSavingExp(true);
-    setTimeout(() => {
-      setSavingExp(false);
+    try {
+      const payload = {
+        hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
+        photos,
+        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
+      };
+      await fetch("/api/pages/photo-gallery", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "photo-gallery", content: payload }),
+      });
       setSavedExp(true);
-      toast.success("Experience section & profile PDF saved!");
+      toast.success("Experience section saved to Database!");
       setTimeout(() => setSavedExp(false), 2000);
-    }, 400);
+    } catch (e) {
+      toast.error("Save failed");
+    } finally {
+      setSavingExp(false);
+    }
   };
 
   return (

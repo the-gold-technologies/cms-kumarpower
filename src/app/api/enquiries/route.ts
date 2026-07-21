@@ -1,21 +1,16 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import { INITIAL_ENQUIRIES } from "@/lib/mock-data/initialData";
 
 export async function GET() {
   try {
     const enquiries = await prisma.enquiry.findMany({
       orderBy: { createdAt: "desc" },
     });
-
-    if (enquiries && enquiries.length > 0) {
-      return NextResponse.json({ success: true, data: enquiries });
-    }
+    return NextResponse.json({ success: true, data: enquiries });
   } catch (error) {
-    console.warn("PostgreSQL offline, using initial enquiries:", error);
+    console.error("Database fetch error:", error);
+    return NextResponse.json({ success: false, data: [] }, { status: 500 });
   }
-
-  return NextResponse.json({ success: true, data: INITIAL_ENQUIRIES });
 }
 
 export async function POST(req: Request) {
@@ -35,7 +30,7 @@ export async function POST(req: Request) {
     });
     return NextResponse.json({ success: true, data: enquiry });
   } catch (error) {
-    console.error("PostgreSQL save error:", error);
-    return NextResponse.json({ success: true, message: "Saved locally (PostgreSQL offline)" });
+    console.error("Database save error:", error);
+    return NextResponse.json({ success: false, message: "Database save error" }, { status: 500 });
   }
 }

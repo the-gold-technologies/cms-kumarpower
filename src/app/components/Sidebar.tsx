@@ -10,6 +10,7 @@ import {
   BookOpen,
   Layers,
   Package,
+  Wrench,
   LucideIcon,
   ChevronDown,
   LogOut,
@@ -51,7 +52,7 @@ const sidebarLinks: SidebarLink[] = [
       { title: "Photo Gallery", href: "/static-pages/photo-gallery" },
       { title: "Certifications", href: "/static-pages/certifications" },
       { title: "Products Overview", href: "/static-pages/products" },
-      { title: "Installation Services", href: "/static-pages/services" },
+      { title: "Services Overview", href: "/static-pages/services" },
       { title: "Contact Us", href: "/static-pages/contact" },
     ],
   },
@@ -66,6 +67,16 @@ const sidebarLinks: SidebarLink[] = [
       { title: "Electrical Panels", href: "/static-pages/products/panels" },
       { title: "Servo Stabilizers", href: "/static-pages/products/servo-stabilizer" },
       { title: "Transformers", href: "/static-pages/products/transformers" },
+    ],
+  },
+  {
+    title: "SERVICE DROPDOWN PAGES",
+    icon: Wrench,
+    sublinks: [
+      { title: "Annual Maintenance (AMC)", href: "/static-pages/services/annual-maintenance" },
+      { title: "Turnkey SITC Installation", href: "/static-pages/services/installation" },
+      { title: "Engine Repair & Overhaul", href: "/static-pages/services/repair-overhaul" },
+      { title: "24/7 Emergency Support", href: "/static-pages/services/emergency-support" },
     ],
   },
   {
@@ -87,11 +98,11 @@ const sidebarLinks: SidebarLink[] = [
     ],
   },
   {
-    title: "SUBMISSIONS",
+    title: "SUBMISSIONS & LEADS",
     icon: Inbox,
     sublinks: [
-      { title: "Enquiries", href: "/submissions/enquiries" },
-      { title: "Resumes", href: "/submissions/resumes" },
+      { title: "Leads & Enquiries", href: "/submissions/enquiries" },
+      { title: "Resumes & Applications", href: "/submissions/resumes" },
     ],
   },
   {

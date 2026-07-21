@@ -8,7 +8,7 @@ import { SelectField } from "@/components/SelectField";
 import { ImagePickerField } from "@/components/ImagePickerField";
 import { SaveButton } from "@/components/SaveButton";
 import { useCMSStore } from "@/lib/cms-store";
-import { RentalItem } from "@/lib/mock-data/initialData";
+import { RentalItem } from "@/lib/types";
 import toast from "react-hot-toast";
 
 export default function RentalsCMSPage() {

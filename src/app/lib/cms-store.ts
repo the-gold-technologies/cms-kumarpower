@@ -11,17 +11,7 @@ import {
   NavLink,
   SocialLink,
   PageSeo,
-  INITIAL_PRODUCTS,
-  INITIAL_SERVICES,
-  INITIAL_RENTALS,
-  INITIAL_BLOGS,
-  INITIAL_ENQUIRIES,
-  INITIAL_RESUMES,
-  INITIAL_NAV_LINKS,
-  INITIAL_SOCIAL_LINKS,
-  INITIAL_SEO_SETTINGS,
-  INITIAL_HOMEPAGE_DATA
-} from "./mock-data/initialData";
+} from "./types";
 
 const STORAGE_KEYS = {
   PRODUCTS: "kp_cms_products",
@@ -37,19 +27,19 @@ const STORAGE_KEYS = {
 };
 
 export function useCMSStore() {
-  const [products, setProducts] = useState<ProductItem[]>(INITIAL_PRODUCTS);
-  const [services, setServices] = useState<ServiceItem[]>(INITIAL_SERVICES);
-  const [rentals, setRentals] = useState<RentalItem[]>(INITIAL_RENTALS);
-  const [blogs, setBlogs] = useState<BlogItem[]>(INITIAL_BLOGS);
-  const [enquiries, setEnquiries] = useState<EnquiryItem[]>(INITIAL_ENQUIRIES);
-  const [resumes, setResumes] = useState<ResumeItem[]>(INITIAL_RESUMES);
-  const [navLinks, setNavLinks] = useState<NavLink[]>(INITIAL_NAV_LINKS);
-  const [socialLinks, setSocialLinks] = useState<SocialLink[]>(INITIAL_SOCIAL_LINKS);
-  const [seoSettings, setSeoSettings] = useState<PageSeo[]>(INITIAL_SEO_SETTINGS);
-  const [homepage, setHomepage] = useState(INITIAL_HOMEPAGE_DATA);
+  const [products, setProducts] = useState<ProductItem[]>([]);
+  const [services, setServices] = useState<ServiceItem[]>([]);
+  const [rentals, setRentals] = useState<RentalItem[]>([]);
+  const [blogs, setBlogs] = useState<BlogItem[]>([]);
+  const [enquiries, setEnquiries] = useState<EnquiryItem[]>([]);
+  const [resumes, setResumes] = useState<ResumeItem[]>([]);
+  const [navLinks, setNavLinks] = useState<NavLink[]>([]);
+  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
+  const [seoSettings, setSeoSettings] = useState<PageSeo[]>([]);
+  const [homepage, setHomepage] = useState<any>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Initialize from LocalStorage if present
+  // Initialize from LocalStorage or DB API
   useEffect(() => {
     try {
       const storedProducts = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
@@ -132,32 +122,32 @@ export function useCMSStore() {
     localStorage.setItem(STORAGE_KEYS.SEO, JSON.stringify(newItems));
   };
 
-  const saveHomepage = (newData: typeof INITIAL_HOMEPAGE_DATA) => {
-    setHomepage(newData);
-    localStorage.setItem(STORAGE_KEYS.HOMEPAGE, JSON.stringify(newData));
+  const saveHomepage = (data: any) => {
+    setHomepage(data);
+    localStorage.setItem(STORAGE_KEYS.HOMEPAGE, JSON.stringify(data));
   };
 
   return {
-    isLoaded,
     products,
-    saveProducts,
     services,
-    saveServices,
     rentals,
-    saveRentals,
     blogs,
-    saveBlogs,
     enquiries,
-    saveEnquiries,
     resumes,
-    saveResumes,
     navLinks,
-    saveNavLinks,
     socialLinks,
-    saveSocialLinks,
     seoSettings,
-    saveSeoSettings,
     homepage,
-    saveHomepage
+    isLoaded,
+    saveProducts,
+    saveServices,
+    saveRentals,
+    saveBlogs,
+    saveEnquiries,
+    saveResumes,
+    saveNavLinks,
+    saveSocialLinks,
+    saveSeoSettings,
+    saveHomepage,
   };
 }
