@@ -27,24 +27,6 @@ type GasGensetCard = {
   brochurePdf: string;
 };
 
-const INITIAL_GAS_GENSETS: GasGensetCard[] = [
-  {
-    id: "gas-1",
-    name: "15 kVA to 250 kVA Kirloskar Gas Generators",
-    range: "15 kVA to 250 kVA",
-    fuelType: "Natural Gas/CNG",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Single/Three Phase",
-    rating: "4.6",
-    ratingCount: "145",
-    image: "",
-    description: "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
-    technicalSpecs: "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions...",
-    brochurePdf: "",
-  },
-];
-
 export default function KirloskarGasGeneratorCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isModelsOpen, setIsModelsOpen] = useState(false);
@@ -60,17 +42,17 @@ export default function KirloskarGasGeneratorCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Kirloskar Gas Generators Dealer in Delhi");
-  const [heroSub, setHeroSub] = useState("Explore eco-friendly Natural Gas and CNG generators for clean, efficient power solutions with lower operating costs.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Models List
-  const [models, setModels] = useState<GasGensetCard[]>(INITIAL_GAS_GENSETS);
+  const [models, setModels] = useState<GasGensetCard[]>([]);
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleModelChange = (id: string, field: keyof GasGensetCard, val: string) => {
     setModels((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: val } : m)));

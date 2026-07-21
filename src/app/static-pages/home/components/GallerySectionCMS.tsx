@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -10,26 +10,29 @@ import toast from "react-hot-toast";
 
 type GalleryImage = { id: string; url: string; caption: string };
 
-const INITIAL_IMAGES: GalleryImage[] = [
-  { id: "img-1", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery1_uhk3zd.png", caption: "Gallery image 1" },
-  { id: "img-2", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery2_ei3h9z.png", caption: "Gallery image 2" },
-  { id: "img-3", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175176/gallery3_dcqffp.png", caption: "Gallery image 3" },
-  { id: "img-4", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175202/gallery4_nwutsh.png", caption: "Gallery image 4" },
-  { id: "img-5", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175196/gallery5_zlyhc4.png", caption: "Gallery image 5" },
-  { id: "img-6", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175198/gallery6_ulastu.png", caption: "Gallery image 6" },
-];
-
 export function GallerySectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const [title, setTitle] = useState("Photo Gallery");
-  const [subtitle, setSubtitle] = useState(
-    "Explore our installations, equipment, and team in action through these images"
-  );
-  const [images, setImages] = useState<GalleryImage[]>(INITIAL_IMAGES);
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
+  const [images, setImages] = useState<GalleryImage[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/home")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const gal = json.data.gallery || {};
+          if (gal.title !== undefined) setTitle(gal.title);
+          if (gal.subtitle !== undefined) setSubtitle(gal.subtitle);
+          if (Array.isArray(gal.images)) setImages(gal.images);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleFileUpload = (id: string, file: File) => {
     const reader = new FileReader();
@@ -67,14 +70,24 @@ export function GallerySectionCMS() {
     toast.success("Image removed");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { title, subtitle, images };
+      const res = await fetch("/api/pages/home", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "gallery", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Gallery section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

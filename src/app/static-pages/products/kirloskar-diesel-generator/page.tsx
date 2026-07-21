@@ -27,99 +27,6 @@ type DieselGensetCard = {
   brochurePdf: string;
 };
 
-const INITIAL_GENSETS: DieselGensetCard[] = [
-  {
-    id: "dg-1",
-    name: "7.5 kVA to 20 kVA Diesel generators",
-    range: "7.5 kVA to 20 kVA",
-    fuelType: "Diesel",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    rating: "4.8",
-    ratingCount: "153",
-    image: "",
-    description: "Our range of diesel generators are designed for maximum performance and reliability.",
-    technicalSpecs: "Engineered specifically for compact power needs...",
-    brochurePdf: "",
-  },
-  {
-    id: "dg-2",
-    name: "25 kVA to 58.5 kVA Diesel generators",
-    range: "25 kVA to 58.5 kVA",
-    fuelType: "Diesel",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    rating: "4.9",
-    ratingCount: "132",
-    image: "",
-    description: "Our range of diesel generators are designed for maximum performance and reliability.",
-    technicalSpecs: "These mid-range workhorses are built for stability...",
-    brochurePdf: "",
-  },
-  {
-    id: "dg-3",
-    name: "82.5 kVA to 160 kVA Diesel generators",
-    range: "82.5 kVA to 160 kVA",
-    fuelType: "Diesel",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    rating: "4.8",
-    ratingCount: "118",
-    image: "",
-    description: "Our range of diesel generators are designed for maximum performance and reliability.",
-    technicalSpecs: "Designed for industrial-grade performance...",
-    brochurePdf: "",
-  },
-  {
-    id: "dg-4",
-    name: "200 kVA to 250 kVA Diesel Generators",
-    range: "200 - 250 kVA",
-    fuelType: "Diesel",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    rating: "4.7",
-    ratingCount: "178",
-    image: "",
-    description: "Our range of diesel generators are designed for maximum performance and reliability.",
-    technicalSpecs: "This series features high-performance Kirloskar DV Series engines...",
-    brochurePdf: "",
-  },
-  {
-    id: "dg-5",
-    name: "320 kVA - 750 kVA Diesel Generators",
-    range: "320 - 750 kVA",
-    fuelType: "Diesel",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    rating: "4.9",
-    ratingCount: "96",
-    image: "",
-    description: "Our range of diesel generators are designed for maximum performance and reliability.",
-    technicalSpecs: "These heavy-duty powerhouses are designed for 24/7 continuous operations...",
-    brochurePdf: "",
-  },
-  {
-    id: "dg-6",
-    name: "750 kVA - 1500 kVA Diesel Generators",
-    range: "750 - 1500 kVA",
-    fuelType: "Diesel",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    rating: "4.9",
-    ratingCount: "86",
-    image: "",
-    description: "Our range of diesel generators are designed for maximum performance and reliability.",
-    technicalSpecs: "Representing the ultimate in power solutions, featuring K-Series and DV-Series engines...",
-    brochurePdf: "",
-  },
-];
-
 export default function KirloskarDieselGeneratorCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isGensetsOpen, setIsGensetsOpen] = useState(false);
@@ -135,17 +42,17 @@ export default function KirloskarDieselGeneratorCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Kirloskar Diesel Generators Dealer in Delhi");
-  const [heroSub, setHeroSub] = useState("Explore Kirloskar Diesel Generators at Kumar Power for reliable backup and prime power solutions.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Gensets List
-  const [gensets, setGensets] = useState<DieselGensetCard[]>(INITIAL_GENSETS);
+  const [gensets, setGensets] = useState<DieselGensetCard[]>([]);
 
   // Help CTA
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleGensetChange = (id: string, field: keyof DieselGensetCard, val: string) => {
     setGensets((prev) => prev.map((g) => (g.id === id ? { ...g, [field]: val } : g)));

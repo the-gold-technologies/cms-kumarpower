@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -14,27 +14,47 @@ export function AboutHeroSectionCMS() {
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    title: "Know About Kumar Power",
-    subtitle: "–Trusted Name in Power Solutions Industry",
+    title: "",
+    subtitle: "",
     image: "",
-    paragraph1:
-      "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
-    paragraph2:
-      "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions.",
-    paragraph3:
-      "As an authorized dealer and service provider for Kirloskar Green generators, we bring the reliability and efficiency of world-class power solutions to our clients. Our team of certified engineers and technicians ensures that every installation meets the highest standards of performance and safety.",
-    paragraph4:
-      "With a customer-first approach and commitment to excellence, Kumar Power has successfully delivered over 10000+ power solutions across the country, building lasting relationships with our clients through exceptional service and support.",
+    paragraph1: "",
+    paragraph2: "",
+    paragraph3: "",
+    paragraph4: "",
   });
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/pages/our-profile")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const hero = json.data.hero || {};
+          setFormData((prev) => ({
+            ...prev,
+            ...Object.fromEntries(Object.entries(hero).filter(([k]) => k in prev)),
+          }));
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch("/api/pages/our-profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "hero", content: formData }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Hero section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

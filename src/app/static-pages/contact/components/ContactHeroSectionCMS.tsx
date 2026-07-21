@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -14,22 +14,46 @@ export function ContactHeroSectionCMS() {
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    bannerHeading: "Powering Connections That Matter",
-    bannerSubtitle: "Let's build something extraordinary. Talk to our experts today.",
+    bannerHeading: "",
+    bannerSubtitle: "",
     bannerBgImage: "",
-    primaryBtnLabel: "Start Your Inquiry",
-    whatsappBtnLabel: "Connect on WhatsApp",
-    whatsappNumber: "+919773851767",
+    primaryBtnLabel: "",
+    whatsappBtnLabel: "",
+    whatsappNumber: "",
   });
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/pages/contact")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const hero = json.data.hero || {};
+          setFormData((prev) => ({
+            ...prev,
+            ...Object.fromEntries(Object.entries(hero).filter(([k]) => k in prev)),
+          }));
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch("/api/pages/contact", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "hero", content: formData }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Hero banner saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

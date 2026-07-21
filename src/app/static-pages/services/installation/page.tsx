@@ -38,112 +38,6 @@ type BenefitCard = {
   description: string;
 };
 
-const INITIAL_STEPS: ProcessStepCard[] = [
-  {
-    id: "step-1",
-    stepNum: "1",
-    title: "Initial Consultation & Site Survey",
-    description: "We begin with a thorough assessment of your power requirements and site conditions to determine the optimal system configuration, placement, and infrastructure needs.",
-    bullet1: "Comprehensive load analysis and power requirements assessment",
-    bullet2: "Detailed site inspection and infrastructure evaluation",
-  },
-  {
-    id: "step-2",
-    stepNum: "2",
-    title: "Detailed Design & Planning",
-    description: "Our engineers develop comprehensive installation plans including electrical schematics, mechanical layouts, and project timelines tailored to your specific needs.",
-    bullet1: "Custom system design optimized for your facility",
-    bullet2: "Detailed project timeline and resource allocation",
-  },
-  {
-    id: "step-3",
-    stepNum: "3",
-    title: "Permitting & Compliance",
-    description: "We handle all necessary permits, regulatory approvals, and compliance requirements to ensure your installation meets all local and national standards.",
-    bullet1: "Complete management of permit acquisition process",
-    bullet2: "Regulatory compliance verification and documentation",
-  },
-  {
-    id: "step-4",
-    stepNum: "4",
-    title: "Professional Installation",
-    description: "Our certified technicians execute the installation according to the detailed plan, ensuring all components are properly installed, connected, and secured.",
-    bullet1: "Expert mechanical and electrical installation by certified technicians",
-    bullet2: "Quality control checks at each installation milestone",
-  },
-  {
-    id: "step-5",
-    stepNum: "5",
-    title: "Testing & Commissioning",
-    description: "We conduct comprehensive testing of all systems, including load testing, performance verification, and safety checks to ensure everything functions correctly.",
-    bullet1: "Full-load testing under various operational conditions",
-    bullet2: "System performance optimization and calibration",
-  },
-  {
-    id: "step-6",
-    stepNum: "6",
-    title: "Training & Handover",
-    description: "We provide thorough training for your staff on system operation and basic maintenance, along with complete documentation and warranty information.",
-    bullet1: "Comprehensive operator training and knowledge transfer",
-    bullet2: "Complete system documentation and maintenance schedules",
-  },
-];
-
-const INITIAL_PORTFOLIO: PortfolioItem[] = [
-  { id: "p-2", name: "Commercial Power System", category: "Commercial", imageUrl: "" },
-  { id: "p-3", name: "Residential Backup Generator", category: "Residential", imageUrl: "" },
-  { id: "p-4", name: "Hospital Emergency Power", category: "Commercial", imageUrl: "" },
-  { id: "p-5", name: "Data Center Installation", category: "Industrial", imageUrl: "" },
-  { id: "p-6", name: "Manufacturing Facility Setup", category: "Industrial", imageUrl: "" },
-  { id: "p-7", name: "Office Building Generator", category: "Commercial", imageUrl: "" },
-  { id: "p-8", name: "Home Standby Power", category: "Residential", imageUrl: "" },
-  { id: "p-9", name: "Retail Power Solution", category: "Commercial", imageUrl: "" },
-  { id: "p-10", name: "Industrial Complex System", category: "Industrial", imageUrl: "" },
-  { id: "p-11", name: "Apartment Building Generator", category: "Residential", imageUrl: "" },
-];
-
-const INITIAL_FAQS: FaqItem[] = [
-  {
-    id: "faq-1",
-    question: "How long does the installation process take?",
-    answer: "The installation timeline varies based on the system complexity and site conditions. Small to medium generators typically take 1-3 days, while larger industrial installations may require 1-2 weeks.",
-  },
-  {
-    id: "faq-2",
-    question: "Do you handle all required permits and approvals?",
-    answer: "Yes, we manage the entire permitting process. Our team handles all necessary documentation, regulatory compliance, and approvals from local authorities.",
-  },
-  {
-    id: "faq-3",
-    question: "Can you install generators in difficult locations?",
-    answer: "Absolutely. Our installation teams are equipped to handle challenging locations including rooftops, basements, confined spaces, and remote sites.",
-  },
-  {
-    id: "faq-4",
-    question: "Will the installation cause disruption to our operations?",
-    answer: "We minimize disruption by carefully planning the installation process. Most electrical connections requiring power interruption can be scheduled during off-hours.",
-  },
-  {
-    id: "faq-5",
-    question: "What happens after installation is complete?",
-    answer: "Following installation, we conduct comprehensive commissioning tests, provide detailed operator training, and deliver complete documentation including operation manuals and warranty info.",
-  },
-  {
-    id: "faq-6",
-    question: "Are your installations covered by warranty?",
-    answer: "Yes, all our installation work is backed by a comprehensive warranty. We provide a standard 12-month warranty on labor and workmanship in addition to manufacturer warranties.",
-  },
-];
-
-const INITIAL_BENEFITS: BenefitCard[] = [
-  { id: "b-1", title: "Maximize System Reliability", description: "Proper installation ensures your power system performs optimally during critical situations." },
-  { id: "b-2", title: "Extend Equipment Lifespan", description: "Professional installation with correct mounting and calibration significantly extends operational life." },
-  { id: "b-3", title: "Ensure Code Compliance", description: "Our certified technicians ensure all installations meet or exceed local codes and CPCB standards." },
-  { id: "b-4", title: "Optimize Performance", description: "Expert installation and commissioning maximize fuel efficiency, power output, and system responsiveness." },
-  { id: "b-5", title: "Minimize Maintenance Issues", description: "Correctly installed systems require less maintenance and experience fewer operational problems over their lifetime." },
-  { id: "b-6", title: "Protect Warranty Coverage", description: "Professional installation maintains manufacturer warranty coverage and provides labor guarantees." },
-];
-
 export default function InstallationServicesCMSPage() {
   // Section Toggle states
   const [isHeroOpen, setIsHeroOpen] = useState(false);
@@ -173,31 +67,31 @@ export default function InstallationServicesCMSPage() {
   const [savedBenefits, setSavedBenefits] = useState(false);
 
   // Hero Section State
-  const [heroBadge, setHeroBadge] = useState("Professional Services");
-  const [heroHeading, setHeroHeading] = useState("Installation & Commissioning");
-  const [heroSub, setHeroSub] = useState("Expert power system installation and commissioning services for optimal performance, reliability, and compliance.");
+  const [heroBadge, setHeroBadge] = useState("");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
-  const [heroCtaLabel, setHeroCtaLabel] = useState("Schedule a Consultation");
+  const [heroCtaLabel, setHeroCtaLabel] = useState("");
 
   // Intro Section State
-  const [introTagline, setIntroTagline] = useState("KUMAR POWER EXPERTISE");
-  const [introHeading, setIntroHeading] = useState("Professional Power System Installation");
-  const [introP1, setIntroP1] = useState("Kumar Power delivers end-to-end installation and commissioning services for all types of power generation equipment, ensuring your systems operate at peak efficiency from day one.");
-  const [introP2, setIntroP2] = useState("Our certified technicians handle everything from site assessment and planning to final commissioning and operator training, delivering turnkey solutions that maximize reliability and minimize downtime across industries.");
+  const [introTagline, setIntroTagline] = useState("");
+  const [introHeading, setIntroHeading] = useState("");
+  const [introP1, setIntroP1] = useState("");
+  const [introP2, setIntroP2] = useState("");
   const [introImage, setIntroImage] = useState("");
 
   // Process Steps State
-  const [steps, setSteps] = useState<ProcessStepCard[]>(INITIAL_STEPS);
+  const [steps, setSteps] = useState<ProcessStepCard[]>([]);
 
   // Portfolio Gallery State
-  const [portfolio, setPortfolio] = useState<PortfolioItem[]>(INITIAL_PORTFOLIO);
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
   const bulkInputRef = useRef<HTMLInputElement>(null);
 
   // FAQs State
-  const [faqs, setFaqs] = useState<FaqItem[]>(INITIAL_FAQS);
+  const [faqs, setFaqs] = useState<FaqItem[]>([]);
 
   // Benefits State
-  const [benefits, setBenefits] = useState<BenefitCard[]>(INITIAL_BENEFITS);
+  const [benefits, setBenefits] = useState<BenefitCard[]>([]);
 
   // Step Handlers
   const handleStepChange = (id: string, field: keyof ProcessStepCard, val: string) => {

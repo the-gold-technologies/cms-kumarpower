@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -13,26 +13,54 @@ export function QualityCommitmentSectionCMS() {
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [qualityTitle, setQualityTitle] = useState("Our Commitment to Quality");
-  const [policyTitle, setPolicyTitle] = useState("Quality Policy Statement");
-  const [policyStatement, setPolicyStatement] = useState(
-    "At Kumar Power, we are committed to delivering world-class power products and turnkey solutions that exceed customer expectations. Our robust design, meticulous manufacturing, and comprehensive testing ensure reliability and performance in every installation."
-  );
-  const [bullet1, setBullet1] = useState("ISO 9001:2015 certified quality management system");
-  const [bullet2, setBullet2] = useState("Rigorous testing protocols for all equipment");
-  const [bullet3, setBullet3] = useState("Continuous improvement through customer feedback");
-  const [bullet4, setBullet4] = useState("Regular training and skill enhancement for our team");
+  const [qualityTitle, setQualityTitle] = useState("");
+  const [policyTitle, setPolicyTitle] = useState("");
+  const [policyStatement, setPolicyStatement] = useState("");
+  const [bullet1, setBullet1] = useState("");
+  const [bullet2, setBullet2] = useState("");
+  const [bullet3, setBullet3] = useState("");
+  const [bullet4, setBullet4] = useState("");
   const [isoCertImg, setIsoCertImg] = useState("");
   const [kirloskarCertImg, setKirloskarCertImg] = useState("");
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/pages/our-profile")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const q = json.data.quality || {};
+          if (q.qualityTitle !== undefined) setQualityTitle(q.qualityTitle);
+          if (q.policyTitle !== undefined) setPolicyTitle(q.policyTitle);
+          if (q.policyStatement !== undefined) setPolicyStatement(q.policyStatement);
+          if (q.bullet1 !== undefined) setBullet1(q.bullet1);
+          if (q.bullet2 !== undefined) setBullet2(q.bullet2);
+          if (q.bullet3 !== undefined) setBullet3(q.bullet3);
+          if (q.bullet4 !== undefined) setBullet4(q.bullet4);
+          if (q.isoCertImg !== undefined) setIsoCertImg(q.isoCertImg);
+          if (q.kirloskarCertImg !== undefined) setKirloskarCertImg(q.kirloskarCertImg);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { qualityTitle, policyTitle, policyStatement, bullet1, bullet2, bullet3, bullet4, isoCertImg, kirloskarCertImg };
+      const res = await fetch("/api/pages/our-profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "quality", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Quality commitment section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

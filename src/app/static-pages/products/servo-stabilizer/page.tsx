@@ -23,20 +23,6 @@ type ServoModelCard = {
   brochurePdf: string;
 };
 
-const INITIAL_SERVO_MODELS: ServoModelCard[] = [
-  {
-    id: "servo-1",
-    name: "Oil Cooled Servo Voltage Stabilizers",
-    range: "5 kVA to 100 kVA",
-    cooling: "Air/Oil",
-    phase: "Single / Three Phase",
-    image: "",
-    description: "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
-    technicalSpecs: "This range delivers precision voltage correction using advanced oil-immersed technology, making it ideal for heavy-duty cycles...",
-    brochurePdf: "",
-  },
-];
-
 export default function ServoStabilizersCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isModelsOpen, setIsModelsOpen] = useState(false);
@@ -52,17 +38,17 @@ export default function ServoStabilizersCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Servo Voltage Stabilizers Manufacturer in Delhi");
-  const [heroSub, setHeroSub] = useState("Precision oil-cooled and air-cooled servo voltage stabilizers for industrial machinery protection and clean voltage regulation.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Models List
-  const [models, setModels] = useState<ServoModelCard[]>(INITIAL_SERVO_MODELS);
+  const [models, setModels] = useState<ServoModelCard[]>([]);
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleModelChange = (id: string, field: keyof ServoModelCard, val: string) => {
     setModels((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: val } : m)));

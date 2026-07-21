@@ -17,27 +17,6 @@ type RepairServiceCard = {
   includedTasks: string;
 };
 
-const INITIAL_REPAIR_SERVICES: RepairServiceCard[] = [
-  {
-    id: "rep-1",
-    title: "Major Engine Overhauling & Rebuilding",
-    description: "Complete dismantling, cylinder honing, piston ring replacement, crankshaft grinding, and re-assembly with genuine KOEL spare parts.",
-    includedTasks: "Block inspection, cylinder head re-facing, injector calibration, turbocharger reconditioning, new gaskets & seal kits",
-  },
-  {
-    id: "rep-2",
-    title: "Alternator Rewinding & AVR Calibration",
-    description: "Precision stator and rotor copper rewinding, vacuum pressure impregnation (VPI) insulation, and Automatic Voltage Regulator tuning.",
-    includedTasks: "Class-H insulation, megger testing, diode bridge replacement, AVR voltage stabilization under load",
-  },
-  {
-    id: "rep-3",
-    title: "Fuel Injection Pump (FIP) Re-calibration",
-    description: "Diagnostic testing and precision calibration of fuel pumps and injectors using digital test benches to restore optimal fuel economy.",
-    includedTasks: "Nozzle spray pattern check, pressure calibration, governor tuning, fuel pump timing synchronization",
-  },
-];
-
 export default function RepairOverhaulCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -53,18 +32,18 @@ export default function RepairOverhaulCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroTagline, setHeroTagline] = useState("ENGINE REPAIR & OVERHAULING");
-  const [heroHeading, setHeroHeading] = useState("Heavy-Duty Engine Overhauling & Component Repair");
-  const [heroSub, setHeroSub] = useState("Restore peak factory performance and extend the working lifespan of your Kirloskar diesel generators with our authorized repair workshop.");
+  const [heroTagline, setHeroTagline] = useState("");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Repair Services
-  const [services, setServices] = useState<RepairServiceCard[]>(INITIAL_REPAIR_SERVICES);
+  const [services, setServices] = useState<RepairServiceCard[]>([]);
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Experiencing Low Generator Output or Excessive Smoke?");
-  const [helpSub, setHelpSub] = useState("Our senior engine diagnosticians will perform full compression and load testing on your site.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Request Engine Inspection");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleServiceChange = (id: string, field: keyof RepairServiceCard, val: string) => {
     setServices((prev) => prev.map((s) => (s.id === id ? { ...s, [field]: val } : s)));

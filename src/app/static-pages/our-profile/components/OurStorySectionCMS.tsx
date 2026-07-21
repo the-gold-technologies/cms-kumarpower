@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -17,51 +17,28 @@ type TimelineItem = {
   image: string;
 };
 
-const INITIAL_TIMELINE: TimelineItem[] = [
-  {
-    id: "time-1",
-    year: "1995",
-    title: "Foundation",
-    description:
-      "Kumar Power was established with a vision to provide reliable power solutions to businesses across India.",
-    image: "",
-  },
-  {
-    id: "time-2",
-    year: "2001",
-    title: "Kirloskar Partnership",
-    description:
-      "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.",
-    image: "",
-  },
-  {
-    id: "time-3",
-    year: "2012",
-    title: "ISO Certification",
-    description:
-      "Achieved ISO 9001:2015 certification, validating our commitment to quality management systems.",
-    image: "",
-  },
-  {
-    id: "time-4",
-    year: "2020",
-    title: "Nationwide Expansion",
-    description:
-      "Expanded operations to all major cities in India with service centers and technical support teams.",
-    image: "",
-  },
-];
-
 export function OurStorySectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [storyTitle, setStoryTitle] = useState("Our Story");
-  const [storySub, setStorySub] = useState(
-    "From humble beginnings to becoming India's premier power solutions provider, our journey has been defined by innovation, quality, and unwavering commitment to excellence."
-  );
-  const [timeline, setTimeline] = useState<TimelineItem[]>(INITIAL_TIMELINE);
+  const [storyTitle, setStoryTitle] = useState("");
+  const [storySub, setStorySub] = useState("");
+  const [timeline, setTimeline] = useState<TimelineItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/our-profile")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const story = json.data.story || {};
+          if (story.storyTitle !== undefined) setStoryTitle(story.storyTitle);
+          if (story.storySub !== undefined) setStorySub(story.storySub);
+          if (Array.isArray(story.timeline)) setTimeline(story.timeline);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleTimelineChange = (id: string, field: keyof TimelineItem, val: string) => {
     setTimeline((prev) => prev.map((t) => (t.id === id ? { ...t, [field]: val } : t)));
@@ -80,14 +57,24 @@ export function OurStorySectionCMS() {
     toast.success("Milestone removed");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { storyTitle, storySub, timeline };
+      const res = await fetch("/api/pages/our-profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "story", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
-      toast.success("Our Story timeline saved!");
+      toast.success("Story section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

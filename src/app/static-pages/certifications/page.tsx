@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -18,73 +18,6 @@ type CertificateItem = {
   issuer: string;
   image: string;
 };
-
-const INITIAL_CERTIFICATES: CertificateItem[] = [
-  {
-    id: "cert-1",
-    name: "Authorisation Certification",
-    year: "2024",
-    description: "Kumar Generator House is our authorised KOEL Green Dealer for sale of KOEL Green Diesel Generating Sets and Chhota Chilli Range of generators",
-    issuer: "Authorisation certificate",
-    image: "",
-  },
-  {
-    id: "cert-2",
-    name: "Certificate of Excellence",
-    year: "2012-2013",
-    description: "Environmental Management System certification, demonstrating our commitment to environmental responsibility.",
-    issuer: "KOEL Pune",
-    image: "",
-  },
-  {
-    id: "cert-3",
-    name: "Certification of Highest Growth",
-    year: "2013",
-    description: "Presented to M/s Kumar Generator House, Delhi for highest growth & highest nos. of KIRLOSKAR GREEN DG sets sold in FY 2013.",
-    issuer: "KOEL-JAKPOWER-KGD Conference, Goa",
-    image: "",
-  },
-  {
-    id: "cert-4",
-    name: "Certificate for Highest in MHP generators (2014)",
-    year: "2014",
-    description: "Awarded to Kumar Generator House, Delhi for highest volume in MHP generators in FY 14.",
-    issuer: "Kirloskar Conference Awards - Pune",
-    image: "",
-  },
-  {
-    id: "cert-5",
-    name: "Certificate for Highest in HHP generators (2014)",
-    year: "2014",
-    description: "Awarded to Kumar Generator House, Delhi for highest volume in HHP generators in FY 14.",
-    issuer: "Kirloskar Conference Awards - Pune",
-    image: "",
-  },
-  {
-    id: "cert-6",
-    name: "Certificate for Highest Sale (2015)",
-    year: "2015",
-    description: "Presented to M/s Kumar Generator House, Delhi for highest nos. of KIRLOSKAR GREEN DG sets sold in FY 15.",
-    issuer: "KOEL JAKPOWER KGD & SD Conference Awards Rajasthan",
-    image: "",
-  },
-  {
-    id: "cert-7",
-    name: "KOEL-JAKPOWER-KGD & SD Conference Awards Gangtok",
-    year: "2015",
-    description: "Presented to M/s Kumar Generator House, Delhi for highest nos. of KIRLOSKAR GREEN DG sets sold in FY 18-19.",
-    issuer: "KOEL JAKPOWER KGD & SD Conference Awards Gangtok",
-    image: "",
-  },
-  {
-    id: "cert-8",
-    name: "KOEL JAKPOWER KGD & SD Conference Awards Rajasthan",
-    year: "2015",
-    description: "Presented to M/s Kumar Generator House, Delhi for highest nos. of KIRLOSKAR GREEN DG sets sold in FY 16-17.",
-    issuer: "KOEL JAKPOWER KGD & SD Conference Awards Rajasthan",
-    image: "",
-  },
-];
 
 export default function CertificationsCMSPage() {
   // Section Open states
@@ -107,30 +40,70 @@ export default function CertificationsCMSPage() {
   const [savedCommit, setSavedCommit] = useState(false);
 
   // Hero Section
-  const [heroTitle, setHeroTitle] = useState("Awards and Certifications");
-  const [heroSub, setHeroSub] = useState("Recognized for excellence in power solutions and industry leadership");
+  const [heroTitle, setHeroTitle] = useState("");
+  const [heroSub, setHeroSub] = useState("");
 
   // Certificate List
-  const [certificates, setCertificates] = useState<CertificateItem[]>(INITIAL_CERTIFICATES);
+  const [certificates, setCertificates] = useState<CertificateItem[]>([]);
 
   // Why Certifications Matter Section
-  const [whySectionTitle, setWhySectionTitle] = useState("Why Certifications Matter");
-  const [whyCard1Title, setWhyCard1Title] = useState("Quality Assurance");
-  const [whyCard1Desc, setWhyCard1Desc] = useState("Our certifications serve as third-party validation of our commitment to maintaining high-quality standards.");
-  const [whyCard2Title, setWhyCard2Title] = useState("Compliance");
-  const [whyCard2Desc, setWhyCard2Desc] = useState("We adhere to industry regulations and standards, ensuring our operations are fully compliant.");
-  const [whyCard3Title, setWhyCard3Title] = useState("Customer Trust");
-  const [whyCard3Desc, setWhyCard3Desc] = useState("Our certifications provide customers with confidence in our products, services, and business practices.");
+  const [whySectionTitle, setWhySectionTitle] = useState("");
+  const [whyCard1Title, setWhyCard1Title] = useState("");
+  const [whyCard1Desc, setWhyCard1Desc] = useState("");
+  const [whyCard2Title, setWhyCard2Title] = useState("");
+  const [whyCard2Desc, setWhyCard2Desc] = useState("");
+  const [whyCard3Title, setWhyCard3Title] = useState("");
+  const [whyCard3Desc, setWhyCard3Desc] = useState("");
 
   // Commitment Banner
-  const [commitTitle, setCommitTitle] = useState("Our Commitment to Excellence");
-  const [commitText, setCommitText] = useState(
-    "At Kumar Power, we believe that maintaining certifications and industry partnerships is more than just fulfilling requirements—it's about our ongoing commitment to excellence in everything we do. We continuously strive to improve our processes, enhance our services, and exceed industry standards."
-  );
-  const [btn1Label, setBtn1Label] = useState("Contact Us");
-  const [btn1Url, setBtn1Url] = useState("/contact");
-  const [btn2Label, setBtn2Label] = useState("View Products");
-  const [btn2Url, setBtn2Url] = useState("/products");
+  const [commitTitle, setCommitTitle] = useState("");
+  const [commitText, setCommitText] = useState("");
+  const [btn1Label, setBtn1Label] = useState("");
+  const [btn1Url, setBtn1Url] = useState("");
+  const [btn2Label, setBtn2Label] = useState("");
+  const [btn2Url, setBtn2Url] = useState("");
+
+  useEffect(() => {
+    fetch("/api/pages/certifications")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const certs = json.data.certifications || json.data["certifications"] || {};
+          if (certs.heroTitle !== undefined) setHeroTitle(certs.heroTitle);
+          if (certs.heroSub !== undefined) setHeroSub(certs.heroSub);
+          if (Array.isArray(certs.certificates)) setCertificates(certs.certificates);
+          if (certs.whySectionTitle !== undefined) setWhySectionTitle(certs.whySectionTitle);
+          if (certs.whyCard1Title !== undefined) setWhyCard1Title(certs.whyCard1Title);
+          if (certs.whyCard1Desc !== undefined) setWhyCard1Desc(certs.whyCard1Desc);
+          if (certs.whyCard2Title !== undefined) setWhyCard2Title(certs.whyCard2Title);
+          if (certs.whyCard2Desc !== undefined) setWhyCard2Desc(certs.whyCard2Desc);
+          if (certs.whyCard3Title !== undefined) setWhyCard3Title(certs.whyCard3Title);
+          if (certs.whyCard3Desc !== undefined) setWhyCard3Desc(certs.whyCard3Desc);
+          if (certs.commitTitle !== undefined) setCommitTitle(certs.commitTitle);
+          if (certs.commitText !== undefined) setCommitText(certs.commitText);
+          if (certs.btn1Label !== undefined) setBtn1Label(certs.btn1Label);
+          if (certs.btn1Url !== undefined) setBtn1Url(certs.btn1Url);
+          if (certs.btn2Label !== undefined) setBtn2Label(certs.btn2Label);
+          if (certs.btn2Url !== undefined) setBtn2Url(certs.btn2Url);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const saveAllToDB = async () => {
+    const payload = {
+      heroTitle, heroSub, certificates, whySectionTitle,
+      whyCard1Title, whyCard1Desc, whyCard2Title, whyCard2Desc,
+      whyCard3Title, whyCard3Desc, commitTitle, commitText,
+      btn1Label, btn1Url, btn2Label, btn2Url
+    };
+    const res = await fetch("/api/pages/certifications", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ section: "certifications", content: payload }),
+    });
+    if (!res.ok) throw new Error("Save failed");
+  };
 
   const handleCertChange = (id: string, field: keyof CertificateItem, val: string) => {
     setCertificates((prev) => prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)));
@@ -149,45 +122,13 @@ export default function CertificationsCMSPage() {
     toast.success("Certificate removed");
   };
 
-  const handleSaveHero = () => {
-    setSavingHero(true);
-    setTimeout(() => {
-      setSavingHero(false);
-      setSavedHero(true);
-      toast.success("Header section saved!");
-      setTimeout(() => setSavedHero(false), 2000);
-    }, 400);
-  };
+  const handleSaveHero = async () => { setSavingHero(true); try { await saveAllToDB(); setSavedHero(true); toast.success("Header section saved!"); setTimeout(() => setSavedHero(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingHero(false); } };
 
-  const handleSaveCerts = () => {
-    setSavingCerts(true);
-    setTimeout(() => {
-      setSavingCerts(false);
-      setSavedCerts(true);
-      toast.success("Certificates list saved!");
-      setTimeout(() => setSavedCerts(false), 2000);
-    }, 400);
-  };
+  const handleSaveCerts = async () => { setSavingCerts(true); try { await saveAllToDB(); setSavedCerts(true); toast.success("Certificates list saved!"); setTimeout(() => setSavedCerts(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingCerts(false); } };
 
-  const handleSaveWhy = () => {
-    setSavingWhy(true);
-    setTimeout(() => {
-      setSavingWhy(false);
-      setSavedWhy(true);
-      toast.success("Why Certifications Matter section saved!");
-      setTimeout(() => setSavedWhy(false), 2000);
-    }, 400);
-  };
+  const handleSaveWhy = async () => { setSavingWhy(true); try { await saveAllToDB(); setSavedWhy(true); toast.success("Why Certifications section saved!"); setTimeout(() => setSavedWhy(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingWhy(false); } };
 
-  const handleSaveCommit = () => {
-    setSavingCommit(true);
-    setTimeout(() => {
-      setSavingCommit(false);
-      setSavedCommit(true);
-      toast.success("Commitment banner saved!");
-      setTimeout(() => setSavedCommit(false), 2000);
-    }, 400);
-  };
+  const handleSaveCommit = async () => { setSavingCommit(true); try { await saveAllToDB(); setSavedCommit(true); toast.success("Commitment banner saved!"); setTimeout(() => setSavedCommit(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingCommit(false); } };
 
   return (
     <div className="flex flex-col gap-6 pb-12">

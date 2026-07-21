@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -13,24 +13,48 @@ export function ContactInfoSectionCMS() {
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    officeHours: "Monday - Saturday: 10:00 AM - 7:00 PM (Closed on Sundays & National Holidays)",
-    phoneMain: "9773851767",
-    phoneSupport: "9773877796",
-    phoneLandline: "01146701273",
-    emailMain: "kumargeneratorhouse@gmail.com",
-    emailSales: "sales@kumarpower.com",
-    emailSupport: "support@kumarpower.com",
-    emailAccounts: "accounts@kumarpower.com",
+    officeHours: "",
+    phoneMain: "",
+    phoneSupport: "",
+    phoneLandline: "",
+    emailMain: "",
+    emailSales: "",
+    emailSupport: "",
+    emailAccounts: "",
   });
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/pages/contact")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const info = json.data.info || {};
+          setFormData((prev) => ({
+            ...prev,
+            ...Object.fromEntries(Object.entries(info).filter(([k]) => k in prev)),
+          }));
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch("/api/pages/contact", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "info", content: formData }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Contact info cards saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

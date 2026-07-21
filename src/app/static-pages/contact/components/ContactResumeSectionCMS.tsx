@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -13,19 +13,42 @@ export function ContactResumeSectionCMS() {
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    resumeTitle: "Drop Your Resume",
-    resumeSubtitle:
-      "Didn't find your role? We're always looking for great talent to join our team. Submit your resume and we'll contact you when a suitable position opens up.",
+    resumeTitle: "",
+    resumeSubtitle: "",
   });
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/pages/contact")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const resume = json.data.resume || {};
+          setFormData((prev) => ({
+            ...prev,
+            ...Object.fromEntries(Object.entries(resume).filter(([k]) => k in prev)),
+          }));
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch("/api/pages/contact", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "resume", content: formData }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Resume callout saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

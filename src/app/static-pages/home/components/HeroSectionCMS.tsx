@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { InputField } from "@/components/InputField";
 import { PDFUploadField } from "@/components/PDFUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -10,12 +10,6 @@ import toast from "react-hot-toast";
 
 type TrustLogo = { id: string; url: string; alt: string };
 
-const INITIAL_LOGOS: TrustLogo[] = [
-  { id: "logo-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "Client Logo 1" },
-  { id: "logo-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "Client Logo 2" },
-  { id: "logo-3", url: "", alt: "Client Logo 3" },
-];
-
 export function HeroSectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -23,23 +17,45 @@ export function HeroSectionCMS() {
   const bulkInputRef = useRef<HTMLInputElement>(null);
 
   const [formData, setFormData] = useState({
-    headingLine1: "Trusted Kirloskar Generator Dealer",
-    headingLine2: "Certified Dealer for India's Power Needs",
-    descriptionDesktop:
-      "Authorized Channel Distributor | ISO 9001:2015 | 500+ Enterprise Clients | 30+ Years of Uninterrupted Excellence",
-    descriptionMobileLine1: "Authorized Channel Distributor",
-    descriptionMobileLine2: "ISO 9001:2015",
-    descriptionMobileLine3: "500+ Enterprise Clients",
-    descriptionMobileLine4: "30+ Years of Excellence",
-    ctaPrimaryLabel: "Explore Power Solutions",
-    ctaPrimaryUrl: "/products",
-    ctaSecondaryLabel: "Download Profile",
+    headingLine1: "",
+    headingLine2: "",
+    descriptionDesktop: "",
+    descriptionMobileLine1: "",
+    descriptionMobileLine2: "",
+    descriptionMobileLine3: "",
+    descriptionMobileLine4: "",
+    ctaPrimaryLabel: "",
+    ctaPrimaryUrl: "",
+    ctaSecondaryLabel: "",
     companyProfilePdf: "",
-    trustedByLabel: "TRUSTED BY",
+    trustedByLabel: "",
     backgroundVideo: "",
   });
 
-  const [logos, setLogos] = useState<TrustLogo[]>(INITIAL_LOGOS);
+  const [logos, setLogos] = useState<TrustLogo[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/home")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const homeData = json.data;
+          const hero = homeData.hero || homeData["hero"] || {};
+          if (typeof hero === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              ...Object.fromEntries(
+                Object.entries(hero).filter(([k]) => k in prev)
+              ),
+            }));
+            if (Array.isArray(hero.logos)) {
+              setLogos(hero.logos);
+            }
+          }
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleFileUpload = (id: string, file: File) => {
     const reader = new FileReader();
@@ -79,14 +95,27 @@ export function HeroSectionCMS() {
     toast.success("Logo removed");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = {
+        ...formData,
+        logos,
+      };
+      const res = await fetch("/api/pages/home", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "hero", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Hero section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -205,7 +234,7 @@ export function HeroSectionCMS() {
             />
           </div>
 
-          {/* Trusted By Logos - Screenshot Design Format */}
+          {/* Trusted By Logos */}
           <div className="space-y-4 pt-2 border-t border-slate-100">
             <div className="flex items-center justify-between">
               <div>
@@ -226,7 +255,6 @@ export function HeroSectionCMS() {
               </button>
             </div>
 
-            {/* Drag & Drop Bulk Uploader Banner matching standard ImageUploadField */}
             <div
               onClick={() => bulkInputRef.current?.click()}
               onDragOver={(e) => e.preventDefault()}
@@ -259,7 +287,6 @@ export function HeroSectionCMS() {
               onChange={(e) => e.target.files && handleBulkFiles(e.target.files)}
             />
 
-            {/* List of uploaded logos matching screenshot format */}
             <div className="space-y-2.5">
               {logos.map((logo, idx) => (
                 <div
@@ -302,7 +329,6 @@ export function HeroSectionCMS() {
                       />
                     </label>
 
-                    {/* Circular close button matching screenshot */}
                     <button
                       type="button"
                       onClick={() => removeLogo(logo.id)}
@@ -315,8 +341,6 @@ export function HeroSectionCMS() {
                 </div>
               ))}
             </div>
-
-
           </div>
 
           <div className="flex justify-end pt-4 border-t border-slate-100">

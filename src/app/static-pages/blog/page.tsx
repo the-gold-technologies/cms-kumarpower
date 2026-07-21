@@ -26,48 +26,6 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 
-const INITIAL_DEFAULT_BLOGS: BlogItem[] = [
-  {
-    id: "blog-1",
-    title: "Kirloskar Silent Generator for Home and Business: Diesel, Green & DG Set Guide",
-    slug: "kirloskar-silent-generator",
-    category: "Product Guide",
-    author: "Technical Team",
-    publishedDate: "2024-03-15",
-    excerpt: "The Central Pollution Control Board (CPCB) has set strict rules for power generators. Under CPCB IV+ norms, noise level must remain below 75dB(A). Discover how Kirloskar Silent Generators deliver low noise, fuel efficiency, and continuous performance.",
-    content: "<h2>What Is a Silent Generator?</h2><p>A silent generator is a standard diesel or gas generator fitted inside a specially designed acoustic enclosure called a canopy...</p>",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
-    readTime: "5 min read",
-    status: "Published",
-  },
-  {
-    id: "blog-2",
-    title: "Industrial Kirloskar DG Set (750 kVA - 1500 kVA) Technical Guide",
-    slug: "industrial-kirloskar-dg-set-750kva-1500kva",
-    category: "Technical Specs",
-    author: "Engineering Team",
-    publishedDate: "2024-02-20",
-    excerpt: "Technical guide on high-capacity Kirloskar heavy-duty diesel generator sets for manufacturing plants, data centres, hospitals, and infrastructure projects.",
-    content: "<h2>High Capacity Heavy Duty Generators</h2><p>For mission-critical industrial plants, continuous prime power requires robust engineering and high thermal efficiency...</p>",
-    image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop",
-    readTime: "7 min read",
-    status: "Published",
-  },
-  {
-    id: "blog-3",
-    title: "AMF Panel for DG Set: Complete Buying & Technical Installation Guide",
-    slug: "amf-panel-for-dg-set",
-    category: "Installation",
-    author: "Electrical Dept",
-    publishedDate: "2024-01-10",
-    excerpt: "Learn how Automatic Mains Failure (AMF) panels switch generator power automatically during mains outage, protect equipment, and optimize fuel usage.",
-    content: "<h2>Automatic Mains Failure Technology</h2><p>An AMF panel continuously monitors incoming utility power lines. When grid voltage drops, the AMF panel sends an instant start signal...</p>",
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop",
-    readTime: "4 min read",
-    status: "Published",
-  },
-];
-
 export default function StaticBlogCMSPage() {
   const { blogs, saveBlogs, isLoaded } = useCMSStore();
   const [blogList, setBlogList] = useState<BlogItem[]>([]);
@@ -78,9 +36,9 @@ export default function StaticBlogCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(true);
   const [savingHero, setSavingHero] = useState(false);
   const [savedHero, setSavedHero] = useState(false);
-  const [heroTagline, setHeroTagline] = useState("KUMAR POWER BLOG & INSIGHTS");
-  const [heroHeading, setHeroHeading] = useState("Technical Insights, Generator Guides & Power Updates");
-  const [heroSub, setHeroSub] = useState("Stay informed with expert articles on Kirloskar silent generator selection, fuel efficiency tips, CPCB IV+ compliance, and maintenance best practices.");
+  const [heroTagline, setHeroTagline] = useState("");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Articles Section State
@@ -102,24 +60,44 @@ export default function StaticBlogCMSPage() {
   });
 
   useEffect(() => {
-    if (isLoaded) {
-      if (blogs && blogs.length > 0) {
-        setBlogList(blogs);
-      } else {
-        setBlogList(INITIAL_DEFAULT_BLOGS);
-        saveBlogs(INITIAL_DEFAULT_BLOGS);
-      }
+    if (isLoaded && blogs) {
+      setBlogList(blogs);
     }
   }, [isLoaded, blogs]);
 
-  const handleSaveHero = () => {
+  useEffect(() => {
+    fetch("/api/pages/blogs")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const hero = json.data.blogs || json.data;
+          if (hero.heroTagline !== undefined) setHeroTagline(hero.heroTagline);
+          if (hero.heroHeading !== undefined) setHeroHeading(hero.heroHeading);
+          if (hero.heroSub !== undefined) setHeroSub(hero.heroSub);
+          if (hero.heroBg !== undefined) setHeroBg(hero.heroBg);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSaveHero = async () => {
     setSavingHero(true);
-    setTimeout(() => {
-      setSavingHero(false);
+    try {
+      const payload = { heroTagline, heroHeading, heroSub, heroBg };
+      const res = await fetch("/api/pages/blogs", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "blogs", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSavedHero(true);
       toast.success("Blog Landing Header Section Saved!");
       setTimeout(() => setSavedHero(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setSavingHero(false);
+    }
   };
 
   // Helper to generate a clean unique URL / slug

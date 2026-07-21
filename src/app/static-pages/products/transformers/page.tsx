@@ -23,20 +23,6 @@ type TransformerModelCard = {
   brochurePdf: string;
 };
 
-const INITIAL_TRANS_MODELS: TransformerModelCard[] = [
-  {
-    id: "trans-1",
-    name: "Distribution Transformers",
-    range: "100-2500 kVA",
-    cooling: "Oil/Dry",
-    phase: "Three Phase",
-    image: "",
-    description: "Durable and efficient transformers designed for various industrial and commercial applications.",
-    technicalSpecs: "These reliable step-down transformers are crafted for utility and industrial use, featuring a core made from CRGO silicon steel...",
-    brochurePdf: "",
-  },
-];
-
 export default function TransformersCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isModelsOpen, setIsModelsOpen] = useState(false);
@@ -52,17 +38,17 @@ export default function TransformersCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Distribution Transformers Manufacturer in Delhi");
-  const [heroSub, setHeroSub] = useState("High-efficiency step-down distribution transformers engineered for industrial, commercial & utility substations.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Models List
-  const [models, setModels] = useState<TransformerModelCard[]>(INITIAL_TRANS_MODELS);
+  const [models, setModels] = useState<TransformerModelCard[]>([]);
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleModelChange = (id: string, field: keyof TransformerModelCard, val: string) => {
     setModels((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: val } : m)));

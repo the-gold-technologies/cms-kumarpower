@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { ImageUploadField } from "@/components/ImageUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -13,22 +13,46 @@ export function CTASectionCMS() {
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    title: "Need Expert Assistance?",
-    primaryBtnLabel: "Talk to an Expert",
-    primaryBtnUrl: "/contact",
-    whatsappBtnLabel: "Connect on WhatsApp",
-    whatsappNumber: "919773851767",
+    title: "",
+    primaryBtnLabel: "",
+    primaryBtnUrl: "",
+    whatsappBtnLabel: "",
+    whatsappNumber: "",
     backgroundImage: "",
   });
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/pages/home")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const cta = json.data.cta || {};
+          setFormData((prev) => ({
+            ...prev,
+            ...Object.fromEntries(Object.entries(cta).filter(([k]) => k in prev)),
+          }));
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const res = await fetch("/api/pages/home", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "cta", content: formData }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
-      toast.success("CTA Section saved!");
+      toast.success("CTA section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

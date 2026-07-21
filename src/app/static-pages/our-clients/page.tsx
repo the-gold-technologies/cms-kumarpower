@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -21,24 +21,6 @@ type ClientItem = {
   category: string;
 };
 
-const INITIAL_LOGOS: ClientLogo[] = [
-  { id: "logo-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "GMR Infra" },
-  { id: "logo-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "SIS Security" },
-  { id: "logo-3", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "Vistara Airlines" },
-  { id: "logo-4", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "Honeywell" },
-];
-
-const INITIAL_CLIENTS: ClientItem[] = [
-  { id: "c-1", name: "Air India", category: "Aviation & Logistics" },
-  { id: "c-2", name: "Apollo Hospitals", category: "Medical Facilities" },
-  { id: "c-3", name: "GMR Infrastructure", category: "Infrastructure" },
-  { id: "c-4", name: "Honeywell India", category: "Industries" },
-  { id: "c-5", name: "NBCC Limited", category: "CPWD & NBCC Projects" },
-  { id: "c-6", name: "British Paints", category: "Manufacturers/Wholesalers" },
-  { id: "c-7", name: "Vistara Airlines", category: "Aviation & Logistics" },
-  { id: "c-8", name: "MES (Military Engineer Services)", category: "Contractors/Govt Offices" },
-];
-
 export default function OurClientsStaticPageCMS() {
   const bulkLogoInputRef = useRef<HTMLInputElement>(null);
 
@@ -58,16 +40,45 @@ export default function OurClientsStaticPageCMS() {
   const [savedClients, setSavedClients] = useState(false);
 
   // Stats Metrics
-  const [stat1Num, setStat1Num] = useState("500+");
-  const [stat1Text, setStat1Text] = useState("Enterprise Clients");
-  const [stat2Num, setStat2Num] = useState("30+");
-  const [stat2Text, setStat2Text] = useState("Years of Service");
-  const [stat3Num, setStat3Num] = useState("10000+");
-  const [stat3Text, setStat3Text] = useState("Installations Across India");
+  const [stat1Num, setStat1Num] = useState("");
+  const [stat1Text, setStat1Text] = useState("");
+  const [stat2Num, setStat2Num] = useState("");
+  const [stat2Text, setStat2Text] = useState("");
+  const [stat3Num, setStat3Num] = useState("");
+  const [stat3Text, setStat3Text] = useState("");
 
   // Client Logos & Portfolio
-  const [logos, setLogos] = useState<ClientLogo[]>(INITIAL_LOGOS);
-  const [clients, setClients] = useState<ClientItem[]>(INITIAL_CLIENTS);
+  const [logos, setLogos] = useState<ClientLogo[]>([]);
+  const [clients, setClients] = useState<ClientItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/our-clients")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const data = json.data["our-clients"] || {};
+          if (data.stat1Num !== undefined) setStat1Num(data.stat1Num);
+          if (data.stat1Text !== undefined) setStat1Text(data.stat1Text);
+          if (data.stat2Num !== undefined) setStat2Num(data.stat2Num);
+          if (data.stat2Text !== undefined) setStat2Text(data.stat2Text);
+          if (data.stat3Num !== undefined) setStat3Num(data.stat3Num);
+          if (data.stat3Text !== undefined) setStat3Text(data.stat3Text);
+          if (Array.isArray(data.logos)) setLogos(data.logos);
+          if (Array.isArray(data.clients)) setClients(data.clients);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const saveAllToDB = async () => {
+    const payload = { stat1Num, stat1Text, stat2Num, stat2Text, stat3Num, stat3Text, logos, clients };
+    const res = await fetch("/api/pages/our-clients", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ section: "our-clients", content: payload }),
+    });
+    if (!res.ok) throw new Error("Save failed");
+  };
 
   const handleBulkLogoFiles = (files: FileList | File[]) => {
     Array.from(files).forEach((file) => {
@@ -119,35 +130,11 @@ export default function OurClientsStaticPageCMS() {
     toast.success("Client entry removed");
   };
 
-  const handleSaveStats = () => {
-    setSavingStats(true);
-    setTimeout(() => {
-      setSavingStats(false);
-      setSavedStats(true);
-      toast.success("Achievement stats saved!");
-      setTimeout(() => setSavedStats(false), 2000);
-    }, 400);
-  };
+  const handleSaveStats = async () => { setSavingStats(true); try { await saveAllToDB(); setSavedStats(true); toast.success("Stats saved!"); setTimeout(() => setSavedStats(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingStats(false); } };
 
-  const handleSaveLogos = () => {
-    setSavingLogos(true);
-    setTimeout(() => {
-      setSavingLogos(false);
-      setSavedLogos(true);
-      toast.success("Client logos saved!");
-      setTimeout(() => setSavedLogos(false), 2000);
-    }, 400);
-  };
+  const handleSaveLogos = async () => { setSavingLogos(true); try { await saveAllToDB(); setSavedLogos(true); toast.success("Logos saved!"); setTimeout(() => setSavedLogos(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingLogos(false); } };
 
-  const handleSaveClients = () => {
-    setSavingClients(true);
-    setTimeout(() => {
-      setSavingClients(false);
-      setSavedClients(true);
-      toast.success("Client category list saved!");
-      setTimeout(() => setSavedClients(false), 2000);
-    }, 400);
-  };
+  const handleSaveClients = async () => { setSavingClients(true); try { await saveAllToDB(); setSavedClients(true); toast.success("Clients saved!"); setTimeout(() => setSavedClients(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingClients(false); } };
 
   return (
     <div className="flex flex-col gap-6 pb-12">

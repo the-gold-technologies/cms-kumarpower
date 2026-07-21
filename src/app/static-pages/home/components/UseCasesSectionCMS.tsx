@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -14,50 +14,30 @@ type UseCaseItem = {
   text: string;
 };
 
-const INITIAL_ITEMS: UseCaseItem[] = [
-  {
-    id: "uc-1",
-    title: "Power Outages and Load Shedding",
-    text: "Despite robust infrastructure, metro areas still experience power outages caused by high demand, technical issues, maintenance work, grid failures, natural disasters, and peak-demand overload. Generators provide a reliable backup power source to maintain continuity during these interruptions. Kirloskar generators ensure an uninterrupted power supply, enabling homes, offices, and businesses to operate smoothly.",
-  },
-  {
-    id: "uc-2",
-    title: "High-Demand Areas",
-    text: "Metro cities are hubs for businesses, industries, commercial buildings, hospitals, malls, data centers, and IT companies—all of which require continuous power to avoid operational disruptions. Kirloskar generators offer a dependable solution, minimizing downtime and preventing losses by maintaining essential services during power fluctuations.",
-  },
-  {
-    id: "uc-3",
-    title: "Dependability for Events and Functions",
-    text: "Generators are essential for events such as weddings, concerts, public gatherings, construction projects, and outdoor activities where access to the power grid may be limited. In these situations, a stable power supply is crucial for lighting, sound systems, and equipment. Kirloskar generators ensure smooth operations, particularly for outdoor or temporary venues.",
-  },
-  {
-    id: "uc-4",
-    title: "Backup for Critical Appliances",
-    text: "Households often need generators to keep essential appliances running during outages, such as refrigerators, medical equipment, air conditioners, and security systems. This helps maintain safety and convenience during unexpected power cuts.",
-  },
-  {
-    id: "uc-5",
-    title: "Increased Usage During Monsoon Season",
-    text: "Heavy rains and storms frequently disrupt power lines in metro cities, resulting in power outages. Generators help reduce the impact of these disruptions on both businesses and homes, providing a stable power solution during the monsoon months.",
-  },
-  {
-    id: "uc-6",
-    title: "Urbanization and Infrastructure Stress",
-    text: "Rapid urbanization places stress on existing power grids, occasionally leading to shortages or planned outages. Additionally, large-scale construction projects require a stable electricity supply to power tools and machinery, which may not always be accessible on-site. Generators are vital in supporting these urban growth needs, ensuring continuous development.",
-  },
-];
-
 export function UseCasesSectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [headingLine1, setHeadingLine1] = useState("Power Solutions");
-  const [headingLine2, setHeadingLine2] = useState("for Metro Cities");
-  const [footerQuote, setFooterQuote] = useState(
-    "Kirloskar generators, with their reliable performance and versatility, are well-suited to meet the unique demands of metro city environments."
-  );
-  const [items, setItems] = useState<UseCaseItem[]>(INITIAL_ITEMS);
+  const [headingLine1, setHeadingLine1] = useState("");
+  const [headingLine2, setHeadingLine2] = useState("");
+  const [footerQuote, setFooterQuote] = useState("");
+  const [items, setItems] = useState<UseCaseItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/home")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const uc = json.data["use-cases"] || {};
+          if (uc.headingLine1 !== undefined) setHeadingLine1(uc.headingLine1);
+          if (uc.headingLine2 !== undefined) setHeadingLine2(uc.headingLine2);
+          if (uc.footerQuote !== undefined) setFooterQuote(uc.footerQuote);
+          if (Array.isArray(uc.items)) setItems(uc.items);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleItemChange = (id: string, field: keyof UseCaseItem, val: string) => {
     setItems((prev) => prev.map((it) => (it.id === id ? { ...it, [field]: val } : it)));
@@ -74,14 +54,24 @@ export function UseCasesSectionCMS() {
     toast.success("Use case removed");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { headingLine1, headingLine2, footerQuote, items };
+      const res = await fetch("/api/pages/home", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "use-cases", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Use Cases section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

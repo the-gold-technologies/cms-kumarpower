@@ -7,11 +7,31 @@ export async function GET() {
       where: { slug: "home" },
       include: { sections: true },
     });
-    return NextResponse.json({ success: true, data: page });
+
+    if (!page) {
+      return NextResponse.json({ success: true, data: {} });
+    }
+
+    const sectionsMap: Record<string, unknown> = {};
+    if (page.sections) {
+      for (const section of page.sections) {
+        sectionsMap[section.type] = section.content;
+      }
+    }
+
+    return NextResponse.json({
+      success: true,
+      data: {
+        ...sectionsMap,
+        page,
+        sections: page.sections,
+      },
+    });
   } catch (error) {
-    console.warn(
-      "PostgreSQL not active or unreachable, returning initial data:",
-      error,
+    console.error("GET /api/home error:", error);
+    return NextResponse.json(
+      { success: false, error: "Database query error" },
+      { status: 500 }
     );
   }
 }
@@ -48,7 +68,7 @@ export async function POST(req: Request) {
     console.error("Database save error:", error);
     return NextResponse.json(
       { success: false, message: "Database save error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

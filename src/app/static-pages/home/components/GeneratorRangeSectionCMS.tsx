@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -24,81 +24,6 @@ const CATEGORIES = [
   "Gas Generators",
   "Portable Generators",
   "Optiprime",
-];
-
-const INITIAL_CARDS: GeneratorCard[] = [
-  {
-    id: "gen-1",
-    title: "Kirloskar Optiprime Generator (125 – 6600 kVA)",
-    caption: "High-output Kirloskar Optiprime engineered for mission-critical facilities.",
-    category: "Optiprime",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-2",
-    title: "Kirloskar Gas Generator (15 – 250 kVA)",
-    caption: "Clean, efficient power for commercial and industrial applications.",
-    category: "Gas Generators",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-3",
-    title: "Kirloskar CPCB4+ Diesel Generator (7.5 – 20 kVA)",
-    caption: "Portable power for events, remote sites, and emergency backup.",
-    category: "CPCB4+ Diesel Generators",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-4",
-    title: "Kirloskar CPCB4+ Diesel Generator (25 – 58.5 kVA)",
-    caption: "Balanced performance for medium-scale industrial needs.",
-    category: "CPCB4+ Diesel Generators",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-5",
-    title: "Kirloskar CPCB4+ Diesel Generator (82.5 – 160 kVA)",
-    caption: "Scalable solutions with robust service network coverage.",
-    category: "CPCB4+ Diesel Generators",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-6",
-    title: "Kirloskar CPCB4+ Diesel Generator (200 – 250 kVA)",
-    caption: "Versatile DG sets for plants, campuses, and commercial towers.",
-    category: "CPCB4+ Diesel Generators",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-7",
-    title: "Kirloskar CPCB4+ Diesel Generator (320 – 750 kVA)",
-    caption: "Durable, high-efficiency backup for industries and campuses.",
-    category: "CPCB4+ Diesel Generators",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-8",
-    title: "Kirloskar CPCB4+ Diesel Generator (750 – 1500 kVA)",
-    caption: "Low-emission, reliable diesel generator for versatile use.",
-    category: "CPCB4+ Diesel Generators",
-    image: "",
-    brochureUrl: "",
-  },
-  {
-    id: "gen-9",
-    title: "Kirloskar Portable Generator (2.1 – 5 kVA)",
-    caption: "Compact portable power for small-scale events, sites, and emergency use.",
-    category: "Portable Generators",
-    image: "",
-    brochureUrl: "",
-  },
 ];
 
 function GeneratorCardForm({
@@ -214,11 +139,23 @@ export function GeneratorRangeSectionCMS() {
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [sectionTitle, setSectionTitle] = useState("Explore Our Generator Range");
-  const [sectionDesc, setSectionDesc] = useState(
-    "Kirloskar-certified systems tailored for industrial, commercial, and backup applications. Download brochures for detailed specifications."
-  );
-  const [cards, setCards] = useState<GeneratorCard[]>(INITIAL_CARDS);
+  const [sectionTitle, setSectionTitle] = useState("");
+  const [sectionDesc, setSectionDesc] = useState("");
+  const [cards, setCards] = useState<GeneratorCard[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/home")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const genRange = json.data["generator-range"] || {};
+          if (genRange.sectionTitle !== undefined) setSectionTitle(genRange.sectionTitle);
+          if (genRange.sectionDesc !== undefined) setSectionDesc(genRange.sectionDesc);
+          if (Array.isArray(genRange.cards)) setCards(genRange.cards);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleCardChange = (id: string, field: keyof GeneratorCard, value: string) => {
     setCards((prev) =>
@@ -245,14 +182,24 @@ export function GeneratorRangeSectionCMS() {
     toast.success("Generator card removed");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { sectionTitle, sectionDesc, cards };
+      const res = await fetch("/api/pages/home", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "generator-range", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Generator Range section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -12,21 +12,44 @@ export function AboutCTASectionCMS() {
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [ctaTitle, setCtaTitle] = useState("Ready to Power Your Business?");
-  const [ctaDesc, setCtaDesc] = useState(
-    "Contact us today for a consultation and discover how Kumar Generator House can provide reliable power solutions tailored to your needs."
-  );
-  const [ctaBtnLabel, setCtaBtnLabel] = useState("Get in Touch →");
-  const [ctaBtnUrl, setCtaBtnUrl] = useState("/contact");
+  const [ctaTitle, setCtaTitle] = useState("");
+  const [ctaDesc, setCtaDesc] = useState("");
+  const [ctaBtnLabel, setCtaBtnLabel] = useState("");
+  const [ctaBtnUrl, setCtaBtnUrl] = useState("");
 
-  const handleSave = () => {
+  useEffect(() => {
+    fetch("/api/pages/our-profile")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const cta = json.data.cta || {};
+          if (cta.ctaTitle !== undefined) setCtaTitle(cta.ctaTitle);
+          if (cta.ctaDesc !== undefined) setCtaDesc(cta.ctaDesc);
+          if (cta.ctaBtnLabel !== undefined) setCtaBtnLabel(cta.ctaBtnLabel);
+          if (cta.ctaBtnUrl !== undefined) setCtaBtnUrl(cta.ctaBtnUrl);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { ctaTitle, ctaDesc, ctaBtnLabel, ctaBtnUrl };
+      const res = await fetch("/api/pages/our-profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "cta", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Bottom CTA section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

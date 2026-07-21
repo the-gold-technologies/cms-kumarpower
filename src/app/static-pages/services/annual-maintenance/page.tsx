@@ -27,57 +27,6 @@ type FaqItem = {
   answer: string;
 };
 
-const INITIAL_PLANS: AmcPlanCard[] = [
-  {
-    id: "plan-1",
-    name: "Basic AMC Plan",
-    price: "Custom",
-    period: "Annual",
-    visits: "Quarterly (4 visits/yr)",
-    response: "48 hours guaranteed",
-    partsCovered: "Essential consumables & basic filters",
-    features: "Preventive inspections, oil checks, basic filter cleaning & priority phone support",
-  },
-  {
-    id: "plan-2",
-    name: "Standard AMC Plan",
-    price: "Custom",
-    period: "Annual",
-    visits: "Bi-monthly (6 visits/yr)",
-    response: "24 hours guaranteed",
-    partsCovered: "Common wear components & major filters",
-    features: "Scheduled servicing, battery checks, fluid replacements & 24hr technician dispatch",
-  },
-  {
-    id: "plan-3",
-    name: "Premium AMC Plan",
-    price: "Custom",
-    period: "Annual",
-    visits: "Monthly (12 visits/yr)",
-    response: "12 hours guaranteed",
-    partsCovered: "Comprehensive parts & electrical controls",
-    features: "24/7 dedicated engineer, emergency calls included, full engine tune-ups & IoT health report",
-  },
-];
-
-const INITIAL_FAQS: FaqItem[] = [
-  {
-    id: "faq-1",
-    question: "What does the Annual Maintenance Contract cover?",
-    answer: "Our AMC covers scheduled preventive maintenance visits, troubleshooting, repairs, part replacements as per the selected plan, technical support, and emergency response services.",
-  },
-  {
-    id: "faq-2",
-    question: "How often will maintenance be performed?",
-    answer: "Maintenance frequency depends on your selected plan: Basic AMC includes quarterly visits, Standard AMC includes bi-monthly visits, and Premium AMC includes monthly visits.",
-  },
-  {
-    id: "faq-3",
-    question: "What is the emergency response time?",
-    answer: "Emergency response times vary by plan: Basic AMC ensures 48-hour response, Standard AMC provides 24-hour response, and Premium AMC guarantees 12-hour response.",
-  },
-];
-
 export default function AnnualMaintenanceCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isPlansOpen, setIsPlansOpen] = useState(false);
@@ -93,16 +42,16 @@ export default function AnnualMaintenanceCMSPage() {
   const [savedFaqs, setSavedFaqs] = useState(false);
 
   // Hero Section
-  const [heroTagline, setHeroTagline] = useState("ANNUAL MAINTENANCE CONTRACTS");
-  const [heroHeading, setHeroHeading] = useState("Preventive Care for Uninterrupted Power");
-  const [heroSub, setHeroSub] = useState("Ensure maximum uptime and equipment longevity with our comprehensive maintenance solutions tailored for Kirloskar DG sets.");
+  const [heroTagline, setHeroTagline] = useState("");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Plans List
-  const [plans, setPlans] = useState<AmcPlanCard[]>(INITIAL_PLANS);
+  const [plans, setPlans] = useState<AmcPlanCard[]>([]);
 
   // FAQs List
-  const [faqs, setFaqs] = useState<FaqItem[]>(INITIAL_FAQS);
+  const [faqs, setFaqs] = useState<FaqItem[]>([]);
 
   const handlePlanChange = (id: string, field: keyof AmcPlanCard, val: string) => {
     setPlans((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));

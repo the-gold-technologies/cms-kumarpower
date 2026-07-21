@@ -29,95 +29,6 @@ type FeatureCard = {
   description: string;
 };
 
-const INITIAL_CATEGORIES: ProductCategory[] = [
-  {
-    id: "cat-1",
-    name: "Kirloskar Diesel Generators",
-    range: "7.5 kVA to 20 kVA",
-    fuelType: "Diesel",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    image: "",
-    description: "Our range of diesel generators are designed for maximum performance and reliability. Meets latest CPCB-IV+ norms.",
-    productLink: "/products/kirloskar-diesel-generator",
-  },
-  {
-    id: "cat-2",
-    name: "Kirloskar Gas Generators",
-    range: "15 kVA to 250 kVA",
-    fuelType: "Natural Gas/CNG",
-    cooling: "Liquid",
-    phase: "Single/Three Phase",
-    image: "",
-    description: "Eco-friendly and efficient gas generators providing clean power with lower emissions and reduced operating costs.",
-    productLink: "/products/kirloskar-gas-generator",
-  },
-  {
-    id: "cat-3",
-    name: "Kirloskar Portable Generators",
-    range: "2.1 kVA to 5 kVA",
-    fuelType: "Gasoline",
-    cooling: "Air",
-    phase: "Single Phase",
-    image: "",
-    description: "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
-    productLink: "/products/kirloskar-portable-generator",
-  },
-  {
-    id: "cat-4",
-    name: "Kirloskar Optiprime Generator",
-    range: "100 kVA",
-    fuelType: "Diesel",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    image: "",
-    description: "Advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
-    productLink: "/products/optiprime",
-  },
-  {
-    id: "cat-5",
-    name: "AMF Panels",
-    range: "Various",
-    fuelType: "N/A",
-    cooling: "Fan/Natural",
-    phase: "Three Phase",
-    image: "",
-    description: "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
-    productLink: "/products/panels",
-  },
-  {
-    id: "cat-6",
-    name: "Oil Cooled Servo Stabilizers",
-    range: "5-100 kVA",
-    fuelType: "N/A",
-    cooling: "Air/Oil",
-    phase: "Single Phase",
-    image: "",
-    description: "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
-    productLink: "/products/servo-stabilizer",
-  },
-  {
-    id: "cat-7",
-    name: "Distribution Transformers",
-    range: "100-2500 kVA",
-    fuelType: "N/A",
-    cooling: "Oil/Dry",
-    phase: "Three Phase",
-    image: "",
-    description: "Durable and efficient transformers designed for various industrial and commercial applications.",
-    productLink: "/products/transformers",
-  },
-];
-
-const INITIAL_FEATURES: FeatureCard[] = [
-  { id: "feat-1", title: "Unmatched Reliability", description: "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms." },
-  { id: "feat-2", title: "Fuel Efficiency", description: "Advanced engine technology delivers optimal fuel consumption and lower operating costs." },
-  { id: "feat-3", title: "Rapid Response", description: "Quick start capability ensures minimal downtime during power outages." },
-  { id: "feat-4", title: "Low Noise Operation", description: "Acoustic engineering reduces noise levels for urban and sensitive environments." },
-  { id: "feat-5", title: "Easy Maintenance", description: "Modular design with accessible components simplifies service and maintenance." },
-  { id: "feat-6", title: "Smart Controls", description: "Advanced digital interfaces with remote monitoring and diagnostic capabilities." },
-];
-
 export default function ProductsStaticPageCMS() {
   // Section Open states
   const [isHeroOpen, setIsHeroOpen] = useState(false);
@@ -143,31 +54,31 @@ export default function ProductsStaticPageCMS() {
   const [savedCta, setSavedCta] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Powering Progress, One Generator at a Time");
-  const [heroSub, setHeroSub] = useState("Explore our full range of Kirloskar-certified diesel generators, trusted across India's most demanding industries.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
   const [heroCataloguePdf, setHeroCataloguePdf] = useState("");
-  const [heroPrimaryCtaLabel, setHeroPrimaryCtaLabel] = useState("Request a Quote");
-  const [heroPrimaryCtaUrl, setHeroPrimaryCtaUrl] = useState("/contact");
+  const [heroPrimaryCtaLabel, setHeroPrimaryCtaLabel] = useState("");
+  const [heroPrimaryCtaUrl, setHeroPrimaryCtaUrl] = useState("");
 
   // Product Categories
-  const [categories, setCategories] = useState<ProductCategory[]>(INITIAL_CATEGORIES);
+  const [categories, setCategories] = useState<ProductCategory[]>([]);
 
   // Compliance PDFs
   const [bharatPdf, setBharatPdf] = useState("");
   const [direction76Pdf, setDirection76Pdf] = useState("");
 
   // Why Choose Features
-  const [features, setFeatures] = useState<FeatureCard[]>(INITIAL_FEATURES);
+  const [features, setFeatures] = useState<FeatureCard[]>([]);
 
   // Bottom CTA Section
-  const [ctaTitle, setCtaTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [ctaDesc, setCtaDesc] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [ctaPrimaryBtnLabel, setCtaPrimaryBtnLabel] = useState("Talk to an Expert");
-  const [ctaPrimaryBtnUrl, setCtaPrimaryBtnUrl] = useState("/contact");
-  const [ctaSecondaryBtnLabel, setCtaSecondaryBtnLabel] = useState("Request Quote");
-  const [ctaSecondaryBtnUrl, setCtaSecondaryBtnUrl] = useState("/contact");
-  const [ctaPhoneHotline, setCtaPhoneHotline] = useState("+919773877796");
+  const [ctaTitle, setCtaTitle] = useState("");
+  const [ctaDesc, setCtaDesc] = useState("");
+  const [ctaPrimaryBtnLabel, setCtaPrimaryBtnLabel] = useState("");
+  const [ctaPrimaryBtnUrl, setCtaPrimaryBtnUrl] = useState("");
+  const [ctaSecondaryBtnLabel, setCtaSecondaryBtnLabel] = useState("");
+  const [ctaSecondaryBtnUrl, setCtaSecondaryBtnUrl] = useState("");
+  const [ctaPhoneHotline, setCtaPhoneHotline] = useState("");
 
   const handleCategoryChange = (id: string, field: keyof ProductCategory, val: string) => {
     setCategories((prev) => prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)));

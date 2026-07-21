@@ -27,24 +27,6 @@ type OptiprimeModelCard = {
   brochurePdf: string;
 };
 
-const INITIAL_OPTIPRIME_MODELS: OptiprimeModelCard[] = [
-  {
-    id: "opti-1",
-    name: "Kirloskar Optiprime Series Generators",
-    range: "100 kVA - 2020 kVA",
-    fuelType: "Diesel",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Liquid",
-    phase: "Three Phase",
-    rating: "4.8",
-    ratingCount: "195",
-    image: "",
-    description: "Advanced generators offering superior fuel efficiency, IoT integration, and smart monitoring for optimized performance.",
-    technicalSpecs: "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology...",
-    brochurePdf: "",
-  },
-];
-
 export default function OptiprimeCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isModelsOpen, setIsModelsOpen] = useState(false);
@@ -60,17 +42,17 @@ export default function OptiprimeCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Kirloskar Optiprime Series Generators");
-  const [heroSub, setHeroSub] = useState("Next-generation smart power solutions engineered for max fuel economy, predictive maintenance, and IoT telemetry.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Models List
-  const [models, setModels] = useState<OptiprimeModelCard[]>(INITIAL_OPTIPRIME_MODELS);
+  const [models, setModels] = useState<OptiprimeModelCard[]>([]);
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleModelChange = (id: string, field: keyof OptiprimeModelCard, val: string) => {
     setModels((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: val } : m)));

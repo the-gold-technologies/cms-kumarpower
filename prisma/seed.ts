@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log("🌱 Starting database seed (matching ENCO TECH CMS architecture)...");
+  console.log("🌱 Starting database seed for Kumarpower CMS...");
 
   // 1. Clean existing database
   try {
@@ -16,7 +16,7 @@ async function main() {
     await prisma.user.deleteMany({});
     console.log("🧹 Cleaned existing database tables.");
   } catch (err) {
-    console.warn("Table cleanup skipped or tables not created yet:", err);
+    console.warn("Table cleanup skipped:", err);
   }
 
   // 2. Create Default Admin User
@@ -157,7 +157,7 @@ async function main() {
     console.warn("Enquiries seed skipped:", err);
   }
 
-  // 6. Create Static Pages and Sections
+  // 6. Create Static Pages and Sections with EXACT fields matching CMS forms
   const staticPages = [
     {
       title: "Home Page",
@@ -173,17 +173,296 @@ async function main() {
           type: "hero",
           order: 1,
           content: {
-            title: "Powering India with Kirloskar Reliability",
-            subtitle: "Authorized Dealer of Kirloskar Green CPCB IV+ Silent Diesel Generators, Gas Gensets & Turnkey Power Solutions",
-            ctaPrimary: "Request a Quote",
-            ctaSecondary: "Explore Products",
-            bannerImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
-            stats: [
-              { label: "Years of Excellence", value: "35+" },
-              { label: "Generators Installed", value: "12,500+" },
-              { label: "Happy Clients", value: "8,000+" },
-              { label: "Service Response SLA", value: "< 60 Mins" },
+            headingLine1: "Trusted Kirloskar Generator Dealer",
+            headingLine2: "Certified Dealer for India's Power Needs",
+            descriptionDesktop: "Authorized Channel Distributor | ISO 9001:2015 | 500+ Enterprise Clients | 30+ Years of Uninterrupted Excellence",
+            descriptionMobileLine1: "Authorized Channel Distributor",
+            descriptionMobileLine2: "ISO 9001:2015",
+            descriptionMobileLine3: "500+ Enterprise Clients",
+            descriptionMobileLine4: "30+ Years of Excellence",
+            ctaPrimaryLabel: "Explore Power Solutions",
+            ctaPrimaryUrl: "/products",
+            ctaSecondaryLabel: "Download Profile",
+            companyProfilePdf: "",
+            trustedByLabel: "TRUSTED BY",
+            backgroundVideo: "",
+            logos: [
+              { id: "logo-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "Client Logo 1" },
+              { id: "logo-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "Client Logo 2" },
             ],
+          },
+        },
+        {
+          id: "sec-home-about",
+          type: "about",
+          order: 2,
+          content: {
+            bannerTitle: "ABOUT KUMAR POWER",
+            bannerSubtitle: "Powering Progress.",
+            mainHeadingLine1: "Engineering India's",
+            mainHeadingLine2: "Energy Backbone.",
+            description: "For over 30+ years, Kumar Power has engineered uninterrupted power across India's industries, infrastructure, and institutions. With Kirloskar certification and ISO 9001:2015 accreditation, we serve 500+ enterprise clients with unmatched reliability and scale.",
+            feature1: "Kirloskar Authorized Distributor",
+            feature2: "24/7 Service Infrastructure",
+            feature3: "500+ Enterprise Clients",
+            feature4: "ISO 9001:2015 Accredited",
+            ctaLabel: "Explore Our Legacy",
+            ctaUrl: "/about/OurProfile",
+            teamImage: "",
+          },
+        },
+        {
+          id: "sec-home-generator-range",
+          type: "generator-range",
+          order: 3,
+          content: {
+            sectionTitle: "Explore Our Generator Range",
+            sectionDesc: "Kirloskar-certified systems tailored for industrial, commercial, and backup applications. Download brochures for detailed specifications.",
+            cards: [
+              { id: "gen-1", title: "Kirloskar Optiprime Generator (125 – 6600 kVA)", caption: "High-output Kirloskar Optiprime engineered for mission-critical facilities.", category: "Optiprime", image: "", brochureUrl: "" },
+              { id: "gen-2", title: "Kirloskar Gas Generator (15 – 250 kVA)", caption: "Clean, efficient power for commercial and industrial applications.", category: "Gas Generators", image: "", brochureUrl: "" },
+              { id: "gen-3", title: "Kirloskar CPCB4+ Diesel Generator (7.5 – 20 kVA)", caption: "Portable power for events, remote sites, and emergency backup.", category: "CPCB4+ Diesel Generators", image: "", brochureUrl: "" },
+              { id: "gen-4", title: "Kirloskar CPCB4+ Diesel Generator (25 – 58.5 kVA)", caption: "Balanced performance for medium-scale industrial needs.", category: "CPCB4+ Diesel Generators", image: "", brochureUrl: "" },
+              { id: "gen-5", title: "Kirloskar CPCB4+ Diesel Generator (82.5 – 160 kVA)", caption: "Scalable solutions with robust service network coverage.", category: "CPCB4+ Diesel Generators", image: "", brochureUrl: "" },
+              { id: "gen-6", title: "Kirloskar CPCB4+ Diesel Generator (200 – 250 kVA)", caption: "Versatile DG sets for plants, campuses, and commercial towers.", category: "CPCB4+ Diesel Generators", image: "", brochureUrl: "" },
+              { id: "gen-7", title: "Kirloskar CPCB4+ Diesel Generator (320 – 750 kVA)", caption: "Durable, high-efficiency backup for industries and campuses.", category: "CPCB4+ Diesel Generators", image: "", brochureUrl: "" },
+              { id: "gen-8", title: "Kirloskar CPCB4+ Diesel Generator (750 – 1500 kVA)", caption: "Low-emission, reliable diesel generator for versatile use.", category: "CPCB4+ Diesel Generators", image: "", brochureUrl: "" },
+              { id: "gen-9", title: "Kirloskar Portable Generator (2.1 – 5 kVA)", caption: "Compact portable power for small-scale events, sites, and emergency use.", category: "Portable Generators", image: "", brochureUrl: "" },
+            ],
+          },
+        },
+        {
+          id: "sec-home-cta",
+          type: "cta",
+          order: 4,
+          content: {
+            title: "Need Expert Assistance?",
+            primaryBtnLabel: "Talk to an Expert",
+            primaryBtnUrl: "/contact",
+            whatsappBtnLabel: "Connect on WhatsApp",
+            whatsappNumber: "919773851767",
+            backgroundImage: "",
+          },
+        },
+        {
+          id: "sec-home-power-solutions",
+          type: "power-solutions",
+          order: 5,
+          content: {
+            topBannerImg: "",
+            sectionTitle: "Power Solutions",
+            assocTitle: "Members of Associations",
+            assocSubtitle: "Certified and recognized by leading industry organizations for quality and excellence",
+            assocLogos: [
+              { id: "assoc-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121853_okz8x7.png", alt: "Association Member 1" },
+              { id: "assoc-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121836_ayhhxd.png", alt: "Association Member 2" },
+              { id: "assoc-3", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121914_yztxrf.png", alt: "Association Member 3" },
+              { id: "assoc-4", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121748_ihrukv.png", alt: "Association Member 4" },
+            ],
+            actionTitle: "Power in Action",
+            products: [
+              { id: "ps-1", category: "CPCB4+ Diesel Generator", title: "CPCB4+ Diesel Generators( 7.5 kVA - 20 kVA)", desc: "Compact CPCB4+ compliant diesel generators designed for small businesses and commercial setups.", specs: "Range: 7.5 kVA - 20 kVA, CPCB Norm: CPCB4+ Emission Compliance, Fuel: Diesel, Cooling: Liquid, Phase: Three Phase", img: "", brochureUrl: "" },
+              { id: "ps-2", category: "CPCB4+ Diesel Generator", title: "CPCB4+ Diesel Generators(25 kVA - 58.5 kVA)", desc: "Reliable CPCB4+ emission compliant diesel generators with advanced liquid cooling for efficient performance.", specs: "Range: 25 kVA - 58.5 kVA, CPCB Norm: CPCB4+ Emission Compliance, Fuel: Diesel, Cooling: Liquid, Phase: Three Phase", img: "", brochureUrl: "" },
+              { id: "ps-3", category: "Optiprime Generators", title: "Kirloskar Optiprime Generator", desc: "Advanced diesel generators with CPCB4+ compliance, offering superior fuel efficiency and eco-friendly operations.", specs: "125 kva - 6600 kva, CPCB4+ Compliant, 3 Phase Output, Fuel: Diesel", img: "", brochureUrl: "" },
+            ],
+          },
+        },
+        {
+          id: "sec-home-use-cases",
+          type: "use-cases",
+          order: 6,
+          content: {
+            headingLine1: "Power Solutions",
+            headingLine2: "for Metro Cities",
+            footerQuote: "Kirloskar generators, with their reliable performance and versatility, are well-suited to meet the unique demands of metro city environments.",
+            items: [
+              { id: "uc-1", title: "Power Outages and Load Shedding", text: "Despite robust infrastructure, metro areas still experience power outages caused by high demand, technical issues, maintenance work, grid failures, natural disasters, and peak-demand overload." },
+              { id: "uc-2", title: "High-Demand Areas", text: "Metro cities are hubs for businesses, industries, commercial buildings, hospitals, malls, data centers, and IT companies—all of which require continuous power." },
+              { id: "uc-3", title: "Dependability for Events and Functions", text: "Generators are essential for events such as weddings, concerts, public gatherings, construction projects, and outdoor activities." },
+              { id: "uc-4", title: "Backup for Critical Appliances", text: "Households often need generators to keep essential appliances running during outages, such as refrigerators, medical equipment, and security systems." },
+              { id: "uc-5", title: "Increased Usage During Monsoon Season", text: "Heavy rains and storms frequently disrupt power lines in metro cities, resulting in power outages. Generators help reduce the impact of these disruptions." },
+              { id: "uc-6", title: "Urbanization and Infrastructure Stress", text: "Rapid urbanization places stress on existing power grids, occasionally leading to shortages or planned outages." },
+            ],
+          },
+        },
+        {
+          id: "sec-home-gallery",
+          type: "gallery",
+          order: 7,
+          content: {
+            title: "Photo Gallery",
+            subtitle: "Explore our installations, equipment, and team in action through these images",
+            images: [
+              { id: "img-1", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery1_uhk3zd.png", caption: "Gallery image 1" },
+              { id: "img-2", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery2_ei3h9z.png", caption: "Gallery image 2" },
+              { id: "img-3", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175176/gallery3_dcqffp.png", caption: "Gallery image 3" },
+              { id: "img-4", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175202/gallery4_nwutsh.png", caption: "Gallery image 4" },
+              { id: "img-5", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175196/gallery5_zlyhc4.png", caption: "Gallery image 5" },
+              { id: "img-6", url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175198/gallery6_ulastu.png", caption: "Gallery image 6" },
+            ],
+          },
+        },
+        {
+          id: "sec-home-testimonials",
+          type: "testimonials",
+          order: 8,
+          content: {
+            heading: "Real Stories. Real Power.",
+            subtitle: "Hear how our generators keep India powered — from Fortune 500 factories to city hospitals.",
+            items: [
+              { id: "test-1", headerTitle: "TESTIMONIAL BY POOJA JAIN - SHIKHERJEE JEWELLERS", name: "Pooja Jain", role: "Shikherjee Jewellers", quote: "At Vilandl, we make bespoke Polki jewellery... Mr Jain was very happy to work with M/s Kumar Generator House and highly recommends his services.", logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761903094/Screenshot_2025-10-31_145916_tf6wvg.png" },
+              { id: "test-2", headerTitle: "TESTIMONIAL BY AANCHAL SAINI, AARK WORLD PVT. LTD.", name: "Aanchal Saini", role: "AARK World Pvt. Ltd.", quote: "RENT IT BAE is a luxury fashion rental service... The products were delivered and installed within 24 hours.", logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761903093/download_v9kdua.png" },
+              { id: "test-3", headerTitle: "TESTIMONIAL BY BHARAT ANAND - BROWN GOLD", name: "Bharat Anand", role: "BROWNGOLD", quote: "We at BROWNGOLD are a team of young & dynamic interior designers... We would not hesitate to recommend Kumar Generator House.", logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902474/Gemini_Generated_Image_1je1r11je1r11je1_ksybnh.png" },
+            ],
+          },
+        },
+        {
+          id: "sec-home-blog",
+          type: "blog",
+          order: 9,
+          content: {
+            title: "Blogs",
+            subtitle: "Explore expert articles, case studies, and latest trends in industrial power solutions.",
+            maxPostsDisplayed: "3",
+            ctaTitle: "Call To Action",
+            ctaDescription: "Have questions or need more information? We're here to help!",
+            ctaBtn1Label: "Enquire Now",
+            ctaBtn1Url: "/contact",
+            ctaBtn2Label: "Download Our Company Profile",
+            ctaProfilePdf: "",
+            blogCards: [
+              { id: "blog-1", slug: "amf-panel-for-dg-set", title: "AMF Panel for DG Set: Automatic Power Management for Continuous Operations", summary: "AMF Panels for DG Sets are essential for ensuring uninterrupted power supply.", image: "" },
+              { id: "blog-2", slug: "kirloskar-silent-generator", title: "Kirloskar Silent Generator for Home and Business: Diesel, Green & DG Set Guide", summary: "The Kirloskar silent power generator operates at a noise level of less than 75 dBA at 1 metre distance.", image: "" },
+              { id: "blog-3", slug: "industrial-kirloskar-dg-set-750kva-1500kva", title: "Industrial Kirloskar DG Set (750 kVA to 1500 kVA) for Heavy Duty Power Requirement", summary: "Heavy-duty industrial Kirloskar DG Sets ranging from 750 kVA to 1500 kVA are engineered for continuous power.", image: "" },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      title: "Our Profile",
+      slug: "our-profile",
+      description: "About Kumar Power",
+      metaTitle: "Our Profile & Company History - Kumar Power",
+      metaDescription: "Learn about our 30+ years of power generation legacy in India.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-our-profile-hero",
+          type: "hero",
+          order: 1,
+          content: {
+            title: "Know About Kumar Power",
+            subtitle: "–Trusted Name in Power Solutions Industry",
+            image: "",
+            paragraph1: "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
+            paragraph2: "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions.",
+            paragraph3: "As an authorized dealer and service provider for Kirloskar Green generators, we bring the reliability and efficiency of world-class power solutions to our clients. Our team of certified engineers and technicians ensures that every installation meets the highest standards of performance and safety.",
+            paragraph4: "With a customer-first approach and commitment to excellence, Kumar Power has successfully delivered over 10000+ power solutions across the country, building lasting relationships with our clients through exceptional service and support.",
+          },
+        },
+        {
+          id: "sec-our-profile-story",
+          type: "story",
+          order: 2,
+          content: {
+            storyTitle: "Our Story",
+            storySub: "From humble beginnings to becoming India's premier power solutions provider, our journey has been defined by innovation, quality, and unwavering commitment to excellence.",
+            timeline: [
+              { id: "time-1", year: "1995", title: "Foundation", description: "Kumar Power was established with a vision to provide reliable power solutions to businesses across India.", image: "" },
+              { id: "time-2", year: "2001", title: "Kirloskar Partnership", description: "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.", image: "" },
+              { id: "time-3", year: "2012", title: "ISO Certification", description: "Achieved ISO 9001:2015 certification, validating our commitment to quality management systems.", image: "" },
+              { id: "time-4", year: "2020", title: "Nationwide Expansion", description: "Expanded operations to all major cities in India with service centers and technical support teams.", image: "" },
+            ],
+          },
+        },
+        {
+          id: "sec-our-profile-leadership",
+          type: "leadership",
+          order: 3,
+          content: {
+            teamTitle: "Meet the Visionaries Behind the Power",
+            team: [
+              { id: "team-1", name: "RS KUMAR", role: "(Founder)", bio: "RS Kumar is the Founder of Kumar Generator House, a company he established with a vision to provide reliable and sustainable power solutions. With decades of industry experience, he has been the driving force behind the company's growth and success.", image: "" },
+              { id: "team-2", name: "MS KUMAR", role: "(Director)", bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence.", image: "" },
+              { id: "team-3", name: "JS KUMAR", role: "(Director)", bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives.", image: "" },
+            ],
+          },
+        },
+        {
+          id: "sec-our-profile-quality",
+          type: "quality",
+          order: 4,
+          content: {
+            qualityTitle: "Our Commitment to Quality",
+            policyTitle: "Quality Policy Statement",
+            policyStatement: "At Kumar Power, we are committed to delivering world-class power products and turnkey solutions that exceed customer expectations. Our robust design, meticulous manufacturing, and comprehensive testing ensure reliability and performance in every installation.",
+            bullet1: "ISO 9001:2015 certified quality management system",
+            bullet2: "Rigorous testing protocols for all equipment",
+            bullet3: "Continuous improvement through customer feedback",
+            bullet4: "Regular training and skill enhancement for our team",
+            isoCertImg: "",
+            kirloskarCertImg: "",
+          },
+        },
+        {
+          id: "sec-our-profile-cta",
+          type: "cta",
+          order: 5,
+          content: {
+            ctaTitle: "Ready to Power Your Business?",
+            ctaDesc: "Contact us today for a consultation and discover how Kumar Generator House can provide reliable power solutions tailored to your needs.",
+            ctaBtnLabel: "Get in Touch →",
+            ctaBtnUrl: "/contact",
+          },
+        },
+      ],
+    },
+    {
+      title: "Contact Us",
+      slug: "contact",
+      description: "Contact Kumar Power",
+      metaTitle: "Contact Us - Kumar Power",
+      metaDescription: "Reach out for generator quotes, support, or site visits.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-contact-hero",
+          type: "hero",
+          order: 1,
+          content: {
+            bannerHeading: "Powering Connections That Matter",
+            bannerSubtitle: "Let's build something extraordinary. Talk to our experts today.",
+            bannerBgImage: "",
+            primaryBtnLabel: "Start Your Inquiry",
+            whatsappBtnLabel: "Connect on WhatsApp",
+            whatsappNumber: "+919773851767",
+          },
+        },
+        {
+          id: "sec-contact-info",
+          type: "info",
+          order: 2,
+          content: {
+            officeHours: "Monday - Saturday: 10:00 AM - 7:00 PM (Closed on Sundays & National Holidays)",
+            phoneMain: "9773851767",
+            phoneSupport: "9773877796",
+            phoneLandline: "01146701273",
+            emailMain: "kumargeneratorhouse@gmail.com",
+            emailSales: "sales@kumarpower.com",
+            emailSupport: "support@kumarpower.com",
+            emailAccounts: "accounts@kumarpower.com",
+          },
+        },
+        {
+          id: "sec-contact-resume",
+          type: "resume",
+          order: 3,
+          content: {
+            resumeTitle: "Drop Your Resume",
+            resumeSubtitle: "Didn't find your role? We're always looking for great talent to join our team. Submit your resume and we'll contact you when a suitable position opens up.",
           },
         },
       ],
@@ -236,54 +515,26 @@ async function main() {
           type: "certifications",
           order: 1,
           content: {
-            header: {
-              title: "Authorisations & Certificates",
-              subtitle: "Demonstrating our commitment to excellence, quality, and industry-leading standards.",
-              bgImage: "",
-            },
+            heroTitle: "Awards and Certifications",
+            heroSub: "Recognized for excellence in power solutions and industry leadership",
             certificates: [
-              { name: "Authorisation Certification", description: "Kumar Generator House is our authorised KOEL Green Dealer for sale of KOEL Green Diesel Generating Sets.", issuer: "Kirloskar Oil Engines Ltd", year: "2024" },
-              { name: "Certificate of Excellence", description: "Recognizing outstanding customer service and technical excellence in DG set installations.", issuer: "KOEL Green", year: "2023" },
-              { name: "Certification of Highest Growth", description: "Awarded for achieving highest sales growth in northern region power generation market.", issuer: "Kirloskar Group", year: "2022" },
+              { id: "cert-1", name: "Authorisation Certification", year: "2024", description: "Kumar Generator House is our authorised KOEL Green Dealer for sale of KOEL Green Diesel Generating Sets and Chhota Chilli Range of generators", issuer: "Authorisation certificate", image: "" },
+              { id: "cert-2", name: "Certificate of Excellence", year: "2012-2013", description: "Environmental Management System certification, demonstrating our commitment to environmental responsibility.", issuer: "KOEL Pune", image: "" },
+              { id: "cert-3", name: "Certification of Highest Growth", year: "2013", description: "Presented to M/s Kumar Generator House, Delhi for highest growth & highest nos. of KIRLOSKAR GREEN DG sets sold in FY 2013.", issuer: "KOEL-JAKPOWER-KGD Conference, Goa", image: "" },
             ],
-            whyMatters: [
-              { title: "Quality Assurance", desc: "Rigorous standards ensure consistent, reliable performance under all operational conditions." },
-              { title: "Regulatory Compliance", desc: "Full adherence to environmental CPCB IV+ norms and safety regulations." },
-              { title: "Customer Trust", desc: "Proven track record verified by industry certifications and channel partner awards." },
-            ],
-          },
-        },
-      ],
-    },
-    {
-      title: "Our Profile",
-      slug: "our-profile",
-      description: "About Kumar Power",
-      metaTitle: "Our Profile & Company History - Kumar Power",
-      metaDescription: "Learn about our 30+ years of power generation legacy in India.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-our-profile-main",
-          type: "our-profile",
-          order: 1,
-          content: {
-            hero: {
-              title: "Powering India's Progress Since 1995",
-              subtitle: "For over 30+ years, Kumar Power has engineered uninterrupted power across India's industries, infrastructure, and institutions.",
-              bgImage: "",
-            },
-            story: {
-              heading: "Our Journey & Legacy",
-              p1: "Founded in 1995, Kumar Power started with a singular mission: to eliminate power vulnerability for growing Indian enterprises.",
-              p2: "As an authorized channel partner for Kirloskar Oil Engines Limited (KOEL), we have deployed over 12,500+ generators spanning 2.1 kVA to 1500 kVA.",
-            },
-            leadership: [
-              { name: "RS Kumar", role: "Managing Director", bio: "30+ years of visionary leadership in power generation and industrial engineering." },
-              { name: "MS Kumar", role: "Director - Operations", bio: "Overseeing pan-India service logistics, SITC projects, and client relationships." },
-              { name: "JS Kumar", role: "Technical Director", bio: "Leading engineering innovations, CPCB IV+ compliance, and smart monitoring." },
-            ],
+            whySectionTitle: "Why Certifications Matter",
+            whyCard1Title: "Quality Assurance",
+            whyCard1Desc: "Our certifications serve as third-party validation of our commitment to maintaining high-quality standards.",
+            whyCard2Title: "Compliance",
+            whyCard2Desc: "We adhere to industry regulations and standards, ensuring our operations are fully compliant.",
+            whyCard3Title: "Customer Trust",
+            whyCard3Desc: "Our certifications provide customers with confidence in our products, services, and business practices.",
+            commitTitle: "Our Commitment to Excellence",
+            commitText: "At Kumar Power, we believe that maintaining certifications and industry partnerships is more than just fulfilling requirements—it's about our ongoing commitment to excellence in everything we do.",
+            btn1Label: "Contact Us",
+            btn1Url: "/contact",
+            btn2Label: "View Products",
+            btn2Url: "/products",
           },
         },
       ],
@@ -302,19 +553,23 @@ async function main() {
           type: "our-clients",
           order: 1,
           content: {
-            stats: [
-              { label: "Enterprise Clients", value: "500+" },
-              { label: "Years Experience", value: "30+" },
-              { label: "Units Installed", value: "12,500+" },
-              { label: "Service Response SLA", value: "< 2 Hours" },
+            stat1Num: "500+",
+            stat1Text: "Enterprise Clients",
+            stat2Num: "30+",
+            stat2Text: "Years of Service",
+            stat3Num: "10000+",
+            stat3Text: "Installations Across India",
+            logos: [
+              { id: "logo-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "GMR Infra" },
+              { id: "logo-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "SIS Security" },
             ],
             clients: [
-              { name: "Air India", category: "Aviation & Logistics" },
-              { name: "Apollo Hospitals", category: "Healthcare" },
-              { name: "GMR Infrastructure", category: "Airports & Infrastructure" },
-              { name: "Honeywell India", category: "Technology & Industrial" },
-              { name: "NBCC Limited", category: "Government Construction" },
-              { name: "British Paints", category: "Manufacturing" },
+              { id: "c-1", name: "Air India", category: "Aviation & Logistics" },
+              { id: "c-2", name: "Apollo Hospitals", category: "Medical Facilities" },
+              { id: "c-3", name: "GMR Infrastructure", category: "Infrastructure" },
+              { id: "c-4", name: "Honeywell India", category: "Industries" },
+              { id: "c-5", name: "NBCC Limited", category: "CPWD & NBCC Projects" },
+              { id: "c-6", name: "British Paints", category: "Manufacturers/Wholesalers" },
             ],
           },
         },
@@ -334,432 +589,28 @@ async function main() {
           type: "testimonials",
           order: 1,
           content: {
-            hero: {
-              title: "Client Testimonials & Feedback",
-              subtitle: "Hear how Kumar Power keeps mission-critical operations running uninterrupted across India.",
-              bgImage: "",
-            },
+            heroHeading: "POWERING INDIA'S SUCCESS STORIES",
+            heroSubtitle: "Testimonials from industry leaders",
+            heroBgImage: "",
             testimonials: [
-              { name: "Khushi Aggarwal", company: "Hospitality Manager", feedback: "Kumar Power delivered and installed our 125 kVA Kirloskar generator seamlessly. Zero downtime during peak summer!" },
-              { name: "Kaustubh Jain", company: "Commercial Real Estate", feedback: "The 24/7 AMC response team is incredible. Their engineers arrived within 45 minutes during a storm emergency." },
-              { name: "Atul Jewellers", company: "Retail Chain", feedback: "Compact portable generator with ultra-quiet operation. Perfect for our high-end retail showroom." },
+              { id: "test-1", authorName: "Khushi Aggarwal", roleCompany: "Founder, Platter Me Crazy", logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902468/Screenshot_2025-10-31_144115_lybhem.png", quote: "I, Khushi Aggarwal, Founder of Platter Me Crazy, a brand synonymous with culinary artistry and luxury dining experiences." },
+              { id: "test-2", authorName: "Kaustubh Jain", roleCompany: "TEAM Construction Chemicals (TEAMCC)", logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902466/Screenshot_2025-10-31_144303_wgqqaq.png", quote: "I have had the pleasure of knowing Mr. Jasjot Singh, and I can confidently say he is a true professional in the generator industry." },
             ],
-          },
-        },
-      ],
-    },
-    {
-      title: "Products Overview",
-      slug: "products",
-      description: "Kumar Power Product Catalog",
-      metaTitle: "Kirloskar Silent Diesel & Gas Generators | Kumar Power",
-      metaDescription: "Explore our range of Kirloskar CPCB IV+ compliant silent diesel generators.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-products-main",
-          type: "products",
-          order: 1,
-          content: {
-            hero: {
-              title: "Powering Progress, One Generator at a Time",
-              subtitle: "Explore our full range of Kirloskar-certified diesel generators, trusted across India's most demanding industries.",
-              ctaPrimaryLabel: "Request a Quote",
-              ctaPrimaryUrl: "/contact",
-            },
-            compliancePdfs: {
-              bharatRajpat: "Bharat_Rajpat.pdf",
-              direction76: "Direction_76.pdf",
-            },
-            ctaBanner: {
-              title: "Need Help Choosing the Right Electrical Solution?",
-              description: "Our team of experts will help you select the perfect solution based on your industry and budget.",
-              primaryBtnLabel: "Talk to an Expert",
-              primaryBtnUrl: "/contact",
-              phoneHotline: "+919773877796",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Services Overview",
-      slug: "services",
-      description: "Kumar Power Services Catalog",
-      metaTitle: "Generator AMC, Repair & Installation Services | Kumar Power",
-      metaDescription: "Expert generator AMC services, 24/7 breakdown support, installation, and overhaul.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-services-main",
-          type: "services",
-          order: 1,
-          content: {
-            hero: {
-              title: "Comprehensive Generator Services",
-              subtitle: "From turnkey SITC installation to 24/7 AMC preventive maintenance and major overhauling.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Contact Us",
-      slug: "contact",
-      description: "Contact Kumar Power",
-      metaTitle: "Contact Us - Kumar Power",
-      metaDescription: "Reach out for generator quotes, support, or site visits.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-contact-main",
-          type: "contact",
-          order: 1,
-          content: {
-            hero: {
-              title: "Contact Kumar Power",
-              subtitle: "Connect with our power experts for quotes, site inspections, 24/7 service, or career opportunities.",
-              bgImage: "",
-            },
-            info: {
-              headOffice: "Kumar Generator House, Plot No. 12, Industrial Area, New Delhi - 110015",
-              salesHotline: "+91 97738 77796",
-              serviceHelpline: "011-40191273",
-              email: "info@kumarpower.com",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Kirloskar Diesel Generator",
-      slug: "kirloskar-diesel-generator",
-      description: "Kirloskar Diesel Generator Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-kirloskar-diesel-main",
-          type: "kirloskar-diesel-generator",
-          order: 1,
-          content: {
-            hero: {
-              title: "Kirloskar Diesel Generators Dealer in Delhi",
-              subtitle: "Explore Kirloskar Diesel Generators at Kumar Power for reliable backup and prime power solutions.",
-            },
-            helpBanner: {
-              title: "Need Help Choosing the Right Electrical Solution?",
-              description: "Our team of experts will help you select the perfect solution based on your industry and budget.",
-              btnLabel: "Talk to an Expert",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Kirloskar Gas Generator",
-      slug: "kirloskar-gas-generator",
-      description: "Kirloskar Gas Generator Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-kirloskar-gas-main",
-          type: "kirloskar-gas-generator",
-          order: 1,
-          content: {
-            hero: {
-              title: "Kirloskar Gas Generators Dealer in Delhi",
-              subtitle: "Explore eco-friendly Natural Gas and CNG generators for clean, efficient power solutions.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Kirloskar Portable Generator",
-      slug: "kirloskar-portable-generator",
-      description: "Kirloskar Portable Generator Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-kirloskar-portable-main",
-          type: "kirloskar-portable-generator",
-          order: 1,
-          content: {
-            hero: {
-              title: "Kirloskar Portable Generators Dealer in Delhi",
-              subtitle: "Explore lightweight, mobile, and reliable air-cooled petrol generators.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Optiprime Generator",
-      slug: "optiprime",
-      description: "Optiprime Series Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-optiprime-main",
-          type: "optiprime",
-          order: 1,
-          content: {
-            hero: {
-              title: "Kirloskar Optiprime Series Generators",
-              subtitle: "Next-generation smart power solutions engineered for max fuel economy and IoT telemetry.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Electrical Panels",
-      slug: "panels",
-      description: "Electrical Panels Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-panels-main",
-          type: "panels",
-          order: 1,
-          content: {
-            hero: {
-              title: "Electrical Panels Manufacturer in Delhi",
-              subtitle: "High-performance AMF, LT, synchronizing & distribution panels.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Servo Voltage Stabilizers",
-      slug: "servo-stabilizer",
-      description: "Servo Voltage Stabilizers Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-servo-main",
-          type: "servo-stabilizer",
-          order: 1,
-          content: {
-            hero: {
-              title: "Servo Voltage Stabilizers Manufacturer in Delhi",
-              subtitle: "Precision oil-cooled and air-cooled servo voltage stabilizers.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Distribution Transformers",
-      slug: "transformers",
-      description: "Transformers Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-transformers-main",
-          type: "transformers",
-          order: 1,
-          content: {
-            hero: {
-              title: "Distribution Transformers Manufacturer in Delhi",
-              subtitle: "High-efficiency step-down distribution transformers.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Annual Maintenance Contracts",
-      slug: "annual-maintenance",
-      description: "Annual Maintenance Contracts Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-amc-main",
-          type: "annual-maintenance",
-          order: 1,
-          content: {
-            hero: {
-              tagline: "ANNUAL MAINTENANCE CONTRACTS",
-              title: "Preventive Care for Uninterrupted Power",
-              subtitle: "Ensure maximum uptime and equipment longevity with our comprehensive maintenance solutions.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Turnkey Installation & Commissioning",
-      slug: "installation",
-      description: "Installation Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-installation-main",
-          type: "installation",
-          order: 1,
-          content: {
-            hero: {
-              badge: "Professional Services",
-              title: "Installation & Commissioning",
-              subtitle: "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
-              ctaLabel: "Schedule a Consultation",
-            },
-            expertise: {
-              tagline: "KUMAR POWER EXPERTISE",
-              heading: "Professional Power System Installation",
-              p1: "Kumar Power delivers end-to-end installation and commissioning services for all types of power generation equipment...",
-              p2: "Our certified technicians handle everything from site assessment and planning to final commissioning...",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Engine Repair & Overhauling",
-      slug: "repair-overhaul",
-      description: "Engine Repair Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-repair-main",
-          type: "repair-overhaul",
-          order: 1,
-          content: {
-            hero: {
-              tagline: "ENGINE REPAIR & OVERHAULING",
-              title: "Heavy-Duty Engine Overhauling & Component Repair",
-              subtitle: "Restore peak factory performance and extend working lifespan.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "24/7 Emergency Support",
-      slug: "emergency-support",
-      description: "Emergency Support Subpage",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-emergency-main",
-          type: "emergency-support",
-          order: 1,
-          content: {
-            hero: {
-              tagline: "24/7 EMERGENCY POWER SUPPORT",
-              title: "Rapid Emergency Breakdown Response",
-              subtitle: "Round-the-clock emergency dispatch team for critical power outages in Delhi-NCR.",
-            },
-            hotline: {
-              phone: "+919773877796",
-              landline: "01140191273",
-              whatsapp: "+919773877796",
-              sla: "120 Minutes Response SLA within Delhi-NCR",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Blog & Technical Articles Overview",
-      slug: "blogs",
-      description: "Blog Landing Page",
-      metaTitle: "Generator Guides, Maintenance Tips & Industry News | Kumar Power",
-      metaDescription: "Read expert guides on Kirloskar silent generators, CPCB IV+ compliance, AMF panels, and industrial power solutions.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-blogs-main",
-          type: "blogs",
-          order: 1,
-          content: {
-            hero: {
-              title: "Technical Insights, Generator Guides & Power Updates",
-              subtitle: "Stay informed with expert articles on Kirloskar silent generator selection, fuel efficiency tips, and CPCB IV+ compliance.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Kirloskar Silent Generator Guide",
-      slug: "kirloskar-silent-generator",
-      description: "Kirloskar Silent Generator Article",
-      metaTitle: "Kirloskar Silent Generator: Low Noise, High Performance Power Backup",
-      metaDescription: "Discover how Kirloskar Silent Generators provide low-noise operation, fuel efficiency, and reliable power backup.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-blog-silent-gen",
-          type: "kirloskar-silent-generator",
-          order: 1,
-          content: {
-            hero: {
-              title: "Kirloskar Silent Generator for Home and Business: Diesel, Green & DG Set Guide",
-              subtitle: "CPCB IV+ compliant low-noise generators (<75 dBA).",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "Industrial Kirloskar DG Set Guide",
-      slug: "industrial-kirloskar-dg-set-750kva-1500kva",
-      description: "Industrial DG Set Article",
-      metaTitle: "Industrial Kirloskar DG Set (750 kVA - 1500 kVA) Guide | Kumar Power",
-      metaDescription: "Technical guide on high-capacity Kirloskar heavy-duty diesel generator sets for manufacturing plants, data centres, and hospitals.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-blog-industrial-dg",
-          type: "industrial-kirloskar-dg-set-750kva-1500kva",
-          order: 1,
-          content: {
-            hero: {
-              title: "Industrial Kirloskar DG Set (750 kVA - 1500 kVA) Guide",
-              subtitle: "High capacity power solutions for industrial infrastructure.",
-            },
-          },
-        },
-      ],
-    },
-    {
-      title: "AMF Panel for DG Set Guide",
-      slug: "amf-panel-for-dg-set",
-      description: "AMF Panel Article",
-      metaTitle: "AMF Panel for DG Set: Complete Buying & Technical Installation Guide",
-      metaDescription: "Learn how Automatic Mains Failure (AMF) panels switch generator power automatically during mains outage.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-blog-amf-panel",
-          type: "amf-panel-for-dg-set",
-          order: 1,
-          content: {
-            hero: {
-              title: "AMF Panel for DG Set: Complete Buying & Technical Installation Guide",
-              subtitle: "Automatic mains failure switching and generator protection.",
-            },
+            clientLogos: [
+              { id: "logo-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "GMR Infra" },
+              { id: "logo-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "SIS Security" },
+            ],
+            stat1Num: "100+",
+            stat1Text: "Video Testimonials",
+            stat2Num: "25+",
+            stat2Text: "Industries Served",
+            stat3Num: "10000+",
+            stat3Text: "Installations Nationwide",
+            ctaTitle: "Ready to join India's most reliable power network?",
+            ctaDesc: "From hospitals to data centers, from factories to airports — Kumar power delivers uninterrupted power solutions tailored to your needs.",
+            whatsappPhone: "+919773877796",
+            helplinePhone: "01140191273",
+            brochurePdf: "",
           },
         },
       ],
@@ -793,9 +644,9 @@ async function main() {
         });
       }
     }
-    console.log(`✅ Created ${staticPages.length} pages & section content.`);
+    console.log(`✅ Created ${staticPages.length} pages & section content with exact field schemas.`);
   } catch (err) {
-    console.warn("Pages seed skipped:", err);
+    console.warn("Pages seed error:", err);
   }
 
   console.log("🎉 Complete database seeding finished successfully!");

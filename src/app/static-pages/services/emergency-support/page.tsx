@@ -20,16 +20,16 @@ export default function EmergencySupportCMSPage() {
   const [savedHotline, setSavedHotline] = useState(false);
 
   // Hero Section
-  const [heroTagline, setHeroTagline] = useState("24/7 EMERGENCY POWER SUPPORT");
-  const [heroHeading, setHeroHeading] = useState("Rapid Emergency Breakdown Response");
-  const [heroSub, setHeroSub] = useState("Round-the-clock emergency dispatch team for critical power outages, DG breakdowns & urgent generator replacement in Delhi-NCR.");
+  const [heroTagline, setHeroTagline] = useState("");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Hotline Details
-  const [emergencyPhone, setEmergencyPhone] = useState("+919773877796");
-  const [emergencyPhone2, setEmergencyPhone2] = useState("01140191273");
-  const [whatsappPhone, setWhatsappPhone] = useState("+919773877796");
-  const [dispatchSla, setDispatchSla] = useState("120 Minutes Response SLA within Delhi-NCR");
+  const [emergencyPhone, setEmergencyPhone] = useState("");
+  const [emergencyPhone2, setEmergencyPhone2] = useState("");
+  const [whatsappPhone, setWhatsappPhone] = useState("");
+  const [dispatchSla, setDispatchSla] = useState("");
 
   const handleSaveHero = () => {
     setSavingHero(true);

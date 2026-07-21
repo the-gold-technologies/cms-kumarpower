@@ -37,7 +37,7 @@ export default function PhotoGalleryStaticPageCMS() {
   const [savedExp, setSavedExp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Explore Our Legacy in Action");
+  const [heroHeading, setHeroHeading] = useState("");
   const [heroSubtitle, setHeroSubtitle] = useState(
     "A visual showcase of our installations, innovations, and industrial excellence across India"
   );
@@ -47,7 +47,7 @@ export default function PhotoGalleryStaticPageCMS() {
   const [photos, setPhotos] = useState<GalleryPhoto[]>([]);
 
   // Experience Power Excellence Section
-  const [expTitle, setExpTitle] = useState("Experience Power Excellence");
+  const [expTitle, setExpTitle] = useState("");
   const [expDesc, setExpDesc] = useState(
     "Ready to transform your power infrastructure with industry-leading generator solutions? Our team of experts is ready to guide you through every step."
   );

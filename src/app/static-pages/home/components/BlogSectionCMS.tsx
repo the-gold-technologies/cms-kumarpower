@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -18,53 +18,40 @@ type BlogCardItem = {
   image: string;
 };
 
-const INITIAL_BLOGS: BlogCardItem[] = [
-  {
-    id: "blog-1",
-    slug: "amf-panel-for-dg-set",
-    title: "AMF Panel for DG Set: Automatic Power Management for Continuous Operations",
-    summary:
-      "AMF Panels (Automatic Mains Failure Panels) for DG Sets are essential for ensuring uninterrupted power supply, automatically switching between mains and generator power during outages.",
-    image: "",
-  },
-  {
-    id: "blog-2",
-    slug: "kirloskar-silent-generator",
-    title: "Kirloskar Silent Generator for Home and Business: Diesel, Green & DG Set Guide",
-    summary:
-      "The Kirloskar silent power generator operates at a noise level of less than 75 dBA at 1 metre distance, which is roughly similar to the sound of a normal conversation.",
-    image: "",
-  },
-  {
-    id: "blog-3",
-    slug: "industrial-kirloskar-dg-set-750kva-1500kva",
-    title: "Industrial Kirloskar DG Set (750 kVA to 1500 kVA) for Heavy Duty Power Requirement",
-    summary:
-      "Heavy-duty industrial Kirloskar DG Sets ranging from 750 kVA to 1500 kVA are engineered for continuous, reliable prime and standby power in large-scale manufacturing, infrastructure, and commercial sectors.",
-    image: "",
-  },
-];
-
 export function BlogSectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    title: "Blogs",
-    subtitle: "Explore expert articles, case studies, and latest trends in industrial power solutions.",
-    maxPostsDisplayed: "3",
-
-    // Bottom Call To Action Banner in BlogSection.tsx
-    ctaTitle: "Call To Action",
-    ctaDescription: "Have questions or need more information? We're here to help!",
-    ctaBtn1Label: "Enquire Now",
-    ctaBtn1Url: "/contact",
-    ctaBtn2Label: "Download Our Company Profile",
+    title: "",
+    subtitle: "",
+    maxPostsDisplayed: "",
+    ctaTitle: "",
+    ctaDescription: "",
+    ctaBtn1Label: "",
+    ctaBtn1Url: "",
+    ctaBtn2Label: "",
     ctaProfilePdf: "",
   });
 
-  const [blogCards, setBlogCards] = useState<BlogCardItem[]>(INITIAL_BLOGS);
+  const [blogCards, setBlogCards] = useState<BlogCardItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/home")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const b = json.data.blog || {};
+          setFormData((prev) => ({
+            ...prev,
+            ...Object.fromEntries(Object.entries(b).filter(([k]) => k in prev)),
+          }));
+          if (Array.isArray(b.blogCards)) setBlogCards(b.blogCards);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleBlogChange = (id: string, field: keyof BlogCardItem, val: string) => {
     setBlogCards((prev) =>
@@ -92,14 +79,24 @@ export function BlogSectionCMS() {
     toast.success("Blog card removed");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { ...formData, blogCards };
+      const res = await fetch("/api/pages/home", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "blog", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Blog section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

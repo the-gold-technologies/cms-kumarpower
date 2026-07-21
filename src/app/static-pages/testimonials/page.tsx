@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -25,72 +25,6 @@ type ClientLogo = {
   alt: string;
 };
 
-const INITIAL_TESTIMONIALS: TestimonialCard[] = [
-  {
-    id: "test-1",
-    authorName: "Khushi Aggarwal",
-    roleCompany: "Founder, Platter Me Crazy",
-    logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902468/Screenshot_2025-10-31_144115_lybhem.png",
-    quote:
-      "I, Khushi Aggarwal, Founder of Platter Me Crazy, a brand synonymous with culinary artistry and luxury dining experiences. We curate exquisite charcuterie boards and handcrafted artisanal foods that elevate every occasion into a memorable indulgence. Our signature creations include gourmet flavoured butters, silky-smooth hummus blends, and wholesome baked crisps, each crafted with uncompromising freshness and zero preservatives. Whether for intimate soirées, premium gifting, or grand corporate gatherings, we bring an unmatched blend of flavor, finesse and sophistication to the table.",
-  },
-  {
-    id: "test-2",
-    authorName: "Kaustubh Jain",
-    roleCompany: "TEAM Construction Chemicals (TEAMCC) | BNI Lakshay",
-    logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902466/Screenshot_2025-10-31_144303_wgqqaq.png",
-    quote:
-      "I am Kaustubh Jain representing the category marble adhesives and coatings. At TEAMCC we specialise in high-performance epoxy adhesives, polyester adhesives, tile adhesives and marble coatings.\n\nI have had the pleasure of knowing Mr. Jasjot Singh, and I can confidently say he is a true professional in the generator industry. Representing the trusted Kirloskar brand, Jasjot ensures top-quality products backed by exceptional service. His deep knowledge of power solutions, combined with his commitment to delivering the right generator for every requirement, makes him a go-to expert.\n\nWhether it's for commercial, industrial, or residential needs, Jasjot's guidance is reliable and his follow-up impeccable. If you're looking for a dependable generator partner who values both quality and customer satisfaction, I highly recommend Mr. Jasjot Singh.",
-  },
-  {
-    id: "test-3",
-    authorName: "Atul Jewellers (Jain, Proprietor)",
-    roleCompany: "Proprietor, Defence Colony New Delhi (Dated: 28th Dec 2018)",
-    logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_144354_iiu1nu.png",
-    quote:
-      "We at Atul Jewellers, are engaged in retail & wholesale of precious gemstones, diamonds & fine jewellery for almost five decades. We are the only jewellery house in Delhi, with in-house state of art gem testing & diamond grading laboratory, and we also provide this facility to almost 500 retailers across Delhi NCR.\n\nI wish to record our appreciation and acknowledgement, for R.S. Kumar of Kumar Generator House, who has provided gensets, for our new store at Defence Colony.\n\nMr. Kumar and his team is extremely professional in their approach and suggested valuable tips to plan the load distribution, making optimum utilization of energy generated. The rates charged were reasonable and delivery provided in promised time with excellent back up support.\n\nWe recommend Kumar Generator House to all my colleagues for power backup facilitation and wish R.S. Kumar & his team all round success in all its endeavors.",
-  },
-  {
-    id: "test-4",
-    authorName: "Bharat Anand",
-    roleCompany: "Director, Brown Gold",
-    logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902474/Gemini_Generated_Image_1je1r11je1r11je1_ksybnh.png",
-    quote:
-      "We at Brown Gold are a team of young and dynamic interior designers engaged in the business of providing complete design solutions for our clients, be it individual, architects or corporate for the last 3 decades. We have a passion of interiors which enables us in providing quality and timely delivery of our design services and products for our clients pan India.\n\nWe would like to place on record our appreciation for Mr. R. S. Kumar of Kumar Generator House.\n\nWe had taken their services for our 40 KVA Kirloskar generator & a small genset of 7 KVA. We would like to take this opportunity to thank you for providing excellent advice, excellent products & excellent service. We would not hesitate to recommend Kumar Generator House to prospective clients, looking for a high level of professional service, with attention on a long term client focused relationship.\n\nWe are extremely pleased and look forward to increasing our level of business with yourselves in the coming years. Thank you Mr. R. S. Kumar for your positive & professional approach.",
-  },
-  {
-    id: "test-5",
-    authorName: "RENT IT BAE",
-    roleCompany: "Luxury Fashion Rental Service (New Delhi)",
-    logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_144806_gklejh.png",
-    quote:
-      "RENT IT BAE is a luxury fashion rental service offering Ethnic, Western & Accessories from designer labels at a fraction of MRP. Servicing 15 cities via Website, m-site, Android & iOS apps. First to introduce Monthly Fashion Subscription in the country. The company has its 2 Flagship Stores in New Delhi (Rajouri Garden and Greater Kailash-1). RENT IT BAE has taken the media limelight for building country's first tech driven store.\n\nWe highly appreciate the fast and seamless service provided by your company. The installation of invertors for RENT IT BAE's South Delhi Flagship Store at Greater Kailash seemed a fluid task with your service. The requirement for a power back up is a must for all companies now days especially in the retail sector. You understood the requirement and delivered the apt products at a reasonable price. All was done post one phone call. No follow up were required. The products were delivered and installed within 24 hours. We would be happy to recommend your products and service.",
-  },
-  {
-    id: "test-6",
-    authorName: "K.K. Setia",
-    roleCompany: "Olympus, Intown Realtors Pvt Ltd (3rd March, 2025)",
-    logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_145022_ffeb43.png",
-    quote:
-      "I K.K. Setia, Director of Intown Realtors, have been in commercial Real Estate business for the last 18 years. I have been a member of BNI Olympus Noida since December 2015.\n\n\"I recently needed a generator for my Sector 18 office building and reached out to my fellow BNI member, Mr. Manjot Singh Kumar. His team promptly inspected the site, provided a tailored solution, and even assisted with the necessary approvals. The generator was delivered and installed within the promised timeframe, and the team ensured that everything was functioning perfectly before they left. I am thoroughly impressed with the professionalism and efficiency displayed by Kumar Generator House. I highly recommend their services to anyone in need of reliable power solutions.\"",
-  },
-  {
-    id: "test-7",
-    authorName: "Shivani Saini",
-    roleCompany: "Owner, Anytime Fitness (Sec 29, Gurugram - 26 Sep 2025)",
-    logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762064945/Screenshot_2025-11-02_115831_lgqzrn.png",
-    quote:
-      "As fitness industry in India is rising rapidly, Anytime Fitness has marked its biggest presence in this field and possesses more than 160 clubs pan-India with 80+ within Delhi NCR. The club is open 24/7 which gives its members the flexibility to workout at any hour of the day as per their schedule.\n\nThe biggest challenge an Anytime Fitness Club faces is uninterrupted 24/7 power supply for its customers. For the same, the club is reliant on an efficient power back up system. During the setting up of Anytime Fitness Sec 29, Gurugram I, Shivani Saini, owner of the club, got the reference of Mr Jasjot Singh of M/s Kumar Generator House from a trustworthy friend.\n\nI write this testimonial to express my deep gratitude to Mr Jasjot Singh of guiding me towards the trusted Kirloskar Brand and explaining me the complete process of installation in great details. He personally visited the site and I must compliment his eye for details and the experience he carries in this field. As a true professional Mr Jasjot and his team ensured a smooth installation and thereafter a continuous follow up till such time the machine got fully functional. The equipment is top notch and has been performing flawlessly during power outages. The customer support has been outstanding, addressing all our concerns promptly. I am truly indebted to services of Kumar Generator House and I would highly recommend Mr Jasjot Singh for any kind of Generator Services in Delhi NCR.",
-  },
-];
-
-const INITIAL_LOGOS: ClientLogo[] = [
-  { id: "logo-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "GMR Infra" },
-  { id: "logo-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "SIS Security" },
-  { id: "logo-3", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg", alt: "Vistara Airlines" },
-  { id: "logo-4", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg", alt: "Honeywell" },
-];
-
 export default function TestimonialsStaticPageCMS() {
   const bulkLogoInputRef = useRef<HTMLInputElement>(null);
 
@@ -114,32 +48,151 @@ export default function TestimonialsStaticPageCMS() {
   const [savedStats, setSavedStats] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("POWERING INDIA'S SUCCESS STORIES");
-  const [heroSubtitle, setHeroSubtitle] = useState("Testimonials from industry leaders");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSubtitle, setHeroSubtitle] = useState("");
   const [heroBgImage, setHeroBgImage] = useState("");
 
   // Testimonials Cards
-  const [testimonials, setTestimonials] = useState<TestimonialCard[]>(INITIAL_TESTIMONIALS);
+  const [testimonials, setTestimonials] = useState<TestimonialCard[]>([]);
 
   // Client Logos
-  const [clientLogos, setClientLogos] = useState<ClientLogo[]>(INITIAL_LOGOS);
+  const [clientLogos, setClientLogos] = useState<ClientLogo[]>([]);
 
   // Stats Section
-  const [stat1Num, setStat1Num] = useState("100+");
-  const [stat1Text, setStat1Text] = useState("Video Testimonials");
-  const [stat2Num, setStat2Num] = useState("25+");
-  const [stat2Text, setStat2Text] = useState("Industries Served");
-  const [stat3Num, setStat3Num] = useState("10000+");
-  const [stat3Text, setStat3Text] = useState("Installations Nationwide");
+  const [stat1Num, setStat1Num] = useState("");
+  const [stat1Text, setStat1Text] = useState("");
+  const [stat2Num, setStat2Num] = useState("");
+  const [stat2Text, setStat2Text] = useState("");
+  const [stat3Num, setStat3Num] = useState("");
+  const [stat3Text, setStat3Text] = useState("");
 
   // Bottom CTA
-  const [ctaTitle, setCtaTitle] = useState("Ready to join India's most reliable power network?");
-  const [ctaDesc, setCtaDesc] = useState(
-    "From hospitals to data centers, from factories to airports — Kumar power delivers uninterrupted power solutions tailored to your needs."
-  );
-  const [whatsappPhone, setWhatsappPhone] = useState("+919773877796");
-  const [helplinePhone, setHelplinePhone] = useState("01140191273");
+  const [ctaTitle, setCtaTitle] = useState("");
+  const [ctaDesc, setCtaDesc] = useState("");
+  const [whatsappPhone, setWhatsappPhone] = useState("");
+  const [helplinePhone, setHelplinePhone] = useState("");
   const [brochurePdf, setBrochurePdf] = useState("");
+
+  // Load existing data from DB on mount
+  useEffect(() => {
+    fetch("/api/pages/testimonials")
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const data = json.data["testimonials"] || json.data;
+
+          if (data.heroHeading !== undefined) setHeroHeading(data.heroHeading);
+          if (data.heroSubtitle !== undefined) setHeroSubtitle(data.heroSubtitle);
+          if (data.heroBgImage !== undefined) setHeroBgImage(data.heroBgImage);
+
+          if (Array.isArray(data.testimonials)) {
+            setTestimonials(data.testimonials);
+          }
+          if (Array.isArray(data.clientLogos)) {
+            setClientLogos(data.clientLogos);
+          }
+
+          if (data.stat1Num !== undefined) setStat1Num(data.stat1Num);
+          if (data.stat1Text !== undefined) setStat1Text(data.stat1Text);
+          if (data.stat2Num !== undefined) setStat2Num(data.stat2Num);
+          if (data.stat2Text !== undefined) setStat2Text(data.stat2Text);
+          if (data.stat3Num !== undefined) setStat3Num(data.stat3Num);
+          if (data.stat3Text !== undefined) setStat3Text(data.stat3Text);
+
+          if (data.ctaTitle !== undefined) setCtaTitle(data.ctaTitle);
+          if (data.ctaDesc !== undefined) setCtaDesc(data.ctaDesc);
+          if (data.whatsappPhone !== undefined) setWhatsappPhone(data.whatsappPhone);
+          if (data.helplinePhone !== undefined) setHelplinePhone(data.helplinePhone);
+          if (data.brochurePdf !== undefined) setBrochurePdf(data.brochurePdf);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const saveAllToDB = async () => {
+    const payload = {
+      heroHeading,
+      heroSubtitle,
+      heroBgImage,
+      testimonials,
+      clientLogos,
+      stat1Num,
+      stat1Text,
+      stat2Num,
+      stat2Text,
+      stat3Num,
+      stat3Text,
+      ctaTitle,
+      ctaDesc,
+      whatsappPhone,
+      helplinePhone,
+      brochurePdf,
+    };
+
+    const res = await fetch("/api/pages/testimonials", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ section: "testimonials", content: payload }),
+    });
+
+    if (!res.ok) throw new Error("Failed to save to database");
+  };
+
+  const handleSaveHero = async () => {
+    setSavingHero(true);
+    try {
+      await saveAllToDB();
+      setSavedHero(true);
+      toast.success("Hero section saved to Database!");
+      setTimeout(() => setSavedHero(false), 2000);
+    } catch {
+      toast.error("Failed to save hero section");
+    } finally {
+      setSavingHero(false);
+    }
+  };
+
+  const handleSaveGrid = async () => {
+    setSavingGrid(true);
+    try {
+      await saveAllToDB();
+      setSavedGrid(true);
+      toast.success("Testimonial stories saved to Database!");
+      setTimeout(() => setSavedGrid(false), 2000);
+    } catch {
+      toast.error("Failed to save testimonial stories");
+    } finally {
+      setSavingGrid(false);
+    }
+  };
+
+  const handleSaveLogos = async () => {
+    setSavingLogos(true);
+    try {
+      await saveAllToDB();
+      setSavedLogos(true);
+      toast.success("Trusted client logos saved to Database!");
+      setTimeout(() => setSavedLogos(false), 2000);
+    } catch {
+      toast.error("Failed to save client logos");
+    } finally {
+      setSavingLogos(false);
+    }
+  };
+
+  const handleSaveStats = async () => {
+    setSavingStats(true);
+    try {
+      await saveAllToDB();
+      setSavedStats(true);
+      toast.success("Metrics & CTA section saved to Database!");
+      setTimeout(() => setSavedStats(false), 2000);
+    } catch {
+      toast.error("Failed to save metrics & CTA");
+    } finally {
+      setSavingStats(false);
+    }
+  };
 
   const handleTestimonialChange = (id: string, field: keyof TestimonialCard, val: string) => {
     setTestimonials((prev) => prev.map((t) => (t.id === id ? { ...t, [field]: val } : t)));
@@ -189,46 +242,6 @@ export default function TestimonialsStaticPageCMS() {
   const removeClientLogo = (id: string) => {
     setClientLogos((prev) => prev.filter((l) => l.id !== id));
     toast.success("Client logo removed");
-  };
-
-  const handleSaveHero = () => {
-    setSavingHero(true);
-    setTimeout(() => {
-      setSavingHero(false);
-      setSavedHero(true);
-      toast.success("Hero section saved!");
-      setTimeout(() => setSavedHero(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveGrid = () => {
-    setSavingGrid(true);
-    setTimeout(() => {
-      setSavingGrid(false);
-      setSavedGrid(true);
-      toast.success("Testimonial stories saved!");
-      setTimeout(() => setSavedGrid(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveLogos = () => {
-    setSavingLogos(true);
-    setTimeout(() => {
-      setSavingLogos(false);
-      setSavedLogos(true);
-      toast.success("Trusted client logos saved!");
-      setTimeout(() => setSavedLogos(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveStats = () => {
-    setSavingStats(true);
-    setTimeout(() => {
-      setSavingStats(false);
-      setSavedStats(true);
-      toast.success("Metrics & CTA section saved!");
-      setTimeout(() => setSavedStats(false), 2000);
-    }, 400);
   };
 
   return (

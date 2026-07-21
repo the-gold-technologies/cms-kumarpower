@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -17,37 +17,26 @@ type TeamMember = {
   image: string;
 };
 
-const INITIAL_TEAM: TeamMember[] = [
-  {
-    id: "team-1",
-    name: "RS KUMAR",
-    role: "(Founder)",
-    bio: "RS Kumar is the Founder of Kumar Generator House, a company he established with a vision to provide reliable and sustainable power solutions. With decades of industry experience, he has been the driving force behind the company's growth and success.",
-    image: "",
-  },
-  {
-    id: "team-2",
-    name: "MS KUMAR",
-    role: "(Director)",
-    bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence in every aspect of its operations.",
-    image: "",
-  },
-  {
-    id: "team-3",
-    name: "JS KUMAR",
-    role: "(Director)",
-    bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, He is committed to driving the company's expansion.",
-    image: "",
-  },
-];
-
 export function MeetTheTeamSectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [teamTitle, setTeamTitle] = useState("Meet the Visionaries Behind the Power");
-  const [team, setTeam] = useState<TeamMember[]>(INITIAL_TEAM);
+  const [teamTitle, setTeamTitle] = useState("");
+  const [team, setTeam] = useState<TeamMember[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/our-profile")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const leadership = json.data.leadership || {};
+          if (leadership.teamTitle !== undefined) setTeamTitle(leadership.teamTitle);
+          if (Array.isArray(leadership.team)) setTeam(leadership.team);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleTeamChange = (id: string, field: keyof TeamMember, val: string) => {
     setTeam((prev) => prev.map((tm) => (tm.id === id ? { ...tm, [field]: val } : tm)));
@@ -66,14 +55,24 @@ export function MeetTheTeamSectionCMS() {
     toast.success("Leader removed");
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { teamTitle, team };
+      const res = await fetch("/api/pages/our-profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "leadership", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
-      toast.success("Leadership team section saved!");
+      toast.success("Team section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

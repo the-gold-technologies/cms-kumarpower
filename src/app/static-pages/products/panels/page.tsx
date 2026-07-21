@@ -21,18 +21,6 @@ type PanelModelCard = {
   brochurePdf: string;
 };
 
-const INITIAL_PANEL_MODELS: PanelModelCard[] = [
-  {
-    id: "pnl-1",
-    name: "AMF & LT Panels",
-    type: "Auto Mains Failure / Synchronizing",
-    image: "",
-    description: "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
-    technicalSpecs: "Our Auto Mains Failure (AMF) panels are engineered for seamless power transition, featuring microprocessor controllers...",
-    brochurePdf: "",
-  },
-];
-
 export default function ElectricalPanelsCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isModelsOpen, setIsModelsOpen] = useState(false);
@@ -48,17 +36,17 @@ export default function ElectricalPanelsCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Electrical Panels Manufacturer in Delhi");
-  const [heroSub, setHeroSub] = useState("High-performance AMF, LT, synchronizing & distribution panels engineered for seamless power automation and protection.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Models List
-  const [models, setModels] = useState<PanelModelCard[]>(INITIAL_PANEL_MODELS);
+  const [models, setModels] = useState<PanelModelCard[]>([]);
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleModelChange = (id: string, field: keyof PanelModelCard, val: string) => {
     setModels((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: val } : m)));

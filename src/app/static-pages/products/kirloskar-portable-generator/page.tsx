@@ -27,24 +27,6 @@ type PortableGensetCard = {
   brochurePdf: string;
 };
 
-const INITIAL_PORTABLE_GENSETS: PortableGensetCard[] = [
-  {
-    id: "port-1",
-    name: "2.1 kVA to 5 kVA Portable Generators",
-    range: "2.1 kVA to 5 kVA",
-    fuelType: "Gasoline / Petrol",
-    cpcbNorm: "CPCB-IV+",
-    cooling: "Air",
-    phase: "Single Phase",
-    rating: "4.5",
-    ratingCount: "210",
-    image: "",
-    description: "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
-    technicalSpecs: "These lightweight and mobile power solutions are designed for on-the-go reliability...",
-    brochurePdf: "",
-  },
-];
-
 export default function KirloskarPortableGeneratorCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isModelsOpen, setIsModelsOpen] = useState(false);
@@ -60,17 +42,17 @@ export default function KirloskarPortableGeneratorCMSPage() {
   const [savedHelp, setSavedHelp] = useState(false);
 
   // Hero Section
-  const [heroHeading, setHeroHeading] = useState("Kirloskar Portable Generators Dealer in Delhi");
-  const [heroSub, setHeroSub] = useState("Explore lightweight, mobile, and reliable air-cooled petrol generators for home, retail, outdoor, and mobile field backup.");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
   // Models List
-  const [models, setModels] = useState<PortableGensetCard[]>(INITIAL_PORTABLE_GENSETS);
+  const [models, setModels] = useState<PortableGensetCard[]>([]);
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnLabel, setHelpBtnLabel] = useState("");
 
   const handleModelChange = (id: string, field: keyof PortableGensetCard, val: string) => {
     setModels((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: val } : m)));

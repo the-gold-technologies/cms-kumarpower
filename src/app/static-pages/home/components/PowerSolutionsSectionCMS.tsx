@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -32,81 +32,42 @@ const CATEGORIES = [
   "Transformers",
 ];
 
-const INITIAL_PRODUCTS: SolutionProduct[] = [
-  {
-    id: "ps-1",
-    category: "CPCB4+ Diesel Generator",
-    title: "CPCB4+ Diesel Generators( 7.5 kVA - 20 kVA)",
-    desc: "Compact CPCB4+ compliant diesel generators designed for small businesses and commercial setups.",
-    specs: "Range: 7.5 kVA - 20 kVA, CPCB Norm: CPCB4+ Emission Compliance, Fuel: Diesel, Cooling: Liquid, Phase: Three Phase",
-    img: "",
-    brochureUrl: "",
-  },
-  {
-    id: "ps-2",
-    category: "CPCB4+ Diesel Generator",
-    title: "CPCB4+ Diesel Generators(25 kVA - 58.5 kVA)",
-    desc: "Reliable CPCB4+ emission compliant diesel generators with advanced liquid cooling for efficient performance.",
-    specs: "Range: 25 kVA - 58.5 kVA, CPCB Norm: CPCB4+ Emission Compliance, Fuel: Diesel, Cooling: Liquid, Phase: Three Phase",
-    img: "",
-    brochureUrl: "",
-  },
-  {
-    id: "ps-3",
-    category: "Optiprime Generators",
-    title: "Kirloskar Optiprime Generator",
-    desc: "Advanced diesel generators with CPCB4+ compliance, offering superior fuel efficiency and eco-friendly operations.",
-    specs: "125 kva - 6600 kva, CPCB4+ Compliant, 3 Phase Output, Fuel: Diesel",
-    img: "",
-    brochureUrl: "",
-  },
-  {
-    id: "ps-4",
-    category: "Gas Generators",
-    title: "Gas Generators",
-    desc: "Eco-friendly natural gas and LPG generators with lower emissions and operational costs for sustainable power generation.",
-    specs: "15 kVA - 250 kVA, Low Emissions, Quiet Operation, Fuel: Natural Gas LPG",
-    img: "",
-    brochureUrl: "",
-  },
-  {
-    id: "ps-5",
-    category: "Electrical Panels",
-    title: "AMF Panels",
-    desc: "Automatic Mains Failure panels for seamless switching between mains and backup power supply, ensuring uninterrupted operation.",
-    specs: "Auto/Manual Operation, Engine Protection, Programmable Logic Control, Current Rating: 100-630A",
-    img: "",
-    brochureUrl: "",
-  },
-];
-
-const INITIAL_ASSOCIATION_LOGOS: AssociationLogo[] = [
-  { id: "assoc-1", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121853_okz8x7.png", alt: "Association Member 1" },
-  { id: "assoc-2", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121836_ayhhxd.png", alt: "Association Member 2" },
-  { id: "assoc-3", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121914_yztxrf.png", alt: "Association Member 3" },
-  { id: "assoc-4", url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121748_ihrukv.png", alt: "Association Member 4" },
-];
-
 export function PowerSolutionsSectionCMS() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const [topBannerImg, setTopBannerImg] = useState("");
-  const [sectionTitle, setSectionTitle] = useState("Power Solutions");
+  const [sectionTitle, setSectionTitle] = useState("");
 
   // Members of Associations fields
-  const [assocTitle, setAssocTitle] = useState("Members of Associations");
-  const [assocSubtitle, setAssocSubtitle] = useState(
-    "Certified and recognized by leading industry organizations for quality and excellence"
-  );
-  const [assocLogos, setAssocLogos] = useState<AssociationLogo[]>(INITIAL_ASSOCIATION_LOGOS);
+  const [assocTitle, setAssocTitle] = useState("");
+  const [assocSubtitle, setAssocSubtitle] = useState("");
+  const [assocLogos, setAssocLogos] = useState<AssociationLogo[]>([]);
 
   // Power in Action section
-  const [actionTitle, setActionTitle] = useState("Power in Action");
+  const [actionTitle, setActionTitle] = useState("");
 
   // Products
-  const [products, setProducts] = useState<SolutionProduct[]>(INITIAL_PRODUCTS);
+  const [products, setProducts] = useState<SolutionProduct[]>([]);
+
+  useEffect(() => {
+    fetch("/api/pages/home")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.success && json.data) {
+          const ps = json.data["power-solutions"] || {};
+          if (ps.topBannerImg !== undefined) setTopBannerImg(ps.topBannerImg);
+          if (ps.sectionTitle !== undefined) setSectionTitle(ps.sectionTitle);
+          if (ps.assocTitle !== undefined) setAssocTitle(ps.assocTitle);
+          if (ps.assocSubtitle !== undefined) setAssocSubtitle(ps.assocSubtitle);
+          if (Array.isArray(ps.assocLogos)) setAssocLogos(ps.assocLogos);
+          if (ps.actionTitle !== undefined) setActionTitle(ps.actionTitle);
+          if (Array.isArray(ps.products)) setProducts(ps.products);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const handleProductChange = (id: string, field: keyof SolutionProduct, val: string) => {
     setProducts((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));
@@ -147,14 +108,24 @@ export function PowerSolutionsSectionCMS() {
     setAssocLogos((prev) => prev.filter((l) => l.id !== id));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsSaving(true);
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      const payload = { topBannerImg, sectionTitle, assocTitle, assocSubtitle, assocLogos, actionTitle, products };
+      const res = await fetch("/api/pages/home", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "power-solutions", content: payload }),
+      });
+      if (!res.ok) throw new Error("Save failed");
       setSaved(true);
       toast.success("Power Solutions section saved!");
       setTimeout(() => setSaved(false), 2000);
-    }, 400);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
