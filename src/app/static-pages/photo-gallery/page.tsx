@@ -54,6 +54,10 @@ export default function PhotoGalleryStaticPageCMS() {
   );
   const [expImage, setExpImage] = useState("");
   const [expProfilePdf, setExpProfilePdf] = useState("");
+  const [expBtn1Label, setExpBtn1Label] = useState("");
+  const [expBtn1Url, setExpBtn1Url] = useState("");
+  const [expBtn2Label, setExpBtn2Label] = useState("");
+  const [expBtn2Url, setExpBtn2Url] = useState("");
 
   const handlePhotoChange = (id: string, field: keyof GalleryPhoto, val: string) => {
     setPhotos((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));
@@ -102,11 +106,17 @@ export default function PhotoGalleryStaticPageCMS() {
           if (data.photos) {
             setPhotos(data.photos);
           }
+          if (data.seeMoreLabel) setSeeMoreLabel(data.seeMoreLabel);
+          if (data.showLessLabel) setShowLessLabel(data.showLessLabel);
           if (data.experience) {
             setExpTitle(data.experience.title || "");
             setExpDesc(data.experience.description || "");
             setExpImage(data.experience.bgImage || "");
             setExpProfilePdf(data.experience.profilePdf || "");
+            setExpBtn1Label(data.experience.btn1Label || "");
+            setExpBtn1Url(data.experience.btn1Url || "");
+            setExpBtn2Label(data.experience.btn2Label || "");
+            setExpBtn2Url(data.experience.btn2Url || "");
           }
         }
       })
@@ -119,7 +129,8 @@ export default function PhotoGalleryStaticPageCMS() {
       const payload = {
         hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
         photos,
-        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
+        seeMoreLabel, showLessLabel,
+        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf, btn1Label: expBtn1Label, btn1Url: expBtn1Url, btn2Label: expBtn2Label, btn2Url: expBtn2Url },
       };
       await fetch("/api/photo-gallery", {
         method: "POST",
@@ -143,7 +154,8 @@ export default function PhotoGalleryStaticPageCMS() {
       const payload = {
         hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
         photos,
-        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
+        seeMoreLabel, showLessLabel,
+        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf, btn1Label: expBtn1Label, btn1Url: expBtn1Url, btn2Label: expBtn2Label, btn2Url: expBtn2Url },
       };
       await fetch("/api/photo-gallery", {
         method: "POST",
@@ -167,7 +179,8 @@ export default function PhotoGalleryStaticPageCMS() {
       const payload = {
         hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
         photos,
-        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf },
+        seeMoreLabel, showLessLabel,
+        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf, btn1Label: expBtn1Label, btn1Url: expBtn1Url, btn2Label: expBtn2Label, btn2Url: expBtn2Url },
       };
       await fetch("/api/photo-gallery", {
         method: "POST",
