@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -11,58 +12,105 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
-type ServoModelCard = {
+type ServoCard = {
   id: string;
   name: string;
   range: string;
-  cooling: string;
-  phase: string;
   image: string;
   description: string;
   technicalSpecs: string;
   brochurePdf: string;
 };
 
-export default function ServoStabilizersCMSPage() {
+const API_ENDPOINT = "/api/servo-stabilizer";
+const SECTION_TYPE = "servo-stabilizer";
+
+export default function ServoStabilizerCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
-  const [isModelsOpen, setIsModelsOpen] = useState(false);
-  const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [isServosOpen, setIsServosOpen] = useState(false);
 
   const [savingHero, setSavingHero] = useState(false);
   const [savedHero, setSavedHero] = useState(false);
-
-  const [savingModels, setSavingModels] = useState(false);
-  const [savedModels, setSavedModels] = useState(false);
-
-  const [savingHelp, setSavingHelp] = useState(false);
-  const [savedHelp, setSavedHelp] = useState(false);
+  const [savingServos, setSavingServos] = useState(false);
+  const [savedServos, setSavedServos] = useState(false);
 
   // Hero Section
+  const [heroHeadingPart1, setHeroHeadingPart1] = useState("Servo Voltage");
+  const [heroHeadingPart2, setHeroHeadingPart2] = useState("Stabilizers");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
 
-  // Models List
-  const [models, setModels] = useState<ServoModelCard[]>([]);
+  // Servos List
+  const [servos, setServos] = useState<ServoCard[]>([]);
 
-  // Help Section
-  const [helpTitle, setHelpTitle] = useState("");
-  const [helpSub, setHelpSub] = useState("");
-  const [helpBtnLabel, setHelpBtnLabel] = useState("");
+  useEffect(() => {
+    fetchWithCache(API_ENDPOINT)
+      .then((json) => {
+        if (json.success && json.data) {
+          const data = json.data[SECTION_TYPE] || json.data.products || json.data;
+          if (data.heroHeadingPart1 !== undefined) setHeroHeadingPart1(data.heroHeadingPart1);
+          if (data.heroHeadingPart2 !== undefined) setHeroHeadingPart2(data.heroHeadingPart2);
+          if (data.heroHeading !== undefined) setHeroHeading(data.heroHeading);
+          if (data.heroSub !== undefined) setHeroSub(data.heroSub);
+          if (data.heroBg !== undefined) setHeroBg(data.heroBg);
+          if (Array.isArray(data.servos)) setServos(data.servos);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
-  const handleModelChange = (id: string, field: keyof ServoModelCard, val: string) => {
-    setModels((prev) => prev.map((m) => (m.id === id ? { ...m, [field]: val } : m)));
+  const saveAllToDB = async () => {
+    const payload = {
+      heroHeadingPart1,
+      heroHeadingPart2,
+      heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
+      heroSub,
+      heroBg,
+      servos,
+    };
+
+    const res = await fetch(API_ENDPOINT, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: SECTION_TYPE, content: payload }),
+    });
+
+    if (res.ok) {
+      clearCache(API_ENDPOINT);
+      toast.success("Servo Stabilizer page updated!");
+    } else {
+      toast.error("Failed to save Servo Stabilizer page");
+    }
   };
 
-  const addModel = () => {
-    setModels((prev) => [
+  const handleSaveHero = async () => {
+    setSavingHero(true);
+    await saveAllToDB();
+    setSavingHero(false);
+    setSavedHero(true);
+    setTimeout(() => setSavedHero(false), 2000);
+  };
+
+  const handleSaveServos = async () => {
+    setSavingServos(true);
+    await saveAllToDB();
+    setSavingServos(false);
+    setSavedServos(true);
+    setTimeout(() => setSavedServos(false), 2000);
+  };
+
+  const handleServoChange = (id: string, field: keyof ServoCard, val: string) => {
+    setServos((prev) => prev.map((s) => (s.id === id ? { ...s, [field]: val } : s)));
+  };
+
+  const addServo = () => {
+    setServos((prev) => [
       ...prev,
       {
         id: `servo-${Date.now()}`,
         name: "",
-        range: "",
-        cooling: "Oil Cooled",
-        phase: "Three Phase",
+        range: "5-100 kVA",
         image: "",
         description: "",
         technicalSpecs: "",
@@ -72,61 +120,34 @@ export default function ServoStabilizersCMSPage() {
     toast.success("New Servo Stabilizer model added!");
   };
 
-  const removeModel = (id: string) => {
-    setModels((prev) => prev.filter((m) => m.id !== id));
+  const removeServo = (id: string) => {
+    setServos((prev) => prev.filter((s) => s.id !== id));
     toast.success("Servo Stabilizer model removed");
-  };
-
-  const handleSaveHero = () => {
-    setSavingHero(true);
-    setTimeout(() => {
-      setSavingHero(false);
-      setSavedHero(true);
-      toast.success("Hero section saved!");
-      setTimeout(() => setSavedHero(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveModels = () => {
-    setSavingModels(true);
-    setTimeout(() => {
-      setSavingModels(false);
-      setSavedModels(true);
-      toast.success("Servo stabilizer models saved!");
-      setTimeout(() => setSavedModels(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveHelp = () => {
-    setSavingHelp(true);
-    setTimeout(() => {
-      setSavingHelp(false);
-      setSavedHelp(true);
-      toast.success("Help CTA section saved!");
-      setTimeout(() => setSavedHelp(false), 2000);
-    }, 400);
   };
 
   return (
     <div className="flex flex-col gap-6 pb-12">
       <PageHeader
-        title="Servo Stabilizers Static Page CMS (/products/servo-stabilizer)"
-        description="Manage the Servo Voltage Stabilizers product page (Hero Header, Servo models, Technical Specs, PDF Catalogues & Help CTA)."
+        title="Servo Voltage Stabilizers CMS (/products/servo-stabilizer)"
+        description="Manage banner text, oil cooled & air cooled servo stabilizer models, technical specs & brochures."
       />
 
-      {/* 1. Hero Header */}
+      {/* 1. Hero Section */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
-          title="1. Hero Banner Section ('Servo Voltage Stabilizers')"
-          description="Manage main heading, tagline description & background image."
+          title="1. Hero Banner Section"
+          description="Manage page headline (regular and colored parts) & tagline description."
           isOpen={isHeroOpen}
           onToggle={() => setIsHeroOpen(!isHeroOpen)}
         />
         <div className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Hero Heading" value={heroHeading} onChange={(e) => setHeroHeading(e.target.value)} />
-            <TextAreaField label="Hero Subtitle" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
-            <ImageUploadField label="Background Banner Image" value={heroBg} onChange={(val) => setHeroBg(val)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Hero Heading (Regular Part)" value={heroHeadingPart1} onChange={(e) => setHeroHeadingPart1(e.target.value)} placeholder="Servo Voltage" />
+              <InputField label="Hero Heading (Colored Part)" value={heroHeadingPart2} onChange={(e) => setHeroHeadingPart2(e.target.value)} placeholder="Stabilizers" />
+            </div>
+            <TextAreaField label="Hero Tagline Subtitle" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
+            <ImageUploadField label="Hero Banner Image Graphic" value={heroBg} onChange={(val) => setHeroBg(val)} />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton isSaving={savingHero} saved={savedHero} onClick={handleSaveHero} />
@@ -135,74 +156,53 @@ export default function ServoStabilizersCMSPage() {
         </div>
       </div>
 
-      {/* 2. Servo Stabilizer Models */}
+      {/* 2. Servos List */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
-          title={`2. Servo Stabilizer Models (${models.length} Models)`}
-          description="Manage kVA power ratings, cooling, technical specs, images & PDF brochures."
-          isOpen={isModelsOpen}
-          onToggle={() => setIsModelsOpen(!isModelsOpen)}
+          title={`2. Servo Stabilizer Models (${servos.length} Models)`}
+          description="Manage stabilizer models, technical specs & brochure downloads."
+          isOpen={isServosOpen}
+          onToggle={() => setIsServosOpen(!isServosOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isModelsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div className={`grid transition-all duration-300 ${isServosOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="flex justify-end">
               <button
                 type="button"
-                onClick={addModel}
+                onClick={addServo}
                 className="flex items-center gap-1.5 px-4 py-2 bg-[#2D6FBA] text-white text-xs font-bold rounded-xl hover:bg-[#22548e] transition cursor-pointer"
               >
-                <Plus className="w-4 h-4" /> Add Servo Model
+                <Plus className="w-4 h-4" /> Add Stabilizer Model
               </button>
             </div>
 
             <div className="space-y-4">
-              {models.map((m, idx) => (
-                <div key={m.id} className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4">
+              {servos.map((s, idx) => (
+                <div key={s.id} className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA] bg-blue-50 px-2 py-0.5 rounded-md">
                       Model #{idx + 1}
                     </span>
-                    <button type="button" onClick={() => removeModel(m.id)} className="text-slate-400 hover:text-red-500 transition cursor-pointer">
+                    <button type="button" onClick={() => removeServo(s.id)} className="text-slate-400 hover:text-red-500 transition cursor-pointer">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <InputField label="Model Name" value={m.name} onChange={(e) => handleModelChange(m.id, "name", e.target.value)} placeholder="e.g. Oil Cooled Servo Voltage Stabilizers" />
-                    <InputField label="Power Range" value={m.range} onChange={(e) => handleModelChange(m.id, "range", e.target.value)} placeholder="e.g. 5-100 kVA" />
-                    <InputField label="Cooling System" value={m.cooling} onChange={(e) => handleModelChange(m.id, "cooling", e.target.value)} />
-                    <InputField label="Phase" value={m.phase} onChange={(e) => handleModelChange(m.id, "phase", e.target.value)} />
+                    <InputField label="Name" value={s.name} onChange={(e) => handleServoChange(s.id, "name", e.target.value)} placeholder="e.g. Oil Cooled Servo Stabilizers" />
+                    <InputField label="Capacity Range" value={s.range} onChange={(e) => handleServoChange(s.id, "range", e.target.value)} placeholder="5-100 kVA" />
                   </div>
-                  <TextAreaField label="Short Overview Description" value={m.description} onChange={(e) => handleModelChange(m.id, "description", e.target.value)} rows={2} />
-                  <TextAreaField label="Detailed Technical Specifications" value={m.technicalSpecs} onChange={(e) => handleModelChange(m.id, "technicalSpecs", e.target.value)} rows={4} />
-                  <ImageUploadField label="Product Image Upload" value={m.image} onChange={(val) => handleModelChange(m.id, "image", val)} />
-                  <PDFUploadField label="Servo Stabilizer Brochure PDF File" value={m.brochurePdf} onChange={(val) => handleModelChange(m.id, "brochurePdf", val)} />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <ImageUploadField label="Stabilizer Graphic Image" value={s.image} onChange={(val) => handleServoChange(s.id, "image", val)} />
+                    <PDFUploadField label="Brochure PDF Document" value={s.brochurePdf} onChange={(val) => handleServoChange(s.id, "brochurePdf", val)} />
+                  </div>
+                  <TextAreaField label="Description" value={s.description} onChange={(e) => handleServoChange(s.id, "description", e.target.value)} rows={2} />
+                  <TextAreaField label="Technical Specifications Detail" value={s.technicalSpecs} onChange={(e) => handleServoChange(s.id, "technicalSpecs", e.target.value)} rows={4} />
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingModels} saved={savedModels} onClick={handleSaveModels} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Expert Consultation Help Banner */}
-      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
-        <SectionHeader
-          title="3. Expert Consultation Help Banner"
-          description="Manage headline, description copy & action button label."
-          isOpen={isHelpOpen}
-          onToggle={() => setIsHelpOpen(!isHelpOpen)}
-        />
-        <div className={`grid transition-all duration-300 ${isHelpOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
-          <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Banner Title" value={helpTitle} onChange={(e) => setHelpTitle(e.target.value)} />
-            <TextAreaField label="Description Subtitle" value={helpSub} onChange={(e) => setHelpSub(e.target.value)} rows={2} />
-            <InputField label="Button Text" value={helpBtnLabel} onChange={(e) => setHelpBtnLabel(e.target.value)} />
-
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingHelp} saved={savedHelp} onClick={handleSaveHelp} />
+              <SaveButton isSaving={savingServos} saved={savedServos} onClick={handleSaveServos} />
             </div>
           </div>
         </div>

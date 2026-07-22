@@ -6,7 +6,14 @@ import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
-import { Plus, Trash2, Upload, UploadCloud, X, Image as ImageIcon } from "lucide-react";
+import {
+  Plus,
+  Trash2,
+  Upload,
+  UploadCloud,
+  X,
+  Image as ImageIcon,
+} from "lucide-react";
 import toast from "react-hot-toast";
 
 type ClientLogo = {
@@ -71,7 +78,16 @@ export default function OurClientsStaticPageCMS() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = { stat1Num, stat1Text, stat2Num, stat2Text, stat3Num, stat3Text, logos, clients };
+    const payload = {
+      stat1Num,
+      stat1Text,
+      stat2Num,
+      stat2Text,
+      stat3Num,
+      stat3Text,
+      logos,
+      clients,
+    };
     const res = await fetch("/api/our-clients", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -89,7 +105,11 @@ export default function OurClientsStaticPageCMS() {
         const result = e.target?.result as string;
         setLogos((prev) => [
           ...prev,
-          { id: `logo-${Date.now()}-${Math.random()}`, url: result, alt: file.name },
+          {
+            id: `logo-${Date.now()}-${Math.random()}`,
+            url: result,
+            alt: file.name,
+          },
         ]);
       };
       reader.readAsDataURL(file);
@@ -102,7 +122,7 @@ export default function OurClientsStaticPageCMS() {
     reader.onload = (e) => {
       const result = e.target?.result as string;
       setLogos((prev) =>
-        prev.map((l) => (l.id === id ? { ...l, url: result } : l))
+        prev.map((l) => (l.id === id ? { ...l, url: result } : l)),
       );
       toast.success("Logo image updated!");
     };
@@ -114,8 +134,14 @@ export default function OurClientsStaticPageCMS() {
     toast.success("Logo removed");
   };
 
-  const handleClientChange = (id: string, field: keyof ClientItem, val: string) => {
-    setClients((prev) => prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)));
+  const handleClientChange = (
+    id: string,
+    field: keyof ClientItem,
+    val: string,
+  ) => {
+    setClients((prev) =>
+      prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)),
+    );
   };
 
   const addClient = () => {
@@ -131,11 +157,47 @@ export default function OurClientsStaticPageCMS() {
     toast.success("Client entry removed");
   };
 
-  const handleSaveStats = async () => { setSavingStats(true); try { await saveAllToDB(); setSavedStats(true); toast.success("Stats saved!"); setTimeout(() => setSavedStats(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingStats(false); } };
+  const handleSaveStats = async () => {
+    setSavingStats(true);
+    try {
+      await saveAllToDB();
+      setSavedStats(true);
+      toast.success("Stats saved!");
+      setTimeout(() => setSavedStats(false), 2000);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setSavingStats(false);
+    }
+  };
 
-  const handleSaveLogos = async () => { setSavingLogos(true); try { await saveAllToDB(); setSavedLogos(true); toast.success("Logos saved!"); setTimeout(() => setSavedLogos(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingLogos(false); } };
+  const handleSaveLogos = async () => {
+    setSavingLogos(true);
+    try {
+      await saveAllToDB();
+      setSavedLogos(true);
+      toast.success("Logos saved!");
+      setTimeout(() => setSavedLogos(false), 2000);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setSavingLogos(false);
+    }
+  };
 
-  const handleSaveClients = async () => { setSavingClients(true); try { await saveAllToDB(); setSavedClients(true); toast.success("Clients saved!"); setTimeout(() => setSavedClients(false), 2000); } catch { toast.error("Save failed"); } finally { setSavingClients(false); } };
+  const handleSaveClients = async () => {
+    setSavingClients(true);
+    try {
+      await saveAllToDB();
+      setSavedClients(true);
+      toast.success("Clients saved!");
+      setTimeout(() => setSavedClients(false), 2000);
+    } catch {
+      toast.error("Save failed");
+    } finally {
+      setSavingClients(false);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6 pb-12">
@@ -152,25 +214,55 @@ export default function OurClientsStaticPageCMS() {
           isOpen={isStatsOpen}
           onToggle={() => setIsStatsOpen(!isStatsOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isStatsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isStatsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="space-y-2">
-                <InputField label="Stat 1 Number" value={stat1Num} onChange={(e) => setStat1Num(e.target.value)} />
-                <InputField label="Stat 1 Label" value={stat1Text} onChange={(e) => setStat1Text(e.target.value)} />
+                <InputField
+                  label="Stat 1 Number"
+                  value={stat1Num}
+                  onChange={(e) => setStat1Num(e.target.value)}
+                />
+                <InputField
+                  label="Stat 1 Label"
+                  value={stat1Text}
+                  onChange={(e) => setStat1Text(e.target.value)}
+                />
               </div>
               <div className="space-y-2">
-                <InputField label="Stat 2 Number" value={stat2Num} onChange={(e) => setStat2Num(e.target.value)} />
-                <InputField label="Stat 2 Label" value={stat2Text} onChange={(e) => setStat2Text(e.target.value)} />
+                <InputField
+                  label="Stat 2 Number"
+                  value={stat2Num}
+                  onChange={(e) => setStat2Num(e.target.value)}
+                />
+                <InputField
+                  label="Stat 2 Label"
+                  value={stat2Text}
+                  onChange={(e) => setStat2Text(e.target.value)}
+                />
               </div>
               <div className="space-y-2">
-                <InputField label="Stat 3 Number" value={stat3Num} onChange={(e) => setStat3Num(e.target.value)} />
-                <InputField label="Stat 3 Label" value={stat3Text} onChange={(e) => setStat3Text(e.target.value)} />
+                <InputField
+                  label="Stat 3 Number"
+                  value={stat3Num}
+                  onChange={(e) => setStat3Num(e.target.value)}
+                />
+                <InputField
+                  label="Stat 3 Label"
+                  value={stat3Text}
+                  onChange={(e) => setStat3Text(e.target.value)}
+                />
               </div>
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingStats} saved={savedStats} onClick={handleSaveStats} />
+              <SaveButton
+                isSaving={savingStats}
+                saved={savedStats}
+                onClick={handleSaveStats}
+              />
             </div>
           </div>
         </div>
@@ -184,7 +276,9 @@ export default function OurClientsStaticPageCMS() {
           isOpen={isLogosOpen}
           onToggle={() => setIsLogosOpen(!isLogosOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isLogosOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isLogosOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="flex items-center justify-between">
               <div>
@@ -211,7 +305,8 @@ export default function OurClientsStaticPageCMS() {
               onDragOver={(e) => e.preventDefault()}
               onDrop={(e) => {
                 e.preventDefault();
-                if (e.dataTransfer.files?.length) handleBulkLogoFiles(e.dataTransfer.files);
+                if (e.dataTransfer.files?.length)
+                  handleBulkLogoFiles(e.dataTransfer.files);
               }}
               className="w-full border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 hover:bg-gray-100/80 flex flex-col items-center justify-center p-6 lg:p-8 transition-colors cursor-pointer group"
             >
@@ -219,9 +314,14 @@ export default function OurClientsStaticPageCMS() {
                 <UploadCloud className="w-6 h-6" strokeWidth={2} />
               </div>
               <p className="text-gray-500 text-sm mb-1 text-center font-medium">
-                <span className="text-[#2D6FBA] font-semibold hover:underline mr-1">Click to upload</span> or drag & drop client logos
+                <span className="text-[#2D6FBA] font-semibold hover:underline mr-1">
+                  Click to upload
+                </span>{" "}
+                or drag & drop client logos
               </p>
-              <p className="text-gray-400 text-xs text-center font-medium">PNG, JPG, SVG or WebP supported</p>
+              <p className="text-gray-400 text-xs text-center font-medium">
+                PNG, JPG, SVG or WebP supported
+              </p>
             </div>
 
             <input
@@ -230,7 +330,9 @@ export default function OurClientsStaticPageCMS() {
               accept="image/*"
               multiple
               className="hidden"
-              onChange={(e) => e.target.files && handleBulkLogoFiles(e.target.files)}
+              onChange={(e) =>
+                e.target.files && handleBulkLogoFiles(e.target.files)
+              }
             />
 
             {/* List of logos */}
@@ -243,7 +345,11 @@ export default function OurClientsStaticPageCMS() {
                   <div className="flex items-center gap-3.5 min-w-0">
                     <div className="w-12 h-12 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-2xs">
                       {logo.url ? (
-                        <img src={logo.url} alt="Client Logo" className="w-full h-full object-contain" />
+                        <img
+                          src={logo.url}
+                          alt="Client Logo"
+                          className="w-full h-full object-contain"
+                        />
                       ) : (
                         <ImageIcon className="w-5 h-5 text-slate-300" />
                       )}
@@ -253,7 +359,11 @@ export default function OurClientsStaticPageCMS() {
                         {logo.alt || `Client Logo #${idx + 1}`}
                       </h4>
                       <p className="text-[11px] text-slate-400 font-medium">
-                        {logo.url ? (logo.url.startsWith("data:") ? "Local File" : "Cloud / Remote") : "No file uploaded"}
+                        {logo.url
+                          ? logo.url.startsWith("data:")
+                            ? "Local File"
+                            : "Cloud / Remote"
+                          : "No file uploaded"}
                       </p>
                     </div>
                   </div>
@@ -286,7 +396,11 @@ export default function OurClientsStaticPageCMS() {
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingLogos} saved={savedLogos} onClick={handleSaveLogos} />
+              <SaveButton
+                isSaving={savingLogos}
+                saved={savedLogos}
+                onClick={handleSaveLogos}
+              />
             </div>
           </div>
         </div>
@@ -300,7 +414,9 @@ export default function OurClientsStaticPageCMS() {
           isOpen={isClientsOpen}
           onToggle={() => setIsClientsOpen(!isClientsOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isClientsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isClientsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="flex justify-end">
               <button
@@ -314,23 +430,48 @@ export default function OurClientsStaticPageCMS() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {clients.map((c, idx) => (
-                <div key={c.id} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 relative">
+                <div
+                  key={c.id}
+                  className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 relative"
+                >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA] bg-blue-50 px-2 py-0.5 rounded-md">
                       Client Entry #{idx + 1}
                     </span>
-                    <button type="button" onClick={() => removeClient(c.id)} className="text-slate-400 hover:text-red-500 transition cursor-pointer">
+                    <button
+                      type="button"
+                      onClick={() => removeClient(c.id)}
+                      className="text-slate-400 hover:text-red-500 transition cursor-pointer"
+                    >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
-                  <InputField label="Client / Organization Name" value={c.name} onChange={(e) => handleClientChange(c.id, "name", e.target.value)} placeholder="e.g. Air India" />
-                  <InputField label="Industry Sector / Tab Category" value={c.category} onChange={(e) => handleClientChange(c.id, "category", e.target.value)} placeholder="e.g. Aviation & Logistics" />
+                  <InputField
+                    label="Client / Organization Name"
+                    value={c.name}
+                    onChange={(e) =>
+                      handleClientChange(c.id, "name", e.target.value)
+                    }
+                    placeholder="e.g. Air India"
+                  />
+                  <InputField
+                    label="Industry Sector / Tab Category"
+                    value={c.category}
+                    onChange={(e) =>
+                      handleClientChange(c.id, "category", e.target.value)
+                    }
+                    placeholder="e.g. Aviation & Logistics"
+                  />
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingClients} saved={savedClients} onClick={handleSaveClients} />
+              <SaveButton
+                isSaving={savingClients}
+                saved={savedClients}
+                onClick={handleSaveClients}
+              />
             </div>
           </div>
         </div>

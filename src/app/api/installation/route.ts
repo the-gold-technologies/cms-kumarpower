@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
-const PAGE_SLUG = "products";
+const PAGE_SLUG = "installation";
 
 export async function GET() {
   try {
@@ -25,10 +25,10 @@ export async function GET() {
 
     return NextResponse.json({ success: true, data: sectionsMap });
   } catch (error) {
-    console.error("Error fetching products page content:", error);
+    console.error("Error fetching installation content:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
@@ -38,13 +38,13 @@ export async function PUT(request: Request) {
     const body = await request.json();
     const { section, content } = body;
 
-    const sectionType = section || body.type || "products";
+    const sectionType = section || body.type || PAGE_SLUG;
     const sectionContent = content !== undefined ? content : body;
 
     const page = await prisma.page.upsert({
       where: { slug: PAGE_SLUG },
       create: {
-        title: "Products",
+        title: "Generator Installation & Commissioning",
         slug: PAGE_SLUG,
         type: "static",
         visibility: "published",
@@ -78,10 +78,10 @@ export async function PUT(request: Request) {
 
     return NextResponse.json({ success: true, data: savedSection });
   } catch (error) {
-    console.error("Error saving products page section:", error);
+    console.error("Error saving installation section:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

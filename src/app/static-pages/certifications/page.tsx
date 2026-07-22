@@ -42,6 +42,8 @@ export default function CertificationsCMSPage() {
 
   // Hero Section
   const [heroTitle, setHeroTitle] = useState("");
+  const [heroTitlePart1, setHeroTitlePart1] = useState("");
+  const [heroTitlePart2, setHeroTitlePart2] = useState("");
   const [heroSub, setHeroSub] = useState("");
 
   // Certificate List
@@ -49,6 +51,8 @@ export default function CertificationsCMSPage() {
 
   // Why Certifications Matter Section
   const [whySectionTitle, setWhySectionTitle] = useState("");
+  const [whyTitlePart1, setWhyTitlePart1] = useState("");
+  const [whyTitlePart2, setWhyTitlePart2] = useState("");
   const [whyCard1Title, setWhyCard1Title] = useState("");
   const [whyCard1Desc, setWhyCard1Desc] = useState("");
   const [whyCard2Title, setWhyCard2Title] = useState("");
@@ -58,6 +62,8 @@ export default function CertificationsCMSPage() {
 
   // Commitment Banner
   const [commitTitle, setCommitTitle] = useState("");
+  const [commitTitlePart1, setCommitTitlePart1] = useState("");
+  const [commitTitlePart2, setCommitTitlePart2] = useState("");
   const [commitText, setCommitText] = useState("");
   const [btn1Label, setBtn1Label] = useState("");
   const [btn1Url, setBtn1Url] = useState("");
@@ -69,9 +75,13 @@ export default function CertificationsCMSPage() {
       .then((json) => {
         if (json.success && json.data) {
           const certs = json.data.certifications || json.data["certifications"] || json.data;
+          if (certs.heroTitlePart1 !== undefined) setHeroTitlePart1(certs.heroTitlePart1);
+          if (certs.heroTitlePart2 !== undefined) setHeroTitlePart2(certs.heroTitlePart2);
           if (certs.heroTitle !== undefined) setHeroTitle(certs.heroTitle);
           if (certs.heroSub !== undefined) setHeroSub(certs.heroSub);
           if (Array.isArray(certs.certificates)) setCertificates(certs.certificates);
+          if (certs.whyTitlePart1 !== undefined) setWhyTitlePart1(certs.whyTitlePart1);
+          if (certs.whyTitlePart2 !== undefined) setWhyTitlePart2(certs.whyTitlePart2);
           if (certs.whySectionTitle !== undefined) setWhySectionTitle(certs.whySectionTitle);
           if (certs.whyCard1Title !== undefined) setWhyCard1Title(certs.whyCard1Title);
           if (certs.whyCard1Desc !== undefined) setWhyCard1Desc(certs.whyCard1Desc);
@@ -79,6 +89,8 @@ export default function CertificationsCMSPage() {
           if (certs.whyCard2Desc !== undefined) setWhyCard2Desc(certs.whyCard2Desc);
           if (certs.whyCard3Title !== undefined) setWhyCard3Title(certs.whyCard3Title);
           if (certs.whyCard3Desc !== undefined) setWhyCard3Desc(certs.whyCard3Desc);
+          if (certs.commitTitlePart1 !== undefined) setCommitTitlePart1(certs.commitTitlePart1);
+          if (certs.commitTitlePart2 !== undefined) setCommitTitlePart2(certs.commitTitlePart2);
           if (certs.commitTitle !== undefined) setCommitTitle(certs.commitTitle);
           if (certs.commitText !== undefined) setCommitText(certs.commitText);
           if (certs.btn1Label !== undefined) setBtn1Label(certs.btn1Label);
@@ -92,9 +104,19 @@ export default function CertificationsCMSPage() {
 
   const saveAllToDB = async () => {
     const payload = {
-      heroTitle, heroSub, certificates, whySectionTitle,
+      heroTitle: `${heroTitlePart1} ${heroTitlePart2}`.trim() || heroTitle,
+      heroTitlePart1,
+      heroTitlePart2,
+      heroSub, certificates,
+      whySectionTitle: `${whyTitlePart1} ${whyTitlePart2}`.trim() || whySectionTitle,
+      whyTitlePart1,
+      whyTitlePart2,
       whyCard1Title, whyCard1Desc, whyCard2Title, whyCard2Desc,
-      whyCard3Title, whyCard3Desc, commitTitle, commitText,
+      whyCard3Title, whyCard3Desc,
+      commitTitle: `${commitTitlePart1} ${commitTitlePart2}`.trim() || commitTitle,
+      commitTitlePart1,
+      commitTitlePart2,
+      commitText,
       btn1Label, btn1Url, btn2Label, btn2Url
     };
     const res = await fetch("/api/certifications", {
@@ -148,7 +170,10 @@ export default function CertificationsCMSPage() {
         />
         <div className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Main Title" value={heroTitle} onChange={(e) => setHeroTitle(e.target.value)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Header Title (Regular Part)" value={heroTitlePart1} onChange={(e) => setHeroTitlePart1(e.target.value)} placeholder="Awards and" />
+              <InputField label="Header Title (Colored Part)" value={heroTitlePart2} onChange={(e) => setHeroTitlePart2(e.target.value)} placeholder="Certifications" />
+            </div>
             <TextAreaField label="Subtitle Description" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
@@ -217,7 +242,10 @@ export default function CertificationsCMSPage() {
         />
         <div className={`grid transition-all duration-300 ${isWhyOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
-            <InputField label="Section Title" value={whySectionTitle} onChange={(e) => setWhySectionTitle(e.target.value)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Section Title (Regular Part)" value={whyTitlePart1} onChange={(e) => setWhyTitlePart1(e.target.value)} placeholder="Why" />
+              <InputField label="Section Title (Colored Part)" value={whyTitlePart2} onChange={(e) => setWhyTitlePart2(e.target.value)} placeholder="Certifications Matter" />
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Card 1 */}
@@ -265,7 +293,10 @@ export default function CertificationsCMSPage() {
         />
         <div className={`grid transition-all duration-300 ${isCommitOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Banner Title" value={commitTitle} onChange={(e) => setCommitTitle(e.target.value)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Banner Title (Regular Part)" value={commitTitlePart1} onChange={(e) => setCommitTitlePart1(e.target.value)} placeholder="Our Commitment to" />
+              <InputField label="Banner Title (Colored Part)" value={commitTitlePart2} onChange={(e) => setCommitTitlePart2(e.target.value)} placeholder="Excellence" />
+            </div>
             <TextAreaField label="Description Paragraph" value={commitText} onChange={(e) => setCommitText(e.target.value)} rows={4} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <InputField label="Button 1 Text" value={btn1Label} onChange={(e) => setBtn1Label(e.target.value)} />

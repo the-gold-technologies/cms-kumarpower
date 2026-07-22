@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchWithCache, clearCache } from "@/lib/apiCache";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -23,62 +24,130 @@ type ProductCategory = {
   productLink: string;
 };
 
-type FeatureCard = {
-  id: string;
-  title: string;
-  description: string;
-};
-
 export default function ProductsStaticPageCMS() {
   // Section Open states
   const [isHeroOpen, setIsHeroOpen] = useState(false);
+  const [isGridOpen, setIsGridOpen] = useState(false);
   const [isCatsOpen, setIsCatsOpen] = useState(false);
-  const [isPdfOpen, setIsPdfOpen] = useState(false);
-  const [isFeatOpen, setIsFeatOpen] = useState(false);
-  const [isCtaOpen, setIsCtaOpen] = useState(false);
 
-  // Saving states per section
+  // Saving states
   const [savingHero, setSavingHero] = useState(false);
   const [savedHero, setSavedHero] = useState(false);
-
+  const [savingGrid, setSavingGrid] = useState(false);
+  const [savedGrid, setSavedGrid] = useState(false);
   const [savingCats, setSavingCats] = useState(false);
   const [savedCats, setSavedCats] = useState(false);
 
-  const [savingPdf, setSavingPdf] = useState(false);
-  const [savedPdf, setSavedPdf] = useState(false);
-
-  const [savingFeat, setSavingFeat] = useState(false);
-  const [savedFeat, setSavedFeat] = useState(false);
-
-  const [savingCta, setSavingCta] = useState(false);
-  const [savedCta, setSavedCta] = useState(false);
-
   // Hero Section
+  const [heroHeadingPart1, setHeroHeadingPart1] = useState("Powering Progress,");
+  const [heroHeadingPart2, setHeroHeadingPart2] = useState("One Generator at a Time");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
-  const [heroCataloguePdf, setHeroCataloguePdf] = useState("");
-  const [heroPrimaryCtaLabel, setHeroPrimaryCtaLabel] = useState("");
-  const [heroPrimaryCtaUrl, setHeroPrimaryCtaUrl] = useState("");
+  const [btn1Text, setBtn1Text] = useState("Request a Quote");
+  const [btn1Url, setBtn1Url] = useState("/contact");
+  const [btn2Text, setBtn2Text] = useState("Download Product Catalogue");
+  const [btn2Url, setBtn2Url] = useState("");
+
+  // Grid Header Section
+  const [sectionTitle, setSectionTitle] = useState("ALL Products");
+  const [sectionDesc, setSectionDesc] = useState("");
+
+  // Certifications & Help Section Text
+  const [certTitle, setCertTitle] = useState("Certified Excellence");
+  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
+  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
+  const [helpBtnText, setHelpBtnText] = useState("Talk to an Expert");
+  const [whyChooseTitle, setWhyChooseTitle] = useState("Why Choose Kirloskar Generators?");
 
   // Product Categories
   const [categories, setCategories] = useState<ProductCategory[]>([]);
 
-  // Compliance PDFs
-  const [bharatPdf, setBharatPdf] = useState("");
-  const [direction76Pdf, setDirection76Pdf] = useState("");
+  useEffect(() => {
+    fetchWithCache("/api/products")
+      .then((json) => {
+        if (json.success && json.data) {
+          const prods = json.data.products || json.data["products"] || json.data;
+          if (prods.heroHeadingPart1 !== undefined) setHeroHeadingPart1(prods.heroHeadingPart1);
+          if (prods.heroHeadingPart2 !== undefined) setHeroHeadingPart2(prods.heroHeadingPart2);
+          if (prods.heroHeading !== undefined) setHeroHeading(prods.heroHeading);
+          if (prods.heroSub !== undefined) setHeroSub(prods.heroSub);
+          if (prods.heroBg !== undefined) setHeroBg(prods.heroBg);
+          if (prods.btn1Text !== undefined) setBtn1Text(prods.btn1Text);
+          if (prods.btn1Url !== undefined) setBtn1Url(prods.btn1Url);
+          if (prods.btn2Text !== undefined) setBtn2Text(prods.btn2Text);
+          if (prods.btn2Url !== undefined) setBtn2Url(prods.btn2Url);
+          if (prods.sectionTitle !== undefined) setSectionTitle(prods.sectionTitle);
+          if (prods.sectionDesc !== undefined) setSectionDesc(prods.sectionDesc);
+          if (prods.certTitle !== undefined) setCertTitle(prods.certTitle);
+          if (prods.helpTitle !== undefined) setHelpTitle(prods.helpTitle);
+          if (prods.helpSub !== undefined) setHelpSub(prods.helpSub);
+          if (prods.helpBtnText !== undefined) setHelpBtnText(prods.helpBtnText);
+          if (prods.whyChooseTitle !== undefined) setWhyChooseTitle(prods.whyChooseTitle);
+          if (Array.isArray(prods.categories)) setCategories(prods.categories);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
-  // Why Choose Features
-  const [features, setFeatures] = useState<FeatureCard[]>([]);
+  const saveAllToDB = async () => {
+    const payload = {
+      heroHeadingPart1,
+      heroHeadingPart2,
+      heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
+      heroSub,
+      heroBg,
+      btn1Text,
+      btn1Url,
+      btn2Text,
+      btn2Url,
+      sectionTitle,
+      sectionDesc,
+      certTitle,
+      helpTitle,
+      helpSub,
+      helpBtnText,
+      whyChooseTitle,
+      categories,
+    };
 
-  // Bottom CTA Section
-  const [ctaTitle, setCtaTitle] = useState("");
-  const [ctaDesc, setCtaDesc] = useState("");
-  const [ctaPrimaryBtnLabel, setCtaPrimaryBtnLabel] = useState("");
-  const [ctaPrimaryBtnUrl, setCtaPrimaryBtnUrl] = useState("");
-  const [ctaSecondaryBtnLabel, setCtaSecondaryBtnLabel] = useState("");
-  const [ctaSecondaryBtnUrl, setCtaSecondaryBtnUrl] = useState("");
-  const [ctaPhoneHotline, setCtaPhoneHotline] = useState("");
+    const res = await fetch("/api/products", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "products", content: payload }),
+    });
+
+    if (res.ok) {
+      clearCache("/api/products");
+      toast.success("Products page updated successfully!");
+    } else {
+      toast.error("Failed to save products page");
+    }
+  };
+
+  const handleSaveHero = async () => {
+    setSavingHero(true);
+    await saveAllToDB();
+    setSavingHero(false);
+    setSavedHero(true);
+    setTimeout(() => setSavedHero(false), 2000);
+  };
+
+  const handleSaveGrid = async () => {
+    setSavingGrid(true);
+    await saveAllToDB();
+    setSavingGrid(false);
+    setSavedGrid(true);
+    setTimeout(() => setSavedGrid(false), 2000);
+  };
+
+  const handleSaveCats = async () => {
+    setSavingCats(true);
+    await saveAllToDB();
+    setSavingCats(false);
+    setSavedCats(true);
+    setTimeout(() => setSavedCats(false), 2000);
+  };
 
   const handleCategoryChange = (id: string, field: keyof ProductCategory, val: string) => {
     setCategories((prev) => prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)));
@@ -87,7 +156,17 @@ export default function ProductsStaticPageCMS() {
   const addCategory = () => {
     setCategories((prev) => [
       ...prev,
-      { id: `cat-${Date.now()}`, name: "", range: "", fuelType: "Diesel", cooling: "Liquid", phase: "Three Phase", image: "", description: "", productLink: "/products" },
+      {
+        id: `cat-${Date.now()}`,
+        name: "",
+        range: "",
+        fuelType: "Diesel",
+        cooling: "Liquid",
+        phase: "Three Phase",
+        image: "",
+        description: "",
+        productLink: "/products",
+      },
     ]);
     toast.success("New product category added!");
   };
@@ -97,85 +176,35 @@ export default function ProductsStaticPageCMS() {
     toast.success("Product category removed");
   };
 
-  const handleFeatureChange = (id: string, field: keyof FeatureCard, val: string) => {
-    setFeatures((prev) => prev.map((f) => (f.id === id ? { ...f, [field]: val } : f)));
-  };
-
-  const handleSaveHero = () => {
-    setSavingHero(true);
-    setTimeout(() => {
-      setSavingHero(false);
-      setSavedHero(true);
-      toast.success("Hero section saved!");
-      setTimeout(() => setSavedHero(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveCats = () => {
-    setSavingCats(true);
-    setTimeout(() => {
-      setSavingCats(false);
-      setSavedCats(true);
-      toast.success("Product categories saved!");
-      setTimeout(() => setSavedCats(false), 2000);
-    }, 400);
-  };
-
-  const handleSavePdf = () => {
-    setSavingPdf(true);
-    setTimeout(() => {
-      setSavingPdf(false);
-      setSavedPdf(true);
-      toast.success("Compliance PDFs saved!");
-      setTimeout(() => setSavedPdf(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveFeat = () => {
-    setSavingFeat(true);
-    setTimeout(() => {
-      setSavingFeat(false);
-      setSavedFeat(true);
-      toast.success("Why Choose Kirloskar features saved!");
-      setTimeout(() => setSavedFeat(false), 2000);
-    }, 400);
-  };
-
-  const handleSaveCta = () => {
-    setSavingCta(true);
-    setTimeout(() => {
-      setSavingCta(false);
-      setSavedCta(true);
-      toast.success("CTA Assistance section saved!");
-      setTimeout(() => setSavedCta(false), 2000);
-    }, 400);
-  };
-
   return (
     <div className="flex flex-col gap-6 pb-12">
       <PageHeader
         title="Products Landing Page CMS (/products)"
-        description="Manage product showcase categories, hero banner, compliance PDF downloads (Bharat Rajpat, Direction 76), features & CTA consultation banner. Expand any section to edit."
+        description="Manage hero banner text, CTAs, ALL Products section header, and all generator category cards."
       />
 
       {/* 1. Hero Banner */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
-          title="1. Hero Banner Section ('Powering Progress')"
-          description="Manage main heading, tagline description, CTA button & product catalogue PDF."
+          title="1. Hero Banner Section"
+          description="Manage main title (regular & colored parts), subtitle description, action buttons & brochure link."
           isOpen={isHeroOpen}
           onToggle={() => setIsHeroOpen(!isHeroOpen)}
         />
         <div className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Hero Heading" value={heroHeading} onChange={(e) => setHeroHeading(e.target.value)} />
-            <TextAreaField label="Hero Subtitle Tagline" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
-            <ImageUploadField label="Hero Banner Background Graphic" value={heroBg} onChange={(val) => setHeroBg(val)} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Primary CTA Button Label" value={heroPrimaryCtaLabel} onChange={(e) => setHeroPrimaryCtaLabel(e.target.value)} />
-              <InputField label="Primary CTA Button Target Link" value={heroPrimaryCtaUrl} onChange={(e) => setHeroPrimaryCtaUrl(e.target.value)} />
+              <InputField label="Hero Heading (Regular Part)" value={heroHeadingPart1} onChange={(e) => setHeroHeadingPart1(e.target.value)} placeholder="Powering Progress," />
+              <InputField label="Hero Heading (Colored Part)" value={heroHeadingPart2} onChange={(e) => setHeroHeadingPart2(e.target.value)} placeholder="One Generator at a Time" />
             </div>
-            <PDFUploadField label="Product Catalogue PDF Document" value={heroCataloguePdf} onChange={(val) => setHeroCataloguePdf(val)} />
+            <TextAreaField label="Hero Subtitle Tagline" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
+            <ImageUploadField label="Hero Background Graphic" value={heroBg} onChange={(val) => setHeroBg(val)} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Button 1 Text" value={btn1Text} onChange={(e) => setBtn1Text(e.target.value)} />
+              <InputField label="Button 1 Link" value={btn1Url} onChange={(e) => setBtn1Url(e.target.value)} />
+              <InputField label="Button 2 Text" value={btn2Text} onChange={(e) => setBtn2Text(e.target.value)} />
+              <PDFUploadField label="Catalogue PDF Link" value={btn2Url} onChange={(val) => setBtn2Url(val)} />
+            </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton isSaving={savingHero} saved={savedHero} onClick={handleSaveHero} />
@@ -184,10 +213,42 @@ export default function ProductsStaticPageCMS() {
         </div>
       </div>
 
-      {/* 2. Product Categories List */}
+      {/* 2. ALL Products Header Section */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
-          title={`2. All Product Categories (${categories.length} Categories)`}
+          title="2. Grid Section Header"
+          description="Manage main section title & overview description text."
+          isOpen={isGridOpen}
+          onToggle={() => setIsGridOpen(!isGridOpen)}
+        />
+        <div className={`grid transition-all duration-300 ${isGridOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+          <div className="overflow-hidden flex flex-col gap-4 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <InputField label="Section Title" value={sectionTitle} onChange={(e) => setSectionTitle(e.target.value)} placeholder="ALL Products" />
+              <TextAreaField label="Section Description" value={sectionDesc} onChange={(e) => setSectionDesc(e.target.value)} rows={2} />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <InputField label="Certifications Title" value={certTitle} onChange={(e) => setCertTitle(e.target.value)} placeholder="Certified Excellence" />
+              <InputField label="Help Section Title" value={helpTitle} onChange={(e) => setHelpTitle(e.target.value)} placeholder="Need Help Choosing the Right Electrical Solution?" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <TextAreaField label="Help Section Description" value={helpSub} onChange={(e) => setHelpSub(e.target.value)} rows={2} />
+              <InputField label="Help Section Button Text" value={helpBtnText} onChange={(e) => setHelpBtnText(e.target.value)} placeholder="Talk to an Expert" />
+            </div>
+            <InputField label="Why Choose Section Title" value={whyChooseTitle} onChange={(e) => setWhyChooseTitle(e.target.value)} placeholder="Why Choose Kirloskar Generators?" />
+
+            <div className="flex justify-end pt-4 border-t border-slate-100">
+              <SaveButton isSaving={savingGrid} saved={savedGrid} onClick={handleSaveGrid} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Product Categories List */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title={`3. Product Category Cards (${categories.length} Categories)`}
           description="Manage generator ranges (Diesel, Gas, Portable, Optiprime, AMF Panels, Servo Stabilizers, Transformers)."
           isOpen={isCatsOpen}
           onToggle={() => setIsCatsOpen(!isCatsOpen)}
@@ -218,98 +279,16 @@ export default function ProductsStaticPageCMS() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <InputField label="Category Name" value={cat.name} onChange={(e) => handleCategoryChange(cat.id, "name", e.target.value)} placeholder="e.g. Kirloskar Diesel Generators" />
                     <InputField label="Power Range" value={cat.range} onChange={(e) => handleCategoryChange(cat.id, "range", e.target.value)} placeholder="e.g. 7.5 kVA to 20 kVA" />
-                    <InputField label="Fuel Type" value={cat.fuelType} onChange={(e) => handleCategoryChange(cat.id, "fuelType", e.target.value)} placeholder="e.g. Diesel / CNG" />
-                    <InputField label="Target Link URL" value={cat.productLink} onChange={(e) => handleCategoryChange(cat.id, "productLink", e.target.value)} placeholder="e.g. /products/kirloskar-diesel-generator" />
+                    <InputField label="Target Link URL" value={cat.productLink} onChange={(e) => handleCategoryChange(cat.id, "productLink", e.target.value)} placeholder="/products/kirloskar-diesel-generator" />
+                    <ImageUploadField label="Category Image" value={cat.image} onChange={(val) => handleCategoryChange(cat.id, "image", val)} />
                   </div>
-                  <TextAreaField label="Category Description" value={cat.description} onChange={(e) => handleCategoryChange(cat.id, "description", e.target.value)} rows={2} />
-                  <ImageUploadField label="Category Product Image" value={cat.image} onChange={(val) => handleCategoryChange(cat.id, "image", val)} />
+                  <TextAreaField label="Description" value={cat.description} onChange={(e) => handleCategoryChange(cat.id, "description", e.target.value)} rows={2} />
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton isSaving={savingCats} saved={savedCats} onClick={handleSaveCats} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Government Compliance PDFs */}
-      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
-        <SectionHeader
-          title="3. Government Compliance PDF Documents"
-          description="Manage downloadable compliance files (Bharat Rajpat PDF & Direction 76 PDF)."
-          isOpen={isPdfOpen}
-          onToggle={() => setIsPdfOpen(!isPdfOpen)}
-        />
-        <div className={`grid transition-all duration-300 ${isPdfOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
-          <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <PDFUploadField label="Bharat Rajpat Compliance PDF Document" value={bharatPdf} onChange={(val) => setBharatPdf(val)} />
-            <PDFUploadField label="Direction 76 PDF Document" value={direction76Pdf} onChange={(val) => setDirection76Pdf(val)} />
-
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingPdf} saved={savedPdf} onClick={handleSavePdf} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Why Choose Kirloskar Generators */}
-      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
-        <SectionHeader
-          title={`4. 'Why Choose Kirloskar Generators' Feature Cards (${features.length} Features)`}
-          description="Manage 6 key product benefits (Unmatched Reliability, Fuel Efficiency, Rapid Response, Low Noise, etc.)."
-          isOpen={isFeatOpen}
-          onToggle={() => setIsFeatOpen(!isFeatOpen)}
-        />
-        <div className={`grid transition-all duration-300 ${isFeatOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
-          <div className="overflow-hidden flex flex-col gap-6 pt-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {features.map((f, idx) => (
-                <div key={f.id} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA]">
-                    Feature #{idx + 1}
-                  </span>
-                  <InputField label="Feature Title" value={f.title} onChange={(e) => handleFeatureChange(f.id, "title", e.target.value)} />
-                  <TextAreaField label="Description" value={f.description} onChange={(e) => handleFeatureChange(f.id, "description", e.target.value)} rows={3} />
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingFeat} saved={savedFeat} onClick={handleSaveFeat} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 5. CTA Assistance Banner & Buttons Section */}
-      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
-        <SectionHeader
-          title="5. CTA Assistance Banner & Action Buttons Section ('Need Help Choosing...?')"
-          description="Manage headline, description copy, CTA buttons (Talk to an Expert, Request Quote) & hotline phone number."
-          isOpen={isCtaOpen}
-          onToggle={() => setIsCtaOpen(!isCtaOpen)}
-        />
-        <div className={`grid transition-all duration-300 ${isCtaOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
-          <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="CTA Section Headline Title" value={ctaTitle} onChange={(e) => setCtaTitle(e.target.value)} />
-            <TextAreaField label="CTA Description Subtitle Copy" value={ctaDesc} onChange={(e) => setCtaDesc(e.target.value)} rows={2} />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Primary CTA Button Label ('Talk to an Expert')" value={ctaPrimaryBtnLabel} onChange={(e) => setCtaPrimaryBtnLabel(e.target.value)} />
-              <InputField label="Primary CTA Button Link URL" value={ctaPrimaryBtnUrl} onChange={(e) => setCtaPrimaryBtnUrl(e.target.value)} />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Secondary CTA Button Label ('Request Quote')" value={ctaSecondaryBtnLabel} onChange={(e) => setCtaSecondaryBtnLabel(e.target.value)} />
-              <InputField label="Secondary CTA Button Link URL" value={ctaSecondaryBtnUrl} onChange={(e) => setCtaSecondaryBtnUrl(e.target.value)} />
-            </div>
-
-            <InputField label="Support Hotline Phone Number" value={ctaPhoneHotline} onChange={(e) => setCtaPhoneHotline(e.target.value)} placeholder="e.g. +919773877796" />
-
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingCta} saved={savedCta} onClick={handleSaveCta} />
             </div>
           </div>
         </div>
