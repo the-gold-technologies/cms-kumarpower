@@ -59,9 +59,9 @@ export function PowerSolutionsSectionCMS({
   const [topBannerImg, setTopBannerImg] = useState("");
   const [sectionTitle, setSectionTitle] = useState("");
 
-  // Members of Associations fields
   const [assocTitle, setAssocTitle] = useState("");
   const [assocSubtitle, setAssocSubtitle] = useState("");
+  const [assocFooterText, setAssocFooterText] = useState("");
   const [assocLogos, setAssocLogos] = useState<AssociationLogo[]>([]);
 
   // Power in Action section
@@ -80,6 +80,7 @@ export function PowerSolutionsSectionCMS({
             if (ps.sectionTitle !== undefined) setSectionTitle(ps.sectionTitle);
             if (ps.assocTitle !== undefined) setAssocTitle(ps.assocTitle);
             if (ps.assocSubtitle !== undefined) setAssocSubtitle(ps.assocSubtitle);
+            if (ps.assocFooterText !== undefined) setAssocFooterText(ps.assocFooterText);
             if (Array.isArray(ps.assocLogos)) setAssocLogos(ps.assocLogos);
             if (ps.actionTitle !== undefined) setActionTitle(ps.actionTitle);
             if (Array.isArray(ps.products)) setProducts(ps.products);
@@ -131,7 +132,16 @@ export function PowerSolutionsSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { topBannerImg, sectionTitle, assocTitle, assocSubtitle, assocLogos, actionTitle, products };
+      const payload = {
+        topBannerImg,
+        sectionTitle,
+        assocTitle,
+        assocSubtitle,
+        assocFooterText,
+        assocLogos,
+        actionTitle,
+        products,
+      };
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -289,6 +299,12 @@ export function PowerSolutionsSectionCMS({
               value={assocSubtitle}
               onChange={(e) => setAssocSubtitle(e.target.value)}
               rows={2}
+            />
+            <InputField
+              label="Association Section Footer Text"
+              value={assocFooterText}
+              onChange={(e) => setAssocFooterText(e.target.value)}
+              placeholder="e.g. Our commitment to quality and excellence is recognized by industry-leading organizations"
             />
 
             <div className="flex items-center justify-between pt-2">

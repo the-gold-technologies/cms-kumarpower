@@ -101,6 +101,37 @@ export function HeroSectionCMS({
     toast.success("Logos added successfully!");
   };
 
+  const handleVideoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("video/")) {
+      toast.error("Please select a valid video file.");
+      return;
+    }
+
+    const toastId = toast.loading("Uploading video...");
+    try {
+      const data = new FormData();
+      data.append("file", file);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: data,
+      });
+
+      const json = await res.json();
+      if (json.success && json.files?.length > 0) {
+        setFormData({ ...formData, backgroundVideo: json.files[0] });
+        toast.success("Video uploaded successfully!", { id: toastId });
+      } else {
+        throw new Error(json.error || "Upload failed");
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Failed to upload video", { id: toastId });
+    }
+  };
+
   const addEmptyLogo = () => {
     const newId = `logo-${Date.now()}`;
     setLogos((prev) => [...prev, { id: newId, url: "", alt: "" }]);
@@ -242,13 +273,32 @@ export function HeroSectionCMS({
           {/* Background Video */}
           <div className="space-y-3 pt-2 border-t border-slate-100">
             <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">Background Video</p>
-            <InputField
-              label="Background Video URL"
-              value={formData.backgroundVideo}
-              onChange={(e) => setFormData({ ...formData, backgroundVideo: e.target.value })}
-              placeholder="e.g. https://cdn.example.com/hero-video.mp4"
-              tooltip="MP4 video URL shown behind the hero content"
-            />
+            <div className="flex flex-col gap-2">
+              <InputField
+                label="Background Video URL"
+                value={formData.backgroundVideo}
+                onChange={(e) => setFormData({ ...formData, backgroundVideo: e.target.value })}
+                placeholder="e.g. https://cdn.example.com/hero-video.mp4"
+                tooltip="MP4 video URL shown behind the hero content. You can upload one below or paste a URL directly."
+              />
+              <div className="flex items-center gap-4 mt-2">
+                <label className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl cursor-pointer transition">
+                  <Upload className="w-4 h-4" />
+                  Upload Video File
+                  <input
+                    type="file"
+                    accept="video/*"
+                    className="hidden"
+                    onChange={handleVideoUpload}
+                  />
+                </label>
+                {formData.backgroundVideo && formData.backgroundVideo.startsWith("http") && (
+                  <span className="text-xs text-green-600 font-medium flex items-center gap-1">
+                    ✓ Video ready
+                  </span>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Trusted By Logos */}

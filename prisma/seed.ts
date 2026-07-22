@@ -437,21 +437,71 @@ async function main() {
             ctaPrimaryLabel: "Explore Power Solutions",
             ctaPrimaryUrl: "/products",
             ctaSecondaryLabel: "Download Profile",
-            companyProfilePdf: "",
+            companyProfilePdf: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703721/kumarpower_website/lwslbfk9cagxu3m0khzy.pdf",
             trustedByLabel: "TRUSTED BY",
-            backgroundVideo: "",
+            backgroundVideo: "https://res.cloudinary.com/dpa93copz/video/upload/v1784704185/kumarpower_website/rz0nppx2f85aevxezjma.mp4",
             logos: [
-              {
-                id: "logo-1",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg",
-                alt: "Client Logo 1",
-              },
-              {
-                id: "logo-2",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg",
-                alt: "Client Logo 2",
-              },
-            ],
+          {
+                    "id": "logo-1",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                    "alt": "Tech Innovators"
+          },
+          {
+                    "id": "logo-2",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                    "alt": "EcoPower Solutions"
+          },
+          {
+                    "id": "logo-3",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
+                    "alt": "ManufacturePro"
+          },
+          {
+                    "id": "logo-4",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
+                    "alt": "LogiTrans"
+          },
+          {
+                    "id": "logo-5",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                    "alt": "BuildMaster"
+          },
+          {
+                    "id": "logo-6",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
+                    "alt": "BuildMaster"
+          },
+          {
+                    "id": "logo-7",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703682/kumarpower_website/cvntuob1pan8lodaj37k.jpg",
+                    "alt": "BuildMaster"
+          },
+          {
+                    "id": "logo-8",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703685/kumarpower_website/i2hcjyehbydll3hg67nf.jpg",
+                    "alt": "BuildMaster"
+          },
+          {
+                    "id": "logo-9",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703686/kumarpower_website/uhmlaewcidzkrefpnl8g.jpg",
+                    "alt": "BuildMaster"
+          },
+          {
+                    "id": "logo-10",
+                    "url": "https://res.cloudinary.com/dpa93copz/image/upload/v1784703688/kumarpower_website/pgpf5ubc3ylvzfnjn7my.jpg",
+                    "alt": "BuildMaster"
+          },
+          {
+                    "id": "logo-11",
+                    "url": "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg",
+                    "alt": "Trusted Partner"
+          },
+          {
+                    "id": "logo-12",
+                    "url": "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg",
+                    "alt": "Trusted Client"
+          }
+],
           },
         },
         {
@@ -471,7 +521,7 @@ async function main() {
             feature4: "ISO 9001:2015 Accredited",
             ctaLabel: "Explore Our Legacy",
             ctaUrl: "/about/OurProfile",
-            teamImage: "",
+            teamImage: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703171/kumarpower_website/vha58bhrkpu6yhmhammc.jpg",
           },
         },
         {
@@ -489,8 +539,8 @@ async function main() {
                 caption:
                   "High-output Kirloskar Optiprime engineered for mission-critical facilities.",
                 category: "Optiprime",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
               },
               {
                 id: "gen-2",
@@ -498,8 +548,8 @@ async function main() {
                 caption:
                   "Clean, efficient power for commercial and industrial applications.",
                 category: "Gas Generators",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703237/kumarpower_website/yparf7bahdtrfl3p0tjz.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705062/kumarpower_website/brochures/wcwvg3lsx6msr06uz7wx.pdf",
               },
               {
                 id: "gen-3",
@@ -507,8 +557,8 @@ async function main() {
                 caption:
                   "Portable power for events, remote sites, and emergency backup.",
                 category: "CPCB4+ Diesel Generators",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703242/kumarpower_website/qnckibpukq9qy7h83s7p.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705067/kumarpower_website/brochures/wxyqlv6wwcawpbrgezaf.pdf",
               },
               {
                 id: "gen-4",
@@ -516,8 +566,8 @@ async function main() {
                 caption:
                   "Balanced performance for medium-scale industrial needs.",
                 category: "CPCB4+ Diesel Generators",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703247/kumarpower_website/j1rhhm2jwtonnds72k5d.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705069/kumarpower_website/brochures/ahmtcmwtnicw9domtbul.pdf",
               },
               {
                 id: "gen-5",
@@ -525,8 +575,8 @@ async function main() {
                 caption:
                   "Scalable solutions with robust service network coverage.",
                 category: "CPCB4+ Diesel Generators",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703244/kumarpower_website/bx4dizebcdvadsuozqfd.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705070/kumarpower_website/brochures/b2zbwjsfjpx2wqi6xkij.pdf",
               },
               {
                 id: "gen-6",
@@ -534,8 +584,8 @@ async function main() {
                 caption:
                   "Versatile DG sets for plants, campuses, and commercial towers.",
                 category: "CPCB4+ Diesel Generators",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703245/kumarpower_website/inxnbk5rir4rykhj0cfr.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705072/kumarpower_website/brochures/jkzmsw5vtm9s5vscy4cm.pdf",
               },
               {
                 id: "gen-7",
@@ -543,8 +593,8 @@ async function main() {
                 caption:
                   "Durable, high-efficiency backup for industries and campuses.",
                 category: "CPCB4+ Diesel Generators",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703249/kumarpower_website/ohwufq3yx4yuuuahmw3g.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705074/kumarpower_website/brochures/u8uso0xo6g1p12layufn.pdf",
               },
               {
                 id: "gen-8",
@@ -552,8 +602,8 @@ async function main() {
                 caption:
                   "Low-emission, reliable diesel generator for versatile use.",
                 category: "CPCB4+ Diesel Generators",
-                image: "",
-                brochureUrl: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703251/kumarpower_website/m1k3mjmhyughj3ajg9a0.jpg",
+                brochureUrl: "https://res.cloudinary.com/dpa93copz/image/upload/v1784705078/kumarpower_website/brochures/smd0e0uokpc0bies5bqu.pdf",
               },
               {
                 id: "gen-9",
@@ -561,7 +611,7 @@ async function main() {
                 caption:
                   "Compact portable power for small-scale events, sites, and emergency use.",
                 category: "Portable Generators",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703239/kumarpower_website/b3tdsaxtpw136j20rlxh.jpg",
                 brochureUrl: "",
               },
             ],
@@ -577,7 +627,7 @@ async function main() {
             primaryBtnUrl: "/contact",
             whatsappBtnLabel: "Connect on WhatsApp",
             whatsappNumber: "919773851767",
-            backgroundImage: "",
+            backgroundImage: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703170/kumarpower_website/hif6xnvv5mggerl73bkd.png",
           },
         },
         {
@@ -585,7 +635,7 @@ async function main() {
           type: "power-solutions",
           order: 5,
           content: {
-            topBannerImg: "",
+            topBannerImg: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
             sectionTitle: "Power Solutions",
             assocTitle: "Members of Associations",
             assocSubtitle:
@@ -621,7 +671,7 @@ async function main() {
                 desc: "Compact CPCB4+ compliant diesel generators designed for small businesses and commercial setups.",
                 specs:
                   "Range: 7.5 kVA - 20 kVA, CPCB Norm: CPCB4+ Emission Compliance, Fuel: Diesel, Cooling: Liquid, Phase: Three Phase",
-                img: "",
+                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703242/kumarpower_website/qnckibpukq9qy7h83s7p.jpg",
                 brochureUrl: "",
               },
               {
@@ -631,7 +681,7 @@ async function main() {
                 desc: "Reliable CPCB4+ emission compliant diesel generators with advanced liquid cooling for efficient performance.",
                 specs:
                   "Range: 25 kVA - 58.5 kVA, CPCB Norm: CPCB4+ Emission Compliance, Fuel: Diesel, Cooling: Liquid, Phase: Three Phase",
-                img: "",
+                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703247/kumarpower_website/j1rhhm2jwtonnds72k5d.jpg",
                 brochureUrl: "",
               },
               {
@@ -641,7 +691,7 @@ async function main() {
                 desc: "Advanced diesel generators with CPCB4+ compliance, offering superior fuel efficiency and eco-friendly operations.",
                 specs:
                   "125 kva - 6600 kva, CPCB4+ Compliant, 3 Phase Output, Fuel: Diesel",
-                img: "",
+                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
                 brochureUrl: "",
               },
             ],
@@ -812,7 +862,7 @@ async function main() {
           content: {
             title: "Know About Kumar Power",
             subtitle: "–Trusted Name in Power Solutions Industry",
-            image: "",
+            image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704202/kumarpower_website/uecht8cyoejxorpstiwp.png",
             paragraph1:
               "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
             paragraph2:
@@ -838,7 +888,7 @@ async function main() {
                 title: "Foundation",
                 description:
                   "Kumar Power was established with a vision to provide reliable power solutions to businesses across India.",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704223/kumarpower_website/bwgeiy0jke8ywdmfdorc.png",
               },
               {
                 id: "time-2",
@@ -846,7 +896,7 @@ async function main() {
                 title: "Kirloskar Partnership",
                 description:
                   "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704228/kumarpower_website/s5gywmnc1lrmjatpwtdj.png",
               },
               {
                 id: "time-3",
@@ -854,7 +904,7 @@ async function main() {
                 title: "ISO Certification",
                 description:
                   "Achieved ISO 9001:2015 certification, validating our commitment to quality management systems.",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
               },
               {
                 id: "time-4",
@@ -862,7 +912,7 @@ async function main() {
                 title: "Nationwide Expansion",
                 description:
                   "Expanded operations to all major cities in India with service centers and technical support teams.",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704226/kumarpower_website/gwmb07sfgghp7czfvdrc.jpg",
               },
             ],
           },
@@ -879,21 +929,21 @@ async function main() {
                 name: "RS KUMAR",
                 role: "(Founder)",
                 bio: "RS Kumar is the Founder of Kumar Generator House, a company he established with a vision to provide reliable and sustainable power solutions. With decades of industry experience, he has been the driving force behind the company's growth and success. His leadership is centered on innovation, customer satisfaction, and a commitment to excellence. Under his guidance, Kumar Generator House has become a trusted name in the industry, focused on empowering businesses and communities with top-quality solutions.",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704214/kumarpower_website/qinxclk113sp7i6njiwz.jpg",
               },
               {
                 id: "team-2",
                 name: "MS KUMAR",
                 role: "(Director)",
                 bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704215/kumarpower_website/lzucapxqx652nhlr6ufm.jpg",
               },
               {
                 id: "team-3",
                 name: "JS KUMAR",
                 role: "(Director)",
                 bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, He is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
-                image: "",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704217/kumarpower_website/ahzrtelijqxkyg5hmafo.jpg",
               },
             ],
           },
@@ -934,7 +984,7 @@ async function main() {
             bullet2: "Rigorous testing protocols for all equipment",
             bullet3: "Continuous improvement through customer feedback",
             bullet4: "Regular training and skill enhancement for our team",
-            isoCertImg: "",
+            isoCertImg: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
             kirloskarCertImg: "",
             isoCertTitle: "ISO 9001:2015",
             kirloskarCertTitle: "Kirloskar Authorized",

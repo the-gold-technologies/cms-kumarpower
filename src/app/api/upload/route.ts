@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     console.error("Upload Error:", error);
     return NextResponse.json(
       { success: false, error: `Server Error: ${error.message}` },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
