@@ -411,6 +411,361 @@ async function main() {
   // 6. Create Static Pages and Sections with EXACT fields matching CMS forms
   const staticPages = [
     {
+      slug: "installation",
+      description: "Installation & Commissioning Services",
+      metaTitle: "Installation Services - Kumar Power",
+      metaDescription:
+        "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-installation-main",
+          type: "services",
+          order: 1,
+          content: {
+            heroBadge: "Professional Services",
+            heroHeading: "Installation & Commissioning",
+            heroSub:
+              "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
+            heroBg:
+              "https://res.cloudinary.com/dmhabztbf/image/upload/v1763639947/f968fc70-2c88-4870-9524-0105525f9de8_jivsd7.jpg",
+            heroCtaLabel: "Schedule a Consultation",
+
+            introTagline: "KUMAR POWER EXPERTISE",
+            introHeading: "Professional Power System Installation",
+            introP1:
+              "Kumar Power delivers end-to-end installation and commissioning services for all types of power generation equipment, ensuring your systems operate at peak efficiency from day one.",
+            introP2:
+              "Our certified technicians handle everything from site assessment and planning to final commissioning and operator training, delivering turnkey solutions that maximize reliability and minimize downtime across industries.",
+            introImage:
+              "https://res.cloudinary.com/dmhabztbf/image/upload/v1763639947/f968fc70-2c88-4870-9524-0105525f9de8_jivsd7.jpg",
+
+            steps: [
+              {
+                id: "step-1",
+                stepNum: "1",
+                title: "Initial Consultation & Site Survey",
+                description:
+                  "We begin with a thorough assessment of your power requirements and site conditions to determine the optimal system configuration, placement, and infrastructure needs.",
+                bullet1:
+                  "Comprehensive load analysis and power requirements assessment",
+                bullet2:
+                  "Detailed site inspection and infrastructure evaluation",
+              },
+              {
+                id: "step-2",
+                stepNum: "2",
+                title: "Detailed Design & Planning",
+                description:
+                  "Our engineers develop comprehensive installation plans including electrical schematics, mechanical layouts, and project timelines tailored to your specific needs.",
+                bullet1: "Custom system design optimized for your facility",
+                bullet2: "Detailed project timeline and resource allocation",
+              },
+              {
+                id: "step-3",
+                stepNum: "3",
+                title: "Permitting & Compliance",
+                description:
+                  "We handle all necessary permits, regulatory approvals, and compliance requirements to ensure your installation meets all local and national standards.",
+                bullet1: "Complete management of permit acquisition process",
+                bullet2: "Regulatory compliance verification and documentation",
+              },
+              {
+                id: "step-4",
+                stepNum: "4",
+                title: "Professional Installation",
+                description:
+                  "Our certified technicians execute the installation according to the detailed plan, ensuring all components are properly installed, connected, and secured.",
+                bullet1:
+                  "Expert mechanical and electrical installation by certified technicians",
+                bullet2:
+                  "Quality control checks at each installation milestone",
+              },
+              {
+                id: "step-5",
+                stepNum: "5",
+                title: "Testing & Commissioning",
+                description:
+                  "We conduct comprehensive testing of all systems, including load testing, performance verification, and safety checks to ensure everything functions correctly.",
+                bullet1:
+                  "Full-load testing under various operational conditions",
+                bullet2: "System performance optimization and calibration",
+              },
+              {
+                id: "step-6",
+                stepNum: "6",
+                title: "Training & Handover",
+                description:
+                  "We provide thorough training for your staff on system operation and basic maintenance, along with complete documentation and warranty information.",
+                bullet1:
+                  "Comprehensive operator training and knowledge transfer",
+                bullet2:
+                  "Complete system documentation and maintenance schedules",
+              },
+            ],
+
+            portfolio: [
+              {
+                id: "p-2",
+                name: "Commercial Power System",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785773/kumarpower_website/installation/guodeq5wfayiqizjosyo.png",
+              },
+              {
+                id: "p-3",
+                name: "Residential Backup Generator",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785774/kumarpower_website/installation/ycoqx8bsjhsguktp3ytx.png",
+              },
+              {
+                id: "p-4",
+                name: "Hospital Emergency Power",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785775/kumarpower_website/installation/egue8gfplzzdsoxk5jxm.png",
+              },
+              {
+                id: "p-5",
+                name: "Data Center Installation",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785777/kumarpower_website/installation/xyindqnknrwmp1qoblkt.png",
+              },
+              {
+                id: "p-6",
+                name: "Manufacturing Facility Setup",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785778/kumarpower_website/installation/ylhbdzmjtig05y2kod9n.png",
+              },
+              {
+                id: "p-7",
+                name: "Office Building Generator",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785779/kumarpower_website/installation/gop2i6nud1muuvl3vmnq.png",
+              },
+              {
+                id: "p-8",
+                name: "Home Standby Power",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785780/kumarpower_website/installation/jzvvgmyaw4mhndywyqmc.png",
+              },
+              {
+                id: "p-9",
+                name: "Retail Power Solution",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785781/kumarpower_website/installation/tzsy4o5xoq7mqup4jx7x.png",
+              },
+              {
+                id: "p-10",
+                name: "Industrial Complex System",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785782/kumarpower_website/installation/s37sx7vj1tlaamn56yoj.png",
+              },
+              {
+                id: "p-11",
+                name: "Apartment Building Generator",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785784/kumarpower_website/installation/xjuxkmnxyusuaq1phwtm.png",
+              },
+              {
+                id: "p-13",
+                name: "Hotel Backup System",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785785/kumarpower_website/installation/daxn0alf01qxxydgmx1z.png",
+              },
+              {
+                id: "p-14",
+                name: "Residential Power Solution",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785786/kumarpower_website/installation/jnt9eaeqoahtwlhotbb5.png",
+              },
+              {
+                id: "p-15",
+                name: "Warehouse Power Setup",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785788/kumarpower_website/installation/dg0ejmbtpjnc7nhdocld.png",
+              },
+              {
+                id: "p-16",
+                name: "School Generator Installation",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785789/kumarpower_website/installation/bkfdvscjdx39e2nasqls.png",
+              },
+              {
+                id: "p-17",
+                name: "Single Family Home System",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785790/kumarpower_website/installation/s6ahrbyurixhk0wdmnjt.png",
+              },
+              {
+                id: "p-18",
+                name: "Manufacturing Plant Power",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785796/kumarpower_website/installation/kfls8rdusseihosymvfr.png",
+              },
+              {
+                id: "p-19",
+                name: "Office Complex Generator",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785798/kumarpower_website/installation/sj4abdq9xq8mwokufkqs.png",
+              },
+              {
+                id: "p-20",
+                name: "Luxury Home Installation",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785801/kumarpower_website/installation/aqf2ezfnpemnpjqpdkvh.png",
+              },
+              {
+                id: "p-21",
+                name: "Industrial Site Power",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785802/kumarpower_website/installation/ujcqfjfnqbqj2upn06gi.png",
+              },
+              {
+                id: "p-22",
+                name: "Retail Center Backup",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785803/kumarpower_website/installation/worwqehowpwyq8bycefk.png",
+              },
+              {
+                id: "p-23",
+                name: "Residential Community System",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785804/kumarpower_website/installation/s84kpdvhijphbizzblj9.png",
+              },
+              {
+                id: "p-24",
+                name: "Production Facility Setup",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785805/kumarpower_website/installation/jonrcctqfhtz2mxppmvz.png",
+              },
+              {
+                id: "p-25",
+                name: "Medical Center Installation",
+                category: "Commercial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785806/kumarpower_website/installation/ofusnniz7swob84vzezl.png",
+              },
+              {
+                id: "p-26",
+                name: "Suburban Home Generator",
+                category: "Residential",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785808/kumarpower_website/installation/kc8kpugy750domysjros.png",
+              },
+              {
+                id: "p-27",
+                name: "Distribution Center Power",
+                category: "Industrial",
+                imageUrl:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785809/kumarpower_website/installation/tqqoewhovwlt6m14ihwr.png",
+              },
+            ],
+
+            faqs: [
+              {
+                id: "f-1",
+                question: "How long does the installation process take?",
+                answer:
+                  "The installation timeline varies based on the system complexity and site conditions. Small to medium generators typically take 1-3 days, while larger industrial installations may require 1-2 weeks. Our team will provide a detailed timeline during the initial assessment.",
+              },
+              {
+                id: "f-2",
+                question: "Do you handle all required permits and approvals?",
+                answer:
+                  "Yes, we manage the entire permitting process. Our team handles all necessary documentation, regulatory compliance, and approvals from local authorities, ensuring your installation meets all legal requirements.",
+              },
+              {
+                id: "f-3",
+                question: "Can you install generators in difficult locations?",
+                answer:
+                  "Absolutely. Our installation teams are equipped to handle challenging locations including rooftops, basements, confined spaces, and remote sites. We have specialized equipment for crane lifts, custom mounting solutions, and extended cable runs.",
+              },
+              {
+                id: "f-4",
+                question:
+                  "Will the installation cause disruption to our operations?",
+                answer:
+                  "We minimize disruption by carefully planning the installation process. Most electrical connections requiring power interruption can be scheduled during off-hours. Our team coordinates closely with your staff to develop an installation plan that accommodates your operational needs.",
+              },
+              {
+                id: "f-5",
+                question: "What happens after installation is complete?",
+                answer:
+                  "Following installation, we conduct comprehensive commissioning tests, provide detailed operator training, and deliver complete documentation including operation manuals, warranty information, and maintenance schedules. We also offer ongoing maintenance contracts to keep your system operating at peak performance.",
+              },
+              {
+                id: "f-6",
+                question: "Are your installations covered by warranty?",
+                answer:
+                  "Yes, all our installation work is backed by a comprehensive warranty. We provide a standard 12-month warranty on labor and workmanship, in addition to any manufacturer warranties on the equipment. Extended warranty options are also available for added peace of mind.",
+              },
+            ],
+
+            benefits: [
+              {
+                id: "b-1",
+                title: "Maximize System Reliability",
+                description:
+                  "Proper installation ensures your power system performs optimally during critical situations, minimizing the risk of failures when you need power most.",
+              },
+              {
+                id: "b-2",
+                title: "Extend Equipment Lifespan",
+                description:
+                  "Professional installation with correct mounting, connections, and calibration significantly extends the operational life of your generator and related components.",
+              },
+              {
+                id: "b-3",
+                title: "Ensure Code Compliance",
+                description:
+                  "Our certified technicians ensure all installations meet or exceed local codes, national standards, and manufacturer specifications.",
+              },
+              {
+                id: "b-4",
+                title: "Optimize Performance",
+                description:
+                  "Expert installation and commissioning maximize fuel efficiency, power output, and system responsiveness for optimal performance.",
+              },
+              {
+                id: "b-5",
+                title: "Minimize Maintenance Issues",
+                description:
+                  "Correctly installed systems require less maintenance and experience fewer operational problems over their lifetime.",
+              },
+              {
+                id: "b-6",
+                title: "Protect Warranty Coverage",
+                description:
+                  "Professional installation by authorized technicians maintains manufacturer warranty coverage and provides additional installation workmanship guarantees.",
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
       title: "Home Page",
       slug: "home",
       description: "Kumar Power Home Page",
@@ -1813,18 +2168,20 @@ async function main() {
               btn2Label: "Download Company Profile",
               btn2Url: "",
 
-            stickyTextPart1: "Kumar Power:",
-            stickyTextPart2: "India's Most Trusted Kirloskar-Certified Generator Brand!",
-            downloadBtn1Label: "Download Bharat Rajptar",
-            downloadBtn1Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
-            downloadBtn2Label: "Download Direction 76",
-            downloadBtn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
-            talkBtnLabel: "Talk to Power Expert",
-            requestBtnLabel: "Request Quote",
-            cert1Title: "ISO 9001:2015",
-            cert2Title: "CPCB-IV+",
-            cert3Title: "Kirloskar Authorized",
-
+              stickyTextPart1: "Kumar Power:",
+              stickyTextPart2:
+                "India's Most Trusted Kirloskar-Certified Generator Brand!",
+              downloadBtn1Label: "Download Bharat Rajptar",
+              downloadBtn1Url:
+                "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+              downloadBtn2Label: "Download Direction 76",
+              downloadBtn2Url:
+                "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+              talkBtnLabel: "Talk to Power Expert",
+              requestBtnLabel: "Request Quote",
+              cert1Title: "ISO 9001:2015",
+              cert2Title: "CPCB-IV+",
+              cert3Title: "Kirloskar Authorized",
             },
           },
         },
@@ -1955,17 +2312,19 @@ async function main() {
             btn2Url: "/products",
 
             stickyTextPart1: "Kumar Power:",
-            stickyTextPart2: "India's Most Trusted Kirloskar-Certified Generator Brand!",
+            stickyTextPart2:
+              "India's Most Trusted Kirloskar-Certified Generator Brand!",
             downloadBtn1Label: "Download Bharat Rajptar",
-            downloadBtn1Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            downloadBtn1Url:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
             downloadBtn2Label: "Download Direction 76",
-            downloadBtn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            downloadBtn2Url:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
             talkBtnLabel: "Talk to Power Expert",
             requestBtnLabel: "Request Quote",
             cert1Title: "ISO 9001:2015",
             cert2Title: "CPCB-IV+",
             cert3Title: "Kirloskar Authorized",
-
           },
         },
       ],
@@ -1995,21 +2354,23 @@ async function main() {
             btn1Text: "Request a Quote",
             btn1Url: "/contact",
             btn2Text: "Download Product Catalogue",
-            btn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            btn2Url:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
 
             stickyTextPart1: "Kumar Power:",
-            stickyTextPart2: "India's Most Trusted Kirloskar-Certified Generator Brand!",
+            stickyTextPart2:
+              "India's Most Trusted Kirloskar-Certified Generator Brand!",
             downloadBtn1Label: "Download Bharat Rajptar",
-            downloadBtn1Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            downloadBtn1Url:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
             downloadBtn2Label: "Download Direction 76",
-            downloadBtn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            downloadBtn2Url:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
             talkBtnLabel: "Talk to Power Expert",
             requestBtnLabel: "Request Quote",
             cert1Title: "ISO 9001:2015",
             cert2Title: "CPCB-IV+",
             cert3Title: "Kirloskar Authorized",
-
-
 
             sectionTitle: "ALL Products",
             sectionDesc:
@@ -2022,21 +2383,26 @@ async function main() {
             whyChooseTitle: "Why Choose Kirloskar Generators?",
 
             whyChooseCard1Title: "Unmatched Reliability",
-            whyChooseCard1Desc: "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard1Desc:
+              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
             whyChooseCard2Title: "Fuel Efficiency",
-            whyChooseCard2Desc: "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            whyChooseCard2Desc:
+              "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
             whyChooseCard3Title: "Rapid Response",
-            whyChooseCard3Desc: "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard3Desc:
+              "Quick start capability ensures minimal downtime during power outages.",
             whyChooseCard4Title: "Low Noise Operation",
-            whyChooseCard4Desc: "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard4Desc:
+              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
             whyChooseCard5Title: "Easy Maintenance",
-            whyChooseCard5Desc: "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard5Desc:
+              "Modular design with accessible components simplifies service and maintenance.",
             whyChooseCard6Title: "Smart Controls",
-            whyChooseCard6Desc: "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            whyChooseCard6Desc:
+              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
             cert1Title: "ISO 9001:2015",
             cert2Title: "CPCB-IV+",
             cert3Title: "Kirloskar Authorized",
-
 
             categories: [
               {
@@ -2210,21 +2576,26 @@ async function main() {
             whyChooseTitle: "Why Choose Kirloskar Generators?",
 
             whyChooseCard1Title: "Unmatched Reliability",
-            whyChooseCard1Desc: "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard1Desc:
+              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
             whyChooseCard2Title: "Fuel Efficiency",
-            whyChooseCard2Desc: "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            whyChooseCard2Desc:
+              "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
             whyChooseCard3Title: "Rapid Response",
-            whyChooseCard3Desc: "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard3Desc:
+              "Quick start capability ensures minimal downtime during power outages.",
             whyChooseCard4Title: "Low Noise Operation",
-            whyChooseCard4Desc: "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard4Desc:
+              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
             whyChooseCard5Title: "Easy Maintenance",
-            whyChooseCard5Desc: "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard5Desc:
+              "Modular design with accessible components simplifies service and maintenance.",
             whyChooseCard6Title: "Smart Controls",
-            whyChooseCard6Desc: "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            whyChooseCard6Desc:
+              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
             cert1Title: "ISO 9001:2015",
             cert2Title: "CPCB-IV+",
             cert3Title: "Kirloskar Authorized",
-
 
             gensets: [
               {

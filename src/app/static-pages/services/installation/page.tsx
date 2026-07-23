@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
@@ -93,9 +93,47 @@ export default function InstallationServicesCMSPage() {
   // Benefits State
   const [benefits, setBenefits] = useState<BenefitCard[]>([]);
 
+  useEffect(() => {
+    const fetchCMSData = async () => {
+      try {
+        const res = await fetch("/api/installation");
+        const json = await res.json();
+        if (json.success && json.data && json.data.services) {
+          const content = json.data.services;
+
+          setHeroBadge(content.heroBadge || "");
+          setHeroHeading(content.heroHeading || "");
+          setHeroSub(content.heroSub || "");
+          setHeroBg(content.heroBg || "");
+          setHeroCtaLabel(content.heroCtaLabel || "");
+
+          setIntroTagline(content.introTagline || "");
+          setIntroHeading(content.introHeading || "");
+          setIntroP1(content.introP1 || "");
+          setIntroP2(content.introP2 || "");
+          setIntroImage(content.introImage || "");
+
+          setSteps(content.steps || []);
+          setPortfolio(content.portfolio || []);
+          setFaqs(content.faqs || []);
+          setBenefits(content.benefits || []);
+        }
+      } catch (err) {
+        console.error("Failed to load installation CMS data:", err);
+      }
+    };
+    fetchCMSData();
+  }, []);
+
   // Step Handlers
-  const handleStepChange = (id: string, field: keyof ProcessStepCard, val: string) => {
-    setSteps((prev) => prev.map((s) => (s.id === id ? { ...s, [field]: val } : s)));
+  const handleStepChange = (
+    id: string,
+    field: keyof ProcessStepCard,
+    val: string,
+  ) => {
+    setSteps((prev) =>
+      prev.map((s) => (s.id === id ? { ...s, [field]: val } : s)),
+    );
   };
 
   const addStep = () => {
@@ -138,11 +176,16 @@ export default function InstallationServicesCMSPage() {
 
   // FAQ Handlers
   const handleFaqChange = (id: string, field: keyof FaqItem, val: string) => {
-    setFaqs((prev) => prev.map((f) => (f.id === id ? { ...f, [field]: val } : f)));
+    setFaqs((prev) =>
+      prev.map((f) => (f.id === id ? { ...f, [field]: val } : f)),
+    );
   };
 
   const addFaq = () => {
-    setFaqs((prev) => [...prev, { id: `faq-${Date.now()}`, question: "", answer: "" }]);
+    setFaqs((prev) => [
+      ...prev,
+      { id: `faq-${Date.now()}`, question: "", answer: "" },
+    ]);
     toast.success("New FAQ added!");
   };
 
@@ -152,69 +195,109 @@ export default function InstallationServicesCMSPage() {
   };
 
   // Benefit Handlers
-  const handleBenefitChange = (id: string, field: keyof BenefitCard, val: string) => {
-    setBenefits((prev) => prev.map((b) => (b.id === id ? { ...b, [field]: val } : b)));
+  const handleBenefitChange = (
+    id: string,
+    field: keyof BenefitCard,
+    val: string,
+  ) => {
+    setBenefits((prev) =>
+      prev.map((b) => (b.id === id ? { ...b, [field]: val } : b)),
+    );
   };
 
   // Save Handlers
+  const saveToServer = async (
+    payload: any,
+    setSaving: any,
+    setSaved: any,
+    successMsg: string,
+  ) => {
+    setSaving(true);
+    try {
+      // We must fetch existing full payload first to not overwrite other sections
+      const res = await fetch("/api/installation");
+      const json = await res.json();
+      const existingContent =
+        json.success && json.data && json.data.services
+          ? json.data.services
+          : {};
+
+      const updatedContent = { ...existingContent, ...payload };
+
+      const updateRes = await fetch("/api/installation", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          section: "services",
+          content: updatedContent,
+        }),
+      });
+      if (updateRes.ok) {
+        setSaved(true);
+        toast.success(successMsg);
+        setTimeout(() => setSaved(false), 2000);
+      } else {
+        toast.error("Failed to save");
+      }
+    } catch (err) {
+      toast.error("Error saving data");
+    } finally {
+      setSaving(false);
+    }
+  };
+
   const handleSaveHero = () => {
-    setSavingHero(true);
-    setTimeout(() => {
-      setSavingHero(false);
-      setSavedHero(true);
-      toast.success("Hero section saved!");
-      setTimeout(() => setSavedHero(false), 2000);
-    }, 400);
+    saveToServer(
+      { heroBadge, heroHeading, heroSub, heroBg, heroCtaLabel },
+      setSavingHero,
+      setSavedHero,
+      "Hero section saved!",
+    );
   };
 
   const handleSaveIntro = () => {
-    setSavingIntro(true);
-    setTimeout(() => {
-      setSavingIntro(false);
-      setSavedIntro(true);
-      toast.success("Expertise Intro section saved!");
-      setTimeout(() => setSavedIntro(false), 2000);
-    }, 400);
+    saveToServer(
+      { introTagline, introHeading, introP1, introP2, introImage },
+      setSavingIntro,
+      setSavedIntro,
+      "Expertise Intro section saved!",
+    );
   };
 
   const handleSaveSteps = () => {
-    setSavingSteps(true);
-    setTimeout(() => {
-      setSavingSteps(false);
-      setSavedSteps(true);
-      toast.success("6-Step Installation Process saved!");
-      setTimeout(() => setSavedSteps(false), 2000);
-    }, 400);
+    saveToServer(
+      { steps },
+      setSavingSteps,
+      setSavedSteps,
+      "6-Step Installation Process saved!",
+    );
   };
 
   const handleSavePortfolio = () => {
-    setSavingPortfolio(true);
-    setTimeout(() => {
-      setSavingPortfolio(false);
-      setSavedPortfolio(true);
-      toast.success("Installation Portfolio Gallery saved!");
-      setTimeout(() => setSavedPortfolio(false), 2000);
-    }, 400);
+    saveToServer(
+      { portfolio },
+      setSavingPortfolio,
+      setSavedPortfolio,
+      "Installation Portfolio Gallery saved!",
+    );
   };
 
   const handleSaveFaqs = () => {
-    setSavingFaqs(true);
-    setTimeout(() => {
-      setSavingFaqs(false);
-      setSavedFaqs(true);
-      toast.success("Installation FAQs saved!");
-      setTimeout(() => setSavedFaqs(false), 2000);
-    }, 400);
+    saveToServer(
+      { faqs },
+      setSavingFaqs,
+      setSavedFaqs,
+      "Installation FAQs saved!",
+    );
   };
 
   const handleSaveBenefits = () => {
-    setSavingBenefits(true);
-    setTimeout(() => {
-      setSavingBenefits(false);
-      setSavedBenefits(true);
-      toast.success("Installation Benefits saved!");
-      setTimeout(() => setSavedBenefits(false), 2000);
-    }, 400);
+    saveToServer(
+      { benefits },
+      setSavingBenefits,
+      setSavedBenefits,
+      "Installation Benefits saved!",
+    );
   };
 
   return (
@@ -232,16 +315,43 @@ export default function InstallationServicesCMSPage() {
           isOpen={isHeroOpen}
           onToggle={() => setIsHeroOpen(!isHeroOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Badge Tag Text" value={heroBadge} onChange={(e) => setHeroBadge(e.target.value)} />
-            <InputField label="Hero Heading" value={heroHeading} onChange={(e) => setHeroHeading(e.target.value)} />
-            <TextAreaField label="Subtitle Tagline" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
-            <InputField label="Primary CTA Button Label" value={heroCtaLabel} onChange={(e) => setHeroCtaLabel(e.target.value)} />
-            <ImageUploadField label="Hero Background Graphic" value={heroBg} onChange={(val) => setHeroBg(val)} />
+            <InputField
+              label="Badge Tag Text"
+              value={heroBadge}
+              onChange={(e) => setHeroBadge(e.target.value)}
+            />
+            <InputField
+              label="Hero Heading"
+              value={heroHeading}
+              onChange={(e) => setHeroHeading(e.target.value)}
+            />
+            <TextAreaField
+              label="Subtitle Tagline"
+              value={heroSub}
+              onChange={(e) => setHeroSub(e.target.value)}
+              rows={2}
+            />
+            <InputField
+              label="Primary CTA Button Label"
+              value={heroCtaLabel}
+              onChange={(e) => setHeroCtaLabel(e.target.value)}
+            />
+            <ImageUploadField
+              label="Hero Background Graphic"
+              value={heroBg}
+              onChange={(val) => setHeroBg(val)}
+            />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingHero} saved={savedHero} onClick={handleSaveHero} />
+              <SaveButton
+                isSaving={savingHero}
+                saved={savedHero}
+                onClick={handleSaveHero}
+              />
             </div>
           </div>
         </div>
@@ -255,16 +365,44 @@ export default function InstallationServicesCMSPage() {
           isOpen={isIntroOpen}
           onToggle={() => setIsIntroOpen(!isIntroOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isIntroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isIntroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Section Tagline" value={introTagline} onChange={(e) => setIntroTagline(e.target.value)} />
-            <InputField label="Section Heading" value={introHeading} onChange={(e) => setIntroHeading(e.target.value)} />
-            <TextAreaField label="Paragraph 1" value={introP1} onChange={(e) => setIntroP1(e.target.value)} rows={3} />
-            <TextAreaField label="Paragraph 2" value={introP2} onChange={(e) => setIntroP2(e.target.value)} rows={3} />
-            <ImageUploadField label="Side Showcase Graphic" value={introImage} onChange={(val) => setIntroImage(val)} />
+            <InputField
+              label="Section Tagline"
+              value={introTagline}
+              onChange={(e) => setIntroTagline(e.target.value)}
+            />
+            <InputField
+              label="Section Heading"
+              value={introHeading}
+              onChange={(e) => setIntroHeading(e.target.value)}
+            />
+            <TextAreaField
+              label="Paragraph 1"
+              value={introP1}
+              onChange={(e) => setIntroP1(e.target.value)}
+              rows={3}
+            />
+            <TextAreaField
+              label="Paragraph 2"
+              value={introP2}
+              onChange={(e) => setIntroP2(e.target.value)}
+              rows={3}
+            />
+            <ImageUploadField
+              label="Side Showcase Graphic"
+              value={introImage}
+              onChange={(val) => setIntroImage(val)}
+            />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingIntro} saved={savedIntro} onClick={handleSaveIntro} />
+              <SaveButton
+                isSaving={savingIntro}
+                saved={savedIntro}
+                onClick={handleSaveIntro}
+              />
             </div>
           </div>
         </div>
@@ -278,7 +416,9 @@ export default function InstallationServicesCMSPage() {
           isOpen={isStepsOpen}
           onToggle={() => setIsStepsOpen(!isStepsOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isStepsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isStepsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="flex justify-end">
               <button
@@ -292,32 +432,74 @@ export default function InstallationServicesCMSPage() {
 
             <div className="space-y-4">
               {steps.map((s, idx) => (
-                <div key={s.id} className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4">
+                <div
+                  key={s.id}
+                  className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4"
+                >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA] bg-blue-50 px-2 py-0.5 rounded-md">
                       Step #{s.stepNum || idx + 1}
                     </span>
-                    <button type="button" onClick={() => removeStep(s.id)} className="text-slate-400 hover:text-red-500 transition cursor-pointer">
+                    <button
+                      type="button"
+                      onClick={() => removeStep(s.id)}
+                      className="text-slate-400 hover:text-red-500 transition cursor-pointer"
+                    >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                    <InputField label="Step #" value={s.stepNum} onChange={(e) => handleStepChange(s.id, "stepNum", e.target.value)} />
+                    <InputField
+                      label="Step #"
+                      value={s.stepNum}
+                      onChange={(e) =>
+                        handleStepChange(s.id, "stepNum", e.target.value)
+                      }
+                    />
                     <div className="sm:col-span-3">
-                      <InputField label="Step Title" value={s.title} onChange={(e) => handleStepChange(s.id, "title", e.target.value)} />
+                      <InputField
+                        label="Step Title"
+                        value={s.title}
+                        onChange={(e) =>
+                          handleStepChange(s.id, "title", e.target.value)
+                        }
+                      />
                     </div>
                   </div>
-                  <TextAreaField label="Step Overview Description" value={s.description} onChange={(e) => handleStepChange(s.id, "description", e.target.value)} rows={2} />
+                  <TextAreaField
+                    label="Step Overview Description"
+                    value={s.description}
+                    onChange={(e) =>
+                      handleStepChange(s.id, "description", e.target.value)
+                    }
+                    rows={2}
+                  />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <InputField label="Check Bullet 1" value={s.bullet1} onChange={(e) => handleStepChange(s.id, "bullet1", e.target.value)} />
-                    <InputField label="Check Bullet 2" value={s.bullet2} onChange={(e) => handleStepChange(s.id, "bullet2", e.target.value)} />
+                    <InputField
+                      label="Check Bullet 1"
+                      value={s.bullet1}
+                      onChange={(e) =>
+                        handleStepChange(s.id, "bullet1", e.target.value)
+                      }
+                    />
+                    <InputField
+                      label="Check Bullet 2"
+                      value={s.bullet2}
+                      onChange={(e) =>
+                        handleStepChange(s.id, "bullet2", e.target.value)
+                      }
+                    />
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingSteps} saved={savedSteps} onClick={handleSaveSteps} />
+              <SaveButton
+                isSaving={savingSteps}
+                saved={savedSteps}
+                onClick={handleSaveSteps}
+              />
             </div>
           </div>
         </div>
@@ -331,7 +513,9 @@ export default function InstallationServicesCMSPage() {
           isOpen={isPortfolioOpen}
           onToggle={() => setIsPortfolioOpen(!isPortfolioOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isPortfolioOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isPortfolioOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             {/* Bulk Upload Drop Area */}
             <div
@@ -355,17 +539,22 @@ export default function InstallationServicesCMSPage() {
                 <UploadCloud className="w-6 h-6 text-[#2D6FBA]" />
               </div>
               <p className="text-xs font-bold text-slate-700">
-                Click to bulk upload installation project photos or drag and drop
+                Click to bulk upload installation project photos or drag and
+                drop
               </p>
               <p className="text-[11px] text-slate-400 font-medium">
-                Upload PNG, JPG, or WebP images of residential, commercial & industrial DG installations
+                Upload PNG, JPG, or WebP images of residential, commercial &
+                industrial DG installations
               </p>
             </div>
 
             {/* Portfolio Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {portfolio.map((p, idx) => (
-                <div key={p.id} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 relative group">
+                <div
+                  key={p.id}
+                  className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 relative group"
+                >
                   <button
                     type="button"
                     onClick={() => removePortfolioItem(p.id)}
@@ -381,14 +570,22 @@ export default function InstallationServicesCMSPage() {
                     value={p.name}
                     onChange={(e) => {
                       const val = e.target.value;
-                      setPortfolio((prev) => prev.map((item) => (item.id === p.id ? { ...item, name: val } : item)));
+                      setPortfolio((prev) =>
+                        prev.map((item) =>
+                          item.id === p.id ? { ...item, name: val } : item,
+                        ),
+                      );
                     }}
                   />
                   <ImageUploadField
                     label="Project Photo"
                     value={p.imageUrl}
                     onChange={(val) => {
-                      setPortfolio((prev) => prev.map((item) => (item.id === p.id ? { ...item, imageUrl: val } : item)));
+                      setPortfolio((prev) =>
+                        prev.map((item) =>
+                          item.id === p.id ? { ...item, imageUrl: val } : item,
+                        ),
+                      );
                     }}
                   />
                 </div>
@@ -396,7 +593,11 @@ export default function InstallationServicesCMSPage() {
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingPortfolio} saved={savedPortfolio} onClick={handleSavePortfolio} />
+              <SaveButton
+                isSaving={savingPortfolio}
+                saved={savedPortfolio}
+                onClick={handleSavePortfolio}
+              />
             </div>
           </div>
         </div>
@@ -410,7 +611,9 @@ export default function InstallationServicesCMSPage() {
           isOpen={isFaqsOpen}
           onToggle={() => setIsFaqsOpen(!isFaqsOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isFaqsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isFaqsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="flex justify-end">
               <button
@@ -424,23 +627,47 @@ export default function InstallationServicesCMSPage() {
 
             <div className="space-y-4">
               {faqs.map((f, idx) => (
-                <div key={f.id} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                <div
+                  key={f.id}
+                  className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3"
+                >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA]">
                       FAQ #{idx + 1}
                     </span>
-                    <button type="button" onClick={() => removeFaq(f.id)} className="text-slate-400 hover:text-red-500 transition cursor-pointer">
+                    <button
+                      type="button"
+                      onClick={() => removeFaq(f.id)}
+                      className="text-slate-400 hover:text-red-500 transition cursor-pointer"
+                    >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
-                  <InputField label="Question Title" value={f.question} onChange={(e) => handleFaqChange(f.id, "question", e.target.value)} />
-                  <TextAreaField label="Answer Paragraph" value={f.answer} onChange={(e) => handleFaqChange(f.id, "answer", e.target.value)} rows={3} />
+                  <InputField
+                    label="Question Title"
+                    value={f.question}
+                    onChange={(e) =>
+                      handleFaqChange(f.id, "question", e.target.value)
+                    }
+                  />
+                  <TextAreaField
+                    label="Answer Paragraph"
+                    value={f.answer}
+                    onChange={(e) =>
+                      handleFaqChange(f.id, "answer", e.target.value)
+                    }
+                    rows={3}
+                  />
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingFaqs} saved={savedFaqs} onClick={handleSaveFaqs} />
+              <SaveButton
+                isSaving={savingFaqs}
+                saved={savedFaqs}
+                onClick={handleSaveFaqs}
+              />
             </div>
           </div>
         </div>
@@ -454,22 +681,44 @@ export default function InstallationServicesCMSPage() {
           isOpen={isBenefitsOpen}
           onToggle={() => setIsBenefitsOpen(!isBenefitsOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isBenefitsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isBenefitsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {benefits.map((b, idx) => (
-                <div key={b.id} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                <div
+                  key={b.id}
+                  className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3"
+                >
                   <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA]">
                     Benefit #{idx + 1}
                   </span>
-                  <InputField label="Benefit Title" value={b.title} onChange={(e) => handleBenefitChange(b.id, "title", e.target.value)} />
-                  <TextAreaField label="Description" value={b.description} onChange={(e) => handleBenefitChange(b.id, "description", e.target.value)} rows={3} />
+                  <InputField
+                    label="Benefit Title"
+                    value={b.title}
+                    onChange={(e) =>
+                      handleBenefitChange(b.id, "title", e.target.value)
+                    }
+                  />
+                  <TextAreaField
+                    label="Description"
+                    value={b.description}
+                    onChange={(e) =>
+                      handleBenefitChange(b.id, "description", e.target.value)
+                    }
+                    rows={3}
+                  />
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingBenefits} saved={savedBenefits} onClick={handleSaveBenefits} />
+              <SaveButton
+                isSaving={savingBenefits}
+                saved={savedBenefits}
+                onClick={handleSaveBenefits}
+              />
             </div>
           </div>
         </div>
