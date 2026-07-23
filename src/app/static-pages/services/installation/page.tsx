@@ -98,8 +98,9 @@ export default function InstallationServicesCMSPage() {
       try {
         const res = await fetch("/api/installation");
         const json = await res.json();
-        if (json.success && json.data && json.data.services) {
-          const content = json.data.services;
+        if (json.success && json.data) {
+          const content = json.data.services || json.data.installation;
+          if (content) {
 
           setHeroBadge(content.heroBadge || "");
           setHeroHeading(content.heroHeading || "");
@@ -117,6 +118,7 @@ export default function InstallationServicesCMSPage() {
           setPortfolio(content.portfolio || []);
           setFaqs(content.faqs || []);
           setBenefits(content.benefits || []);
+          }
         }
       } catch (err) {
         console.error("Failed to load installation CMS data:", err);
@@ -218,8 +220,8 @@ export default function InstallationServicesCMSPage() {
       const res = await fetch("/api/installation");
       const json = await res.json();
       const existingContent =
-        json.success && json.data && json.data.services
-          ? json.data.services
+        json.success && json.data
+          ? (json.data.services || json.data.installation || {})
           : {};
 
       const updatedContent = { ...existingContent, ...payload };

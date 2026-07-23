@@ -411,6 +411,212 @@ async function main() {
   // 6. Create Static Pages and Sections with EXACT fields matching CMS forms
   const staticPages = [
     {
+      slug: "repair-overhaul",
+      description: "Repair & Overhaul Services",
+      metaTitle: "Repair & Overhaul Services - Kumar Power",
+      metaDescription: "Professional restoration and renewal of power systems for optimal performance and reliability",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-repair-main",
+          type: "services",
+          order: 1,
+          content: {
+            heroBadge: "Expert Services",
+            heroHeading: "Repair & Overhaul Services",
+            heroSub: "Professional restoration and renewal of power systems for optimal performance and reliability",
+            heroCtaLabel: "Request Emergency Service",
+            introTitle: "Expert Generator Repair & Overhaul Services",
+            introDesc1: "From emergency repairs to complete system rebuilds, Kumar Power's certified technicians possess the expertise to diagnose and resolve complex mechanical and electrical issues.",
+            introTagline: "KUMAR POWER EXPERTISE",
+            introDesc2: "We use only genuine parts and industry-leading techniques to restore your equipment to optimal performance, ensuring reliability when you need it most while maximizing your investment in critical power infrastructure.",
+            introBtn1Label: "Request Repair Service",
+            introBtn2Label: "Emergency Repair Hotline",
+            benefitsTagline: "WHY PROFESSIONAL REPAIR MATTERS",
+            benefitsHeading: "Benefits of Expert Repair & Overhaul",
+            benefitsDesc: "Investing in professional repair services delivers long-term value and peace of mind",
+            benefitsCtaLabel: "Schedule Your Repair Service",
+            processTagline: "OUR SYSTEMATIC APPROACH",
+            processHeading: "Our Repair Process",
+            processDesc: "A systematic approach to efficiently diagnose and resolve power system issues",
+            diffTagline: "MAKING THE RIGHT CHOICE",
+            diffHeading: "Repair vs. Overhaul: Understanding the Difference",
+            diffDesc: "Knowing when your power equipment needs a simple repair versus a comprehensive overhaul",
+            servicesTagline: "COMPREHENSIVE SOLUTIONS",
+            servicesHeading: "Our Repair & Overhaul Services",
+            servicesDesc: "Comprehensive solutions for all your power equipment repair and restoration needs",
+            faqTagline: "FREQUENTLY ASKED QUESTIONS",
+            faqHeading: "Common Questions About Repairs",
+            faqDesc: "Get answers to frequently asked questions about our repair and overhaul services",
+            hotlineLabel: "Emergency Repair Hotline",
+            helpTitle: "Need Generator Repair or Overhaul Services?",
+            helpSub: "Contact our expert technicians today for fast, reliable repair services that get your power systems back to peak performance.",
+            helpBtnLabel: "Request Repair Service",
+            emergencyPhone: "+919773851767",
+            services: [
+              {
+                title: "Emergency Repairs",
+                description: "Rapid response services for unexpected breakdowns and critical failures requiring immediate attention.",
+                icon: "AlertTriangle",
+                features: [
+                  "24/7 emergency response with guaranteed arrival times",
+                  "Fully equipped mobile repair units for on-site solutions",
+                  "Priority parts sourcing through our extensive supplier network",
+                  "Temporary power solutions to minimize operational disruption",
+                  "Comprehensive root cause analysis to prevent recurrence"
+                ]
+              },
+              {
+                title: "Engine Repairs & Overhaul",
+                description: "Complete engine servicing from minor repairs to full overhaul and rebuilding for optimal performance.",
+                icon: "Wrench",
+                features: [
+                  "Advanced diagnostic technology for precise issue identification",
+                  "Specialized cylinder head refurbishment and valve reconditioning",
+                  "Precision crankshaft grinding and bearing replacement",
+                  "Complete fuel system rebuilding and calibration",
+                  "Full engine rebuilding with genuine OEM components"
+                ]
+              },
+              {
+                title: "Electrical System Repairs",
+                description: "Expert troubleshooting and repair of generator control systems, alternators, and power distribution components.",
+                icon: "Cpu",
+                features: [
+                  "Professional alternator rewinding and insulation restoration",
+                  "Precision AVR replacement, calibration, and testing",
+                  "Advanced control panel diagnostics and component replacement",
+                  "Comprehensive switchgear inspection and servicing",
+                  "Circuit breaker testing, maintenance, and certification"
+                ]
+              },
+              {
+                title: "Preventive Overhaul",
+                description: "Scheduled major overhauls to extend equipment life and prevent costly breakdowns before they occur.",
+                icon: "Clock",
+                features: [
+                  "Data-driven condition assessment and predictive analysis",
+                  "Detailed component life evaluation and wear pattern analysis",
+                  "Strategic component replacement based on usage patterns",
+                  "Performance-enhancing system upgrades and modernization",
+                  "Complete performance restoration and efficiency optimization"
+                ]
+              }
+            ],
+            benefits: [
+              {
+                title: "Extended Equipment Life",
+                description: "Professional repairs and overhauls can significantly extend the operational lifespan of your power equipment, maximizing your return on investment.",
+                icon: "Clock"
+              },
+              {
+                title: "Improved Reliability",
+                description: "Properly repaired and overhauled systems experience fewer breakdowns and provide consistent, dependable power when you need it most.",
+                icon: "Shield"
+              },
+              {
+                title: "Enhanced Performance",
+                description: "Our repair services restore or even improve your system's original performance specifications, ensuring optimal efficiency and output.",
+                icon: "Activity"
+              },
+              {
+                title: "Cost Effectiveness",
+                description: "Quality repairs and strategic overhauls are often more economical than replacement, especially for larger power systems.",
+                icon: "FileText"
+              },
+              {
+                title: "Regulatory Compliance",
+                description: "Our repair services ensure your equipment meets all current regulatory standards for emissions, safety, and performance.",
+                icon: "CheckCircle2"
+              },
+              {
+                title: "Minimized Downtime",
+                description: "Fast, efficient repair processes and temporary power solutions help minimize operational disruptions during necessary service work.",
+                icon: "Zap"
+              }
+            ],
+            processSteps: [
+              {
+                title: "Initial Assessment & Diagnostics",
+                description: "Our technicians conduct a thorough inspection and diagnostic testing to identify the root cause of the issue and any related problems that need addressing.",
+                features: [
+                  "Comprehensive digital diagnostics using advanced testing equipment",
+                  "Detailed inspection by certified technicians with specialized expertise"
+                ]
+              },
+              {
+                title: "Detailed Scope & Estimate",
+                description: "We provide a comprehensive scope of work and detailed cost estimate, explaining all required repairs, parts, and labor before proceeding with any work.",
+                features: [
+                  "Transparent pricing with detailed breakdown of all costs",
+                  "Clear timeline expectations with completion estimates"
+                ]
+              },
+              {
+                title: "Parts Procurement",
+                description: "Our team sources genuine OEM parts or high-quality alternatives as specified, ensuring quick availability for time-sensitive repairs.",
+                features: [
+                  "Extensive parts inventory for common repair components",
+                  "Direct relationships with manufacturers for expedited shipping"
+                ]
+              },
+              {
+                title: "Skilled Repair Execution",
+                description: "Our certified technicians perform the necessary repairs or overhaul procedures according to manufacturer specifications and industry best practices.",
+                features: [
+                  "Factory-trained technicians with specialized certifications",
+                  "Advanced tooling and equipment for precise repairs"
+                ]
+              },
+              {
+                title: "Testing & Quality Assurance",
+                description: "We conduct comprehensive post-repair testing under load conditions to ensure all systems function properly and meet performance specifications.",
+                features: [
+                  "Load bank testing to verify performance under various conditions",
+                  "Detailed performance metrics verification and documentation"
+                ]
+              },
+              {
+                title: "Detailed Documentation & Warranty",
+                description: "We provide complete documentation of all work performed, parts replaced, and testing results, along with warranty information for your records.",
+                features: [
+                  "Comprehensive service reports with detailed findings",
+                  "Clear warranty terms and recommended follow-up service"
+                ]
+              }
+            ],
+            faqs: [
+              {
+                question: "How do I know if my generator needs repair or overhaul?",
+                answer: "Warning signs include unusual noises, excessive vibration, increased fuel consumption, difficulty starting, frequent shutdowns, visible leaks, or decreased power output. Our technicians can perform a diagnostic assessment to determine the exact issues and recommend appropriate repairs."
+              },
+              {
+                question: "Can you repair generators on-site or do they need to be transported to your facility?",
+                answer: "We can perform many repairs on-site, including most electrical system repairs, minor to moderate engine work, and control system troubleshooting. Major overhauls, engine rebuilds, and alternator rewinding typically require transportation to our specialized workshop facilities."
+              },
+              {
+                question: "How long does a typical repair or overhaul take?",
+                answer: "Repair timeframes vary based on the scope of work. Minor repairs may be completed in hours, while standard repairs typically take 1-3 days. Major overhauls can require 1-2 weeks, and complete engine rebuilds may take 2-4 weeks. We provide estimated timelines during our initial assessment."
+              },
+              {
+                question: "Do you provide warranty on repairs and overhauls?",
+                answer: "Yes, all our repair work comes with a comprehensive warranty. Minor repairs carry a 3-month warranty, standard repairs have a 6-month warranty, and major overhauls or rebuilds are warrantied for 12 months or 500 operating hours, whichever comes first."
+              },
+              {
+                question: "Can you provide temporary power during major repairs?",
+                answer: "Yes, we offer rental generators to ensure continuous power during extended repairs or overhauls. Our team will assess your power requirements and provide appropriately sized temporary power solutions to minimize disruption to your operations."
+              },
+              {
+                question: "Do you use OEM parts for repairs and overhauls?",
+                answer: "Yes, we primarily use genuine OEM (Original Equipment Manufacturer) parts for all repairs to ensure optimal performance and reliability. In situations where OEM parts may have extended lead times, we offer high-quality aftermarket alternatives after discussing the options with you."
+              }
+            ]
+          }
+        }
+      ]
+    },
+{
       slug: "installation",
       description: "Installation & Commissioning Services",
       metaTitle: "Installation Services - Kumar Power",
@@ -2400,9 +2606,7 @@ async function main() {
             whyChooseCard6Title: "Smart Controls",
             whyChooseCard6Desc:
               "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
-            cert1Title: "ISO 9001:2015",
-            cert2Title: "CPCB-IV+",
-            cert3Title: "Kirloskar Authorized",
+            // cert properties removed as they are duplicates
 
             categories: [
               {
