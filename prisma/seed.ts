@@ -1812,6 +1812,19 @@ async function main() {
               btn1Url: "/contact",
               btn2Label: "Download Company Profile",
               btn2Url: "",
+
+            stickyTextPart1: "Kumar Power:",
+            stickyTextPart2: "India's Most Trusted Kirloskar-Certified Generator Brand!",
+            downloadBtn1Label: "Download Bharat Rajptar",
+            downloadBtn1Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            downloadBtn2Label: "Download Direction 76",
+            downloadBtn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            talkBtnLabel: "Talk to Power Expert",
+            requestBtnLabel: "Request Quote",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+
             },
           },
         },
@@ -1940,6 +1953,19 @@ async function main() {
             btn1Url: "/contact",
             btn2Label: "View Products",
             btn2Url: "/products",
+
+            stickyTextPart1: "Kumar Power:",
+            stickyTextPart2: "India's Most Trusted Kirloskar-Certified Generator Brand!",
+            downloadBtn1Label: "Download Bharat Rajptar",
+            downloadBtn1Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            downloadBtn2Label: "Download Direction 76",
+            downloadBtn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            talkBtnLabel: "Talk to Power Expert",
+            requestBtnLabel: "Request Quote",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+
           },
         },
       ],
@@ -1969,8 +1995,22 @@ async function main() {
             btn1Text: "Request a Quote",
             btn1Url: "/contact",
             btn2Text: "Download Product Catalogue",
-            btn2Url:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            btn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+
+            stickyTextPart1: "Kumar Power:",
+            stickyTextPart2: "India's Most Trusted Kirloskar-Certified Generator Brand!",
+            downloadBtn1Label: "Download Bharat Rajptar",
+            downloadBtn1Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            downloadBtn2Label: "Download Direction 76",
+            downloadBtn2Url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+            talkBtnLabel: "Talk to Power Expert",
+            requestBtnLabel: "Request Quote",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+
+
+
             sectionTitle: "ALL Products",
             sectionDesc:
               "We offer a complete range of power and electrical solutions including Kirloskar Diesel Generators, Kirloskar Gas Generators, Kirloskar Portable Generators, Electrical Panels, Servo Voltage Stabilizers, and Transformers, engineered for reliable performance across residential, commercial, and industrial applications.",
@@ -1980,6 +2020,24 @@ async function main() {
               "Our team of experts will help you select the perfect solution based on your industry and budget.",
             helpBtnText: "Talk to an Expert",
             whyChooseTitle: "Why Choose Kirloskar Generators?",
+
+            whyChooseCard1Title: "Unmatched Reliability",
+            whyChooseCard1Desc: "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard2Title: "Fuel Efficiency",
+            whyChooseCard2Desc: "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            whyChooseCard3Title: "Rapid Response",
+            whyChooseCard3Desc: "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard4Title: "Low Noise Operation",
+            whyChooseCard4Desc: "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard5Title: "Easy Maintenance",
+            whyChooseCard5Desc: "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard6Title: "Smart Controls",
+            whyChooseCard6Desc: "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+
+
             categories: [
               {
                 id: "cat-1",
@@ -2150,6 +2208,24 @@ async function main() {
               "Our team of experts will help you select the perfect solution based on your industry and budget.",
             helpBtnText: "Talk to an Expert",
             whyChooseTitle: "Why Choose Kirloskar Generators?",
+
+            whyChooseCard1Title: "Unmatched Reliability",
+            whyChooseCard1Desc: "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard2Title: "Fuel Efficiency",
+            whyChooseCard2Desc: "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            whyChooseCard3Title: "Rapid Response",
+            whyChooseCard3Desc: "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard4Title: "Low Noise Operation",
+            whyChooseCard4Desc: "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard5Title: "Easy Maintenance",
+            whyChooseCard5Desc: "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard6Title: "Smart Controls",
+            whyChooseCard6Desc: "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+
+
             gensets: [
               {
                 id: "dg-1",

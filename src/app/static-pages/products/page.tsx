@@ -49,6 +49,22 @@ export default function ProductsStaticPageCMS() {
   const [btn2Text, setBtn2Text] = useState("Download Product Catalogue");
   const [btn2Url, setBtn2Url] = useState("");
 
+
+  // Sticky Bar
+  const [stickyTextPart1, setStickyTextPart1] = useState("Kumar Power:");
+  const [stickyTextPart2, setStickyTextPart2] = useState("India's Most Trusted Kirloskar-Certified Generator Brand!");
+  const [downloadBtn1Label, setDownloadBtn1Label] = useState("Download Bharat Rajptar");
+  const [downloadBtn1Url, setDownloadBtn1Url] = useState("");
+  const [downloadBtn2Label, setDownloadBtn2Label] = useState("Download Direction 76");
+  const [downloadBtn2Url, setDownloadBtn2Url] = useState("");
+  const [talkBtnLabel, setTalkBtnLabel] = useState("Talk to Power Expert");
+  const [requestBtnLabel, setRequestBtnLabel] = useState("Request Quote");
+
+  // Certifications
+  const [cert1Title, setCert1Title] = useState("ISO 9001:2015");
+  const [cert2Title, setCert2Title] = useState("CPCB-IV+");
+  const [cert3Title, setCert3Title] = useState("Kirloskar Authorized");
+
   // Grid Header Section
   const [sectionTitle, setSectionTitle] = useState("ALL Products");
   const [sectionDesc, setSectionDesc] = useState("");
@@ -59,6 +75,21 @@ export default function ProductsStaticPageCMS() {
   const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
   const [helpBtnText, setHelpBtnText] = useState("Talk to an Expert");
   const [whyChooseTitle, setWhyChooseTitle] = useState("Why Choose Kirloskar Generators?");
+
+
+  // Why Choose Cards
+  const [whyChooseCard1Title, setWhyChooseCard1Title] = useState("Unmatched Reliability");
+  const [whyChooseCard1Desc, setWhyChooseCard1Desc] = useState("Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.");
+  const [whyChooseCard2Title, setWhyChooseCard2Title] = useState("Fuel Efficiency");
+  const [whyChooseCard2Desc, setWhyChooseCard2Desc] = useState("Advanced engine technology delivers optimal fuel consumption and lower operating costs.");
+  const [whyChooseCard3Title, setWhyChooseCard3Title] = useState("Rapid Response");
+  const [whyChooseCard3Desc, setWhyChooseCard3Desc] = useState("Quick start capability ensures minimal downtime during power outages.");
+  const [whyChooseCard4Title, setWhyChooseCard4Title] = useState("Low Noise Operation");
+  const [whyChooseCard4Desc, setWhyChooseCard4Desc] = useState("Acoustic engineering reduces noise levels for urban and sensitive environments.");
+  const [whyChooseCard5Title, setWhyChooseCard5Title] = useState("Easy Maintenance");
+  const [whyChooseCard5Desc, setWhyChooseCard5Desc] = useState("Modular design with accessible components simplifies service and maintenance.");
+  const [whyChooseCard6Title, setWhyChooseCard6Title] = useState("Smart Controls");
+  const [whyChooseCard6Desc, setWhyChooseCard6Desc] = useState("Advanced digital interfaces with remote monitoring and diagnostic capabilities.");
 
   // Product Categories
   const [categories, setCategories] = useState<ProductCategory[]>([]);
@@ -77,6 +108,18 @@ export default function ProductsStaticPageCMS() {
           if (prods.btn1Url !== undefined) setBtn1Url(prods.btn1Url);
           if (prods.btn2Text !== undefined) setBtn2Text(prods.btn2Text);
           if (prods.btn2Url !== undefined) setBtn2Url(prods.btn2Url);
+
+          if (prods.stickyTextPart1 !== undefined) setStickyTextPart1(prods.stickyTextPart1);
+          if (prods.stickyTextPart2 !== undefined) setStickyTextPart2(prods.stickyTextPart2);
+          if (prods.downloadBtn1Label !== undefined) setDownloadBtn1Label(prods.downloadBtn1Label);
+          if (prods.downloadBtn1Url !== undefined) setDownloadBtn1Url(prods.downloadBtn1Url);
+          if (prods.downloadBtn2Label !== undefined) setDownloadBtn2Label(prods.downloadBtn2Label);
+          if (prods.downloadBtn2Url !== undefined) setDownloadBtn2Url(prods.downloadBtn2Url);
+          if (prods.talkBtnLabel !== undefined) setTalkBtnLabel(prods.talkBtnLabel);
+          if (prods.requestBtnLabel !== undefined) setRequestBtnLabel(prods.requestBtnLabel);
+          if (prods.cert1Title !== undefined) setCert1Title(prods.cert1Title);
+          if (prods.cert2Title !== undefined) setCert2Title(prods.cert2Title);
+          if (prods.cert3Title !== undefined) setCert3Title(prods.cert3Title);
           if (prods.sectionTitle !== undefined) setSectionTitle(prods.sectionTitle);
           if (prods.sectionDesc !== undefined) setSectionDesc(prods.sectionDesc);
           if (prods.certTitle !== undefined) setCertTitle(prods.certTitle);
@@ -84,6 +127,19 @@ export default function ProductsStaticPageCMS() {
           if (prods.helpSub !== undefined) setHelpSub(prods.helpSub);
           if (prods.helpBtnText !== undefined) setHelpBtnText(prods.helpBtnText);
           if (prods.whyChooseTitle !== undefined) setWhyChooseTitle(prods.whyChooseTitle);
+
+          if (prods.whyChooseCard1Title !== undefined) setWhyChooseCard1Title(prods.whyChooseCard1Title);
+          if (prods.whyChooseCard1Desc !== undefined) setWhyChooseCard1Desc(prods.whyChooseCard1Desc);
+          if (prods.whyChooseCard2Title !== undefined) setWhyChooseCard2Title(prods.whyChooseCard2Title);
+          if (prods.whyChooseCard2Desc !== undefined) setWhyChooseCard2Desc(prods.whyChooseCard2Desc);
+          if (prods.whyChooseCard3Title !== undefined) setWhyChooseCard3Title(prods.whyChooseCard3Title);
+          if (prods.whyChooseCard3Desc !== undefined) setWhyChooseCard3Desc(prods.whyChooseCard3Desc);
+          if (prods.whyChooseCard4Title !== undefined) setWhyChooseCard4Title(prods.whyChooseCard4Title);
+          if (prods.whyChooseCard4Desc !== undefined) setWhyChooseCard4Desc(prods.whyChooseCard4Desc);
+          if (prods.whyChooseCard5Title !== undefined) setWhyChooseCard5Title(prods.whyChooseCard5Title);
+          if (prods.whyChooseCard5Desc !== undefined) setWhyChooseCard5Desc(prods.whyChooseCard5Desc);
+          if (prods.whyChooseCard6Title !== undefined) setWhyChooseCard6Title(prods.whyChooseCard6Title);
+          if (prods.whyChooseCard6Desc !== undefined) setWhyChooseCard6Desc(prods.whyChooseCard6Desc);
           if (Array.isArray(prods.categories)) setCategories(prods.categories);
         }
       })
@@ -101,12 +157,37 @@ export default function ProductsStaticPageCMS() {
       btn1Url,
       btn2Text,
       btn2Url,
+
+      stickyTextPart1,
+      stickyTextPart2,
+      downloadBtn1Label,
+      downloadBtn1Url,
+      downloadBtn2Label,
+      downloadBtn2Url,
+      talkBtnLabel,
+      requestBtnLabel,
+      cert1Title,
+      cert2Title,
+      cert3Title,
       sectionTitle,
       sectionDesc,
       certTitle,
       helpTitle,
       helpSub,
       helpBtnText,
+
+      whyChooseCard1Title,
+      whyChooseCard1Desc,
+      whyChooseCard2Title,
+      whyChooseCard2Desc,
+      whyChooseCard3Title,
+      whyChooseCard3Desc,
+      whyChooseCard4Title,
+      whyChooseCard4Desc,
+      whyChooseCard5Title,
+      whyChooseCard5Desc,
+      whyChooseCard6Title,
+      whyChooseCard6Desc,
       whyChooseTitle,
       categories,
     };
@@ -213,6 +294,41 @@ export default function ProductsStaticPageCMS() {
         </div>
       </div>
 
+
+      {/* 1.5. Sticky Bar & Certifications */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title="1.5. Sticky Bar & Certifications"
+          description="Manage sticky bar text and certification badges."
+          isOpen={true}
+          onToggle={() => {}}
+        />
+        <div className="grid transition-all duration-300 grid-rows-[1fr] opacity-100 mt-6">
+          <div className="overflow-hidden flex flex-col gap-4 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Sticky Text Part 1" value={stickyTextPart1} onChange={(e) => setStickyTextPart1(e.target.value)} />
+              <InputField label="Sticky Text Part 2" value={stickyTextPart2} onChange={(e) => setStickyTextPart2(e.target.value)} />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Download Btn 1 Label" value={downloadBtn1Label} onChange={(e) => setDownloadBtn1Label(e.target.value)} />
+              <PDFUploadField label="Download Btn 1 PDF" value={downloadBtn1Url} onChange={(val) => setDownloadBtn1Url(val)} />
+              <InputField label="Download Btn 2 Label" value={downloadBtn2Label} onChange={(e) => setDownloadBtn2Label(e.target.value)} />
+              <PDFUploadField label="Download Btn 2 PDF" value={downloadBtn2Url} onChange={(val) => setDownloadBtn2Url(val)} />
+              <InputField label="Talk Btn Label" value={talkBtnLabel} onChange={(e) => setTalkBtnLabel(e.target.value)} />
+              <InputField label="Request Btn Label" value={requestBtnLabel} onChange={(e) => setRequestBtnLabel(e.target.value)} />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <InputField label="Cert 1 Title" value={cert1Title} onChange={(e) => setCert1Title(e.target.value)} />
+              <InputField label="Cert 2 Title" value={cert2Title} onChange={(e) => setCert2Title(e.target.value)} />
+              <InputField label="Cert 3 Title" value={cert3Title} onChange={(e) => setCert3Title(e.target.value)} />
+            </div>
+            <div className="flex justify-end pt-4 border-t border-slate-100">
+              <SaveButton isSaving={savingGrid} saved={savedGrid} onClick={handleSaveGrid} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 2. ALL Products Header Section */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
@@ -237,6 +353,50 @@ export default function ProductsStaticPageCMS() {
               <InputField label="Help Section Button Text" value={helpBtnText} onChange={(e) => setHelpBtnText(e.target.value)} placeholder="Talk to an Expert" />
             </div>
             <InputField label="Why Choose Section Title" value={whyChooseTitle} onChange={(e) => setWhyChooseTitle(e.target.value)} placeholder="Why Choose Kirloskar Generators?" />
+
+            <div className="flex justify-end pt-4 border-t border-slate-100">
+              <SaveButton isSaving={savingGrid} saved={savedGrid} onClick={handleSaveGrid} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {/* 2.5. Why Choose Cards */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title="2.5. Why Choose Kirloskar Cards"
+          description="Manage the 6 feature cards for the Why Choose section."
+          isOpen={false}
+          onToggle={() => {}}
+        />
+        <div className="grid transition-all duration-300 grid-rows-[1fr] opacity-100 mt-6">
+          <div className="overflow-hidden flex flex-col gap-4 pt-1">
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Card 1 Title" value={whyChooseCard1Title} onChange={(e) => setWhyChooseCard1Title(e.target.value)} />
+              <TextAreaField label="Card 1 Description" value={whyChooseCard1Desc} onChange={(e) => setWhyChooseCard1Desc(e.target.value)} rows={2} />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Card 2 Title" value={whyChooseCard2Title} onChange={(e) => setWhyChooseCard2Title(e.target.value)} />
+              <TextAreaField label="Card 2 Description" value={whyChooseCard2Desc} onChange={(e) => setWhyChooseCard2Desc(e.target.value)} rows={2} />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Card 3 Title" value={whyChooseCard3Title} onChange={(e) => setWhyChooseCard3Title(e.target.value)} />
+              <TextAreaField label="Card 3 Description" value={whyChooseCard3Desc} onChange={(e) => setWhyChooseCard3Desc(e.target.value)} rows={2} />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Card 4 Title" value={whyChooseCard4Title} onChange={(e) => setWhyChooseCard4Title(e.target.value)} />
+              <TextAreaField label="Card 4 Description" value={whyChooseCard4Desc} onChange={(e) => setWhyChooseCard4Desc(e.target.value)} rows={2} />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Card 5 Title" value={whyChooseCard5Title} onChange={(e) => setWhyChooseCard5Title(e.target.value)} />
+              <TextAreaField label="Card 5 Description" value={whyChooseCard5Desc} onChange={(e) => setWhyChooseCard5Desc(e.target.value)} rows={2} />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputField label="Card 6 Title" value={whyChooseCard6Title} onChange={(e) => setWhyChooseCard6Title(e.target.value)} />
+              <TextAreaField label="Card 6 Description" value={whyChooseCard6Desc} onChange={(e) => setWhyChooseCard6Desc(e.target.value)} rows={2} />
+            </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton isSaving={savingGrid} saved={savedGrid} onClick={handleSaveGrid} />
