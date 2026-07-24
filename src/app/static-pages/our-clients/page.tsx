@@ -33,6 +33,7 @@ export default function OurClientsStaticPageCMS() {
   const bulkLogoInputRef = useRef<HTMLInputElement>(null);
 
   // Accordion states
+  const [isHeroOpen, setIsHeroOpen] = useState(true);
   const [isStatsOpen, setIsStatsOpen] = useState(false);
   const [isLogosOpen, setIsLogosOpen] = useState(false);
   const [isClientsOpen, setIsClientsOpen] = useState(false);
@@ -55,6 +56,15 @@ export default function OurClientsStaticPageCMS() {
   const [stat3Num, setStat3Num] = useState("");
   const [stat3Text, setStat3Text] = useState("");
 
+  // Hero & Section Titles
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroDesc, setHeroDesc] = useState("");
+  const [heroImage, setHeroImage] = useState("");
+  const [heroCtaText, setHeroCtaText] = useState("");
+  const [esteemedTitle, setEsteemedTitle] = useState("");
+  const [prestigiousTitle, setPrestigiousTitle] = useState("");
+  const [prestigiousDesc, setPrestigiousDesc] = useState("");
+
   // Client Logos & Portfolio
   const [logos, setLogos] = useState<ClientLogo[]>([]);
   const [clients, setClients] = useState<ClientItem[]>([]);
@@ -70,6 +80,15 @@ export default function OurClientsStaticPageCMS() {
           if (data.stat2Text !== undefined) setStat2Text(data.stat2Text);
           if (data.stat3Num !== undefined) setStat3Num(data.stat3Num);
           if (data.stat3Text !== undefined) setStat3Text(data.stat3Text);
+          
+          if (data.heroHeading !== undefined) setHeroHeading(data.heroHeading);
+          if (data.heroDesc !== undefined) setHeroDesc(data.heroDesc);
+          if (data.heroImage !== undefined) setHeroImage(data.heroImage);
+          if (data.heroCtaText !== undefined) setHeroCtaText(data.heroCtaText);
+          if (data.esteemedTitle !== undefined) setEsteemedTitle(data.esteemedTitle);
+          if (data.prestigiousTitle !== undefined) setPrestigiousTitle(data.prestigiousTitle);
+          if (data.prestigiousDesc !== undefined) setPrestigiousDesc(data.prestigiousDesc);
+
           if (Array.isArray(data.logos)) setLogos(data.logos);
           if (Array.isArray(data.clients)) setClients(data.clients);
         }
@@ -85,6 +104,13 @@ export default function OurClientsStaticPageCMS() {
       stat2Text,
       stat3Num,
       stat3Text,
+      heroHeading,
+      heroDesc,
+      heroImage,
+      heroCtaText,
+      esteemedTitle,
+      prestigiousTitle,
+      prestigiousDesc,
       logos,
       clients,
     };
@@ -95,6 +121,17 @@ export default function OurClientsStaticPageCMS() {
     });
     if (!res.ok) throw new Error("Save failed");
     clearCache("/api/our-clients");
+  };
+
+  const handleHeroImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setHeroImage(event.target?.result as string);
+      toast.success("Hero image selected! Don't forget to save.");
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleBulkLogoFiles = (files: FileList | File[]) => {
@@ -206,6 +243,89 @@ export default function OurClientsStaticPageCMS() {
         description="Manage 500+ enterprise client portfolio logos, industry categories & achievement counter stats. Expand any section to edit its content."
       />
 
+      {/* 0. Hero Section */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title="0. Hero Section"
+          description="Manage the main Hero text on the Our Clients page."
+          isOpen={isHeroOpen}
+          onToggle={() => setIsHeroOpen(!isHeroOpen)}
+        />
+        <div className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+          <div className="overflow-hidden flex flex-col gap-4 pt-1">
+            <InputField
+              label="Hero Heading"
+              value={heroHeading}
+              onChange={(e) => setHeroHeading(e.target.value)}
+              placeholder="Powering India's Elite Enterprises"
+            />
+            <InputField
+              label="Hero CTA Button Text"
+              value={heroCtaText}
+              onChange={(e) => setHeroCtaText(e.target.value)}
+              placeholder="Explore our client portfolio"
+            />
+            
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-gray-700">Hero Description</label>
+              <textarea
+                className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors bg-white text-gray-900"
+                rows={3}
+                value={heroDesc}
+                onChange={(e) => setHeroDesc(e.target.value)}
+                placeholder="For over three decades..."
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-gray-700">Hero Background Image</label>
+              <div className="bg-slate-50/70 border border-slate-200/70 rounded-2xl px-4 py-3 flex items-center justify-between transition hover:bg-slate-50">
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-20 h-14 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-2xs">
+                    {heroImage ? (
+                      <img src={heroImage} alt="Hero Background" className="w-full h-full object-cover rounded-lg" />
+                    ) : (
+                      <ImageIcon className="w-5 h-5 text-slate-300" />
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-xs font-bold text-slate-800 truncate">Hero Background</h4>
+                    <p className="text-[11px] text-slate-400 font-medium">
+                      {heroImage ? (heroImage.startsWith("data:") ? "Local File" : "Cloud / Remote") : "No file uploaded"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 shrink-0">
+                  <label className="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 hover:text-[#2D6FBA] hover:border-[#2D6FBA]/40 rounded-xl text-xs font-semibold cursor-pointer transition shadow-2xs">
+                    {heroImage ? "Replace" : "Upload"}
+                    <input type="file" accept="image/*" className="hidden" onChange={handleHeroImageUpload} />
+                  </label>
+
+                  <button
+                    type="button"
+                    onClick={() => { setHeroImage(""); toast.success("Image removed. Don't forget to save!"); }}
+                    className="w-8 h-8 rounded-full border border-slate-200/80 bg-white flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-300 transition cursor-pointer shadow-2xs"
+                    title="Remove image"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end mt-4 pt-4 border-t border-slate-100">
+              <SaveButton
+                onClick={handleSaveStats}
+                loading={savingStats}
+                saved={savedStats}
+                label="Save Hero Section"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 1. Achievement Counter Metrics */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
@@ -280,6 +400,13 @@ export default function OurClientsStaticPageCMS() {
           className={`grid transition-all duration-300 ${isLogosOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
         >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <InputField
+              label="Esteemed Clients Section Title"
+              value={esteemedTitle}
+              onChange={(e) => setEsteemedTitle(e.target.value)}
+              placeholder="Our Esteemed Clients"
+            />
+            
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-700">
@@ -418,7 +545,26 @@ export default function OurClientsStaticPageCMS() {
           className={`grid transition-all duration-300 ${isClientsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
         >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
-            <div className="flex justify-end">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <InputField
+                label="Prestigious Clients Section Title"
+                value={prestigiousTitle}
+                onChange={(e) => setPrestigiousTitle(e.target.value)}
+                placeholder="Our Prestigious Clients"
+              />
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-700">Section Description</label>
+                <textarea
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors bg-white text-gray-900"
+                  rows={2}
+                  value={prestigiousDesc}
+                  onChange={(e) => setPrestigiousDesc(e.target.value)}
+                  placeholder="We are proud to partner with industry leaders..."
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end border-t border-slate-100 pt-6">
               <button
                 type="button"
                 onClick={addClient}
