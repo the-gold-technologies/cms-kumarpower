@@ -38,6 +38,12 @@ export default function StaticBlogCMSPage() {
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState("");
+  const [ctaTitle, setCtaTitle] = useState("");
+  const [ctaDescription, setCtaDescription] = useState("");
+  const [ctaPrimaryLabel, setCtaPrimaryLabel] = useState("");
+  const [ctaPrimaryUrl, setCtaPrimaryUrl] = useState("");
+  const [ctaSecondaryLabel, setCtaSecondaryLabel] = useState("");
+  const [companyProfilePdf, setCompanyProfilePdf] = useState("");
 
   // Articles Section State
   const [isArticlesOpen, setIsArticlesOpen] = useState(true);
@@ -81,6 +87,12 @@ export default function StaticBlogCMSPage() {
           if (hero.heroHeading !== undefined) setHeroHeading(hero.heroHeading);
           if (hero.heroSub !== undefined) setHeroSub(hero.heroSub);
           if (hero.heroBg !== undefined) setHeroBg(hero.heroBg);
+          if (hero.ctaTitle !== undefined) setCtaTitle(hero.ctaTitle);
+          if (hero.ctaDescription !== undefined) setCtaDescription(hero.ctaDescription);
+          if (hero.ctaPrimaryLabel !== undefined) setCtaPrimaryLabel(hero.ctaPrimaryLabel);
+          if (hero.ctaPrimaryUrl !== undefined) setCtaPrimaryUrl(hero.ctaPrimaryUrl);
+          if (hero.ctaSecondaryLabel !== undefined) setCtaSecondaryLabel(hero.ctaSecondaryLabel);
+          if (hero.companyProfilePdf !== undefined) setCompanyProfilePdf(hero.companyProfilePdf);
         }
       })
       .catch(console.error);
@@ -89,7 +101,11 @@ export default function StaticBlogCMSPage() {
   const handleSaveHero = async () => {
     setSavingHero(true);
     try {
-      const payload = { heroTagline, heroHeading, heroSub, heroBg };
+      const payload = { 
+        heroTagline, heroHeading, heroSub, heroBg,
+        ctaTitle, ctaDescription, ctaPrimaryLabel, ctaPrimaryUrl,
+        ctaSecondaryLabel, companyProfilePdf 
+      };
       const res = await fetch("/api/pages/blogs", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -153,15 +169,25 @@ export default function StaticBlogCMSPage() {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (item: BlogItem) => {
+  const handleDelete = async (item: BlogItem) => {
     if (confirm(`Are you sure you want to delete article "${item.title}"?`)) {
       const updated = blogList.filter((b) => b.id !== item.id);
       setBlogList(updated);
-      toast.success("Blog article deleted");
+      
+      try {
+        await fetch("/api/pages/blogs", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ section: "articles", content: updated }),
+        });
+        toast.success("Blog article deleted");
+      } catch {
+        toast.error("Failed to delete article");
+      }
     }
   };
 
-  const handleSaveArticle = (e: React.FormEvent) => {
+  const handleSaveArticle = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.title) {
       toast.error("Article Title is required!");
@@ -169,27 +195,36 @@ export default function StaticBlogCMSPage() {
     }
 
     const finalSlug = formData.slug || generateSlug(formData.title);
+    let updated;
 
     if (editingId) {
-      const updated = blogList.map((b) =>
+      updated = blogList.map((b) =>
         b.id === editingId
           ? { ...formData, slug: finalSlug, id: editingId }
           : b,
       );
-      setBlogList(updated);
-      toast.success("Blog article updated!");
     } else {
       const newBlog: BlogItem = {
         ...formData,
         id: `blog-${Date.now()}`,
         slug: finalSlug,
       };
-      const updated = [newBlog, ...blogList];
-      setBlogList(updated);
-      toast.success("New blog article created!");
+      updated = [newBlog, ...blogList];
     }
+    
+    setBlogList(updated);
 
-    setIsModalOpen(false);
+    try {
+      await fetch("/api/pages/blogs", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section: "articles", content: updated }),
+      });
+      toast.success(editingId ? "Blog article updated!" : "New blog article created!");
+      setIsModalOpen(false);
+    } catch {
+      toast.error("Failed to save article");
+    }
   };
 
   const filteredBlogs = blogList.filter((blog) => {
@@ -254,6 +289,70 @@ export default function StaticBlogCMSPage() {
               value={heroBg}
               onChange={(val) => setHeroBg(val)}
             />
+
+            <div className="flex justify-end pt-4 border-t border-slate-100">
+              <SaveButton
+                isSaving={savingHero}
+                saved={savedHero}
+                onClick={handleSaveHero}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 1.5 CTA Banner Form Section */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title="CTA Section Banner"
+          description="Manage Call To Action section fields at the bottom of the blog list page."
+          isOpen={isHeroOpen}
+          onToggle={() => setIsHeroOpen(!isHeroOpen)}
+        />
+        <div
+          className={`grid transition-all duration-300 ${
+            isHeroOpen
+              ? "grid-rows-[1fr] opacity-100 mt-6"
+              : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
+          }`}
+        >
+          <div className="overflow-hidden flex flex-col gap-4 pt-1">
+            <InputField
+              label="CTA Title"
+              value={ctaTitle}
+              onChange={(e) => setCtaTitle(e.target.value)}
+              placeholder="e.g. Call To Action"
+            />
+            <TextAreaField
+              label="CTA Description"
+              value={ctaDescription}
+              onChange={(e) => setCtaDescription(e.target.value)}
+              rows={2}
+            />
+            <div className="grid grid-cols-2 gap-4">
+              <InputField
+                label="Primary Button Label"
+                value={ctaPrimaryLabel}
+                onChange={(e) => setCtaPrimaryLabel(e.target.value)}
+              />
+              <InputField
+                label="Primary Button URL"
+                value={ctaPrimaryUrl}
+                onChange={(e) => setCtaPrimaryUrl(e.target.value)}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <InputField
+                label="Secondary Button Label"
+                value={ctaSecondaryLabel}
+                onChange={(e) => setCtaSecondaryLabel(e.target.value)}
+              />
+              <ImageUploadField
+                label="Company Profile PDF"
+                value={companyProfilePdf}
+                onChange={(val) => setCompanyProfilePdf(val)}
+              />
+            </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton

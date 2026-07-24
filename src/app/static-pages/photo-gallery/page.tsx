@@ -46,6 +46,8 @@ export default function PhotoGalleryStaticPageCMS() {
 
   // Gallery Photos
   const [photos, setPhotos] = useState<GalleryPhoto[]>([]);
+  const [seeMoreLabel, setSeeMoreLabel] = useState("");
+  const [showLessLabel, setShowLessLabel] = useState("");
 
   // Experience Power Excellence Section
   const [expTitle, setExpTitle] = useState("");

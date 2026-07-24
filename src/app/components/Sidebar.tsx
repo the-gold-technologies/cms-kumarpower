@@ -52,7 +52,6 @@ const sidebarLinks: SidebarLink[] = [
       { title: "Photo Gallery", href: "/static-pages/photo-gallery" },
       { title: "Certifications", href: "/static-pages/certifications" },
       { title: "Products Overview", href: "/static-pages/products" },
-      { title: "Services Overview", href: "/static-pages/services" },
       { title: "Blogs Overview", href: "/static-pages/blog" },
       { title: "Contact Us", href: "/static-pages/contact" },
     ],
@@ -61,12 +60,27 @@ const sidebarLinks: SidebarLink[] = [
     title: "PRODUCT DROPDOWN PAGES",
     icon: Package,
     sublinks: [
-      { title: "Kirloskar Diesel Generator", href: "/static-pages/products/kirloskar-diesel-generator" },
-      { title: "Kirloskar Gas Generator", href: "/static-pages/products/kirloskar-gas-generator" },
-      { title: "Kirloskar Portable Generator", href: "/static-pages/products/kirloskar-portable-generator" },
-      { title: "Optiprime Generator", href: "/static-pages/products/optiprime" },
+      {
+        title: "Kirloskar Diesel Generator",
+        href: "/static-pages/products/kirloskar-diesel-generator",
+      },
+      {
+        title: "Kirloskar Gas Generator",
+        href: "/static-pages/products/kirloskar-gas-generator",
+      },
+      {
+        title: "Kirloskar Portable Generator",
+        href: "/static-pages/products/kirloskar-portable-generator",
+      },
+      {
+        title: "Optiprime Generator",
+        href: "/static-pages/products/optiprime",
+      },
       { title: "Electrical Panels", href: "/static-pages/products/panels" },
-      { title: "Servo Stabilizers", href: "/static-pages/products/servo-stabilizer" },
+      {
+        title: "Servo Stabilizers",
+        href: "/static-pages/products/servo-stabilizer",
+      },
       { title: "Transformers", href: "/static-pages/products/transformers" },
     ],
   },
@@ -74,10 +88,14 @@ const sidebarLinks: SidebarLink[] = [
     title: "SERVICE DROPDOWN PAGES",
     icon: Wrench,
     sublinks: [
-      { title: "Annual Maintenance (AMC)", href: "/static-pages/services/annual-maintenance" },
-      { title: "Turnkey SITC Installation", href: "/static-pages/services/installation" },
-      { title: "Engine Repair & Overhaul", href: "/static-pages/services/repair-overhaul" },
-      { title: "24/7 Emergency Support", href: "/static-pages/services/emergency-support" },
+      {
+        title: "Turnkey SITC Installation",
+        href: "/static-pages/services/installation",
+      },
+      {
+        title: "Engine Repair & Overhaul",
+        href: "/static-pages/services/repair-overhaul",
+      },
     ],
   },
   {
@@ -92,9 +110,7 @@ const sidebarLinks: SidebarLink[] = [
   {
     title: "SUBMISSIONS & LEADS",
     icon: Inbox,
-    sublinks: [
-      { title: "Leads & Enquiries", href: "/submissions/enquiries" },
-    ],
+    sublinks: [{ title: "Leads & Enquiries", href: "/submissions/enquiries" }],
   },
   {
     title: "SETTINGS",
@@ -109,7 +125,10 @@ export function Sidebar() {
   const [openGroups, setOpenGroups] = useState<string[]>(() => {
     return sidebarLinks
       .filter((item) =>
-        item.sublinks?.some((sublink) => pathname === sublink.href || pathname.startsWith(sublink.href))
+        item.sublinks?.some(
+          (sublink) =>
+            pathname === sublink.href || pathname.startsWith(sublink.href),
+        ),
       )
       .map((item) => item.title);
   });
@@ -117,7 +136,10 @@ export function Sidebar() {
   useEffect(() => {
     const activeGroups = sidebarLinks
       .filter((item) =>
-        item.sublinks?.some((sublink) => pathname === sublink.href || pathname.startsWith(sublink.href))
+        item.sublinks?.some(
+          (sublink) =>
+            pathname === sublink.href || pathname.startsWith(sublink.href),
+        ),
       )
       .map((item) => item.title);
 
@@ -134,7 +156,7 @@ export function Sidebar() {
 
   const toggleGroup = (title: string) => {
     setOpenGroups((prev) =>
-      prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]
+      prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title],
     );
   };
 
@@ -153,7 +175,8 @@ export function Sidebar() {
             className="h-10 w-10 bg-white p-1 rounded-full shadow-md object-contain"
           />
           <span className="font-bold text-lg tracking-tight">
-            Kumar Power <span className="text-[#2D6FBA] font-semibold">CMS</span>
+            Kumar Power{" "}
+            <span className="text-[#2D6FBA] font-semibold">CMS</span>
           </span>
         </Link>
       </div>
@@ -179,7 +202,7 @@ export function Sidebar() {
                     <ChevronDown
                       className={cn(
                         "w-3.5 h-3.5 text-gray-500 transition-transform duration-200 group-hover:text-gray-300",
-                        isOpen ? "rotate-180" : ""
+                        isOpen ? "rotate-180" : "",
                       )}
                     />
                   </div>
@@ -195,7 +218,7 @@ export function Sidebar() {
                               "block px-4 py-2.5 rounded-2xl text-[13px] font-medium transition-all duration-200",
                               isSubActive
                                 ? "bg-[#2D6FBA] text-white shadow-sm shadow-[#2D6FBA]/20 transform scale-[1.02]"
-                                : "text-gray-400 hover:bg-white/5 hover:text-white"
+                                : "text-gray-400 hover:bg-white/5 hover:text-white",
                             )}
                           >
                             {sublink.title}
@@ -216,14 +239,14 @@ export function Sidebar() {
                   "flex items-center justify-between px-4 py-3 rounded-2xl text-[14px] font-medium transition-all duration-200 mt-2",
                   isActive
                     ? "bg-[#2D6FBA] text-white shadow-sm shadow-[#2D6FBA]/20 transform scale-[1.02]"
-                    : "text-gray-400 hover:bg-white/5 hover:text-white"
+                    : "text-gray-400 hover:bg-white/5 hover:text-white",
                 )}
               >
                 <div className="flex items-center gap-4">
                   <item.icon
                     className={cn(
                       "w-5 h-5",
-                      isActive ? "text-white" : "text-gray-400"
+                      isActive ? "text-white" : "text-gray-400",
                     )}
                     strokeWidth={isActive ? 2.5 : 2}
                   />

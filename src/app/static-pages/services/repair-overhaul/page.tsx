@@ -235,9 +235,9 @@ export default function RepairOverhaulCMSPage() {
             <InputField label="Hero Subheading" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} />
             <InputField label="Hero CTA Label" value={heroCtaLabel} onChange={(e) => setHeroCtaLabel(e.target.value)} />
             <SaveButton
-              onSave={() => handleSave("Hero Section")}
+              onClick={() => handleSave("Hero Section")}
               isSaving={savingSection === "Hero Section"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
@@ -263,9 +263,9 @@ export default function RepairOverhaulCMSPage() {
             <InputField label="Button 1 Label" value={introBtn1Label} onChange={(e) => setIntroBtn1Label(e.target.value)} />
             <InputField label="Button 2 Label" value={introBtn2Label} onChange={(e) => setIntroBtn2Label(e.target.value)} />
             <SaveButton
-              onSave={() => handleSave("Intro Section")}
+              onClick={() => handleSave("Intro Section")}
               isSaving={savingSection === "Intro Section"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
@@ -287,9 +287,9 @@ export default function RepairOverhaulCMSPage() {
             <InputField label="Heading" value={diffHeading} onChange={(e) => setDiffHeading(e.target.value)} />
             <InputField label="Description" value={diffDesc} onChange={(e) => setDiffDesc(e.target.value)} />
             <SaveButton
-              onSave={() => handleSave("Repair vs Overhaul")}
+              onClick={() => handleSave("Repair vs Overhaul")}
               isSaving={savingSection === "Repair vs Overhaul"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
@@ -330,9 +330,9 @@ export default function RepairOverhaulCMSPage() {
             </div>
 
             <SaveButton
-              onSave={() => handleSave("FAQs Section")}
+              onClick={() => handleSave("FAQs Section")}
               isSaving={savingSection === "FAQs Section"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
@@ -379,9 +379,9 @@ export default function RepairOverhaulCMSPage() {
             </div>
 
             <SaveButton
-              onSave={() => handleSave("Services Section")}
+              onClick={() => handleSave("Services Section")}
               isSaving={savingSection === "Services Section"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
@@ -426,9 +426,9 @@ export default function RepairOverhaulCMSPage() {
             </div>
 
             <SaveButton
-              onSave={() => handleSave("Benefits Section")}
+              onClick={() => handleSave("Benefits Section")}
               isSaving={savingSection === "Benefits Section"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
@@ -472,9 +472,9 @@ export default function RepairOverhaulCMSPage() {
             </div>
 
             <SaveButton
-              onSave={() => handleSave("Process Section")}
+              onClick={() => handleSave("Process Section")}
               isSaving={savingSection === "Process Section"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
@@ -498,9 +498,9 @@ export default function RepairOverhaulCMSPage() {
             <InputField label="Help Button Label" value={helpBtnLabel} onChange={(e) => setHelpBtnLabel(e.target.value)} />
             <InputField label="Emergency Phone" value={emergencyPhone} onChange={(e) => setEmergencyPhone(e.target.value)} />
             <SaveButton
-              onSave={() => handleSave("Help Section")}
+              onClick={() => handleSave("Help Section")}
               isSaving={savingSection === "Help Section"}
-              isSaved={false}
+              saved={false}
             />
           </div>
         </div>
