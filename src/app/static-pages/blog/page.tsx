@@ -44,6 +44,8 @@ export default function StaticBlogCMSPage() {
   const [ctaPrimaryUrl, setCtaPrimaryUrl] = useState("");
   const [ctaSecondaryLabel, setCtaSecondaryLabel] = useState("");
   const [companyProfilePdf, setCompanyProfilePdf] = useState("");
+  const [articlesHeading, setArticlesHeading] = useState("");
+  const [articlesSub, setArticlesSub] = useState("");
 
   // Articles Section State
   const [isArticlesOpen, setIsArticlesOpen] = useState(true);
@@ -93,6 +95,8 @@ export default function StaticBlogCMSPage() {
           if (hero.ctaPrimaryUrl !== undefined) setCtaPrimaryUrl(hero.ctaPrimaryUrl);
           if (hero.ctaSecondaryLabel !== undefined) setCtaSecondaryLabel(hero.ctaSecondaryLabel);
           if (hero.companyProfilePdf !== undefined) setCompanyProfilePdf(hero.companyProfilePdf);
+          if (hero.articlesHeading !== undefined) setArticlesHeading(hero.articlesHeading);
+          if (hero.articlesSub !== undefined) setArticlesSub(hero.articlesSub);
         }
       })
       .catch(console.error);
@@ -104,7 +108,7 @@ export default function StaticBlogCMSPage() {
       const payload = { 
         heroTagline, heroHeading, heroSub, heroBg,
         ctaTitle, ctaDescription, ctaPrimaryLabel, ctaPrimaryUrl,
-        ctaSecondaryLabel, companyProfilePdf 
+        ctaSecondaryLabel, companyProfilePdf, articlesHeading, articlesSub
       };
       const res = await fetch("/api/pages/blogs", {
         method: "PUT",
@@ -391,6 +395,31 @@ export default function StaticBlogCMSPage() {
           }`}
         >
           <div className="overflow-hidden space-y-6 pt-2">
+            {/* Articles Header Fields */}
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 space-y-4">
+              <h3 className="text-sm font-bold text-slate-800 border-b border-slate-200 pb-2">Articles Grid Header Text</h3>
+              <InputField
+                label="Articles Heading"
+                value={articlesHeading}
+                onChange={(e) => setArticlesHeading(e.target.value)}
+                placeholder="e.g. Blogs"
+              />
+              <TextAreaField
+                label="Articles Subtitle"
+                value={articlesSub}
+                onChange={(e) => setArticlesSub(e.target.value)}
+                placeholder="e.g. Explore expert articles..."
+                rows={2}
+              />
+              <div className="flex justify-end pt-2">
+                <SaveButton
+                  onClick={handleSaveHero}
+                  isSaving={savingHero}
+                  saved={savedHero}
+                />
+              </div>
+            </div>
+
             {/* Filter & Search Bar */}
             <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 flex items-center justify-between gap-4 flex-wrap">
               <div className="flex items-center gap-3 flex-1 min-w-[280px] bg-white px-4 py-2.5 rounded-2xl border border-slate-200">
