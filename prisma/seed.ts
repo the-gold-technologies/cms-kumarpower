@@ -3324,6 +3324,13 @@ async function main() {
           type: "our-clients",
           order: 1,
           content: {
+            heroHeading: "Powering India's\nElite Enterprises",
+            heroDesc:
+              "For over three decades, Kumar Generator House has been the trusted power partner for India's most demanding institutions.",
+            heroImage:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1785144132/kumarpower_website/pages/ourc-handshake.png",
+            heroCtaText: "Explore our client portfolio",
+            esteemedTitle: "Our Esteemed Clients",
             stat1Num: "500+",
             stat1Text: "Enterprise Clients",
             stat2Num: "30+",
