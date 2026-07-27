@@ -42,17 +42,20 @@ async function main() {
       data: {
         id: "global",
         siteTitle: "Kumar Power | Kirloskar Generator Dealer",
-        siteDescription: "Authorized dealer of Kirloskar Green CPCB IV+ Silent Diesel Generators in Delhi NCR.",
+        siteDescription:
+          "Authorized dealer of Kirloskar Green CPCB IV+ Silent Diesel Generators in Delhi NCR.",
         googleAnalyticsId: "G-XXXXXXXXXX",
         gtmId: "GTM-XXXXXXX",
         searchConsoleId: "google-site-verification-code",
         customHeaderScripts: "<!-- Custom Head Scripts -->",
         customFooterScripts: `<link rel="stylesheet" href="https://sidewidget.vercel.app/react-widget-uv.css">\n<script>window.process = { env: {} };</script>\n<script src="https://sidewidget.vercel.app/react-widget-uv.iife.js"></script>\n<react-widget-uv agent_id="9efb6a86-285d-4201-a1fe-b77b58efa2cf" schema="6af30ad4-a50c-4acc-8996-d5f562b6987f" type="thunderemotionlite"></react-widget-uv>`,
-        schema: "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"Kumar Power\",\n  \"url\": \"https://www.kumarpower.com\"\n}",
+        schema:
+          '{\n  "@context": "https://schema.org",\n  "@type": "Organization",\n  "name": "Kumar Power",\n  "url": "https://www.kumarpower.com"\n}',
         headingOptions: "h1",
         sitemapEnabled: true,
-        robotsTxt: "User-agent: *\nAllow: /\n\nSitemap: https://www.kumarpower.com/sitemap.xml",
-      }
+        robotsTxt:
+          "User-agent: *\nAllow: /\n\nSitemap: https://www.kumarpower.com/sitemap.xml",
+      },
     });
     console.log("✅ Seeded Global SEO Config with Analytics & Scripts");
   } catch (err) {
@@ -4410,17 +4413,23 @@ async function main() {
           order: 1,
           content: {
             heroTagline: "KUMAR POWER BLOG & INSIGHTS",
-            heroHeading: "Our Blogs: Expert Guide to Industrial Power Generation",
-            heroSub: "Kumar Power provides expert insights on industrial power generation, focusing on Kirloskar generator efficiency, CPCB IV+ compliance, and energy management for continuous operations. The blog serves as a resource for manufacturing, commercial, and healthcare sectors seeking to optimize power infrastructure and reduce downtime. Read more at Kumar Power.",
-            heroBg: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+            heroHeading:
+              "Our Blogs: Expert Guide to Industrial Power Generation",
+            heroSub:
+              "Kumar Power provides expert insights on industrial power generation, focusing on Kirloskar generator efficiency, CPCB IV+ compliance, and energy management for continuous operations. The blog serves as a resource for manufacturing, commercial, and healthcare sectors seeking to optimize power infrastructure and reduce downtime. Read more at Kumar Power.",
+            heroBg:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
             articlesHeading: "Blogs",
-            articlesSub: "Explore expert articles, case studies, and latest trends in industrial power solutions.",
+            articlesSub:
+              "Explore expert articles, case studies, and latest trends in industrial power solutions.",
             ctaTitle: "Call To Action",
-            ctaDescription: "Have questions or need more information? We're here to help!",
+            ctaDescription:
+              "Have questions or need more information? We're here to help!",
             ctaPrimaryLabel: "Enquire Now",
             ctaPrimaryUrl: "/contact",
             ctaSecondaryLabel: "Download Our Company Profile",
-            companyProfilePdf: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703721/kumarpower_website/lwslbfk9cagxu3m0khzy.pdf",
+            companyProfilePdf:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784703721/kumarpower_website/lwslbfk9cagxu3m0khzy.pdf",
           },
         },
         {
@@ -4430,41 +4439,148 @@ async function main() {
           content: [
             {
               id: "blog-1",
-              title: "AMF Panel for DG Set: Automatic Power Management for Continuous Operations",
+              title:
+                "AMF Panel for DG Set: Automatic Power Management for Continuous Operations",
               slug: "amf-panel-for-dg-set",
               category: "Product Guide",
               author: "Kumar Power Team",
               publishedDate: new Date().toISOString().split("T")[0],
-              summary: "AMF Panels (Automatic Mains Failure Panels) for DG Sets are essential for ensuring uninterrupted power supply, automatically switching between mains and generator power during outages.",
-              image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784983053/KumarPower-Assets/brtcoxyzckxg84qqk8lk.jpg",
+              summary:
+                "AMF Panels (Automatic Mains Failure Panels) for DG Sets are essential for ensuring uninterrupted power supply, automatically switching between mains and generator power during outages.",
+              image:
+                "https://res.cloudinary.com/dpa93copz/image/upload/v1784983053/KumarPower-Assets/brtcoxyzckxg84qqk8lk.jpg",
               readTime: "5 min read",
               status: "Published",
+              content: `<h2>How Does an AMF Panel Work?</h2>
+<p>AMF panel stands for Auto Mains Failure panel. It is a control panel that automatically switches the load from the main grid power supply to the backup generator (usually a DG set) in the event of a power outage. Once the main power is restored, the AMF panel switches the load back to the grid and automatically shuts down the generator.</p>
+<blockquote>
+<p>Think of an AMF panel as the brain of your backup power system. It continuously monitors the main power supply and takes action without any human intervention.</p>
+</blockquote>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137532/kumarpower_website/blog_migrated/amf-panel-for-dg-set-electrical-control-panel.jpg" alt="AMF Panel For DG Set - Modern Power Soltions" /></p>
+<p>1. Monitoring: The AMF panel constantly monitors the incoming mains supply voltage and frequency.<br>
+2. Detecting Failure: If the mains supply fails, drops below a certain voltage, or experiences a phase loss, the AMF panel detects this anomaly instantly.<br>
+3. Starting the Generator: It sends a start signal to the generator's engine control unit (ECU).<br>
+4. Switching Load: Once the generator reaches the correct speed and voltage, the AMF panel's changeover contactor switches the load from the mains to the generator.<br>
+5. Restoring Power: When the mains power returns and stabilizes, the panel switches the load back to the mains.<br>
+6. Shutting Down: The panel allows the generator to run for a short cool-down period before shutting it off completely.</p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137407/kumarpower_website/blog_migrated/amf-panel-for-generator-feature-image.jpg" alt="AMF Control Panel For DG Set - Kumar Power ISO 9001:2015" /></p>`,
             },
             {
               id: "blog-2",
-              title: "Kirloskar Silent Generator for Home and Business: Diesel, Green & DG Set Guide",
+              title:
+                "Kirloskar Silent Generator for Home and Business: Diesel, Green & DG Set Guide",
               slug: "kirloskar-silent-generator",
               category: "Technical Insights",
               author: "Kumar Power Team",
               publishedDate: new Date().toISOString().split("T")[0],
-              summary: "The Kirloskar silent power generator operates at a noise level of less than 75 dBA at 1 metre distance, which is roughly similar to the sound of a normal conversation.",
-              image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784983055/KumarPower-Assets/v3kwtoml4ltegduz27in.jpg",
+              summary:
+                "The Kirloskar silent power generator operates at a noise level of less than 75 dBA at 1 metre distance, which is roughly similar to the sound of a normal conversation.",
+              image:
+                "https://res.cloudinary.com/dpa93copz/image/upload/v1784983055/KumarPower-Assets/v3kwtoml4ltegduz27in.jpg",
               readTime: "4 min read",
               status: "Published",
+              content: `<h2>What Is a Silent Generator?</h2>
+<p>A silent generator is a standard diesel or <strong>gas generator</strong> fitted inside a specially designed acoustic enclosure that is called a canopy. This canopy is built with sound-absorbing material like high-density foam or glass wool, which keeps the noise level low. It not only reduces noise but also saves the genset from dust, rain, and sunlight.</p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg" alt="The Power of Silence" /></p>
+<p>A canopy can only reduce sound; it can't totally silence the generator. When a generator is used to make electricity, the engine inside it starts running on its rated RPM (Revolutions Per Minute). In a generator, RPM is directly linked to its power generation capacity and engine speed.</p>
+<blockquote>
+<p>As in India, 50 Hz is the standard frequency for electricity. When the alternator inside the generator rotates, it generates AC electricity. To maintain the frequency of 50Hz, the piston of the engine has to run at a specific speed, such as 1500RPM or 3000RPM. When the engine runs at this speed, they generate a lot of noise.</p>
+</blockquote>
+<h2>Why Choose Kirloskar?</h2>
+<p>Whether you need a compact 15 kVA generator for a commercial building or office, or a heavy-duty 1500 kVA DG set for your large industrial facility. When people search for a reliable silent generator in India, the name Kirloskar comes up for good reason. Kirloskar Oil Engines Limited (KOEL) (1946) carries over a century (starting of Kirloskar 1888) of engineering heritage and currently operates one of the largest genset fleets in the country, serving 50+ countries globally.</p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1784983055/KumarPower-Assets/v3kwtoml4ltegduz27in.jpg" alt="Power That Blends Into the Background" /></p>`,
             },
             {
               id: "blog-3",
-              title: "Industrial Kirloskar DG Set (750 kVA to 1500 kVA) for Heavy Duty Power Requirement",
+              title:
+                "Industrial Kirloskar DG Set (750 kVA to 1500 kVA) for Heavy Duty Power Requirement",
               slug: "industrial-kirloskar-dg-set-750-1500kva",
               category: "Industrial Solutions",
               author: "Kumar Power Team",
               publishedDate: new Date().toISOString().split("T")[0],
-              summary: "Heavy-duty industrial Kirloskar DG Sets ranging from 750 kVA to 1500 kVA are engineered for continuous, reliable prime and standby power in large-scale manufacturing, infrastructure, and commercial sectors.",
-              image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784983056/KumarPower-Assets/dgdqgwswk8cxs4awcfvs.jpg",
+              summary:
+                "Heavy-duty industrial Kirloskar DG Sets ranging from 750 kVA to 1500 kVA are engineered for continuous, reliable prime and standby power in large-scale manufacturing, infrastructure, and commercial sectors.",
+              image:
+                "https://res.cloudinary.com/dpa93copz/image/upload/v1784983056/KumarPower-Assets/dgdqgwswk8cxs4awcfvs.jpg",
               readTime: "6 min read",
               status: "Published",
-            }
-          ]
+              content: `<p>Even metro cities face constant power cuts due to rising electricity demands alongside growing needs. Heavy-duty industrial Kirloskar DG sets ranging from 750 kVA to 1500 kVA are engineered for continuous, reliable prime and standby power in large-scale manufacturing, infrastructure, IT, data centres, hospitals, and commercial sectors.</p>
+<p>How machinery runs constantly in a factory, warehouse, enterprises, and large industries, having plenty of orders for stocks. But what if the grid electricity fails? How will you manage the downtime caused by the power failure? The Mechanical Jamming or Thermal Shock that harms expensive machines & temporary machinery shutdowns, production deadlines, and the labour cost - How will you manage this?</p>
+<blockquote>
+<p>Sitting worklessly during a power outage, looking at the machinery shutting down, it's a scene that feels like a very painful story from a business owner's POV. A small amount of time that causes production halts can affect the revenue and the reputation of the industry in the market, turning into a very big amount of loss for businesses.</p>
+</blockquote>
+<p>We can't control the grid electricity. In peak summertimes, well, not only summertime, but it's every time, there is always high power demand. The machines we use in our daily life, for commercial buildings, as well as in industrial sectors, everything depends on power. Due to this additional power load, power maintenance shutdowns and grid power failures are to be expected. Even the weather contributes to this, too. And then it strikes us: Yes! We do need a backup.</p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137559/kumarpower_website/blog_migrated/industrial-kirloskar-dg-set-750-1500kva.jpg" alt="High Capacity Industrial Kirloskar DG Set 750 kVA to 1500 kVA" /></p>
+<h2>Understanding Heavy-Duty Industrial Power Requirements</h2>
+<p>Heavy-duty power requirements are significantly different from standard commercial and residential backup applications. Because industrial facilities operate multiple high-capacity machines, motor-driven equipment, HVAC systems, process loads, and critical infrastructure simultaneously. From production in the industry to the warehouse shifting, machines work continuously. As a result, power demand can fluctuate throughout the day, particularly during equipment startup and peak production cycles.</p>
+<h2>Which Industries Require 750 kVA to 1500 kVA KOEL DG Sets?</h2>
+<p>In this high-capacity industrial segment, the available range is 750 kVA (600kW), 900 kVA (720kW), 1010 kVA (808kW), 1250 kVA (1000kW), and 1500 kVA (1200kW) with 0.8 lagging power factor. Provide a reliable and uninterrupted power supply. Various industries require a stable power backup connection for seamless operations.</p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137358/kumarpower_website/blog_migrated/industrial-kirloskar-dg-set-750-1500kva-feature-image.jpg" alt="High-Capacity Industrial Kirloskar DG Set 750 kVA to 1500 kVA - Keep Running Industries 24/7" /></p>
+<h3>Manufacturing Plants (1000 kVA to 1500 kVA)</h3>
+<p>Manufacturing facilities often experience high starting currents due to CNC machines, compressors, conveyor systems, and heavy-duty motors. In such environments, a 1250 kVA DG set is frequently preferred because it provides sufficient headroom during simultaneous equipment startup while reducing the risk of voltage fluctuations during production hours that a 750 kVA unit may struggle to absorb.</p>
+<h3>Large Data Centres (1000 kVA to 1500 kVA)</h3>
+<p>Data centres have to prioritise uptime over everything else. In this digital world, they can't afford even a single-second power cut due to the high risk of losing cache data (live data in temporary memory) and online services (transactions and server-based software) failure.</p>
+<h2>Top 6 Features Designed Specifically for Demanding Site Conditions</h2>
+<ul>
+  <li>CRDi Engine Technology for Heavy Industrial Load</li>
+  <li>CPCB IV+ Compliance for Modern Industrial Projects</li>
+  <li>Fuel Efficiency Under Real Operating Conditions</li>
+  <li>Acoustic Performance for Noise-Sensitive Installations</li>
+  <li>Advanced Monitoring and Remote Diagnostics</li>
+  <li>Built for Demanding Site Conditions</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137466/kumarpower_website/blog_migrated/blog1.png" alt="Kirloskar generator" /></p>`,
+            },
+            {
+              id: "blog-4",
+              title:
+                "Preventive Maintenance: Extending Your Generator's Lifespan",
+              slug: "benefits-of-diesel-generator",
+              category: "Maintenance",
+              author: "Kumar Power Team",
+              publishedDate: new Date().toISOString().split("T")[0],
+              summary:
+                "A very comprehensive preventive maintenance strategy is one of the most important investments businesses can make to improve generator reliability, operational efficiency, and long-term performance.",
+              image:
+                "https://res.cloudinary.com/dpa93copz/image/upload/v1785137466/kumarpower_website/blog_migrated/blog1.png",
+              readTime: "5 min read",
+              status: "Published",
+              content: `<p>Abhishek A very comprehensive preventive maintenance strategy is one of the most important investments businesses can make to improve generator reliability, operational efficiency, and long-term performance.</p>
+<blockquote>
+<p>“Routine maintenance prevents unexpected failures and significantly extends generator lifespan.”</p>
+</blockquote>
+<h2>Essential Maintenance Schedule</h2>
+<p>Industrial generators require structured maintenance intervals to maintain peak operational efficiency. Weekly inspections, monthly load testing, and annual servicing ensure optimal system performance.</p>
+<p>Preventive inspections help identify small issues before they become major equipment failures, reducing downtime and repair costs.</p>
+<h2>Fluid Management</h2>
+<p>Proper oil management and coolant monitoring are critical for preventing overheating and reducing internal engine wear.</p>
+<p>Using manufacturer-recommended lubricants and replacing filters regularly helps generators perform consistently under heavy industrial loads.</p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137466/kumarpower_website/blog_migrated/blog1.png" alt="Kirloskar generator" /></p>
+<h2>Smart Monitoring Systems</h2>
+<p>Modern monitoring systems use IoT and predictive analytics to track performance in real time. These intelligent systems notify operators about maintenance requirements before failures occur.</p>`,
+            },
+            {
+              id: "blog-5",
+              title:
+                "Optimizing Generator Performance in Extreme Weather Conditions",
+              slug: "generator-performance",
+              category: "Technical Insights",
+              author: "Kumar Power Team",
+              publishedDate: new Date().toISOString().split("T")[0],
+              summary:
+                "Extreme weather conditions can severely impact generator performance if proper precautions aren't taken. In hot weather, ensure proper ventilation.",
+              image:
+                "https://res.cloudinary.com/dpa93copz/image/upload/v1785137515/kumarpower_website/blog_migrated/blog3.png",
+              readTime: "3 min read",
+              status: "Published",
+              content: `<p>Extreme weather conditions can severely impact generator performance if proper precautions aren't taken.</p>
+<h2>Temperature Regulation</h2>
+<p>In hot weather, ensure proper ventilation around your generator.</p>
+<h2>Moisture Protection</h2>
+<p>Rain and humidity can damage electrical components.</p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137515/kumarpower_website/blog_migrated/blog3.png" alt="Generator Performance" /></p>`,
+            },
+          ],
         },
       ],
     },
