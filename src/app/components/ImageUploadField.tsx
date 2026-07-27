@@ -14,6 +14,9 @@ interface ImageUploadFieldProps {
   tooltip?: string;
 }
 
+import { uploadFile } from "@/lib/uploadHelpers";
+import toast from "react-hot-toast";
+
 export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
   label = "Image",
   value,
@@ -23,31 +26,57 @@ export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
   maxImages = 1,
   containerClassName = "",
   tooltip,
-}) => {
+  uploadImmediately = true,
+}: ImageUploadFieldProps & { uploadImmediately?: boolean }) => {
   const [internalImages, setInternalImages] = useState<(File | string | null)[]>(
     value ? [value] : []
   );
   const [isDragging, setIsDragging] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const images = controlledImages ?? (value ? [value] : internalImages);
 
-  const handleUpdate = (newImages: (File | string | null)[]) => {
+  const handleUpdate = async (newImages: (File | string | null)[]) => {
     if (!controlledImages) {
       setInternalImages(newImages);
     }
+    
     if (newImages.length > 0) {
       const first = newImages[0];
       if (typeof first === "string") {
+        // @ts-ignore - allow string
         onChange?.(first);
+        onImagesChange?.(newImages);
       } else if (first instanceof File) {
-        const url = URL.createObjectURL(first);
-        onChange?.(url);
+        if (uploadImmediately) {
+          setIsUploading(true);
+          const tid = toast.loading("Uploading image...");
+          try {
+            const url = await uploadFile(first);
+            // @ts-ignore - allow string
+            onChange?.(url);
+            onImagesChange?.([url]);
+            if (!controlledImages) setInternalImages([url]);
+            toast.success("Image uploaded successfully!", { id: tid });
+          } catch (e: any) {
+            toast.error("Upload failed: " + e.message, { id: tid });
+            if (!controlledImages) setInternalImages([]);
+          } finally {
+            setIsUploading(false);
+          }
+        } else {
+          // Pass the File object directly if not uploading immediately
+          // @ts-ignore - allow File object
+          onChange?.(first);
+          onImagesChange?.([first]);
+        }
       }
     } else {
+      // @ts-ignore - allow empty string
       onChange?.("");
+      onImagesChange?.([]);
     }
-    onImagesChange?.(newImages);
   };
 
   const handleDragOver = (e: React.DragEvent) => {

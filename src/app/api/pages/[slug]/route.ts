@@ -25,7 +25,7 @@ export async function GET(
       sectionsMap[section.type] = section.content;
     }
 
-    return NextResponse.json({ success: true, data: sectionsMap, page });
+    return NextResponse.json({ success: true, data: sectionsMap, page: page ? { metaTitle: page.metaTitle, metaDescription: page.metaDescription, keywords: page.keywords, canonicalUrl: page.canonicalUrl, noIndex: page.noIndex, ogTitle: page.ogTitle, ogDescription: page.ogDescription, ogImage: page.ogImage, schema: page.schema, headingOptions: page.headingOptions } : undefined });
   } catch (error) {
     console.error(`Error fetching page ${slug}:`, error);
     return NextResponse.json(

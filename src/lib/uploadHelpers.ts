@@ -12,7 +12,7 @@ export async function uploadFile(file: File): Promise<string> {
   }
 
   const data = await response.json();
-  return data.url;
+  return data.files && data.files.length > 0 ? data.files[0] : "";
 }
 
 export async function uploadFiles(files: any): Promise<string[]> {

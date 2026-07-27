@@ -6,14 +6,14 @@ import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SaveButton } from "@/components/SaveButton";
 import { ImageUploadField } from "@/components/ImageUploadField";
-import { uploadFiles } from "@/lib/uploadHelpers";
+
 import toast from "react-hot-toast";
 import { Globe, Activity, Shield } from "lucide-react";
 
 interface GlobalConfig {
   siteTitle: string;
   siteDescription: string;
-  favicon: (File | string | null)[];
+  favicon: string;
   googleAnalyticsId: string;
   gtmId: string;
   searchConsoleId: string;
@@ -26,7 +26,7 @@ interface GlobalConfig {
 const defaultData: GlobalConfig = {
   siteTitle: "",
   siteDescription: "",
-  favicon: [],
+  favicon: "",
   googleAnalyticsId: "",
   gtmId: "",
   searchConsoleId: "",
@@ -51,7 +51,7 @@ export default function GlobalSeoCMSPage() {
           setFormData({
             ...defaultData,
             ...data,
-            favicon: data.favicon ? [data.favicon] : [],
+            favicon: data.favicon || "",
             headingOptions: typeof data.headingOptions === "string" ? data.headingOptions : "h1",
           });
         }
@@ -70,14 +70,23 @@ export default function GlobalSeoCMSPage() {
     const tid = toast.loading("Saving global SEO settings...");
 
     try {
-      const faviconUrls = await uploadFiles(formData.favicon);
-      const faviconUrl = faviconUrls[0] || null;
+      // 1. Upload favicon if it's a file
+      let finalFavicon = formData.favicon;
+      if (formData.favicon instanceof File) {
+        toast.loading("Uploading favicon...", { id: tid });
+        const { uploadFiles } = await import("@/lib/uploadHelpers");
+        const urls = await uploadFiles([formData.favicon]);
+        if (urls && urls[0]) {
+          finalFavicon = urls[0];
+        }
+      }
 
       const payload = {
         ...formData,
-        favicon: faviconUrl,
+        favicon: finalFavicon,
       };
 
+      toast.loading("Saving settings...", { id: tid });
       const res = await fetch("/api/seo/global", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -87,6 +96,8 @@ export default function GlobalSeoCMSPage() {
       const json = await res.json();
       if (json.success) {
         toast.success("Global SEO settings saved!", { id: tid });
+        // Update formData with the Cloudinary URL so it shows correctly
+        setFormData(prev => ({ ...prev, favicon: finalFavicon }));
       } else {
         const errMsg =
           typeof json.error === "string"
@@ -152,10 +163,10 @@ export default function GlobalSeoCMSPage() {
           <div className="mt-2">
             <ImageUploadField
               label="Favicon (.ico or .png)"
-              images={formData.favicon}
-              onImagesChange={(imgs) => setFormData({ ...formData, favicon: imgs })}
-              maxImages={1}
+              value={formData.favicon}
+              onChange={(val) => setFormData({ ...formData, favicon: val })}
               tooltip="The small icon shown in browser tabs. Use a .ico file or a 32x32px .png for best results."
+              uploadImmediately={false}
             />
           </div>
         </div>

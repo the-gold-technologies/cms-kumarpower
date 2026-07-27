@@ -14,6 +14,7 @@ async function main() {
     await prisma.product.deleteMany({});
     await prisma.enquiry.deleteMany({});
     await prisma.user.deleteMany({});
+    await prisma.globalConfig.deleteMany({});
     console.log("🧹 Cleaned existing database tables.");
   } catch (err) {
     console.warn("Table cleanup skipped:", err);
@@ -33,6 +34,29 @@ async function main() {
     console.log("✅ Created admin user:", adminUser.email);
   } catch (err) {
     console.warn("User seed skipped:", err);
+  }
+
+  // 2.5 Create Global SEO Config
+  try {
+    await prisma.globalConfig.create({
+      data: {
+        id: "global",
+        siteTitle: "Kumar Power | Kirloskar Generator Dealer",
+        siteDescription: "Authorized dealer of Kirloskar Green CPCB IV+ Silent Diesel Generators in Delhi NCR.",
+        googleAnalyticsId: "G-XXXXXXXXXX",
+        gtmId: "GTM-XXXXXXX",
+        searchConsoleId: "google-site-verification-code",
+        customHeaderScripts: "<!-- Custom Head Scripts -->",
+        customFooterScripts: `<link rel="stylesheet" href="https://sidewidget.vercel.app/react-widget-uv.css">\n<script>window.process = { env: {} };</script>\n<script src="https://sidewidget.vercel.app/react-widget-uv.iife.js"></script>\n<react-widget-uv agent_id="9efb6a86-285d-4201-a1fe-b77b58efa2cf" schema="6af30ad4-a50c-4acc-8996-d5f562b6987f" type="thunderemotionlite"></react-widget-uv>`,
+        schema: "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"Kumar Power\",\n  \"url\": \"https://www.kumarpower.com\"\n}",
+        headingOptions: "h1",
+        sitemapEnabled: true,
+        robotsTxt: "User-agent: *\nAllow: /\n\nSitemap: https://www.kumarpower.com/sitemap.xml",
+      }
+    });
+    console.log("✅ Seeded Global SEO Config with Analytics & Scripts");
+  } catch (err) {
+    console.warn("Global Config seed skipped:", err);
   }
 
   // 3. Create Navigation Links
