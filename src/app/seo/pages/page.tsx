@@ -25,7 +25,9 @@ export default function PageSEODashboard() {
   const [pages, setPages] = useState<PageSEOSummary[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedParents, setExpandedParents] = useState<Record<string, boolean>>({});
+  const [expandedParents, setExpandedParents] = useState<
+    Record<string, boolean>
+  >({});
 
   useEffect(() => {
     async function fetchPages() {
@@ -53,8 +55,10 @@ export default function PageSEODashboard() {
 
   const filteredPages = pages.filter(
     (page) =>
-      page.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      page.slug.toLowerCase().includes(searchQuery.toLowerCase())
+      page.slug !== "home" &&
+      page.slug !== "/" &&
+      (page.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        page.slug.toLowerCase().includes(searchQuery.toLowerCase())),
   );
 
   const rootLinks = filteredPages
@@ -121,7 +125,7 @@ export default function PageSEODashboard() {
                   </td>
                 </tr>
               ) : (
-                rootLinks.map((root) => {
+                rootLinks.map((root, rootIndex) => {
                   const children = filteredPages
                     .filter((l) => l.parent === root.id)
                     .sort((a, b) => a.order - b.order);
@@ -135,7 +139,7 @@ export default function PageSEODashboard() {
                     <React.Fragment key={root.id}>
                       <tr className="hover:bg-[#fafafb] transition-colors group">
                         <td className="px-6 py-5 text-sm font-medium text-gray-500">
-                          {root.order}
+                          {rootIndex + 1}
                         </td>
                         <td className="px-6 py-5">
                           <div
@@ -199,8 +203,8 @@ export default function PageSEODashboard() {
                               root.type === "Main Link"
                                 ? "bg-blue-50 text-[#2D6FBA]"
                                 : root.type === "Dropdown"
-                                ? "bg-purple-50 text-purple-600"
-                                : "bg-gray-100 text-gray-500"
+                                  ? "bg-purple-50 text-purple-600"
+                                  : "bg-gray-100 text-gray-500"
                             }`}
                           >
                             {root.type}
@@ -224,7 +228,7 @@ export default function PageSEODashboard() {
                         </td>
                       </tr>
                       {isExpanded &&
-                        children.map((child) => {
+                        children.map((child, childIndex) => {
                           const childHasTitle = !!child.metaTitle;
                           const childHasDesc = !!child.metaDescription;
 
@@ -234,7 +238,7 @@ export default function PageSEODashboard() {
                               className="bg-[#fcfdff]/50 hover:bg-[#f5f8ff] transition-colors group"
                             >
                               <td className="px-6 py-4 text-sm font-medium text-gray-400 pl-12">
-                                {child.order}
+                                {rootIndex + 1}.{childIndex + 1}
                               </td>
                               <td className="px-6 py-4">
                                 <div className="flex items-center gap-3 pl-6 border-l-2 border-gray-100/50">
