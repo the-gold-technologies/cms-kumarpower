@@ -25,6 +25,8 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 export default function StaticBlogCMSPage() {
   const [blogList, setBlogList] = useState<BlogItem[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -37,13 +39,13 @@ export default function StaticBlogCMSPage() {
   const [heroTagline, setHeroTagline] = useState("");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
   const [ctaTitle, setCtaTitle] = useState("");
   const [ctaDescription, setCtaDescription] = useState("");
   const [ctaPrimaryLabel, setCtaPrimaryLabel] = useState("");
   const [ctaPrimaryUrl, setCtaPrimaryUrl] = useState("");
   const [ctaSecondaryLabel, setCtaSecondaryLabel] = useState("");
-  const [companyProfilePdf, setCompanyProfilePdf] = useState("");
+  const [companyProfilePdf, setCompanyProfilePdf] = useState<string | File>("");
   const [articlesHeading, setArticlesHeading] = useState("");
   const [articlesSub, setArticlesSub] = useState("");
 
@@ -105,11 +107,15 @@ export default function StaticBlogCMSPage() {
   const handleSaveHero = async () => {
     setSavingHero(true);
     try {
-      const payload = { 
+      const rawPayload = { 
         heroTagline, heroHeading, heroSub, heroBg,
         ctaTitle, ctaDescription, ctaPrimaryLabel, ctaPrimaryUrl,
         ctaSecondaryLabel, companyProfilePdf, articlesHeading, articlesSub
       };
+      const payload = await uploadFilesDeep(rawPayload);
+      if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+      if (payload.companyProfilePdf && typeof payload.companyProfilePdf === "string") setCompanyProfilePdf(payload.companyProfilePdf);
+
       const res = await fetch("/api/pages/blogs", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -199,17 +205,21 @@ export default function StaticBlogCMSPage() {
     }
 
     const finalSlug = formData.slug || generateSlug(formData.title);
+    
+    // Upload image if it's a File
+    const finalFormData = await uploadFilesDeep(formData);
+    
     let updated;
 
     if (editingId) {
       updated = blogList.map((b) =>
         b.id === editingId
-          ? { ...formData, slug: finalSlug, id: editingId }
+          ? { ...finalFormData, slug: finalSlug, id: editingId }
           : b,
       );
     } else {
       const newBlog: BlogItem = {
-        ...formData,
+        ...finalFormData,
         id: `blog-${Date.now()}`,
         slug: finalSlug,
       };
@@ -639,7 +649,7 @@ export default function StaticBlogCMSPage() {
                 tooltip="Format headings, bold text, lists, and links visually for your blog post."
               />
 
-              <ImagePickerField
+              <ImageUploadField
                 label="Cover Image"
                 value={formData.image || ""}
                 onChange={(val) => setFormData({ ...formData, image: val })}

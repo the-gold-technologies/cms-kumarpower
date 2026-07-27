@@ -5,9 +5,9 @@ import { CloudUpload, X, HelpCircle } from "lucide-react";
 
 interface ImageUploadFieldProps {
   label?: string;
-  value?: string;
+  value?: string | File;
   images?: (File | string | null)[];
-  onChange?: (val: string) => void;
+  onChange?: (val: string | File) => void;
   onImagesChange?: (images: (File | string | null)[]) => void;
   maxImages?: number;
   containerClassName?: string;
@@ -26,7 +26,7 @@ export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
   maxImages = 1,
   containerClassName = "",
   tooltip,
-  uploadImmediately = true,
+  uploadImmediately = false,
 }: ImageUploadFieldProps & { uploadImmediately?: boolean }) => {
   const [internalImages, setInternalImages] = useState<(File | string | null)[]>(
     value ? [value] : []

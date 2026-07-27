@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -9,7 +10,7 @@ import { SaveButton } from "@/components/SaveButton";
 import { CloudUpload, Plus, X, Image as ImageIcon } from "lucide-react";
 import toast from "react-hot-toast";
 
-type GalleryImage = { id: string; url: string; caption: string };
+type GalleryImage = { id: string; url: string | File; caption: string };
 
 interface GallerySectionCMSProps {
   saveUrl?: string;
@@ -55,28 +56,17 @@ export function GallerySectionCMS({
   }, [saveUrl, responseKey]);
 
   const handleFileUpload = (id: string, file: File) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      setImages((prev) => prev.map((img) => (img.id === id ? { ...img, url: result } : img)));
-      toast.success("Image updated!");
-    };
-    reader.readAsDataURL(file);
+    setImages((prev) => prev.map((img) => (img.id === id ? { ...img, url: file } : img)));
+    toast.success("Image updated!");
   };
 
   const handleBulkFiles = (files: FileList | File[]) => {
+    const newImages: GalleryImage[] = [];
     Array.from(files).forEach((file) => {
       if (!file.type.startsWith("image/")) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        setImages((prev) => [
-          ...prev,
-          { id: `img-${Date.now()}-${Math.random()}`, url: result, caption: file.name },
-        ]);
-      };
-      reader.readAsDataURL(file);
+      newImages.push({ id: `img-${Date.now()}-${Math.random()}`, url: file, caption: file.name });
     });
+    setImages((prev) => [...prev, ...newImages]);
     toast.success("Gallery images uploaded!");
   };
 
@@ -93,7 +83,10 @@ export function GallerySectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { title, subtitle, images };
+      const rawPayload = { title, subtitle, images };
+      const payload = await uploadFilesDeep(rawPayload);
+      if (payload.images) setImages(payload.images);
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -205,7 +198,7 @@ export function GallerySectionCMS({
                   <div className="flex items-center gap-3.5 min-w-0">
                     <div className="w-12 h-12 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-2xs">
                       {img.url ? (
-                        <img src={img.url} alt="Gallery Photo" className="w-full h-full object-cover rounded-lg" />
+                        <img src={typeof img.url === "string" ? img.url : URL.createObjectURL(img.url)} alt="Gallery Photo" className="w-full h-full object-cover rounded-lg" />
                       ) : (
                         <ImageIcon className="w-5 h-5 text-slate-300" />
                       )}
@@ -216,9 +209,9 @@ export function GallerySectionCMS({
                       </h4>
                       <p className="text-[11px] text-slate-400 font-medium">
                         {img.url
-                          ? img.url.startsWith("data:")
+                          ? typeof img.url === "string" && img.url.startsWith("data:")
                             ? "Local File"
-                            : "Cloud / Remote"
+                            : typeof img.url !== "string" ? "Local File" : "Cloud / Remote"
                           : "No file uploaded"}
                       </p>
                     </div>

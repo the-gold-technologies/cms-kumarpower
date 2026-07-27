@@ -10,6 +10,8 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2, UploadCloud, X } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type ProcessStepCard = {
   id: string;
   stepNum: string;
@@ -23,7 +25,7 @@ type PortfolioItem = {
   id: string;
   name: string;
   category: "Commercial" | "Residential" | "Industrial";
-  imageUrl: string;
+  imageUrl: string | File;
 };
 
 type FaqItem = {
@@ -70,7 +72,7 @@ export default function InstallationServicesCMSPage() {
   const [heroBadge, setHeroBadge] = useState("");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
   const [heroCtaLabel, setHeroCtaLabel] = useState("");
 
   // Intro Section State
@@ -78,7 +80,7 @@ export default function InstallationServicesCMSPage() {
   const [introHeading, setIntroHeading] = useState("");
   const [introP1, setIntroP1] = useState("");
   const [introP2, setIntroP2] = useState("");
-  const [introImage, setIntroImage] = useState("");
+  const [introImage, setIntroImage] = useState<string | File>("");
 
   // Process Steps State
   const [steps, setSteps] = useState<ProcessStepCard[]>([]);
@@ -165,7 +167,7 @@ export default function InstallationServicesCMSPage() {
       id: `p-${Date.now()}-${i}`,
       name: file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " "),
       category: "Commercial",
-      imageUrl: URL.createObjectURL(file),
+      imageUrl: file,
     }));
     setPortfolio((prev) => [...prev, ...newItems]);
     toast.success(`${newItems.length} installation portfolio images added!`);
@@ -209,13 +211,20 @@ export default function InstallationServicesCMSPage() {
 
   // Save Handlers
   const saveToServer = async (
-    payload: any,
+    rawPayload: any,
     setSaving: any,
     setSaved: any,
     successMsg: string,
   ) => {
     setSaving(true);
     try {
+      const payload = await uploadFilesDeep(rawPayload);
+
+      // Sync local state
+      if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+      if (payload.introImage && typeof payload.introImage === "string") setIntroImage(payload.introImage);
+      if (payload.portfolio) setPortfolio(payload.portfolio);
+
       // We must fetch existing full payload first to not overwrite other sections
       const res = await fetch("/api/installation");
       const json = await res.json();

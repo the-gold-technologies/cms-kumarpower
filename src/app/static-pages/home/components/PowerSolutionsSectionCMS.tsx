@@ -11,17 +11,19 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2, ChevronDown, ChevronRight } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type SolutionProduct = {
   id: string;
   category: string;
   title: string;
   desc: string;
   specs: string; // comma or newline separated
-  img: string;
-  brochureUrl: string;
+  img: string | File;
+  brochureUrl: string | File;
 };
 
-type AssociationLogo = { id: string; url: string; alt: string };
+type AssociationLogo = { id: string; url: string | File; alt: string };
 
 const CATEGORIES = [
   "CPCB4+ Diesel Generator",
@@ -56,7 +58,7 @@ export function PowerSolutionsSectionCMS({
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [topBannerImg, setTopBannerImg] = useState("");
+  const [topBannerImg, setTopBannerImg] = useState<string | File>("");
   const [sectionTitle, setSectionTitle] = useState("");
 
   const [assocTitle, setAssocTitle] = useState("");
@@ -90,7 +92,7 @@ export function PowerSolutionsSectionCMS({
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const handleProductChange = (id: string, field: keyof SolutionProduct, val: string) => {
+  const handleProductChange = (id: string, field: keyof SolutionProduct, val: string | File) => {
     setProducts((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));
   };
 
@@ -116,7 +118,7 @@ export function PowerSolutionsSectionCMS({
     toast.success("Product removed");
   };
 
-  const handleLogoChange = (id: string, val: string) => {
+  const handleLogoChange = (id: string, val: string | File) => {
     setAssocLogos((prev) => prev.map((l) => (l.id === id ? { ...l, url: val } : l)));
   };
 
@@ -132,7 +134,7 @@ export function PowerSolutionsSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = {
+      const rawPayload = {
         topBannerImg,
         sectionTitle,
         assocTitle,
@@ -142,6 +144,14 @@ export function PowerSolutionsSectionCMS({
         actionTitle,
         products,
       };
+      const payload = await uploadFilesDeep(rawPayload);
+
+      if (payload.topBannerImg && typeof payload.topBannerImg === "string") {
+        setTopBannerImg(payload.topBannerImg);
+      }
+      if (payload.assocLogos) setAssocLogos(payload.assocLogos);
+      if (payload.products) setProducts(payload.products);
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

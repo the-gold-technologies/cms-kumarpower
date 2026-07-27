@@ -5,8 +5,8 @@ import { FileText, Upload, X, ExternalLink, HelpCircle } from "lucide-react";
 
 interface PDFUploadFieldProps {
   label?: string;
-  value?: string;
-  onChange?: (url: string) => void;
+  value?: string | File;
+  onChange?: (url: string | File) => void;
   tooltip?: string;
   containerClassName?: string;
 }
@@ -28,17 +28,10 @@ export const PDFUploadField: React.FC<PDFUploadFieldProps> = ({
       alert("Please upload a valid PDF file.");
       return;
     }
-    setIsUploading(true);
     setFileName(file.name);
-
-    // Convert to base64 data URL (for local preview/storage)
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      onChange?.(result);
-      setIsUploading(false);
-    };
-    reader.readAsDataURL(file);
+    // Pass the File object directly instead of a data URL
+    // @ts-ignore
+    onChange?.(file);
   };
 
   const handleDrop = (e: React.DragEvent) => {
@@ -54,8 +47,8 @@ export const PDFUploadField: React.FC<PDFUploadFieldProps> = ({
     if (inputRef.current) inputRef.current.value = "";
   };
 
-  const isDataUrl = value?.startsWith("data:application/pdf");
-  const displayName = fileName || (value && !isDataUrl ? value.split("/").pop() : "");
+  const isDataUrl = typeof value === "string" && value?.startsWith("data:application/pdf");
+  const displayName = fileName || (typeof value === "string" && !isDataUrl ? value.split("/").pop() : (value instanceof File ? value.name : ""));
 
   return (
     <div className={`flex flex-col gap-2.5 px-0.5 ${containerClassName}`}>
@@ -88,7 +81,7 @@ export const PDFUploadField: React.FC<PDFUploadFieldProps> = ({
           <div className="flex items-center gap-2 shrink-0">
             {!isDataUrl && (
               <a
-                href={value}
+                href={typeof value === "string" ? value : URL.createObjectURL(value as Blob)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg hover:bg-[#2D6FBA]/10 text-[#2D6FBA] transition"

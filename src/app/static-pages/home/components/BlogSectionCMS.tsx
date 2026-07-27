@@ -11,12 +11,14 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type BlogCardItem = {
   id: string;
   slug: string;
   title: string;
   summary: string;
-  image: string;
+  image: string | File;
 };
 
 interface BlogSectionCMSProps {
@@ -42,7 +44,17 @@ export function BlogSectionCMS({
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    title: string;
+    subtitle: string;
+    maxPostsDisplayed: string;
+    ctaTitle: string;
+    ctaDescription: string;
+    ctaBtn1Label: string;
+    ctaBtn1Url: string;
+    ctaBtn2Label: string;
+    ctaProfilePdf: string | File;
+  }>({
     title: "",
     subtitle: "",
     maxPostsDisplayed: "",
@@ -73,7 +85,7 @@ export function BlogSectionCMS({
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const handleBlogChange = (id: string, field: keyof BlogCardItem, val: string) => {
+  const handleBlogChange = (id: string, field: keyof BlogCardItem, val: string | File) => {
     setBlogCards((prev) =>
       prev.map((b) => (b.id === id ? { ...b, [field]: val } : b))
     );
@@ -102,7 +114,16 @@ export function BlogSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { ...formData, blogCards };
+      const rawPayload = { ...formData, blogCards };
+      const payload = await uploadFilesDeep(rawPayload);
+
+      if (payload.ctaProfilePdf && typeof payload.ctaProfilePdf === "string") {
+        setFormData(prev => ({ ...prev, ctaProfilePdf: payload.ctaProfilePdf }));
+      }
+      if (payload.blogCards) {
+        setBlogCards(payload.blogCards);
+      }
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

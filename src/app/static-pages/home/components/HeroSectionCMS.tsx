@@ -2,13 +2,15 @@
 
 import { useState, useEffect, useRef } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { PDFUploadField } from "@/components/PDFUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import { Plus, X, Upload, UploadCloud, CloudUpload, Image as ImageIcon } from "lucide-react";
 import toast from "react-hot-toast";
-type TrustLogo = { id: string; url: string; alt: string };
+
+type TrustLogo = { id: string; url: string | File; alt: string };
 
 interface HeroSectionCMSProps {
   saveUrl?: string;
@@ -34,7 +36,21 @@ export function HeroSectionCMS({
   const [saved, setSaved] = useState(false);
   const bulkInputRef = useRef<HTMLInputElement>(null);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    headingLine1: string;
+    headingLine2: string;
+    descriptionDesktop: string;
+    descriptionMobileLine1: string;
+    descriptionMobileLine2: string;
+    descriptionMobileLine3: string;
+    descriptionMobileLine4: string;
+    ctaPrimaryLabel: string;
+    ctaPrimaryUrl: string;
+    ctaSecondaryLabel: string;
+    companyProfilePdf: string | File;
+    trustedByLabel: string;
+    backgroundVideo: string | File;
+  }>({
     headingLine1: "",
     headingLine2: "",
     descriptionDesktop: "",
@@ -74,31 +90,21 @@ export function HeroSectionCMS({
   }, [saveUrl, responseKey]);
 
   const handleFileUpload = (id: string, file: File) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      setLogos((prev) =>
-        prev.map((l) => (l.id === id ? { ...l, url: result } : l))
-      );
-      toast.success("Logo image updated!");
-    };
-    reader.readAsDataURL(file);
+    setLogos((prev) =>
+      prev.map((l) => (l.id === id ? { ...l, url: file } : l))
+    );
+    toast.success("Logo image updated!");
   };
 
   const handleBulkFiles = (files: FileList | File[]) => {
+    const newLogos: TrustLogo[] = [];
     Array.from(files).forEach((file) => {
       if (!file.type.startsWith("image/")) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        setLogos((prev) => [
-          ...prev,
-          { id: `logo-${Date.now()}-${Math.random()}`, url: result, alt: file.name },
-        ]);
-      };
-      reader.readAsDataURL(file);
+      newLogos.push({ id: `logo-${Date.now()}-${Math.random()}`, url: file, alt: file.name });
     });
-    toast.success("Logos added successfully!");
+    setLogos((prev) => [...prev, ...newLogos]);
+    toast.success(`${newLogos.length} logos added`);
+    if (bulkInputRef.current) bulkInputRef.current.value = "";
   };
 
   const handleVideoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -145,10 +151,22 @@ export function HeroSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = {
+      const rawPayload = {
         ...formData,
         logos,
       };
+      const payload = await uploadFilesDeep(rawPayload);
+
+      if (payload.companyProfilePdf && typeof payload.companyProfilePdf === "string") {
+        setFormData(prev => ({ ...prev, companyProfilePdf: payload.companyProfilePdf }));
+      }
+      if (payload.backgroundVideo && typeof payload.backgroundVideo === "string") {
+        setFormData(prev => ({ ...prev, backgroundVideo: payload.backgroundVideo }));
+      }
+      if (payload.logos) {
+        setLogos(payload.logos);
+      }
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -276,7 +294,7 @@ export function HeroSectionCMS({
             <div className="flex flex-col gap-2">
               <InputField
                 label="Background Video URL"
-                value={formData.backgroundVideo}
+                value={typeof formData.backgroundVideo === "string" ? formData.backgroundVideo : formData.backgroundVideo.name}
                 onChange={(e) => setFormData({ ...formData, backgroundVideo: e.target.value })}
                 placeholder="e.g. https://cdn.example.com/hero-video.mp4"
                 tooltip="MP4 video URL shown behind the hero content. You can upload one below or paste a URL directly."
@@ -292,10 +310,13 @@ export function HeroSectionCMS({
                     onChange={handleVideoUpload}
                   />
                 </label>
-                {formData.backgroundVideo && formData.backgroundVideo.startsWith("http") && (
-                  <span className="text-xs text-green-600 font-medium flex items-center gap-1">
-                    ✓ Video ready
-                  </span>
+                {formData.backgroundVideo && typeof formData.backgroundVideo === "string" && formData.backgroundVideo.startsWith("http") && (
+                  <p className="text-xs text-slate-500 font-medium truncate mt-2">
+                    Current URL:{" "}
+                    <a href={formData.backgroundVideo} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                      {formData.backgroundVideo}
+                    </a>
+                  </p>
                 )}
               </div>
             </div>
@@ -363,20 +384,20 @@ export function HeroSectionCMS({
                   <div className="flex items-center gap-3.5 min-w-0">
                     <div className="w-12 h-12 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-2xs">
                       {logo.url ? (
-                        <img src={logo.url} alt="Client Logo" className="w-full h-full object-contain" />
+                        <img src={typeof logo.url === "string" ? logo.url : URL.createObjectURL(logo.url)} alt="Logo" className="w-full h-full object-contain" />
                       ) : (
                         <ImageIcon className="w-5 h-5 text-slate-300" />
                       )}
                     </div>
                     <div className="min-w-0">
                       <h4 className="text-xs font-bold text-slate-800 truncate">
-                        {logo.url ? "Uploaded Image" : `Client Logo #${idx + 1}`}
+                        {logo.url ? "Uploaded Logo" : `Client Logo #${idx + 1}`}
                       </h4>
                       <p className="text-[11px] text-slate-400 font-medium">
                         {logo.url
-                          ? logo.url.startsWith("data:")
+                          ? typeof logo.url === "string" && logo.url.startsWith("data:")
                             ? "Local File"
-                            : "Cloud / Remote"
+                            : typeof logo.url !== "string" ? "Local File" : "Cloud / Remote"
                           : "No file uploaded"}
                       </p>
                     </div>

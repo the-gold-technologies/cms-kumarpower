@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -32,7 +33,14 @@ export function ContactHeroSectionCMS({
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    bannerHeading: string;
+    bannerSubtitle: string;
+    bannerBgImage: string | File;
+    primaryBtnLabel: string;
+    whatsappBtnLabel: string;
+    whatsappNumber: string;
+  }>({
     bannerHeading: "",
     bannerSubtitle: "",
     bannerBgImage: "",
@@ -60,10 +68,16 @@ export function ContactHeroSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
+      const payload = await uploadFilesDeep(formData);
+      
+      if (payload.bannerBgImage && typeof payload.bannerBgImage === "string") {
+        setFormData(prev => ({ ...prev, bannerBgImage: payload.bannerBgImage }));
+      }
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: responseKey, content: formData }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
       clearCache(saveUrl);

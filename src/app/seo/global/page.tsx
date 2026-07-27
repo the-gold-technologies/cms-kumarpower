@@ -13,7 +13,7 @@ import { Globe, Activity, Shield } from "lucide-react";
 interface GlobalConfig {
   siteTitle: string;
   siteDescription: string;
-  favicon: string;
+  favicon: string | File;
   googleAnalyticsId: string;
   gtmId: string;
   searchConsoleId: string;
@@ -160,13 +160,13 @@ export default function GlobalSeoCMSPage() {
             rows={3}
             tooltip="A summary of your website used by search engines for result snippets on pages without a specific meta description."
           />
-          <div className="mt-2">
+          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <h3 className="text-sm font-semibold text-slate-800 mb-2">Favicon</h3>
             <ImageUploadField
-              label="Favicon (.ico or .png)"
+              label=""
               value={formData.favicon}
               onChange={(val) => setFormData({ ...formData, favicon: val })}
               tooltip="The small icon shown in browser tabs. Use a .ico file or a 32x32px .png for best results."
-              uploadImmediately={false}
             />
           </div>
         </div>

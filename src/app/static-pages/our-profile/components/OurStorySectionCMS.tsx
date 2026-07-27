@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -15,7 +16,7 @@ type TimelineItem = {
   year: string;
   title: string;
   description: string;
-  image: string;
+  image: string | File;
 };
 
 interface OurStorySectionCMSProps {
@@ -60,7 +61,7 @@ export function OurStorySectionCMS({
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const handleTimelineChange = (id: string, field: keyof TimelineItem, val: string) => {
+  const handleTimelineChange = (id: string, field: keyof TimelineItem, val: string | File) => {
     setTimeline((prev) => prev.map((t) => (t.id === id ? { ...t, [field]: val } : t)));
   };
 
@@ -80,7 +81,10 @@ export function OurStorySectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { storyTitle, storySub, timeline };
+      const rawPayload = { storyTitle, storySub, timeline };
+      const payload = await uploadFilesDeep(rawPayload);
+      if (payload.timeline) setTimeline(payload.timeline);
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

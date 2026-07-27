@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -33,7 +34,20 @@ export function AboutSectionCMS({
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    bannerTitle: string;
+    bannerSubtitle: string;
+    mainHeadingLine1: string;
+    mainHeadingLine2: string;
+    description: string;
+    feature1: string;
+    feature2: string;
+    feature3: string;
+    feature4: string;
+    ctaLabel: string;
+    ctaUrl: string;
+    teamImage: string | File;
+  }>({
     bannerTitle: "",
     bannerSubtitle: "",
     mainHeadingLine1: "",
@@ -67,10 +81,15 @@ export function AboutSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
+      const payload = await uploadFilesDeep(formData);
+      if (payload.teamImage && typeof payload.teamImage === "string") {
+        setFormData(prev => ({ ...prev, teamImage: payload.teamImage }));
+      }
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: responseKey, content: formData }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
       clearCache(saveUrl);

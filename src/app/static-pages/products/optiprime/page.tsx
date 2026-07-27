@@ -12,6 +12,8 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type OptiprimeGensetCard = {
   id: string;
   name: string;
@@ -22,10 +24,10 @@ type OptiprimeGensetCard = {
   phase: string;
   rating: string;
   ratingCount: string;
-  image: string;
+  image: string | File;
   description: string;
   technicalSpecs: string;
-  brochurePdf: string;
+  brochurePdf: string | File;
 };
 
 const API_ENDPOINT = "/api/optiprime";
@@ -63,7 +65,7 @@ export default function OptiprimeGeneratorCMSPage() {
   const [heroHeadingPart2, setHeroHeadingPart2] = useState("Kumar Power");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
 
   const [sectionTitle, setSectionTitle] = useState("Optiprime");
   const [sectionDesc, setSectionDesc] = useState("Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.");
@@ -92,7 +94,7 @@ export default function OptiprimeGeneratorCMSPage() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
@@ -102,6 +104,12 @@ export default function OptiprimeGeneratorCMSPage() {
       sectionDesc,
       gensets,
     };
+
+    const payload = await uploadFilesDeep(rawPayload);
+
+    // Sync state
+    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.gensets) setGensets(payload.gensets);
 
     const res = await fetch(API_ENDPOINT, {
       method: "PUT",
@@ -133,7 +141,7 @@ export default function OptiprimeGeneratorCMSPage() {
     setTimeout(() => setSavedGensets(false), 2000);
   };
 
-  const handleGensetChange = (id: string, field: keyof OptiprimeGensetCard, val: string) => {
+  const handleGensetChange = (id: string, field: keyof OptiprimeGensetCard, val: string | File) => {
     setGensets((prev) => prev.map((g) => (g.id === id ? { ...g, [field]: val } : g)));
   };
 

@@ -12,14 +12,16 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type PanelCard = {
   id: string;
   name: string;
   range: string;
-  image: string;
+  image: string | File;
   description: string;
   technicalSpecs: string;
-  brochurePdf: string;
+  brochurePdf: string | File;
 };
 
 const API_ENDPOINT = "/api/panels";
@@ -39,7 +41,7 @@ export default function ElectricalPanelsCMSPage() {
   const [heroHeadingPart2, setHeroHeadingPart2] = useState("Panels");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
 
   // Panels List
   const [panels, setPanels] = useState<PanelCard[]>([]);
@@ -61,7 +63,7 @@ export default function ElectricalPanelsCMSPage() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
@@ -69,6 +71,12 @@ export default function ElectricalPanelsCMSPage() {
       heroBg,
       panels,
     };
+
+    const payload = await uploadFilesDeep(rawPayload);
+
+    // Sync state
+    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.panels) setPanels(payload.panels);
 
     const res = await fetch(API_ENDPOINT, {
       method: "PUT",
@@ -100,7 +108,7 @@ export default function ElectricalPanelsCMSPage() {
     setTimeout(() => setSavedPanels(false), 2000);
   };
 
-  const handlePanelChange = (id: string, field: keyof PanelCard, val: string) => {
+  const handlePanelChange = (id: string, field: keyof PanelCard, val: string | File) => {
     setPanels((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));
   };
 

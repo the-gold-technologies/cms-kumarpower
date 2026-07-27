@@ -12,6 +12,8 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type PortableGensetCard = {
   id: string;
   name: string;
@@ -22,10 +24,10 @@ type PortableGensetCard = {
   phase: string;
   rating: string;
   ratingCount: string;
-  image: string;
+  image: string | File;
   description: string;
   technicalSpecs: string;
-  brochurePdf: string;
+  brochurePdf: string | File;
 };
 
 const API_ENDPOINT = "/api/kirloskar-portable-generator";
@@ -63,7 +65,7 @@ export default function KirloskarPortableGeneratorCMSPage() {
   const [heroHeadingPart2, setHeroHeadingPart2] = useState("Dealer in Delhi");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("Kirloskar Oil Engines Ltd (KOEL) offers a range of portable generator sets with power outputs from 2.1 kVA to 5 kVA, designed to provide reliable and efficient power solutions for various applications.");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
 
   const [sectionTitle, setSectionTitle] = useState("Portable Generators");
   const [sectionDesc, setSectionDesc] = useState("Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.");
@@ -92,7 +94,7 @@ export default function KirloskarPortableGeneratorCMSPage() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
@@ -102,6 +104,12 @@ export default function KirloskarPortableGeneratorCMSPage() {
       sectionDesc,
       gensets,
     };
+
+    const payload = await uploadFilesDeep(rawPayload);
+
+    // Sync state
+    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.gensets) setGensets(payload.gensets);
 
     const res = await fetch(API_ENDPOINT, {
       method: "PUT",
@@ -133,7 +141,7 @@ export default function KirloskarPortableGeneratorCMSPage() {
     setTimeout(() => setSavedGensets(false), 2000);
   };
 
-  const handleGensetChange = (id: string, field: keyof PortableGensetCard, val: string) => {
+  const handleGensetChange = (id: string, field: keyof PortableGensetCard, val: string | File) => {
     setGensets((prev) => prev.map((g) => (g.id === id ? { ...g, [field]: val } : g)));
   };
 

@@ -317,7 +317,7 @@ export default function OurClientsStaticPageCMS() {
             <div className="flex justify-end mt-4 pt-4 border-t border-slate-100">
               <SaveButton
                 onClick={handleSaveStats}
-                loading={savingStats}
+                isSaving={savingStats}
                 saved={savedStats}
                 label="Save Hero Section"
               />

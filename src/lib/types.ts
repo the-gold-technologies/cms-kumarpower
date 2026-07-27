@@ -21,7 +21,7 @@ export interface BlogItem {
   category?: string;
   excerpt?: string;
   content?: string;
-  image?: string;
+  image?: string | File;
   author?: string;
   date?: string;
   publishedDate?: string;

@@ -11,13 +11,15 @@ import { SaveButton } from "@/components/SaveButton";
 import { ChevronDown, ChevronRight, Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type GeneratorCard = {
   id: string;
   title: string;
   caption: string;
   category: string;
-  image: string;
-  brochureUrl: string;
+  image: string | File;
+  brochureUrl: string | File;
 };
 
 const CATEGORIES = [
@@ -35,7 +37,7 @@ function GeneratorCardForm({
 }: {
   card: GeneratorCard;
   index: number;
-  onChange: (id: string, field: keyof GeneratorCard, value: string) => void;
+  onChange: (id: string, field: keyof GeneratorCard, value: string | File) => void;
   onRemove: (id: string) => void;
 }) {
   const [open, setOpen] = useState(false);
@@ -177,7 +179,7 @@ export function GeneratorRangeSectionCMS({
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const handleCardChange = (id: string, field: keyof GeneratorCard, value: string) => {
+  const handleCardChange = (id: string, field: keyof GeneratorCard, value: string | File) => {
     setCards((prev) =>
       prev.map((c) => (c.id === id ? { ...c, [field]: value } : c))
     );
@@ -205,7 +207,11 @@ export function GeneratorRangeSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { sectionTitle, sectionDesc, cards };
+      const rawPayload = { sectionTitle, sectionDesc, cards };
+      const payload = await uploadFilesDeep(rawPayload);
+
+      if (payload.cards) setCards(payload.cards);
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

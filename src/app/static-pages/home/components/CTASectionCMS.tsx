@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { ImageUploadField } from "@/components/ImageUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -31,7 +32,14 @@ export function CTASectionCMS({
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    title: string;
+    primaryBtnLabel: string;
+    primaryBtnUrl: string;
+    whatsappBtnLabel: string;
+    whatsappNumber: string;
+    backgroundImage: string | File;
+  }>({
     title: "",
     primaryBtnLabel: "",
     primaryBtnUrl: "",
@@ -59,10 +67,15 @@ export function CTASectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
+      const payload = await uploadFilesDeep(formData);
+      if (payload.backgroundImage && typeof payload.backgroundImage === "string") {
+        setFormData(prev => ({ ...prev, backgroundImage: payload.backgroundImage }));
+      }
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: responseKey, content: formData }),
+        body: JSON.stringify({ section: responseKey, content: payload }),
       });
       if (!res.ok) throw new Error("Save failed");
       clearCache(saveUrl);

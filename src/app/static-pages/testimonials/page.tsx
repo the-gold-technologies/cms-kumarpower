@@ -19,17 +19,19 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type TestimonialCard = {
   id: string;
   authorName: string;
   roleCompany: string;
-  logo: string;
+  logo: string | File;
   quote: string;
 };
 
 type ClientLogo = {
   id: string;
-  url: string;
+  url: string | File;
   alt: string;
 };
 
@@ -59,7 +61,7 @@ export default function TestimonialsStaticPageCMS() {
   const [heroHeadingLine1, setHeroHeadingLine1] = useState("");
   const [heroHeadingLine2, setHeroHeadingLine2] = useState("");
   const [heroSubtitle, setHeroSubtitle] = useState("");
-  const [heroBgImage, setHeroBgImage] = useState("");
+  const [heroBgImage, setHeroBgImage] = useState<string | File>("");
 
   // Testimonials Cards Section Header & Filter
   const [storiesTitle, setStoriesTitle] = useState("");
@@ -89,7 +91,7 @@ export default function TestimonialsStaticPageCMS() {
   const [helplineLabel, setHelplineLabel] = useState("");
   const [whatsappPhone, setWhatsappPhone] = useState("");
   const [helplinePhone, setHelplinePhone] = useState("");
-  const [brochurePdf, setBrochurePdf] = useState("");
+  const [brochurePdf, setBrochurePdf] = useState<string | File>("");
 
   // Load existing data from DB on mount
   useEffect(() => {
@@ -146,7 +148,7 @@ export default function TestimonialsStaticPageCMS() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingLine1,
       heroHeadingLine2,
       heroSubtitle,
@@ -172,6 +174,14 @@ export default function TestimonialsStaticPageCMS() {
       helplinePhone,
       brochurePdf,
     };
+
+    const payload = await uploadFilesDeep(rawPayload);
+
+    // sync state
+    if (payload.heroBgImage && typeof payload.heroBgImage === "string") setHeroBgImage(payload.heroBgImage);
+    if (payload.brochurePdf && typeof payload.brochurePdf === "string") setBrochurePdf(payload.brochurePdf);
+    if (payload.testimonials) setTestimonials(payload.testimonials);
+    if (payload.clientLogos) setClientLogos(payload.clientLogos);
 
     const res = await fetch("/api/testimonials", {
       method: "POST",
@@ -242,7 +252,7 @@ export default function TestimonialsStaticPageCMS() {
   const handleTestimonialChange = (
     id: string,
     field: keyof TestimonialCard,
-    val: string,
+    val: string | File,
   ) => {
     setTestimonials((prev) =>
       prev.map((t) => (t.id === id ? { ...t, [field]: val } : t)),
@@ -269,33 +279,23 @@ export default function TestimonialsStaticPageCMS() {
   };
 
   const handleLogoFileUpload = (id: string, file: File) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      setClientLogos((prev) =>
-        prev.map((l) => (l.id === id ? { ...l, url: result } : l)),
-      );
-      toast.success("Logo image updated!");
-    };
-    reader.readAsDataURL(file);
+    setClientLogos((prev) =>
+      prev.map((l) => (l.id === id ? { ...l, url: file } : l)),
+    );
+    toast.success("Logo image updated!");
   };
 
   const handleBulkLogoFiles = (files: FileList | File[]) => {
     Array.from(files).forEach((file) => {
       if (!file.type.startsWith("image/")) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        setClientLogos((prev) => [
-          ...prev,
-          {
-            id: `logo-${Date.now()}-${Math.random()}`,
-            url: result,
-            alt: file.name,
-          },
-        ]);
-      };
-      reader.readAsDataURL(file);
+      setClientLogos((prev) => [
+        ...prev,
+        {
+          id: `logo-${Date.now()}-${Math.random()}`,
+          url: file,
+          alt: file.name,
+        },
+      ]);
     });
     toast.success("Logos added successfully!");
   };
@@ -556,7 +556,7 @@ export default function TestimonialsStaticPageCMS() {
                     <div className="w-12 h-12 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-2xs">
                       {logo.url ? (
                         <img
-                          src={logo.url}
+                          src={typeof logo.url === "string" ? logo.url : URL.createObjectURL(logo.url)}
                           alt="Client Logo"
                           className="w-full h-full object-contain"
                         />
@@ -570,9 +570,11 @@ export default function TestimonialsStaticPageCMS() {
                       </h4>
                       <p className="text-[11px] text-slate-400 font-medium">
                         {logo.url
-                          ? logo.url.startsWith("data:")
-                            ? "Local File"
-                            : "Cloud / Remote"
+                          ? typeof logo.url === "string"
+                            ? logo.url.startsWith("data:")
+                              ? "Local File"
+                              : "Cloud / Remote"
+                            : "Local File"
                           : "No file uploaded"}
                       </p>
                     </div>

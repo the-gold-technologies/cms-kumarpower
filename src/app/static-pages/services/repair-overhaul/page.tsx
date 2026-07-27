@@ -9,6 +9,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 
 type RepairServiceCard = {
   title: string;
@@ -57,7 +58,7 @@ export default function RepairOverhaulCMSPage() {
   const [introDesc1, setIntroDesc1] = useState("");
   const [introTagline, setIntroTagline] = useState("");
   const [introDesc2, setIntroDesc2] = useState("");
-  const [introImage, setIntroImage] = useState("");
+  const [introImage, setIntroImage] = useState<string | File>("");
   const [introBtn1Label, setIntroBtn1Label] = useState("");
   const [introBtn2Label, setIntroBtn2Label] = useState("");
 
@@ -180,7 +181,7 @@ export default function RepairOverhaulCMSPage() {
   const handleSave = async (sectionName: string) => {
     setSavingSection(sectionName);
     try {
-      const content = {
+      const rawContent = {
         heroBadge, heroHeading, heroSub, heroCtaLabel, heroBg,
         introTitle, introDesc1, introTagline, introDesc2, introImage, introBtn1Label, introBtn2Label,
         diffTagline, diffHeading, diffDesc,
@@ -190,6 +191,11 @@ export default function RepairOverhaulCMSPage() {
         faqTagline, faqHeading, faqDesc, faqs, repairScenarios, overhaulScenarios, repairTabTitle, repairTabDesc1, repairTabDesc2, overhaulTabTitle, overhaulTabDesc1, overhaulTabDesc2, repairTabLabel, overhaulTabLabel,
         hotlineLabel, helpTitle, helpSub, helpBtnLabel, emergencyPhone
       };
+
+      const content = await uploadFilesDeep(rawContent);
+      if (content.introImage && typeof content.introImage === "string") {
+        setIntroImage(content.introImage);
+      }
 
       const res = await fetch("/api/repair-overhaul", {
         method: "PUT",

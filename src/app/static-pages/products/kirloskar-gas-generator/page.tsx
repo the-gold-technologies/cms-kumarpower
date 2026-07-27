@@ -12,6 +12,8 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type GasGensetCard = {
   id: string;
   name: string;
@@ -22,10 +24,10 @@ type GasGensetCard = {
   phase: string;
   rating: string;
   ratingCount: string;
-  image: string;
+  image: string | File;
   description: string;
   technicalSpecs: string;
-  brochurePdf: string;
+  brochurePdf: string | File;
 };
 
 const API_ENDPOINT = "/api/kirloskar-gas-generator";
@@ -63,7 +65,7 @@ export default function KirloskarGasGeneratorCMSPage() {
   const [heroHeadingPart2, setHeroHeadingPart2] = useState("Dealer in Delhi");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("Kirloskar Oil Engines Ltd (KOEL) offers a range of gas-powered generator sets (gensets) designed to provide reliable and efficient power solutions across various applications.");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
 
   const [sectionTitle, setSectionTitle] = useState("Gas Generators");
   const [sectionDesc, setSectionDesc] = useState("Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.");
@@ -92,7 +94,7 @@ export default function KirloskarGasGeneratorCMSPage() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
@@ -102,6 +104,12 @@ export default function KirloskarGasGeneratorCMSPage() {
       sectionDesc,
       gensets,
     };
+
+    const payload = await uploadFilesDeep(rawPayload);
+
+    // Sync state
+    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.gensets) setGensets(payload.gensets);
 
     const res = await fetch(API_ENDPOINT, {
       method: "PUT",
@@ -133,7 +141,7 @@ export default function KirloskarGasGeneratorCMSPage() {
     setTimeout(() => setSavedGensets(false), 2000);
   };
 
-  const handleGensetChange = (id: string, field: keyof GasGensetCard, val: string) => {
+  const handleGensetChange = (id: string, field: keyof GasGensetCard, val: string | File) => {
     setGensets((prev) => prev.map((g) => (g.id === id ? { ...g, [field]: val } : g)));
   };
 

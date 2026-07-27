@@ -10,13 +10,15 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type Testimonial = {
   id: string;
   headerTitle: string;
   name: string;
   role: string;
   quote: string;
-  logo: string;
+  logo: string | File;
 };
 
 interface TestimonialsSectionCMSProps {
@@ -61,7 +63,7 @@ export function TestimonialsSectionCMS({
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const handleChange = (id: string, field: keyof Testimonial, val: string) => {
+  const handleChange = (id: string, field: keyof Testimonial, val: string | File) => {
     setItems((prev) => prev.map((t) => (t.id === id ? { ...t, [field]: val } : t)));
   };
 
@@ -82,7 +84,11 @@ export function TestimonialsSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { heading, subtitle, items };
+      const rawPayload = { heading, subtitle, items };
+      const payload = await uploadFilesDeep(rawPayload);
+
+      if (payload.items) setItems(payload.items);
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

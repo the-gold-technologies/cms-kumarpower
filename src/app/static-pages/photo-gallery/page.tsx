@@ -12,11 +12,13 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2, Upload, UploadCloud, X, Image as ImageIcon } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type GalleryPhoto = {
   id: string;
   alt: string;
   category: "installations" | "events" | "Award";
-  src: string;
+  src: string | File;
 };
 
 export default function PhotoGalleryStaticPageCMS() {
@@ -42,7 +44,7 @@ export default function PhotoGalleryStaticPageCMS() {
   const [heroSubtitle, setHeroSubtitle] = useState(
     "A visual showcase of our installations, innovations, and industrial excellence across India"
   );
-  const [heroBgImage, setHeroBgImage] = useState("");
+  const [heroBgImage, setHeroBgImage] = useState<string | File>("");
 
   // Gallery Photos
   const [photos, setPhotos] = useState<GalleryPhoto[]>([]);
@@ -54,14 +56,14 @@ export default function PhotoGalleryStaticPageCMS() {
   const [expDesc, setExpDesc] = useState(
     "Ready to transform your power infrastructure with industry-leading generator solutions? Our team of experts is ready to guide you through every step."
   );
-  const [expImage, setExpImage] = useState("");
-  const [expProfilePdf, setExpProfilePdf] = useState("");
+  const [expImage, setExpImage] = useState<string | File>("");
+  const [expProfilePdf, setExpProfilePdf] = useState<string | File>("");
   const [expBtn1Label, setExpBtn1Label] = useState("");
   const [expBtn1Url, setExpBtn1Url] = useState("");
   const [expBtn2Label, setExpBtn2Label] = useState("");
   const [expBtn2Url, setExpBtn2Url] = useState("");
 
-  const handlePhotoChange = (id: string, field: keyof GalleryPhoto, val: string) => {
+  const handlePhotoChange = (id: string, field: keyof GalleryPhoto, val: string | File) => {
     setPhotos((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));
   };
 
@@ -81,15 +83,10 @@ export default function PhotoGalleryStaticPageCMS() {
   const handleBulkPhotoUpload = (files: FileList | File[]) => {
     Array.from(files).forEach((file) => {
       if (!file.type.startsWith("image/")) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        setPhotos((prev) => [
-          ...prev,
-          { id: `g-${Date.now()}-${Math.random()}`, alt: file.name, category: "installations", src: result },
-        ]);
-      };
-      reader.readAsDataURL(file);
+      setPhotos((prev) => [
+        ...prev,
+        { id: `g-${Date.now()}-${Math.random()}`, alt: file.name, category: "installations", src: file },
+      ]);
     });
     toast.success("Photos added successfully!");
   };
@@ -125,21 +122,34 @@ export default function PhotoGalleryStaticPageCMS() {
       .catch(console.error);
   }, []);
 
+  const getAndUploadPayload = async () => {
+    const rawPayload = {
+      hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
+      photos,
+      seeMoreLabel, showLessLabel,
+      experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf, btn1Label: expBtn1Label, btn1Url: expBtn1Url, btn2Label: expBtn2Label, btn2Url: expBtn2Url },
+    };
+    const payload = await uploadFilesDeep(rawPayload);
+    if (payload.hero?.bgImage) setHeroBgImage(payload.hero.bgImage);
+    if (payload.experience?.bgImage) setExpImage(payload.experience.bgImage);
+    if (payload.photos) setPhotos(payload.photos);
+    return payload;
+  };
+
+  const saveToDB = async () => {
+    const payload = await getAndUploadPayload();
+    await fetch("/api/photo-gallery", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ section: "photo-gallery", content: payload }),
+    });
+    clearCache("/api/photo-gallery");
+  };
+
   const handleSaveHero = async () => {
     setSavingHero(true);
     try {
-      const payload = {
-        hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
-        photos,
-        seeMoreLabel, showLessLabel,
-        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf, btn1Label: expBtn1Label, btn1Url: expBtn1Url, btn2Label: expBtn2Label, btn2Url: expBtn2Url },
-      };
-      await fetch("/api/photo-gallery", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "photo-gallery", content: payload }),
-      });
-      clearCache("/api/photo-gallery");
+      await saveToDB();
       setSavedHero(true);
       toast.success("Hero section saved to Database!");
       setTimeout(() => setSavedHero(false), 2000);
@@ -153,18 +163,7 @@ export default function PhotoGalleryStaticPageCMS() {
   const handleSavePhotos = async () => {
     setSavingPhotos(true);
     try {
-      const payload = {
-        hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
-        photos,
-        seeMoreLabel, showLessLabel,
-        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf, btn1Label: expBtn1Label, btn1Url: expBtn1Url, btn2Label: expBtn2Label, btn2Url: expBtn2Url },
-      };
-      await fetch("/api/photo-gallery", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "photo-gallery", content: payload }),
-      });
-      clearCache("/api/photo-gallery");
+      await saveToDB();
       setSavedPhotos(true);
       toast.success("Photo gallery items saved to Database!");
       setTimeout(() => setSavedPhotos(false), 2000);
@@ -178,18 +177,7 @@ export default function PhotoGalleryStaticPageCMS() {
   const handleSaveExp = async () => {
     setSavingExp(true);
     try {
-      const payload = {
-        hero: { heading: heroHeading, subtitle: heroSubtitle, bgImage: heroBgImage },
-        photos,
-        seeMoreLabel, showLessLabel,
-        experience: { title: expTitle, description: expDesc, bgImage: expImage, profilePdf: expProfilePdf, btn1Label: expBtn1Label, btn1Url: expBtn1Url, btn2Label: expBtn2Label, btn2Url: expBtn2Url },
-      };
-      await fetch("/api/photo-gallery", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: "photo-gallery", content: payload }),
-      });
-      clearCache("/api/photo-gallery");
+      await saveToDB();
       setSavedExp(true);
       toast.success("Experience section saved to Database!");
       setTimeout(() => setSavedExp(false), 2000);

@@ -12,14 +12,16 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type TransformerCard = {
   id: string;
   name: string;
   range: string;
-  image: string;
+  image: string | File;
   description: string;
   technicalSpecs: string;
-  brochurePdf: string;
+  brochurePdf: string | File;
 };
 
 const API_ENDPOINT = "/api/transformers";
@@ -39,7 +41,7 @@ export default function DistributionTransformersCMSPage() {
   const [heroHeadingPart2, setHeroHeadingPart2] = useState("Transformers");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
 
   // Transformers List
   const [transformers, setTransformers] = useState<TransformerCard[]>([]);
@@ -61,7 +63,7 @@ export default function DistributionTransformersCMSPage() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
@@ -69,6 +71,12 @@ export default function DistributionTransformersCMSPage() {
       heroBg,
       transformers,
     };
+
+    const payload = await uploadFilesDeep(rawPayload);
+
+    // Sync state
+    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.transformers) setTransformers(payload.transformers);
 
     const res = await fetch(API_ENDPOINT, {
       method: "PUT",
@@ -100,7 +108,7 @@ export default function DistributionTransformersCMSPage() {
     setTimeout(() => setSavedTrans(false), 2000);
   };
 
-  const handleTransChange = (id: string, field: keyof TransformerCard, val: string) => {
+  const handleTransChange = (id: string, field: keyof TransformerCard, val: string | File) => {
     setTransformers((prev) => prev.map((t) => (t.id === id ? { ...t, [field]: val } : t)));
   };
 

@@ -12,6 +12,8 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type ProductCategory = {
   id: string;
   name: string;
@@ -19,7 +21,7 @@ type ProductCategory = {
   fuelType: string;
   cooling: string;
   phase: string;
-  image: string;
+  image: string | File;
   description: string;
   productLink: string;
 };
@@ -43,20 +45,20 @@ export default function ProductsStaticPageCMS() {
   const [heroHeadingPart2, setHeroHeadingPart2] = useState("One Generator at a Time");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
   const [btn1Text, setBtn1Text] = useState("Request a Quote");
   const [btn1Url, setBtn1Url] = useState("/contact");
   const [btn2Text, setBtn2Text] = useState("Download Product Catalogue");
-  const [btn2Url, setBtn2Url] = useState("");
+  const [btn2Url, setBtn2Url] = useState<string | File>("");
 
 
   // Sticky Bar
   const [stickyTextPart1, setStickyTextPart1] = useState("Kumar Power:");
   const [stickyTextPart2, setStickyTextPart2] = useState("India's Most Trusted Kirloskar-Certified Generator Brand!");
   const [downloadBtn1Label, setDownloadBtn1Label] = useState("Download Bharat Rajptar");
-  const [downloadBtn1Url, setDownloadBtn1Url] = useState("");
+  const [downloadBtn1Url, setDownloadBtn1Url] = useState<string | File>("");
   const [downloadBtn2Label, setDownloadBtn2Label] = useState("Download Direction 76");
-  const [downloadBtn2Url, setDownloadBtn2Url] = useState("");
+  const [downloadBtn2Url, setDownloadBtn2Url] = useState<string | File>("");
   const [talkBtnLabel, setTalkBtnLabel] = useState("Talk to Power Expert");
   const [requestBtnLabel, setRequestBtnLabel] = useState("Request Quote");
 
@@ -147,7 +149,7 @@ export default function ProductsStaticPageCMS() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
@@ -192,6 +194,15 @@ export default function ProductsStaticPageCMS() {
       categories,
     };
 
+    const payload = await uploadFilesDeep(rawPayload);
+
+    // Sync state
+    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.btn2Url && typeof payload.btn2Url === "string") setBtn2Url(payload.btn2Url);
+    if (payload.downloadBtn1Url && typeof payload.downloadBtn1Url === "string") setDownloadBtn1Url(payload.downloadBtn1Url);
+    if (payload.downloadBtn2Url && typeof payload.downloadBtn2Url === "string") setDownloadBtn2Url(payload.downloadBtn2Url);
+    if (payload.categories) setCategories(payload.categories);
+
     const res = await fetch("/api/products", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -230,7 +241,7 @@ export default function ProductsStaticPageCMS() {
     setTimeout(() => setSavedCats(false), 2000);
   };
 
-  const handleCategoryChange = (id: string, field: keyof ProductCategory, val: string) => {
+  const handleCategoryChange = (id: string, field: keyof ProductCategory, val: string | File) => {
     setCategories((prev) => prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)));
   };
 

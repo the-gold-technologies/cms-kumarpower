@@ -11,13 +11,15 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type CertificateItem = {
   id: string;
   name: string;
   year: string;
   description: string;
   issuer: string;
-  image: string;
+  image: string | File;
 };
 
 export default function CertificationsCMSPage() {
@@ -103,7 +105,7 @@ export default function CertificationsCMSPage() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroTitle: `${heroTitlePart1} ${heroTitlePart2}`.trim() || heroTitle,
       heroTitlePart1,
       heroTitlePart2,
@@ -119,6 +121,12 @@ export default function CertificationsCMSPage() {
       commitText,
       btn1Label, btn1Url, btn2Label, btn2Url
     };
+    
+    // Upload any File objects deep within the payload before saving
+    const payload = await uploadFilesDeep(rawPayload);
+    // Sync local state with uploaded URLs so previews remain valid
+    if (payload.certificates) setCertificates(payload.certificates);
+
     const res = await fetch("/api/certifications", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -128,7 +136,7 @@ export default function CertificationsCMSPage() {
     clearCache("/api/certifications");
   };
 
-  const handleCertChange = (id: string, field: keyof CertificateItem, val: string) => {
+  const handleCertChange = (id: string, field: keyof CertificateItem, val: string | File) => {
     setCertificates((prev) => prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)));
   };
 

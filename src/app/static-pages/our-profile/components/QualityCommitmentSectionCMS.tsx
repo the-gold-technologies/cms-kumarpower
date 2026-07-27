@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -44,8 +45,8 @@ export function QualityCommitmentSectionCMS({
   const [bullet2, setBullet2] = useState("");
   const [bullet3, setBullet3] = useState("");
   const [bullet4, setBullet4] = useState("");
-  const [isoCertImg, setIsoCertImg] = useState("");
-  const [kirloskarCertImg, setKirloskarCertImg] = useState("");
+  const [isoCertImg, setIsoCertImg] = useState<string | File>("");
+  const [kirloskarCertImg, setKirloskarCertImg] = useState<string | File>("");
 
   useEffect(() => {
     fetchWithCache(saveUrl)
@@ -78,7 +79,11 @@ export function QualityCommitmentSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { qualityTitle, cards, policyTitle, policyStatement, bullet1, bullet2, bullet3, bullet4, isoCertImg, kirloskarCertImg };
+      const rawPayload = { qualityTitle, cards, policyTitle, policyStatement, bullet1, bullet2, bullet3, bullet4, isoCertImg, kirloskarCertImg };
+      const payload = await uploadFilesDeep(rawPayload);
+      if (payload.isoCertImg && typeof payload.isoCertImg === "string") setIsoCertImg(payload.isoCertImg);
+      if (payload.kirloskarCertImg && typeof payload.kirloskarCertImg === "string") setKirloskarCertImg(payload.kirloskarCertImg);
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

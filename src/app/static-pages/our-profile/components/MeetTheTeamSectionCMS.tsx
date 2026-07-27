@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -15,7 +16,7 @@ type TeamMember = {
   name: string;
   role: string;
   bio: string;
-  image: string;
+  image: string | File;
 };
 
 interface MeetTheTeamSectionCMSProps {
@@ -58,7 +59,7 @@ export function MeetTheTeamSectionCMS({
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const handleTeamChange = (id: string, field: keyof TeamMember, val: string) => {
+  const handleTeamChange = (id: string, field: keyof TeamMember, val: string | File) => {
     setTeam((prev) => prev.map((tm) => (tm.id === id ? { ...tm, [field]: val } : tm)));
   };
 
@@ -78,7 +79,10 @@ export function MeetTheTeamSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const payload = { teamTitle, team };
+      const rawPayload = { teamTitle, team };
+      const payload = await uploadFilesDeep(rawPayload);
+      if (payload.team) setTeam(payload.team);
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

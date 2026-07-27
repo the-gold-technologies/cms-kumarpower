@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
 import { InputField } from "@/components/InputField";
 import { TextAreaField } from "@/components/TextAreaField";
 import { ImageUploadField } from "@/components/ImageUploadField";
@@ -32,7 +33,15 @@ export function AboutHeroSectionCMS({
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    title: string;
+    subtitle: string;
+    image: string | File;
+    paragraph1: string;
+    paragraph2: string;
+    paragraph3: string;
+    paragraph4: string;
+  }>({
     title: "",
     subtitle: "",
     image: "",
@@ -61,10 +70,15 @@ export function AboutHeroSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
+      const content = await uploadFilesDeep(formData);
+      if (content.image && typeof content.image === "string") {
+        setFormData((prev) => ({ ...prev, image: content.image }));
+      }
+
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: responseKey, content: formData }),
+        body: JSON.stringify({ section: responseKey, content }),
       });
       if (!res.ok) throw new Error("Save failed");
       clearCache(saveUrl);

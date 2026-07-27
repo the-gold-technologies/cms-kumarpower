@@ -12,6 +12,8 @@ import { SaveButton } from "@/components/SaveButton";
 import { Plus, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
+import { uploadFilesDeep } from "@/lib/uploadHelpers";
+
 type DieselGensetCard = {
   id: string;
   name: string;
@@ -22,10 +24,10 @@ type DieselGensetCard = {
   phase: string;
   rating: string;
   ratingCount: string;
-  image: string;
+  image: string | File;
   description: string;
   technicalSpecs: string;
-  brochurePdf: string;
+  brochurePdf: string | File;
 };
 
 const API_ENDPOINT = "/api/kirloskar-diesel-generator";
@@ -138,7 +140,7 @@ export default function KirloskarDieselGeneratorCMSPage() {
   const [heroHeadingPart2, setHeroHeadingPart2] = useState("Dealer in Delhi");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState("Explore Kirloskar Diesel Generators at Kumar Power for reliable backup and prime power solutions. Ideal for industrial and commercial applications in the required power range.");
-  const [heroBg, setHeroBg] = useState("");
+  const [heroBg, setHeroBg] = useState<string | File>("");
 
   // Section Header Text
   const [sectionTitle, setSectionTitle] = useState("CPCB4+ Diesel Generators");
@@ -178,7 +180,7 @@ export default function KirloskarDieselGeneratorCMSPage() {
   }, []);
 
   const saveAllToDB = async () => {
-    const payload = {
+    const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
@@ -192,6 +194,11 @@ export default function KirloskarDieselGeneratorCMSPage() {
       helpBtnText,
       gensets,
     };
+    
+    const payload = await uploadFilesDeep(rawPayload);
+    
+    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.gensets) setGensets(payload.gensets);
 
     const res = await fetch(API_ENDPOINT, {
       method: "PUT",
@@ -223,7 +230,7 @@ export default function KirloskarDieselGeneratorCMSPage() {
     setTimeout(() => setSavedGensets(false), 2000);
   };
 
-  const handleGensetChange = (id: string, field: keyof DieselGensetCard, val: string) => {
+  const handleGensetChange = (id: string, field: keyof DieselGensetCard, val: string | File) => {
     setGensets((prev) => prev.map((g) => (g.id === id ? { ...g, [field]: val } : g)));
   };
 
