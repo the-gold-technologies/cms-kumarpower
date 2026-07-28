@@ -34,35 +34,29 @@ function PasswordInput({
   );
 }
 
-export default function ProfileSettingsCMSPage() {
-  const [isSavingProfile, setIsSavingProfile] = useState(false);
-  const [isSavingPassword, setIsSavingPassword] = useState(false);
+const ADMIN_EMAIL = "admin@kumarpower.com";
 
-  const [profile, setProfile] = useState({
-    name: "Administrator",
-    email: "admin@kumarpower.com",
-  });
+export default function ProfileSettingsCMSPage() {
+  const [isSavingPassword, setIsSavingPassword] = useState(false);
 
   const [passwords, setPasswords] = useState({
     currentPassword: "",
     newPassword: "",
   });
 
-  const handleSaveProfile = () => {
-    setIsSavingProfile(true);
-    setTimeout(() => {
-      setIsSavingProfile(false);
-      toast.success("Profile updated!");
-    }, 500);
-  };
-
   const handleChangePassword = async () => {
     if (!passwords.currentPassword || !passwords.newPassword) {
       toast.error("Please fill in both password fields");
       return;
     }
+
     if (passwords.newPassword.length < 8) {
       toast.error("New password must be at least 8 characters");
+      return;
+    }
+
+    if (passwords.currentPassword === passwords.newPassword) {
+      toast.error("New password must be different from the current password");
       return;
     }
 
@@ -72,7 +66,7 @@ export default function ProfileSettingsCMSPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: profile.email,
+          email: ADMIN_EMAIL,
           currentPassword: passwords.currentPassword,
           newPassword: passwords.newPassword,
         }),
@@ -85,13 +79,7 @@ export default function ProfileSettingsCMSPage() {
         toast.error(data.message || "Password update failed");
       }
     } catch {
-      // Fallback for offline dev
-      if (passwords.currentPassword === "1234asdf@") {
-        toast.success("Password updated!");
-        setPasswords({ currentPassword: "", newPassword: "" });
-      } else {
-        toast.error("Current password is incorrect");
-      }
+      toast.error("Network error. Please check your connection and try again.");
     } finally {
       setIsSavingPassword(false);
     }
@@ -107,10 +95,9 @@ export default function ProfileSettingsCMSPage() {
         </p>
       </div>
 
-      {/* Personal Information Card */}
+      {/* Admin Info Card */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-100">
-        <h2 className="text-base font-bold text-slate-900 mb-6">Personal Information</h2>
-
+        <h2 className="text-base font-bold text-slate-900 mb-6">Account Information</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-1.5">
             <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
@@ -118,40 +105,31 @@ export default function ProfileSettingsCMSPage() {
             </label>
             <input
               type="text"
-              value={profile.name}
-              onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 bg-white transition"
+              value="Administrator"
+              readOnly
+              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-500 bg-slate-50 cursor-not-allowed"
             />
           </div>
-
           <div className="space-y-1.5">
             <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
               Email Address
             </label>
             <input
               type="email"
-              value={profile.email}
-              onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 bg-white transition"
+              value={ADMIN_EMAIL}
+              readOnly
+              className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-500 bg-slate-50 cursor-not-allowed"
             />
           </div>
-        </div>
-
-        <div className="flex justify-end mt-6">
-          <button
-            onClick={handleSaveProfile}
-            disabled={isSavingProfile}
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#2D6FBA] hover:bg-[#22548e] text-white text-sm font-semibold rounded-full transition-all active:scale-95 disabled:opacity-60 cursor-pointer"
-          >
-            <Save className="w-4 h-4" />
-            {isSavingProfile ? "Saving..." : "Save Changes"}
-          </button>
         </div>
       </div>
 
       {/* Security Settings Card */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-100">
-        <h2 className="text-base font-bold text-slate-900 mb-6">Security Settings</h2>
+        <h2 className="text-base font-bold text-slate-900 mb-1">Change Password</h2>
+        <p className="text-xs text-slate-400 mb-6">
+          Minimum 8 characters. Use a strong, unique password.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-1.5">
@@ -161,6 +139,7 @@ export default function ProfileSettingsCMSPage() {
             <PasswordInput
               value={passwords.currentPassword}
               onChange={(e) => setPasswords({ ...passwords, currentPassword: e.target.value })}
+              placeholder="Enter current password"
             />
           </div>
 
@@ -171,6 +150,7 @@ export default function ProfileSettingsCMSPage() {
             <PasswordInput
               value={passwords.newPassword}
               onChange={(e) => setPasswords({ ...passwords, newPassword: e.target.value })}
+              placeholder="Min. 8 characters"
             />
           </div>
         </div>
@@ -182,7 +162,7 @@ export default function ProfileSettingsCMSPage() {
             className="flex items-center gap-2 px-6 py-2.5 bg-[#2D6FBA] hover:bg-[#22548e] text-white text-sm font-semibold rounded-full transition-all active:scale-95 disabled:opacity-60 cursor-pointer"
           >
             <Save className="w-4 h-4" />
-            {isSavingPassword ? "Updating..." : "Save Changes"}
+            {isSavingPassword ? "Updating..." : "Update Password"}
           </button>
         </div>
       </div>

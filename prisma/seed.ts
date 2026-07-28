@@ -125,16 +125,6 @@ async function main() {
       isActive: true,
     },
     {
-      id: "nav-2-5",
-      label: "Our Clients",
-      url: "/about/OurClients",
-      order: 5,
-      type: "Sub Link",
-      parent: "nav-2",
-      isStatic: true,
-      isActive: true,
-    },
-    {
       id: "nav-3",
       label: "Products",
       url: "/products",

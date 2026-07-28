@@ -265,13 +265,20 @@ export function Sidebar() {
 
       {/* Logout Button */}
       <div className="px-6 pb-8 border-t border-gray-800 pt-6">
-        <Link
-          href="/login"
-          className="flex items-center gap-4 w-full px-4 py-3 rounded-2xl text-[14px] font-medium text-gray-400 hover:bg-red-500/10 hover:text-red-500 transition-all duration-200"
+        <button
+          onClick={async () => {
+            try {
+              await fetch("/api/auth/logout", { method: "POST" });
+            } catch {
+              // Ignore network errors — still redirect
+            }
+            window.location.href = "/login";
+          }}
+          className="flex items-center gap-4 w-full px-4 py-3 rounded-2xl text-[14px] font-medium text-gray-400 hover:bg-red-500/10 hover:text-red-500 transition-all duration-200 cursor-pointer"
         >
           <LogOut className="w-5 h-5" />
           Sign Out
-        </Link>
+        </button>
       </div>
     </div>
   );
