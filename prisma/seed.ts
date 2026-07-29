@@ -699,6 +699,22 @@ async function main() {
             introImage:
               "https://res.cloudinary.com/dmhabztbf/image/upload/v1763639947/f968fc70-2c88-4870-9524-0105525f9de8_jivsd7.jpg",
 
+            processTagline: "OUR INSTALLATION PROCESS",
+            processHeading: "Our Installation Process",
+            processDesc:
+              "A comprehensive approach to ensure your power system is installed correctly, efficiently, and with minimal disruption",
+
+            portfolioTagline: "OUR PROFESSIONAL INSTALLATIONS",
+            portfolioHeading: "Our Installation Portfolio",
+            portfolioDesc:
+              "Explore our comprehensive range of professional generator installations across industrial, commercial, and residential settings",
+            portfolioCtaLabel: "Schedule Your Installation",
+
+            faqTagline: "FREQUENTLY ASKED QUESTIONS",
+            faqHeading: "Common Questions About Installation",
+            faqDesc:
+              "Get answers to frequently asked questions about our installation and commissioning services",
+
             steps: [
               {
                 id: "step-1",

@@ -82,14 +82,24 @@ export default function InstallationServicesCMSPage() {
   const [introP2, setIntroP2] = useState("");
   const [introImage, setIntroImage] = useState<string | File>("");
 
-  // Process Steps State
+  // Process Steps & Header State
+  const [processTagline, setProcessTagline] = useState("");
+  const [processHeading, setProcessHeading] = useState("");
+  const [processDesc, setProcessDesc] = useState("");
   const [steps, setSteps] = useState<ProcessStepCard[]>([]);
 
-  // Portfolio Gallery State
+  // Portfolio Gallery & Header State
+  const [portfolioTagline, setPortfolioTagline] = useState("");
+  const [portfolioHeading, setPortfolioHeading] = useState("");
+  const [portfolioDesc, setPortfolioDesc] = useState("");
+  const [portfolioCtaLabel, setPortfolioCtaLabel] = useState("");
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
   const bulkInputRef = useRef<HTMLInputElement>(null);
 
-  // FAQs State
+  // FAQs & Header State
+  const [faqTagline, setFaqTagline] = useState("");
+  const [faqHeading, setFaqHeading] = useState("");
+  const [faqDesc, setFaqDesc] = useState("");
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
 
   // Benefits State
@@ -103,23 +113,35 @@ export default function InstallationServicesCMSPage() {
         if (json.success && json.data) {
           const content = json.data.services || json.data.installation;
           if (content) {
+            setHeroBadge(content.heroBadge || "");
+            setHeroHeading(content.heroHeading || "");
+            setHeroSub(content.heroSub || "");
+            setHeroBg(content.heroBg || "");
+            setHeroCtaLabel(content.heroCtaLabel || "");
 
-          setHeroBadge(content.heroBadge || "");
-          setHeroHeading(content.heroHeading || "");
-          setHeroSub(content.heroSub || "");
-          setHeroBg(content.heroBg || "");
-          setHeroCtaLabel(content.heroCtaLabel || "");
+            setIntroTagline(content.introTagline || "");
+            setIntroHeading(content.introHeading || "");
+            setIntroP1(content.introP1 || "");
+            setIntroP2(content.introP2 || "");
+            setIntroImage(content.introImage || "");
 
-          setIntroTagline(content.introTagline || "");
-          setIntroHeading(content.introHeading || "");
-          setIntroP1(content.introP1 || "");
-          setIntroP2(content.introP2 || "");
-          setIntroImage(content.introImage || "");
+            setProcessTagline(content.processTagline || "");
+            setProcessHeading(content.processHeading || "");
+            setProcessDesc(content.processDesc || "");
+            setSteps(content.steps || []);
 
-          setSteps(content.steps || []);
-          setPortfolio(content.portfolio || []);
-          setFaqs(content.faqs || []);
-          setBenefits(content.benefits || []);
+            setPortfolioTagline(content.portfolioTagline || "");
+            setPortfolioHeading(content.portfolioHeading || "");
+            setPortfolioDesc(content.portfolioDesc || "");
+            setPortfolioCtaLabel(content.portfolioCtaLabel || "");
+            setPortfolio(content.portfolio || []);
+
+            setFaqTagline(content.faqTagline || "");
+            setFaqHeading(content.faqHeading || "");
+            setFaqDesc(content.faqDesc || "");
+            setFaqs(content.faqs || []);
+
+            setBenefits(content.benefits || []);
           }
         }
       } catch (err) {
@@ -277,7 +299,7 @@ export default function InstallationServicesCMSPage() {
 
   const handleSaveSteps = () => {
     saveToServer(
-      { steps },
+      { processTagline, processHeading, processDesc, steps },
       setSavingSteps,
       setSavedSteps,
       "6-Step Installation Process saved!",
@@ -286,7 +308,13 @@ export default function InstallationServicesCMSPage() {
 
   const handleSavePortfolio = () => {
     saveToServer(
-      { portfolio },
+      {
+        portfolioTagline,
+        portfolioHeading,
+        portfolioDesc,
+        portfolioCtaLabel,
+        portfolio,
+      },
       setSavingPortfolio,
       setSavedPortfolio,
       "Installation Portfolio Gallery saved!",
@@ -295,7 +323,7 @@ export default function InstallationServicesCMSPage() {
 
   const handleSaveFaqs = () => {
     saveToServer(
-      { faqs },
+      { faqTagline, faqHeading, faqDesc, faqs },
       setSavingFaqs,
       setSavedFaqs,
       "Installation FAQs saved!",
@@ -423,7 +451,7 @@ export default function InstallationServicesCMSPage() {
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
           title={`3. 6-Step Installation Process Workflow (${steps.length} Steps)`}
-          description="Manage step titles, descriptions, and bullet check items."
+          description="Manage section tagline, main heading, overview description, step titles, descriptions, and bullet check items."
           isOpen={isStepsOpen}
           onToggle={() => setIsStepsOpen(!isStepsOpen)}
         />
@@ -431,6 +459,27 @@ export default function InstallationServicesCMSPage() {
           className={`grid transition-all duration-300 ${isStepsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
         >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-2 border-b border-slate-100">
+              <InputField
+                label="Section Tagline"
+                value={processTagline}
+                onChange={(e) => setProcessTagline(e.target.value)}
+              />
+              <InputField
+                label="Section Heading"
+                value={processHeading}
+                onChange={(e) => setProcessHeading(e.target.value)}
+              />
+              <div className="sm:col-span-2">
+                <TextAreaField
+                  label="Section Description"
+                  value={processDesc}
+                  onChange={(e) => setProcessDesc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+            </div>
+
             <div className="flex justify-end">
               <button
                 type="button"
@@ -520,7 +569,7 @@ export default function InstallationServicesCMSPage() {
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
           title={`4. Installation Portfolio Gallery (${portfolio.length} Projects)`}
-          description="Drag and drop or select photos to bulk add installation projects across Commercial, Residential, and Industrial sectors."
+          description="Manage tagline, section title, description & CTA label, or drag and drop photos to bulk add projects."
           isOpen={isPortfolioOpen}
           onToggle={() => setIsPortfolioOpen(!isPortfolioOpen)}
         />
@@ -528,6 +577,32 @@ export default function InstallationServicesCMSPage() {
           className={`grid transition-all duration-300 ${isPortfolioOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
         >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-2 border-b border-slate-100">
+              <InputField
+                label="Section Tagline"
+                value={portfolioTagline}
+                onChange={(e) => setPortfolioTagline(e.target.value)}
+              />
+              <InputField
+                label="Section Heading"
+                value={portfolioHeading}
+                onChange={(e) => setPortfolioHeading(e.target.value)}
+              />
+              <InputField
+                label="CTA Button Label"
+                value={portfolioCtaLabel}
+                onChange={(e) => setPortfolioCtaLabel(e.target.value)}
+              />
+              <div className="sm:col-span-3">
+                <TextAreaField
+                  label="Section Description"
+                  value={portfolioDesc}
+                  onChange={(e) => setPortfolioDesc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+            </div>
+
             {/* Bulk Upload Drop Area */}
             <div
               onDragOver={(e) => e.preventDefault()}
@@ -618,7 +693,7 @@ export default function InstallationServicesCMSPage() {
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
           title={`5. Frequently Asked Questions (${faqs.length} FAQs)`}
-          description="Manage client accordion questions & answers regarding installation timelines, permits, warranties, etc."
+          description="Manage section tagline, main heading, overview description & accordion questions & answers."
           isOpen={isFaqsOpen}
           onToggle={() => setIsFaqsOpen(!isFaqsOpen)}
         />
@@ -626,6 +701,26 @@ export default function InstallationServicesCMSPage() {
           className={`grid transition-all duration-300 ${isFaqsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
         >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-2 border-b border-slate-100">
+              <InputField
+                label="Section Tagline"
+                value={faqTagline}
+                onChange={(e) => setFaqTagline(e.target.value)}
+              />
+              <InputField
+                label="Section Heading"
+                value={faqHeading}
+                onChange={(e) => setFaqHeading(e.target.value)}
+              />
+              <div className="sm:col-span-2">
+                <TextAreaField
+                  label="Section Description"
+                  value={faqDesc}
+                  onChange={(e) => setFaqDesc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+            </div>
             <div className="flex justify-end">
               <button
                 type="button"
