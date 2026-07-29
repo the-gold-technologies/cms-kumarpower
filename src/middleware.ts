@@ -2,14 +2,32 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const AUTH_TOKEN = process.env.AUTH_TOKEN ?? "";
-
-// API routes that are always public
-const PUBLIC_API_PATHS = ["/api/auth/login", "/api/auth/logout"];
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(",") ?? [];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const origin = request.headers.get("origin");
 
-  // Allow Next.js internals and static files
+  // ─────────────────────────────────────────────────────────────
+  // 1. API routes — always allow (used by the public website)
+  //    Add CORS headers so the website domain can call these.
+  // ─────────────────────────────────────────────────────────────
+  if (pathname.startsWith("/api/")) {
+    const response = NextResponse.next();
+
+    if (origin && (ALLOWED_ORIGINS.includes(origin) || ALLOWED_ORIGINS.includes("*"))) {
+      response.headers.set("Access-Control-Allow-Origin", origin);
+      response.headers.set("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
+      response.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+      response.headers.set("Access-Control-Allow-Credentials", "true");
+    }
+
+    return response;
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // 2. Static files — always allow
+  // ─────────────────────────────────────────────────────────────
   if (
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/favicon") ||
@@ -23,28 +41,21 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Always allow public API routes
-  const isPublicApi = PUBLIC_API_PATHS.some(
-    (path) => pathname === path || pathname.startsWith(path + "/")
-  );
-  if (isPublicApi) {
-    return NextResponse.next();
-  }
-
+  // ─────────────────────────────────────────────────────────────
+  // 3. CMS page routes — require auth cookie
+  // ─────────────────────────────────────────────────────────────
   const authToken = request.cookies.get("auth_token");
-  const isAuthenticated = authToken?.value === AUTH_TOKEN;
+  const isAuthenticated = AUTH_TOKEN !== "" && authToken?.value === AUTH_TOKEN;
 
-  // If the user is on the login page
+  // /login page: redirect to dashboard if already logged in
   if (pathname === "/login") {
     if (isAuthenticated) {
-      // Already logged in — redirect to dashboard
       return NextResponse.redirect(new URL("/", request.url));
     }
-    // Not logged in — show login page
     return NextResponse.next();
   }
 
-  // For all other routes, require authentication
+  // All other CMS pages require authentication
   if (!isAuthenticated) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
@@ -53,5 +64,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  // Exclude api, static, and image routes from middleware processing
+  // Only CMS page routes go through the auth check above
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
