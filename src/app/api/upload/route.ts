@@ -21,8 +21,10 @@ export async function POST(req: Request) {
         const base64Image = buffer.toString("base64");
         const dataUri = `data:${file.type};base64,${base64Image}`;
 
+        const isPdf = file.type.includes("pdf") || file.name.toLowerCase().endsWith(".pdf");
         const uploadResponse = await cloudinary.uploader.upload(dataUri, {
           folder: "KumarPower-Assets",
+          resource_type: isPdf ? "raw" : "auto",
         });
 
         uploadedFiles.push(uploadResponse.secure_url);

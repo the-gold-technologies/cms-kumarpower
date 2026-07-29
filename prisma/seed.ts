@@ -1067,7 +1067,7 @@ async function main() {
             ctaPrimaryUrl: "/products",
             ctaSecondaryLabel: "Download Profile",
             companyProfilePdf:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784703721/kumarpower_website/lwslbfk9cagxu3m0khzy.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318761/kumarpower_website/brochures_raw/4.Kirloskar%20powergen_Sentinel%20series%20Genset.pdf",
             trustedByLabel: "TRUSTED BY",
             backgroundVideo:
               "https://res.cloudinary.com/dpa93copz/video/upload/v1784704185/kumarpower_website/rz0nppx2f85aevxezjma.mp4",
@@ -1174,7 +1174,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "gen-2",
@@ -1185,7 +1185,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703237/kumarpower_website/yparf7bahdtrfl3p0tjz.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705062/kumarpower_website/brochures/wcwvg3lsx6msr06uz7wx.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318471/kumarpower_website/brochures_raw/NEW_CATELOG_-_GAS_GENSET.pdf",
               },
               {
                 id: "gen-3",
@@ -1196,7 +1196,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703242/kumarpower_website/qnckibpukq9qy7h83s7p.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705067/kumarpower_website/brochures/wxyqlv6wwcawpbrgezaf.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318453/kumarpower_website/brochures_raw/25-58.5.pdf",
               },
               {
                 id: "gen-4",
@@ -1207,7 +1207,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703247/kumarpower_website/j1rhhm2jwtonnds72k5d.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705069/kumarpower_website/brochures/ahmtcmwtnicw9domtbul.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318467/kumarpower_website/brochures_raw/82.5-160.pdf",
               },
               {
                 id: "gen-5",
@@ -1218,7 +1218,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703244/kumarpower_website/bx4dizebcdvadsuozqfd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705070/kumarpower_website/brochures/b2zbwjsfjpx2wqi6xkij.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318451/kumarpower_website/brochures_raw/200-250.pdf",
               },
               {
                 id: "gen-6",
@@ -1229,7 +1229,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703245/kumarpower_website/inxnbk5rir4rykhj0cfr.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705072/kumarpower_website/brochures/jkzmsw5vtm9s5vscy4cm.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318454/kumarpower_website/brochures_raw/320-750.pdf",
               },
               {
                 id: "gen-7",
@@ -1240,7 +1240,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703249/kumarpower_website/ohwufq3yx4yuuuahmw3g.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705074/kumarpower_website/brochures/u8uso0xo6g1p12layufn.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318464/kumarpower_website/brochures_raw/750_kVA-1500_kVA.pdf",
               },
               {
                 id: "gen-8",
@@ -1251,7 +1251,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703251/kumarpower_website/m1k3mjmhyughj3ajg9a0.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705078/kumarpower_website/brochures/smd0e0uokpc0bies5bqu.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318473/kumarpower_website/brochures_raw/OPTIPRIME-_117_400_500_640_1000_1500_2020_KVA.pdf",
               },
               {
                 id: "gen-9",
@@ -1262,7 +1262,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784703239/kumarpower_website/b3tdsaxtpw136j20rlxh.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
             ],
           },
@@ -1330,7 +1330,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703242/kumarpower_website/qnckibpukq9qy7h83s7p.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-2",
@@ -1346,7 +1346,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703247/kumarpower_website/j1rhhm2jwtonnds72k5d.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-3",
@@ -1362,7 +1362,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703244/kumarpower_website/bx4dizebcdvadsuozqfd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705070/kumarpower_website/brochures/b2zbwjsfjpx2wqi6xkij.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318451/kumarpower_website/brochures_raw/200-250.pdf",
               },
               {
                 id: "ps-4",
@@ -1378,7 +1378,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703245/kumarpower_website/inxnbk5rir4rykhj0cfr.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705072/kumarpower_website/brochures/jkzmsw5vtm9s5vscy4cm.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318454/kumarpower_website/brochures_raw/320-750.pdf",
               },
               {
                 id: "ps-5",
@@ -1394,7 +1394,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703249/kumarpower_website/ohwufq3yx4yuuuahmw3g.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705074/kumarpower_website/brochures/u8uso0xo6g1p12layufn.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318464/kumarpower_website/brochures_raw/750_kVA-1500_kVA.pdf",
               },
               {
                 id: "ps-6",
@@ -1410,7 +1410,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703251/kumarpower_website/m1k3mjmhyughj3ajg9a0.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705078/kumarpower_website/brochures/smd0e0uokpc0bies5bqu.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318473/kumarpower_website/brochures_raw/OPTIPRIME-_117_400_500_640_1000_1500_2020_KVA.pdf",
               },
               {
                 id: "ps-7",
@@ -1426,7 +1426,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-8",
@@ -1441,7 +1441,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703237/kumarpower_website/yparf7bahdtrfl3p0tjz.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705062/kumarpower_website/brochures/wcwvg3lsx6msr06uz7wx.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318471/kumarpower_website/brochures_raw/NEW_CATELOG_-_GAS_GENSET.pdf",
               },
               {
                 id: "ps-9",
@@ -1455,7 +1455,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703239/kumarpower_website/b3tdsaxtpw136j20rlxh.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-10",
@@ -1470,7 +1470,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-11",
@@ -1484,7 +1484,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-12",
@@ -1498,7 +1498,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-13",
@@ -1512,7 +1512,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-14",
@@ -1526,7 +1526,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-15",
@@ -1540,7 +1540,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-16",
@@ -1554,7 +1554,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-17",
@@ -1568,7 +1568,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-18",
@@ -1582,7 +1582,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "ps-19",
@@ -1596,7 +1596,7 @@ async function main() {
                 ],
                 img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
                 brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
             ],
           },
@@ -2436,7 +2436,7 @@ async function main() {
               bgImage:
                 "https://res.cloudinary.com/dmhabztbf/image/upload/v1763019219/Group_9_cc74ol.png",
               profilePdf:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+                "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
               btn1Label: "Book Your Consultation →",
               btn1Url: "/contact",
               btn2Label: "Download Company Profile",
@@ -2447,10 +2447,10 @@ async function main() {
                 "India's Most Trusted Kirloskar-Certified Generator Brand!",
               downloadBtn1Label: "Download Bharat Rajptar",
               downloadBtn1Url:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+                "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
               downloadBtn2Label: "Download Direction 76",
               downloadBtn2Url:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+                "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
               talkBtnLabel: "Talk to Power Expert",
               requestBtnLabel: "Request Quote",
               cert1Title: "ISO 9001:2015",
@@ -2590,10 +2590,10 @@ async function main() {
               "India's Most Trusted Kirloskar-Certified Generator Brand!",
             downloadBtn1Label: "Download Bharat Rajptar",
             downloadBtn1Url:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
             downloadBtn2Label: "Download Direction 76",
             downloadBtn2Url:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
             talkBtnLabel: "Talk to Power Expert",
             requestBtnLabel: "Request Quote",
             cert1Title: "ISO 9001:2015",
@@ -2629,17 +2629,17 @@ async function main() {
             btn1Url: "/contact",
             btn2Text: "Download Product Catalogue",
             btn2Url:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
 
             stickyTextPart1: "Kumar Power:",
             stickyTextPart2:
               "India's Most Trusted Kirloskar-Certified Generator Brand!",
             downloadBtn1Label: "Download Bharat Rajptar",
             downloadBtn1Url:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
             downloadBtn2Label: "Download Direction 76",
             downloadBtn2Url:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784713245/kumarpower_website/pages/oftso21rubdamr9nvjvz.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
             talkBtnLabel: "Talk to Power Expert",
             requestBtnLabel: "Request Quote",
             cert1Title: "ISO 9001:2015",
@@ -3173,7 +3173,7 @@ async function main() {
                 technicalSpecs:
                   "Equipped with digital micro-processor controllers, automatic mains failure detection, and seamless generator start logic.",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "p-2",
@@ -3186,7 +3186,7 @@ async function main() {
                 technicalSpecs:
                   "Designed for complex multi-genset installations requiring load demand management and auto load sharing.",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
             ],
           },
@@ -3233,7 +3233,7 @@ async function main() {
                 technicalSpecs:
                   "Custom engineered transformer oil cooling with high dielectric strength and micro-processor voltage correction.",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "s-2",
@@ -3248,7 +3248,7 @@ async function main() {
                 technicalSpecs:
                   "Maintenance-free air cooling design providing >98% efficiency and fast voltage response times.",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
             ],
           },
@@ -3294,7 +3294,7 @@ async function main() {
                 technicalSpecs:
                   "Hermetically sealed or conservator design with high grade CRGO silicon steel core for minimal losses.",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
               {
                 id: "t-2",
@@ -3309,7 +3309,7 @@ async function main() {
                 technicalSpecs:
                   "Vacuum resin encapsulated coils providing high moisture resistance and zero risk of oil pollution.",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
               },
             ],
           },
@@ -6499,7 +6499,7 @@ async function main() {
             whatsappPhone: "+919773877796",
             helplinePhone: "01140191273",
             brochurePdf:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784705061/kumarpower_website/brochures/ex3usnl03s0gzrez2rld.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
           },
         },
       ],
@@ -6537,7 +6537,7 @@ async function main() {
             ctaPrimaryUrl: "/contact",
             ctaSecondaryLabel: "Download Our Company Profile",
             companyProfilePdf:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784703721/kumarpower_website/lwslbfk9cagxu3m0khzy.pdf",
+              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318761/kumarpower_website/brochures_raw/4.Kirloskar%20powergen_Sentinel%20series%20Genset.pdf",
           },
         },
         {
