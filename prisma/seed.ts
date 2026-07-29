@@ -3333,6 +3333,2265 @@ async function main() {
             prestigiousTitle: "Our Prestigious Clients",
             prestigiousDesc:
               "We are proud to partner with industry leaders across various sectors, providing exceptional power solutions.",
+            clients: [
+              // Malls/Banquet Halls/Farm & Guest Houses
+              {
+                id: "c-malls-1",
+                name: "Bridge Green Farm (Farmhouse)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-2",
+                name: "Mr. Sanjeev Puri & Geeta Puri, Uppal Farms, Bilaspur. (Farmhouse)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-3",
+                name: "Silver Grand Services (Banquet Hall)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-4",
+                name: "Ananda Farm (Farmhouse)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-5",
+                name: "Baghol Hospitality Infra Services (P) Ltd. (Guest House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-6",
+                name: "Celebration de grande (Banquet Hall)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-7",
+                name: "Variety Shopping Centre (Shopping Mall)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-8",
+                name: "Mr. Pawan, Eden Garden (Farmhouse)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-9",
+                name: "Saifi Farm (Farm House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-10",
+                name: "Mark Mall (Shopping Mall)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-11",
+                name: "Aashirwad Banquet Hall",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-12",
+                name: "RD FIESTA (Banquet Hall)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-13",
+                name: "Beauty Green Farm House",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-14",
+                name: "Mr. P.J. Sight, Chattarpur (Farm House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-15",
+                name: "Mr. Lalit Dua, Dua Farms (Farm House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-16",
+                name: "Farida Begum, Farm No. 7 (Farm House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-17",
+                name: "UK Chaudhary, Jona Farm House (Farm House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-18",
+                name: "Mr. Karma, Green Beauty Farms (Farm House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-19",
+                name: "AMA Guest House (Guest House)",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              {
+                id: "c-malls-20",
+                name: "Saurabh Chopra, Farm House",
+                category: "Malls/Banquet Halls/Farm & Guest Houses",
+              },
+              // Contractors/Govt Offices
+              {
+                id: "c-cont-1",
+                name: "National Engineers & Contractors (MES) - Company Clos",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-2",
+                name: "Chauhan Hi-Tech Projects (P) Ltd.",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-3",
+                name: "The Collector, Camp Office, Tiruvannamalai.",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-4",
+                name: "Trishul Enterprises",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-5",
+                name: "JM Associates",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-6",
+                name: "BD Raizada & Co. (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-7",
+                name: "Ajit Jain & Co. (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-8",
+                name: "Gupta Engineers & Contactors (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-9",
+                name: "RS Sharma Contractors (P) Ltd. (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-10",
+                name: "Globe Civil Projects Pvt.Ltd.",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-11",
+                name: "Dharamraj Contracts (I) (P) Ltd.",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-12",
+                name: "Trilok & Associates",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-13",
+                name: "Ace Pipeline Contracts (P) Ltd.",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-14",
+                name: "Jai Mangla",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-15",
+                name: "Pacific Trade Links (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-16",
+                name: "Ganjoo & co. (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-17",
+                name: "Amit Associates (Amit goel) - MES",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-18",
+                name: "Jain Associates (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-19",
+                name: "Kansal & Company - Construction (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-20",
+                name: "Virender Construction (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-21",
+                name: "Yogesh - MR sales (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-22",
+                name: "Global Enterprises (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              {
+                id: "c-cont-23",
+                name: "Surjit Ling & Done (MES)",
+                category: "Contractors/Govt Offices",
+              },
+              // Builders
+              {
+                id: "c-bld-1",
+                name: "Mango Infatech Solutions (P) Ltd.",
+                category: "Builders",
+              },
+              { id: "c-bld-2", name: "LG Builders", category: "Builders" },
+              {
+                id: "c-bld-3",
+                name: "Vikas Buildtech (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-4",
+                name: "Surjit Singh & Sons",
+                category: "Builders",
+              },
+              { id: "c-bld-5", name: "SSG Buildcon LLP", category: "Builders" },
+              {
+                id: "c-bld-6",
+                name: "Pal & Paul Builders Ltd",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-7",
+                name: "Piyare Lal Hari Singh Builders (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-8",
+                name: "M/s. Property Shopee",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-9",
+                name: "M/s. Ratan Buildtech (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-10",
+                name: "Chettinad Property Developers (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-11",
+                name: "M/s. Osaaka Realtors (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-12",
+                name: "Chopra Promotors",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-13",
+                name: "M/s. Chauhan Associates",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-14",
+                name: "Shomit Finance Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-15",
+                name: "Mr. SK Goyal (PLHS Builders)",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-16",
+                name: "UP INFRAESTATE PVT. LTD.",
+                category: "Builders",
+              },
+              { id: "c-bld-17", name: "JS Builders", category: "Builders" },
+              {
+                id: "c-bld-18",
+                name: "PCR Infratech (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-19",
+                name: "Auris Developers (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-20",
+                name: "Nishtha Builders",
+                category: "Builders",
+              },
+              { id: "c-bld-21", name: "JK BUILDTECH", category: "Builders" },
+              { id: "c-bld-22", name: "Yograj Builders", category: "Builders" },
+              {
+                id: "c-bld-23",
+                name: "Starcity Real Estates (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-24",
+                name: "Akrati Technimont Ltd.",
+                category: "Builders",
+              },
+              { id: "c-bld-25", name: "Lamba Builders", category: "Builders" },
+              { id: "c-bld-26", name: "SANSKAR", category: "Builders" },
+              {
+                id: "c-bld-27",
+                name: "Dkrrish Builders (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-28",
+                name: "Eco Green Buildtech (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-29",
+                name: "Investsmart Solutions (P) Ltd.",
+                category: "Builders",
+              },
+              {
+                id: "c-bld-30",
+                name: "Celina Projects (P) Ltd",
+                category: "Builders",
+              },
+              // Petrol Pump
+              {
+                id: "c-pet-1",
+                name: "Delhi Aviation Fuel Facility (P) Ltd",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-2",
+                name: "JK Filling Station, Bharat Petroleum Pump",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-3",
+                name: "MKR Highway Filling Station, (U.P.)",
+                category: "Petrol Pump",
+              },
+              { id: "c-pet-4", name: "Tuli Motors", category: "Petrol Pump" },
+              {
+                id: "c-pet-5",
+                name: "Sheetla Filling Station, Rewari.",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-6",
+                name: "Shaheed Anusuya Dhyani Service Station, Hari Nagar",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-7",
+                name: "Yash Filling Station, Najafgarh",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-8",
+                name: "Kartar Kissan Sewa Kendra, Distt. Jhajjar",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-9",
+                name: "Auto Fuel Indian Oil Petrol Pump",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-10",
+                name: "National Service Station",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-11",
+                name: "Bedi Saxena Service Station",
+                category: "Petrol Pump",
+              },
+              {
+                id: "c-pet-12",
+                name: "Mangla Petro, Pitampura",
+                category: "Petrol Pump",
+              },
+              // Industries
+              {
+                id: "c-ind-1",
+                name: "Anjani Broadband Solutions (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-2",
+                name: "Grapes Digital (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-3",
+                name: "Berger Paints (1) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-4",
+                name: "Irisi Global Services (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-5",
+                name: "Veolia India (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-6",
+                name: "Faction Communication Pvt. Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-7",
+                name: "Accord BPO Services (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-8",
+                name: "Auto Power Gen. Systems (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-9",
+                name: "N.K. Kapur & Co. (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-10",
+                name: "Leo Network Power Systems",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-11",
+                name: "Kaks Financial & Management Consultants Pvt. Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-12",
+                name: "Unitop International",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-13",
+                name: "Vij Engineers & Consultants Pvt. Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-14",
+                name: "Safe & Secure Online Marketing (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-15",
+                name: "Capital Business Solutions (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-16",
+                name: "Gigatel Networks Private Limited",
+                category: "Industries",
+              },
+              { id: "c-ind-17", name: "Channel One", category: "Industries" },
+              {
+                id: "c-ind-18",
+                name: "Sark EPC Projects Pvt Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-19",
+                name: "Comed Chemicals Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-20",
+                name: "Orian Automobiles (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-21",
+                name: "National Heavy Electric Corporation",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-22",
+                name: "D.S. DUCTOFAB SYSTEMS PVT. LTD.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-23",
+                name: "Sapieo Software India (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-24",
+                name: "HDFC Sales Pvt. Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-25",
+                name: "Meraki Sport and Entertainment (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-26",
+                name: "LRG Steel Concept (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-27",
+                name: "Elite HR Practices (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-28",
+                name: "Worldwide Facility Management Services (P) Ltd. (Aroon Aviation)",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-29",
+                name: "Webon Flex Marketing (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-30",
+                name: "Uttar Bharat Hydro Power (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-31",
+                name: "Divyanshi Power Solution",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-32",
+                name: "World Phone Internet Services (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-33",
+                name: "Cyber Group India Pvt. Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-34",
+                name: "Seco Industries",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-35",
+                name: "Shubhankr Texfab India",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-36",
+                name: "AJS Software Tech. (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-37",
+                name: "Sharad Advertising (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-38",
+                name: "KGL Logistics Pvt. Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-39",
+                name: "Glaze Trading India Pvt Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-40",
+                name: "Sehgal Industries",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-41",
+                name: "Maco Infotech Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-42",
+                name: "Tata Chemicals Ltd",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-43",
+                name: "Nirja Publishers & Printers (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-44",
+                name: "SIS India Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-45",
+                name: "Market X-Cel Data Matrix (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-46",
+                name: "Dhanluxmi Agro Industries",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-47",
+                name: "Dreams Hospitality (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-48",
+                name: "M+V Marketing & Sales (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-49",
+                name: "SKETS Studio (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-50",
+                name: "Falcon Force (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-51",
+                name: "North East Region Finservices Ltd.",
+                category: "Industries",
+              },
+              { id: "c-ind-52", name: "Hexagramm", category: "Industries" },
+              {
+                id: "c-ind-53",
+                name: "SJVN Ltd., Rampur Hydro Electric Project",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-54",
+                name: "Sandys Hospitality (P) Ltd.",
+                category: "Industries",
+              },
+              { id: "c-ind-55", name: "Moment Expro", category: "Industries" },
+              {
+                id: "c-ind-56",
+                name: "Le-Grand Hospitality (P) Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-57",
+                name: "Tirupati Cement",
+                category: "Industries",
+              },
+              { id: "c-ind-58", name: "R.K. Global", category: "Industries" },
+              {
+                id: "c-ind-59",
+                name: "Swagatam Enterprises",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-60",
+                name: "Automation Engineers",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-61",
+                name: "GND India Ltd.",
+                category: "Industries",
+              },
+              {
+                id: "c-ind-62",
+                name: "Concept Communication",
+                category: "Industries",
+              },
+              // Retail Outlets
+              {
+                id: "c-ret-1",
+                name: "Samir Orange n White",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-2",
+                name: "Delhi Designer Studio",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-3",
+                name: "Numer uno KVC Retail",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-4",
+                name: "ADI Sports (1) (P) Ltd.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-5",
+                name: "Max Hypermarkets India (P) Ltd.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-6",
+                name: "Cutecumber Designs Pvt. Ltd.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-7",
+                name: "Gems Mart Jewellers",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-8",
+                name: "Jindal Agro International",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-9",
+                name: "Aman Hosiery",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-10",
+                name: "Jaydeep Fashion",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-11",
+                name: "Grover Garments",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-12",
+                name: "KS Selection (P) Ltd.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-13",
+                name: "VS Jeweller",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-14",
+                name: "Shivam Jewellers",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-15",
+                name: "Girdhari Lal & Sons",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-16",
+                name: "Harbans Jwellers",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-17",
+                name: "Atul Jewellers.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-18",
+                name: "Shery Clothing and Designs (P) Ltd.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-19",
+                name: "Incense Fashions",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-20",
+                name: "Mohan Lal & Sons",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-21",
+                name: "Nike Showroom",
+                category: "Retail Outlets",
+              },
+              { id: "c-ret-22", name: "Anekvarna", category: "Retail Outlets" },
+              {
+                id: "c-ret-23",
+                name: "Pritam Jewellers",
+                category: "Retail Outlets",
+              },
+              { id: "c-ret-24", name: "Big C", category: "Retail Outlets" },
+              {
+                id: "c-ret-25",
+                name: "Bansal Textiles",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-26",
+                name: "Roop Jewellers",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-27",
+                name: "CHEAP-Shoe Store",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-28",
+                name: "AK Fashion",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-29",
+                name: "Sanskriti Apparels",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-30",
+                name: "AG Fashions",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-31",
+                name: "Harbans Jewellers",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-32",
+                name: "Global Mode & Accessories (P) Ltd.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-33",
+                name: "Kridha Footwear",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-34",
+                name: "Malik Jewellers",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-35",
+                name: "MB Jewellers",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-36",
+                name: "Fineese International Design Pvt. Ltd.",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-37",
+                name: "Rich Trend",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-38",
+                name: "SDS Creations",
+                category: "Retail Outlets",
+              },
+              {
+                id: "c-ret-39",
+                name: "Sha Sha Fashion Trendz (P) Ltd.",
+                category: "Retail Outlets",
+              },
+              // Banks
+              {
+                id: "c-bnk-1",
+                name: "Central Bank of India",
+                category: "Banks",
+              },
+              {
+                id: "c-bnk-2",
+                name: "Bank of India, Mahipalpur",
+                category: "Banks",
+              },
+              {
+                id: "c-bnk-3",
+                name: "Andhra Bank, Paschim Vihar, New Delhi.",
+                category: "Banks",
+              },
+              {
+                id: "c-bnk-4",
+                name: "State Bank Of Patiala",
+                category: "Banks",
+              },
+              {
+                id: "c-bnk-5",
+                name: "Kangra Bank, Prahladpur, New Delhi.",
+                category: "Banks",
+              },
+              { id: "c-bnk-6", name: "Axis Bank", category: "Banks" },
+              { id: "c-bnk-7", name: "Canara Bank, Meerut", category: "Banks" },
+              { id: "c-bnk-8", name: "The Karnataka Bank", category: "Banks" },
+              {
+                id: "c-bnk-9",
+                name: "Citi Bank, Punjabi Bagh",
+                category: "Banks",
+              },
+              // Embassies
+              {
+                id: "c-emb-1",
+                name: "Embassy of The Democratic Republic of Congo",
+                category: "Embassies",
+              },
+              {
+                id: "c-emb-2",
+                name: "Embassy of the republic of Lithuania",
+                category: "Embassies",
+              },
+              { id: "c-emb-3", name: "Sikkim House", category: "Embassies" },
+              { id: "c-emb-4", name: "Romania Embassy", category: "Embassies" },
+              {
+                id: "c-emb-5",
+                name: "The Embassy of Sultanate of Oman",
+                category: "Embassies",
+              },
+              // Educational Institutions
+              {
+                id: "c-edu-1",
+                name: "Lamba Book Depot",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-2",
+                name: "Baba Haridass Institute of Nursing Education",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-3",
+                name: "KD Campus (P) ltd.",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-4",
+                name: "Green Tree Education (P) Ltd.",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-5",
+                name: "School of Business Management & Technologies",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-6",
+                name: "IIT College",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-7",
+                name: "Oscar Public School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-8",
+                name: "Shishu Bharti School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-9",
+                name: "Lakshay Online Test Centre",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-10",
+                name: "Vikas Publication (P) Ltd",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-11",
+                name: "SDS Institute of Modern Studies",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-12",
+                name: "Akash Institute",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-13",
+                name: "Delhi Technical Campus",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-14",
+                name: "Mount St. Mary's School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-15",
+                name: "MCPS Junior School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-16",
+                name: "GRM Public School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-17",
+                name: "ARMY PUBLIC SCHOOL",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-18",
+                name: "Kelvin Institute",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-19",
+                name: "Modern Child Public Sec. School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-20",
+                name: "Jagannath Engineering Mgt. Technical Campur",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-21",
+                name: "St. Thomas School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-22",
+                name: "BK Convent School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-23",
+                name: "Deshbandhu College",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-24",
+                name: "Vinod Gupta Classes",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-25",
+                name: "The Scholar School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-26",
+                name: "SOUTH DELHI PUBLIC SCHOOL",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-27",
+                name: "Springdales School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-28",
+                name: "IIT-INAS PACE EDUCATION",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-29",
+                name: "Crescent School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-30",
+                name: "Sacred Heart College",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-31",
+                name: "Rai Foundation",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-32",
+                name: "BSC Publications",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-33",
+                name: "IGNOU, Regional Centre, NCT of Delhi",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-34",
+                name: "Educity peda gogy (P) Ltd.",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-35",
+                name: "Shadman English Mediam School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-36",
+                name: "TINU PUBLIC SCHOOL",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-37",
+                name: "Shree Adhya Educational Books (P) Ltd.",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-38",
+                name: "Mahashay Chunnilal Saraswati Bal Mandir Sr. Sec. School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-39",
+                name: "Kiran Prakashan (P) Ltd.",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-40",
+                name: "Navyug Public School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-41",
+                name: "Vishal International School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-42",
+                name: "St. Lawrence School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-43",
+                name: "Salwan Public School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-44",
+                name: "New Bal Bharti Public School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-45",
+                name: "DPS School",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-46",
+                name: "Baghpat Institute of Education & Technology",
+                category: "Educational Institutions",
+              },
+              {
+                id: "c-edu-47",
+                name: "Polish Institute",
+                category: "Educational Institutions",
+              },
+              // Medical Facilities
+              {
+                id: "c-med-1",
+                name: "Sarvodya Hospital & institute of medical science.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-2",
+                name: "Dinesh Baghpat Sarvodya Hospital & Institute of medical sciences.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-3",
+                name: "Galaxy Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-4",
+                name: "Hi physix Laboratory",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-5",
+                name: "Amit Test & Calibration Centre",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-6",
+                name: "Toasha Vaccines Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-7",
+                name: "Alshifa Multispeciality Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-8",
+                name: "City Medicos",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-9",
+                name: "Vibes Healthcare Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-10",
+                name: "Insight Softlabz",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-11",
+                name: "East Delhi Focus Imaging (LLP) (LAB)",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-12",
+                name: "City X Ray & Scan Clinic (P) Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-13",
+                name: "General Hospital, Leh",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-14",
+                name: "Patnaiks Laser Eye Institute",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-15",
+                name: "Global Health Line (P) Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-16",
+                name: "Khemchand Chugh Arya Samaj Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-17",
+                name: "Nueclear Healthcare Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-18",
+                name: "Akash Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-19",
+                name: "Arvind Medicare (P) Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-20",
+                name: "Tomer Multi Speciality Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-21",
+                name: "Vardan Clinic",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-22",
+                name: "Sanyasi Ayurveda",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-23",
+                name: "Viviano Healthcare (P) Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-24",
+                name: "Sankalp Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-25",
+                name: "Gandhi Nursing Home",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-26",
+                name: "Dr. Faheem Ahmed, Fatima Child Care Centre, Rampur, UP",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-27",
+                name: "Nature & Nurture Healthcare (P) Ltd.",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-28",
+                name: "Animal Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-29",
+                name: "Kesar Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-30",
+                name: "Revive Hospital",
+                category: "Medical Facilities",
+              },
+              {
+                id: "c-med-31",
+                name: "Hi Physix Laboratory India (P) Ltd.",
+                category: "Medical Facilities",
+              },
+              // Construction
+              {
+                id: "c-con-1",
+                name: "Tribeni Construction Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-2",
+                name: "Juneja Construction (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-3",
+                name: "Jeet Construction Co.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-4",
+                name: "Rishab Construction Pvt Ltd",
+                category: "Construction",
+              },
+              {
+                id: "c-con-5",
+                name: "S&P Infrastructure Developers (P) ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-6",
+                name: "A&T Engg. (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-7",
+                name: "Janhavi Construction",
+                category: "Construction",
+              },
+              {
+                id: "c-con-8",
+                name: "Varindera Construction Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-9",
+                name: "Ramacivil India Construction (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-10",
+                name: "Starcity Real Estate Pvt. Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-11",
+                name: "Chhavi Construction Co.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-12",
+                name: "Oriental Structural Engineers (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-13",
+                name: "ASGI Reality & Infra developers (P) Ltd",
+                category: "Construction",
+              },
+              {
+                id: "c-con-14",
+                name: "Angelique International Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-15",
+                name: "WELCOME CONSTRUCTION CO LTD, CAMROON",
+                category: "Construction",
+              },
+              {
+                id: "c-con-16",
+                name: "Amranottos infratech Pvt. Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-17",
+                name: "Pinnacle Superstructures (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-18",
+                name: "Infra 13 (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-19",
+                name: "Nirman Enconprojects (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-20",
+                name: "KEC International Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-21",
+                name: "Shivom Projects (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-22",
+                name: "Arvind Construction",
+                category: "Construction",
+              },
+              {
+                id: "c-con-23",
+                name: "KC Infratech",
+                category: "Construction",
+              },
+              {
+                id: "c-con-24",
+                name: "Julka Construction",
+                category: "Construction",
+              },
+              {
+                id: "c-con-25",
+                name: "Anupam Construction",
+                category: "Construction",
+              },
+              {
+                id: "c-con-26",
+                name: "Windchimes Construction (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-27",
+                name: "Gram Bharti Construction",
+                category: "Construction",
+              },
+              {
+                id: "c-con-28",
+                name: "J.K. Construction & Developers",
+                category: "Construction",
+              },
+              {
+                id: "c-con-29",
+                name: "Brahma Construction",
+                category: "Construction",
+              },
+              {
+                id: "c-con-30",
+                name: "Metamorphosis Construction",
+                category: "Construction",
+              },
+              {
+                id: "c-con-31",
+                name: "Parnika Commercial & Estates (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-32",
+                name: "High Tech Profile (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-33",
+                name: "Pashupati Effects (P) Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-34",
+                name: "CTC Projects Pvt. Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-35",
+                name: "Continental Engineering Corporation",
+                category: "Construction",
+              },
+              { id: "c-con-36", name: "CEC", category: "Construction" },
+              {
+                id: "c-con-37",
+                name: "E-Homes Infrastructure (P) Ltd",
+                category: "Construction",
+              },
+              {
+                id: "c-con-38",
+                name: "S. P. SINGLA CONSTRUCTION PVT. LTD.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-39",
+                name: "Spherical Construction & Interiors",
+                category: "Construction",
+              },
+              {
+                id: "c-con-40",
+                name: "Dharamraj Construct (1) Pvt. Ltd.",
+                category: "Construction",
+              },
+              {
+                id: "c-con-41",
+                name: "ATS Township (P) Ltd.",
+                category: "Construction",
+              },
+              // Spiritual & NGOs
+              {
+                id: "c-spi-1",
+                name: "Narayani Tandhandas Deosar Trust, Deosar Mandir, Haryana",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-2",
+                name: "Shiri Sidh Hanuman Mandir, Gurgaon",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-3",
+                name: "Ganga Foundation, Moradabad",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-4",
+                name: "Shri Shiv Durga Mandir, Punjabi Bagh",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-5",
+                name: "Guru Ji Ashram, Ghaziabad",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-6",
+                name: "Dharampal Mehra Charitable Trust, (UP)",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-7",
+                name: "Sulahkul Satsang Mandir, Karnal",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-8",
+                name: "Damian Foundation India (Trust), Qutub Vihar",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-9",
+                name: "Sai Retina Foundation, Dilshad Colony",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-10",
+                name: "Methodist Church, New Delhi.",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-11",
+                name: "St. Thomas Malankara Catholic Church, Uttam Nagar",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-12",
+                name: "Gurudwara Shri Guru Singh Sabha, Old Mahavir Nagar",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-13",
+                name: "DWARKA KALIBARI, Dwarka",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-14",
+                name: "Ganpati Miniral, Gulab Pura",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-15",
+                name: "Sant Nirankari Mandal, Tilak Nagar",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-16",
+                name: "Maa Saheb Dargah, Mehrauli",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-17",
+                name: "Hindu Dharam Sabha Janak Puri,",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-18",
+                name: "Maharaja Sawai Man Singh II Museum Trust, Maharani Bagh",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-19",
+                name: "Swami Sambodh Prakash ji Maharaj, Haridwar",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-20",
+                name: "Manav Mandir Mission Trust, Ashram Ring Road",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-21",
+                name: "Father Wilson, Church, Tahirpur",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-22",
+                name: "GURUDWARA SAHIB, Hari Nagar",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-23",
+                name: "Nutrition Foundation of India, Qutub Institutional Area",
+                category: "Spiritual & NGOs",
+              },
+              {
+                id: "c-spi-24",
+                name: "Mahant Dharam Singh Trust, Main Najafgarh Road",
+                category: "Spiritual & NGOs",
+              },
+              // Society/Apartment
+              {
+                id: "c-soc-1",
+                name: "Group Housing Society Ltd, Dwarka",
+                category: "Society/Apartment",
+              },
+              {
+                id: "c-soc-2",
+                name: "Shiksha Enclave Co-op. Housing Society Ltd",
+                category: "Society/Apartment",
+              },
+              {
+                id: "c-soc-3",
+                name: "Adam M2K Projects LLP",
+                category: "Society/Apartment",
+              },
+              {
+                id: "c-soc-4",
+                name: "Raison Armour Homes Residents Welfare Association, Ghaziabad",
+                category: "Society/Apartment",
+              },
+              {
+                id: "c-soc-5",
+                name: "Jeevan Apartment Residents Assoication, Okhla",
+                category: "Society/Apartment",
+              },
+              {
+                id: "c-soc-6",
+                name: "Mangalam Villas Module - Ghaziabad.",
+                category: "Society/Apartment",
+              },
+              {
+                id: "c-soc-7",
+                name: "New Jyoti Co-operative Group Housing Society Ltd., Dwarka",
+                category: "Society/Apartment",
+              },
+              {
+                id: "c-soc-8",
+                name: "Elders Homes Society, Rohini",
+                category: "Society/Apartment",
+              },
+              // Hospitality & Hotels
+              {
+                id: "c-hot-1",
+                name: "W.G. Hospitality (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-2",
+                name: "WUSHU Chinese Cuisine (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-3",
+                name: "Hotel B Continental (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-4",
+                name: "Vivah Residency (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-5",
+                name: "Café Brown Sugar (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-6",
+                name: "Hotel Corus (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-7",
+                name: "Melody Food Merchant (P) Ltd. (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-8",
+                name: "Headway Foods & Resturant LLP (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-9",
+                name: "Karim Restaurant (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-10",
+                name: "zest Hospitality (P) Ltd (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-11",
+                name: "Rosedale Inn (P) Ltd. (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-12",
+                name: "Hotel Pluto (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-13",
+                name: "Hotel Runway (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-14",
+                name: "Hotel Singh Empire (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-15",
+                name: "Kwality Dhaba ( Restaurant )",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-16",
+                name: "Hotel USA (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-17",
+                name: "Golden Highway (Restaurant )",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-18",
+                name: "Kalsang Ama café (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-19",
+                name: "Karat 87 Hotel Pvt. Ltd. (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-20",
+                name: "Hotel Cubic Inn (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-21",
+                name: "Himalayan Splendour Resort (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-22",
+                name: "Darbar Restaurant (Restaurant)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-23",
+                name: "PRADEEP JI, OYO Hotels, (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              {
+                id: "c-hot-24",
+                name: "THE GRACE HOUSE (Hotel)",
+                category: "Hospitality & Hotels",
+              },
+              // Exporters
+              {
+                id: "c-exp-1",
+                name: "PMI Engineering Export (P) Ltd, Chennai",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-2",
+                name: "Bishnu Impex (P) Ltd., Noida",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-3",
+                name: "Grandeur Overseas, Karol Bagh",
+                category: "Exporters",
+              },
+              { id: "c-exp-4", name: "Aufa Pakua", category: "Exporters" },
+              {
+                id: "c-exp-5",
+                name: "Kangra Export, New Delhi",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-6",
+                name: "AL Global (Export)",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-7",
+                name: "Agni Exports, Gurgaon",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-8",
+                name: "Aditya Enterprises",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-9",
+                name: "Deepeeka Exports (P) Ltd, Meerut",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-10",
+                name: "Swaraj Exports, Noida",
+                category: "Exporters",
+              },
+              { id: "c-exp-11", name: "Salman", category: "Exporters" },
+              { id: "c-exp-12", name: "Neha Exports", category: "Exporters" },
+              {
+                id: "c-exp-13",
+                name: "MANISH (Knott Fashion Studio)",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-14",
+                name: "Exim International",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-15",
+                name: "Mount Meru India (P) Ltd.",
+                category: "Exporters",
+              },
+              {
+                id: "c-exp-16",
+                name: "Ramnik Overseas",
+                category: "Exporters",
+              },
+              { id: "c-exp-17", name: "Patwal", category: "Exporters" },
+              {
+                id: "c-exp-18",
+                name: "Doyen Overseas Pvt. Ltd.",
+                category: "Exporters",
+              },
+              // Manufacturers/Wholesalers/Suppliers
+              {
+                id: "c-mfg-1",
+                name: "Globe Auto Parts (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-2",
+                name: "Sonam Furniture",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-3",
+                name: "Modvak Cables (I) (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-4",
+                name: "Navnit Blister Packs (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-5",
+                name: "KK Lighting India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-6",
+                name: "Suez India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-7",
+                name: "Om Steel Tubes Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-8",
+                name: "Vandana Aircraft Services (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-9",
+                name: "Ashirwad Oil Engines Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-10",
+                name: "Ksheer Dhenu Foods (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-11",
+                name: "MRL Tyres Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-12",
+                name: "AyurSens Naturals",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-13",
+                name: "ROYAL PAPER IND.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-14",
+                name: "5 Core Electronics Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-15",
+                name: "Harshey India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-16",
+                name: "Volga India Rubber (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-17",
+                name: "Indian Scrap Traders",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-18",
+                name: "Malik Seasoning & Spices (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-19",
+                name: "LRG Steel Concept (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-20",
+                name: "Varmora Granito (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-21",
+                name: "Glimps Electronics (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-22",
+                name: "Green House & Hestoft Foods (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-23",
+                name: "APL Apollo Tubes Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-24",
+                name: "KBC Asia & Co. (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-25",
+                name: "Wellmake Engineering Company (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-26",
+                name: "Relax Technologies (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-27",
+                name: "Al badr Seafoods (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-28",
+                name: "Bisleri international",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-29",
+                name: "Momspet Apparels (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-30",
+                name: "MV Shoecare (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-31",
+                name: "Quality materesses (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-32",
+                name: "Libra International Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-33",
+                name: "Men Moms (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-34",
+                name: "Circle E-Retail Pvt. Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-35",
+                name: "CRP Metals (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-36",
+                name: "Alice Biotech (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-37",
+                name: "Craftex India",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-38",
+                name: "Daikin Airconditioning India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-39",
+                name: "Ruchi International",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-40",
+                name: "Mix Power Solutions",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-41",
+                name: "Automation Engineers A.B. Pvt. Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-42",
+                name: "Azad Body Builders",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-43",
+                name: "Thermotech Engineering Corporation",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-44",
+                name: "Lloyd Insulation (India) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-45",
+                name: "Marut Techno Tools (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-46",
+                name: "Southern Boilers Equipments (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-47",
+                name: "CPL Energy India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-48",
+                name: "TESPA TOOLS (P) LTD.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-49",
+                name: "The Linc Publicity (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-50",
+                name: "Bhular India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-51",
+                name: "Trimax Minrals (P) Ltd",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-52",
+                name: "KBM Spices (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-53",
+                name: "Ace Mobile Manufacturers (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-54",
+                name: "Trodat Marking India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-55",
+                name: "Sardar Frozen Products (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-56",
+                name: "Apple Tree Building Maintenance (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-57",
+                name: "Gabsons Engineers & Consultants",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-58",
+                name: "Sunrider India (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-59",
+                name: "Vaadi Herbals (P) Ltd.",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              {
+                id: "c-mfg-60",
+                name: "Divine Seating Collection",
+                category: "Manufacturers/Wholesalers/Suppliers",
+              },
+              // Infrastructure
+              {
+                id: "c-inf-1",
+                name: "Green Infrastructures (P) Ltd",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-2",
+                name: "Sikka Infrastructure (P) Ltd",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-3",
+                name: "Joule Infrastructure (P) Ltd.",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-4",
+                name: "JPG Infraestate",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-5",
+                name: "Afcons Infrastructure Ltd.",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-6",
+                name: "SAV Infratech (P) Ltd.",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-7",
+                name: "Kashyapi Infrastructure (P) Ltd.",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-8",
+                name: "Liza Infrastructure Pvt. Ltd.",
+                category: "Infrastructure",
+              },
+              {
+                id: "c-inf-9",
+                name: "Goyala Infra Projects (P) Ltd.",
+                category: "Infrastructure",
+              },
+              // Beauty Salon
+              {
+                id: "c-bty-1",
+                name: "ADAMO SALOON, Malviya Nagar",
+                category: "Beauty Salon",
+              },
+              {
+                id: "c-bty-2",
+                name: "Hair Café Beauty Saloon",
+                category: "Beauty Salon",
+              },
+              {
+                id: "c-bty-3",
+                name: "Spa Aqua, GK-I",
+                category: "Beauty Salon",
+              },
+              {
+                id: "c-bty-4",
+                name: "Toni & Guy, Model Town",
+                category: "Beauty Salon",
+              },
+              {
+                id: "c-bty-5",
+                name: "Suhag Beauty Saloon, Dwarka",
+                category: "Beauty Salon",
+              },
+            ],
             clientCategories: {
               mallsAndFarms: {
                 title: "Malls/Banquet Halls/Farm & Guest Houses",
@@ -4044,170 +6303,6 @@ async function main() {
                 id: "cl-27",
                 url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712884/kumarpower_website/pages/elr86cg9o5ehtbvtn2ks.jpg",
                 alt: "Adidas",
-              },
-            ],
-            clients: [
-              {
-                id: "cl-1",
-                name: "GMR Infrastructure",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712863/kumarpower_website/pages/rpsj6uyhi7kl2gdsc8ng.jpg",
-              },
-              {
-                id: "cl-2",
-                name: "Honeywell India",
-                category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712895/kumarpower_website/pages/oyqudkfjkh1b3quulplh.png",
-              },
-              {
-                id: "cl-3",
-                name: "Suez Water",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712896/kumarpower_website/pages/esahf0nbza5bbekpynjy.png",
-              },
-              {
-                id: "cl-4",
-                name: "Adani Group",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712898/kumarpower_website/pages/bhpjqp3anzsiowfrltvt.png",
-              },
-              {
-                id: "cl-5",
-                name: "S&P Infra",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712899/kumarpower_website/pages/fia6l5umqisbfn184vix.jpg",
-              },
-              {
-                id: "cl-6",
-                name: "Apollo Hospitals",
-                category: "Medical Facilities",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712900/kumarpower_website/pages/xbt3t4r0bsw48y1oaucl.png",
-              },
-              {
-                id: "cl-7",
-                name: "CEC",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712872/kumarpower_website/pages/wzn7iloxksjdn9vdl9nz.jpg",
-              },
-              {
-                id: "cl-8",
-                name: "Seasons",
-                category: "Commercial",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712902/kumarpower_website/pages/srgu3xp1bqpt0j0owygp.png",
-              },
-              {
-                id: "cl-9",
-                name: "NCC Limited",
-                category: "CPWD & NBCC Projects",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712903/kumarpower_website/pages/ots16de8ab4ep5y2qtvm.jpg",
-              },
-              {
-                id: "cl-10",
-                name: "Air India",
-                category: "Aviation & Logistics",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712905/kumarpower_website/pages/iuibicnolojsadd28sp4.png",
-              },
-              {
-                id: "cl-11",
-                name: "British Paints",
-                category: "Manufacturers/Wholesalers",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712906/kumarpower_website/pages/rbcdges456kvxuzujc9l.jpg",
-              },
-              {
-                id: "cl-12",
-                name: "NBCC Limited",
-                category: "CPWD & NBCC Projects",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712908/kumarpower_website/pages/eqgmlclkhvgd3brunbit.png",
-              },
-              {
-                id: "cl-13",
-                name: "Afcons Infrastructure",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712909/kumarpower_website/pages/mznhggiitrdnbyvwxlea.png",
-              },
-              {
-                id: "cl-14",
-                name: "KEC International",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712910/kumarpower_website/pages/bpexoloid3d5rgpf2qju.jpg",
-              },
-              {
-                id: "cl-15",
-                name: "OJC",
-                category: "Commercial",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712912/kumarpower_website/pages/veflyibxqbnymwlrndng.jpg",
-              },
-              {
-                id: "cl-16",
-                name: "Mapple Hotels",
-                category: "Hospitality & Hotels",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712913/kumarpower_website/pages/h4qlwyke69y5ou0uvhwy.jpg",
-              },
-              {
-                id: "cl-17",
-                name: "Comed",
-                category: "Medical Facilities",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712914/kumarpower_website/pages/npeoktrvuao1tzhnyf2b.jpg",
-              },
-              {
-                id: "cl-18",
-                name: "Rai Foundation",
-                category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712917/kumarpower_website/pages/n9fiiakuoeyxtlldrasz.jpg",
-              },
-              {
-                id: "cl-19",
-                name: "PWC",
-                category: "Corporate",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712920/kumarpower_website/pages/onlo0n5zhobds9eolqzu.png",
-              },
-              {
-                id: "cl-20",
-                name: "Daikin",
-                category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712921/kumarpower_website/pages/olmrtpm51ks5emr2eyok.jpg",
-              },
-              {
-                id: "cl-21",
-                name: "IGNOU",
-                category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712923/kumarpower_website/pages/aefj0djwk27dqj8antl2.png",
-              },
-              {
-                id: "cl-22",
-                name: "Vistara",
-                category: "Aviation & Logistics",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712924/kumarpower_website/pages/l9bjz9xrufsdvyurjidz.jpg",
-              },
-              {
-                id: "cl-23",
-                name: "Ace Construction",
-                category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712874/kumarpower_website/pages/mxqbgjryo9awqzfjzyei.jpg",
-              },
-              {
-                id: "cl-24",
-                name: "Clarion",
-                category: "Commercial",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712878/kumarpower_website/pages/pxzw9z3efrvmt4xqrgo6.png",
-              },
-              {
-                id: "cl-25",
-                name: "DPS",
-                category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712881/kumarpower_website/pages/l7vudrgnj0wn8x6geidl.jpg",
-              },
-              {
-                id: "cl-26",
-                name: "GEPL",
-                category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712883/kumarpower_website/pages/babowmbn5turkicygkbr.jpg",
-              },
-              {
-                id: "cl-27",
-                name: "Adidas",
-                category: "Commercial",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712884/kumarpower_website/pages/elr86cg9o5ehtbvtn2ks.jpg",
               },
             ],
           },
