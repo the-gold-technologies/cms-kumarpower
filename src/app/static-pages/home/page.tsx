@@ -5,6 +5,11 @@ import { HeroSectionCMS } from "./components/HeroSectionCMS";
 import { PositioningStatementCMS } from "./components/PositioningStatementCMS";
 import { ElectricalEcosystemCMS } from "./components/ElectricalEcosystemCMS";
 import { SolutionPortfolioCMS } from "./components/SolutionPortfolioCMS";
+import { FeaturedSolutionsCMS } from "./components/FeaturedSolutionsCMS";
+import { IndustriesServedCMS } from "./components/IndustriesServedCMS";
+import { WhyKumarPowerCMS } from "./components/WhyKumarPowerCMS";
+import { NumbersCredibilityCMS } from "./components/NumbersCredibilityCMS";
+import { SelectedProjectsCMS } from "./components/SelectedProjectsCMS";
 import { AboutSectionCMS } from "./components/AboutSectionCMS";
 import { GeneratorRangeSectionCMS } from "./components/GeneratorRangeSectionCMS";
 import { CTASectionCMS } from "./components/CTASectionCMS";
@@ -26,6 +31,11 @@ export default function HomeCMSPage() {
       <PositioningStatementCMS />
       <ElectricalEcosystemCMS />
       <SolutionPortfolioCMS />
+      <FeaturedSolutionsCMS />
+      <IndustriesServedCMS />
+      <WhyKumarPowerCMS />
+      <NumbersCredibilityCMS />
+      <SelectedProjectsCMS />
       <AboutSectionCMS />
       <GeneratorRangeSectionCMS />
       <CTASectionCMS />

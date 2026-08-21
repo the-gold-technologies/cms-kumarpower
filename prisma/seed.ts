@@ -1278,6 +1278,335 @@ async function main() {
           },
         },
         {
+          id: "sec-home-featured-solutions",
+          type: "featuredSolutions",
+          order: 5,
+          content: {
+            badge: "Featured Operating Scenarios",
+            title: "Solutions Built Around Real Operating Challenges",
+            description:
+              "Switch between real-world operational challenges to see how Kumar Power integrates multiple technologies into a cohesive solution.",
+            ctaButtonLabel: "Request Custom Sizing For This Scenario",
+            scenarios: [
+              {
+                id: "reduce-dg-dependence",
+                title: "Reduce DG Dependence",
+                badge: "Fuel & O&M Savings",
+                icon: "BatteryCharging",
+                headline: "Minimize Generator Hours & Diesel Expenses",
+                description:
+                  "Combine battery energy storage (BESS), solar panels, and intelligent EMS controls to drastically lower generator runtime, carbon emissions, noise, and maintenance frequency.",
+                outcomes: [
+                  "Up to 60% reduction in diesel consumption",
+                  "Eliminating low-load generator running inefficiently",
+                  "Instant zero-downtime microsecond battery takeover",
+                  "Extended genset overhaul and maintenance intervals",
+                ],
+                components: [
+                  "Battery Energy Storage (BESS)",
+                  "Solar Panels",
+                  "Smart EMS Controller",
+                  "Kirloskar DG Set",
+                ],
+              },
+              {
+                id: "protect-critical-operations",
+                title: "Protect Critical Operations",
+                badge: "Zero Downtime",
+                icon: "ShieldAlert",
+                headline: "Uninterrupted Power for Mission-Critical Loads",
+                description:
+                  "Create an ultra-reliable power architecture using Kirloskar DG sets, AMF panels, BESS, transformers, and servo stabilisers.",
+                outcomes: [
+                  "100% power availability during main grid collapse",
+                  "Seamless automatic transfer switch (ATS) sync",
+                  "Isolation from grid harmonic spikes & voltage drops",
+                  "Built-in redundant backup paths",
+                ],
+                components: [
+                  "Kirloskar DG Sets",
+                  "AMF Panels",
+                  "BESS Storage",
+                  "Transformers",
+                  "Servo Stabilisers",
+                ],
+              },
+              {
+                id: "lower-energy-costs",
+                title: "Lower Energy Costs",
+                badge: "OPEX Optimization",
+                icon: "TrendingDown",
+                headline: "Target & Eliminate Avoidable Energy Charges",
+                description:
+                  "Use APFC power-factor correction, rooftop solar generation, BESS peak-shaving, and energy monitoring to reduce maximum demand penalties and utility bills.",
+                outcomes: [
+                  "Elimination of low power factor utility penalties",
+                  "Peak demand charge shaving during high-rate hours",
+                  "Substantial daytime solar self-consumption",
+                  "Real-time facility load telemetry & alerts",
+                ],
+                components: [
+                  "APFC Capacitor Panel",
+                  "Rooftop Solar Panels",
+                  "Peak Shaving BESS",
+                  "Energy Management System",
+                ],
+              },
+            ],
+          },
+        },
+        {
+          id: "sec-home-industries-served",
+          type: "industriesServed",
+          order: 6,
+          content: {
+            badge: "Sector-Specific Solutions",
+            title: "Solutions Designed for Your Industry",
+            description:
+              "We tailor electrical architecture to meet the specific operational, duty cycle, and statutory compliance demands of your sector.",
+            industries: [
+              {
+                id: "ind-manufacturing",
+                name: "Manufacturing",
+                icon: "Factory",
+                problem:
+                  "Stable heavy power distribution, zero harmonic trips, and lower peak demand charges.",
+                image:
+                  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                id: "ind-aviation",
+                name: "Aviation",
+                icon: "Plane",
+                problem:
+                  "Dependable standby power & switchgear for ground control & runways (Air India projects).",
+                image:
+                  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                id: "ind-healthcare",
+                name: "Healthcare",
+                icon: "HeartPulse",
+                problem:
+                  "Zero-tolerance power failure for ICU life support, isolation transformers & instant failover.",
+                image:
+                  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                id: "ind-data-centres",
+                name: "Data Centres",
+                icon: "Server",
+                problem:
+                  "24/7 continuous high-density server power, sub-cycle BESS buffer, & HT/LT switchgear.",
+                image:
+                  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                id: "ind-hospitality",
+                name: "Hospitality",
+                icon: "Hotel",
+                problem:
+                  "Silent low-noise DG backup, uninterrupted guest HVAC comfort, and power factor savings.",
+                image:
+                  "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                id: "ind-infrastructure",
+                name: "Infrastructure",
+                icon: "Landmark",
+                problem:
+                  "Rugged distribution transformers, outdoor feeder pillars, & heavy-duty EPC cabling.",
+                image:
+                  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                id: "ind-cold-storage",
+                name: "Cold Storage & Warehousing",
+                icon: "Truck",
+                problem:
+                  "Continuous thermal refrigeration load protection, solar panels integration, & Battery Energy Storage (BESS).",
+                image:
+                  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                id: "ind-commercial",
+                name: "Commercial Towers",
+                icon: "Building",
+                problem:
+                  "Elevator & chiller backup, central AMF switchgear, & rooftop solar power offset.",
+                image:
+                  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+              },
+            ],
+          },
+        },
+        {
+          id: "sec-home-why-kumar-power",
+          type: "whyKumarPower",
+          order: 7,
+          content: {
+            badge: "Engineered Trust",
+            title: "Why Businesses Choose Kumar Power",
+            description:
+              "We structure complete electrical power systems around your specific operational challenge rather than displaying generic equipment inventory.",
+            leadershipButtonLabel: "Meet Leadership & Heritage",
+            modalBadge: "Leadership & Heritage",
+            modalTitle: "Behind Kumar Power",
+            modalDescription:
+              "Founded over three decades ago, Kumar Power has evolved from a pioneering generator dealership into an integrated electrical power systems engineering enterprise. Under veteran leadership, our team combines senior electrical engineers, certified technicians, and project managers committed to zero-downtime client infrastructure.",
+            modalOfficeTitle: "Head Office & Regional Reach",
+            modalOfficeDescription:
+              "Delhi NCR • Pan-India Project Execution & Service Support",
+            reasons: [
+              {
+                id: "reason-1",
+                icon: "ShieldCheck",
+                title: "Single-Point Responsibility",
+                desc: "One engineering team coordinating generation, transformation, distribution, storage & turnkey execution.",
+              },
+              {
+                id: "reason-2",
+                icon: "Award",
+                title: "Established 30+ Year Track Record",
+                desc: "Decades of proven power sector experience executing 5,000+ complex industrial and commercial projects.",
+              },
+              {
+                id: "reason-3",
+                icon: "Cpu",
+                title: "Authorised Kirloskar Partnership",
+                desc: "Direct factory OEM warranty, certified engineers, and genuine spare parts supply pipeline.",
+              },
+              {
+                id: "reason-4",
+                icon: "Wrench",
+                title: "Solution-Based Sizing",
+                desc: "Equipment customized to your real load profile & duty cycle—not pushed off-the-shelf inventory.",
+              },
+              {
+                id: "reason-5",
+                icon: "Headset",
+                title: "Lifecycle Support & AMC",
+                desc: "Dedicated emergency response team, routine maintenance, testing & statutory commissioning.",
+              },
+              {
+                id: "reason-6",
+                icon: "Sun",
+                title: "Conventional & Hybrid Renewable",
+                desc: "Seamless integration of traditional DG power with rooftop solar panels and battery storage (BESS).",
+              },
+            ],
+          },
+        },
+        {
+          id: "sec-home-numbers-credibility",
+          type: "numbersCredibility",
+          order: 8,
+          content: {
+            stats: [
+              {
+                id: "stat-1",
+                icon: "Award",
+                value: "30+",
+                unit: "Years",
+                label: "Years of Experience",
+                subtext:
+                  "Delivering reliable electrical infrastructure since 1985.",
+              },
+              {
+                id: "stat-2",
+                icon: "ShieldCheck",
+                value: "5,000+",
+                unit: "Projects",
+                label: "Projects Executed",
+                subtext:
+                  "Across commercial, industrial, residential & institutional sectors.",
+              },
+              {
+                id: "stat-3",
+                icon: "Zap",
+                value: "250+",
+                unit: "MW",
+                label: "Largest Electrical Solutions Portfolio",
+                subtext: "Generators, transformers & solar-BESS systems.",
+              },
+              {
+                id: "stat-4",
+                icon: "Globe2",
+                value: "Pan-India",
+                unit: "Reach",
+                label: "Project Capability",
+                subtext: "Turnkey installation & 24/7 service network.",
+              },
+            ],
+          },
+        },
+        {
+          id: "sec-home-selected-projects",
+          type: "selectedProjects",
+          order: 9,
+          content: {
+            badge: "Proven Field Execution",
+            title: "Solutions in Action",
+            description:
+              "Real-world case studies demonstrating our end-to-end power engineering, installation, and operational results.",
+            ctaButtonLabel: "View All Client References & Project Portfolio",
+            ctaButtonUrl: "/about/OurClients",
+            caseStudies: [
+              {
+                id: "aviation-delhi",
+                icon: "Plane",
+                sector: "Aviation Facility",
+                location: "Delhi NCR",
+                client: "Air India Terminal Operations",
+                title: "Critical Ground & Runway Operation Backup",
+                metric: "99.999% Power Uptime",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
+                challenge:
+                  "Zero-downtime standby power required for critical flight ground control, terminal lighting, and security infrastructure during grid outages.",
+                solution:
+                  "Turnkey CPCB IV+ silent DG set synchronization, AMF panels, heavy-duty underground cabling, and 24/7 support.",
+                outcome:
+                  "Achieved 99.999% power uptime during utility grid interruptions with sub-second failover transition.",
+              },
+              {
+                id: "manufacturing-haryana",
+                icon: "Factory",
+                sector: "Heavy Manufacturing",
+                location: "Delhi NCR",
+                client: "Automotive Precision Plant",
+                title: "Plant Electrical Distribution & Power Quality",
+                metric: "85% Breakdown Cut",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                challenge:
+                  "Frequent utility voltage fluctuations, poor power factor penalties, and unorganized floor power distribution causing frequent machine trips.",
+                solution:
+                  "Turnkey supply and installation of custom distribution transformer, LT main switchgear panel, APFC capacitor bank, and servo stabilizer.",
+                outcome:
+                  "Eliminated annual power factor penalty, reduced machine breakdown by 85%, and optimized plant voltage stability.",
+              },
+              {
+                id: "solar-bess-commercial",
+                icon: "Sun",
+                sector: "Commercial & Data Facility",
+                location: "Delhi NCR",
+                client: "Tech Park Infrastructure",
+                title: "Hybrid Solar-BESS Cost Reduction & Backup",
+                metric: "38% Energy Bill Cut",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                challenge:
+                  "High daytime electricity grid tariffs, strict diesel generator emission caps, and low solar self-consumption without storage.",
+                solution:
+                  "Integrated 50 kWp rooftop solar panels with 100 kWh BESS and intelligent EMS control platform.",
+                outcome:
+                  "Cut monthly energy bill by 38% and reduced generator run hours by 65% while keeping critical loads backed up.",
+              },
+            ],
+          },
+        },
+        {
           id: "sec-home-about",
           type: "about",
           order: 2,
