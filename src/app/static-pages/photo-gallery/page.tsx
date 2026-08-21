@@ -81,14 +81,25 @@ export default function PhotoGalleryStaticPageCMS() {
   };
 
   const handleBulkPhotoUpload = (files: FileList | File[]) => {
+    let addedCount = 0;
     Array.from(files).forEach((file) => {
       if (!file.type.startsWith("image/")) return;
+      if (file.size > 100 * 1024 * 1024) {
+        const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+        toast.error(
+          `File "${file.name}" is too big (${sizeMb}MB). Maximum allowed limit is 100MB. Please reduce it to under 100MB.`
+        );
+        return;
+      }
       setPhotos((prev) => [
         ...prev,
         { id: `g-${Date.now()}-${Math.random()}`, alt: file.name, category: "installations", src: file },
       ]);
+      addedCount++;
     });
-    toast.success("Photos added successfully!");
+    if (addedCount > 0) {
+      toast.success(`${addedCount} photo(s) added successfully!`);
+    }
   };
 
   // Fetch from DB on mount

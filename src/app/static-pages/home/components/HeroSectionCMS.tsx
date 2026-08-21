@@ -63,6 +63,15 @@ export function HeroSectionCMS({
       return;
     }
 
+    if (file.size > 100 * 1024 * 1024) {
+      const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+      toast.error(
+        `Video file size is too big (${sizeMb}MB). Maximum allowed limit is 100MB. Please reduce it to under 100MB.`
+      );
+      if (videoInputRef.current) videoInputRef.current.value = "";
+      return;
+    }
+
     setIsUploading(true);
     const toastId = toast.loading("Uploading hero background video...");
     try {

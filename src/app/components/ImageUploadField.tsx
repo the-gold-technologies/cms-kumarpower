@@ -94,19 +94,45 @@ export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
     setIsDragging(false);
 
     if (e.dataTransfer.files) {
-      const droppedFiles = Array.from(e.dataTransfer.files).filter((file) =>
+      const allDropped = Array.from(e.dataTransfer.files).filter((file) =>
         file.type.startsWith("image/")
       );
-      const newImages = [...images, ...droppedFiles].slice(0, maxImages);
-      handleUpdate(newImages);
+      const validFiles: File[] = [];
+      for (const file of allDropped) {
+        if (file.size > 100 * 1024 * 1024) {
+          const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+          toast.error(
+            `File "${file.name}" is too big (${sizeMb}MB). Maximum allowed limit is 100MB. Please reduce it to under 100MB.`
+          );
+        } else {
+          validFiles.push(file);
+        }
+      }
+      if (validFiles.length > 0) {
+        const newImages = [...images, ...validFiles].slice(0, maxImages);
+        handleUpdate(newImages);
+      }
     }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const selectedFiles = Array.from(e.target.files);
-      const newImages = [...images, ...selectedFiles].slice(0, maxImages);
-      handleUpdate(newImages);
+      const validFiles: File[] = [];
+      for (const file of selectedFiles) {
+        if (file.size > 100 * 1024 * 1024) {
+          const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+          toast.error(
+            `File "${file.name}" is too big (${sizeMb}MB). Maximum allowed limit is 100MB. Please reduce it to under 100MB.`
+          );
+        } else {
+          validFiles.push(file);
+        }
+      }
+      if (validFiles.length > 0) {
+        const newImages = [...images, ...validFiles].slice(0, maxImages);
+        handleUpdate(newImages);
+      }
       e.target.value = "";
     }
   };

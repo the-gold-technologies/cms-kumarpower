@@ -1,4 +1,25 @@
+import toast from "react-hot-toast";
+
+export const MAX_UPLOAD_FILE_SIZE = 100 * 1024 * 1024; // 100MB
+
+export function validateFileSize(file: File): boolean {
+  if (file && file.size > MAX_UPLOAD_FILE_SIZE) {
+    const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+    toast.error(
+      `File size is too big (${sizeMb}MB). Maximum allowed limit is 100MB. Please reduce it to under 100MB.`
+    );
+    return false;
+  }
+  return true;
+}
+
 export async function uploadFile(file: File): Promise<string> {
+  if (!validateFileSize(file)) {
+    throw new Error(
+      `File size is too big (${(file.size / (1024 * 1024)).toFixed(1)}MB). Please reduce it to under 100MB.`
+    );
+  }
+
   const formData = new FormData();
   formData.append("file", file);
 
@@ -7,11 +28,14 @@ export async function uploadFile(file: File): Promise<string> {
     body: formData,
   });
 
-  if (!response.ok) {
-    throw new Error("Failed to upload file");
+  const data = await response.json();
+
+  if (!response.ok || !data.success) {
+    const errMsg = data.error || "Failed to upload file";
+    toast.error(errMsg);
+    throw new Error(errMsg);
   }
 
-  const data = await response.json();
   return data.files && data.files.length > 0 ? data.files[0] : "";
 }
 
@@ -40,7 +64,7 @@ export async function uploadFilesDeep(obj: any): Promise<any> {
   }
 
   if (Array.isArray(obj)) {
-    return Promise.all(obj.map(item => uploadFilesDeep(item)));
+    return Promise.all(obj.map((item) => uploadFilesDeep(item)));
   }
 
   if (typeof obj === "object") {

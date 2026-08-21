@@ -77,6 +77,13 @@ export function PartnerCertificationsCMS({
   }, [saveUrl, responseKey]);
 
   const handleFileUpload = (id: string, file: File) => {
+    if (file.size > 100 * 1024 * 1024) {
+      const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+      toast.error(
+        `File "${file.name}" is too big (${sizeMb}MB). Maximum allowed limit is 100MB. Please reduce it to under 100MB.`
+      );
+      return;
+    }
     setFormData((prev) => ({
       ...prev,
       logos: prev.logos.map((l) =>
@@ -90,6 +97,13 @@ export function PartnerCertificationsCMS({
     const newLogos: PartnerLogoItem[] = [];
     Array.from(files).forEach((file) => {
       if (!file.type.startsWith("image/")) return;
+      if (file.size > 100 * 1024 * 1024) {
+        const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+        toast.error(
+          `File "${file.name}" is too big (${sizeMb}MB). Maximum allowed limit is 100MB. Please reduce it to under 100MB.`
+        );
+        return;
+      }
       newLogos.push({
         id: `partner-logo-${Date.now()}-${Math.random()}`,
         url: file,
