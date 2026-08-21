@@ -1055,82 +1055,224 @@ async function main() {
           type: "hero",
           order: 1,
           content: {
-            headingLine1: "Trusted Kirloskar Generator Dealer",
-            headingLine2: "Certified Dealer for India's Power Needs",
-            descriptionDesktop:
-              "Authorized Channel Distributor | ISO 9001:2015 | 500+ Enterprise Clients | 30+ Years of Uninterrupted Excellence",
-            descriptionMobileLine1: "Authorized Channel Distributor",
-            descriptionMobileLine2: "ISO 9001:2015",
-            descriptionMobileLine3: "500+ Enterprise Clients",
-            descriptionMobileLine4: "30+ Years of Excellence",
-            ctaPrimaryLabel: "Explore Power Solutions",
-            ctaPrimaryUrl: "/products",
-            ctaSecondaryLabel: "Download Profile",
-            companyProfilePdf:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318761/kumarpower_website/brochures_raw/4.Kirloskar%20powergen_Sentinel%20series%20Genset.pdf",
-            trustedByLabel: "TRUSTED BY",
             backgroundVideo:
-              "https://res.cloudinary.com/dpa93copz/video/upload/v1784704185/kumarpower_website/rz0nppx2f85aevxezjma.mp4",
-            logos: [
+              "https://res.cloudinary.com/dpa93copz/video/upload/v1787210178/KumarPower-Assets/stiebk7378ocjujciakt.mp4",
+          },
+        },
+        {
+          id: "sec-home-positioning",
+          type: "positioningStatement",
+          order: 2,
+          content: {
+            badge: "Integrated Electrical Solution",
+            heading: "One Partner. Every Stage of Your Electrical Infrastructure.",
+            description:
+              "Kumar Power delivers integrated electrical solutions for commercial, industrial, institutional and infrastructure customers. We bring together power generators, transformers, distribution pannels, protection, power quality, renewable energy and battery storage under one coordinated solution.",
+            capabilities: [
               {
-                id: "logo-1",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
-                alt: "Tech Innovators",
+                id: "cap-1",
+                icon: "Compass",
+                title: "Design and Engineering",
+                description:
+                  "Load assessment, system planning, equipment selection and technical coordination.",
               },
               {
-                id: "logo-2",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
-                alt: "EcoPower Solutions",
+                id: "cap-2",
+                icon: "PackageCheck",
+                title: "Supply",
+                description:
+                  "Reliable equipment sourced from established manufacturers and technology partners.",
               },
               {
-                id: "logo-3",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
-                alt: "ManufacturePro",
+                id: "cap-3",
+                icon: "Wrench",
+                title: "Execution",
+                description:
+                  "Installation, cabling, integration, testing and commissioning.",
               },
               {
-                id: "logo-4",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
-                alt: "LogiTrans",
+                id: "cap-4",
+                icon: "ShieldAlert",
+                title: "Lifecycle Support",
+                description:
+                  "Preventive maintenance, breakdown support, upgrades and system optimisation.",
+              },
+            ],
+          },
+        },
+        {
+          id: "sec-home-electrical-ecosystem",
+          type: "electricalEcosystem",
+          order: 3,
+          content: {
+            badge: "Interactive System Flow",
+            title: "From Incoming Power to Final Load",
+            description:
+              "Automated power progression across all 6 electrical system stages. Click any stage to inspect equipment details.",
+            stages: [
+              {
+                id: "generation",
+                step: "01",
+                name: "Power Sources",
+                icon: "Zap",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                headline: "Grid Entry, Solar Panels, Gensets & BESS",
+                description:
+                  "Accepts high-voltage grid supply, integrates rooftop solar panels, Kirloskar CPCB IV+ diesel gensets, and battery energy storage (BESS).",
+                equipment: [
+                  "CPCB IV+ Gensets",
+                  "Rooftop Solar Panels",
+                  "Battery Energy Storage (BESS)",
+                  "High-Voltage Substation",
+                ],
               },
               {
-                id: "logo-5",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
-                alt: "BuildMaster",
+                id: "distribution-trans",
+                step: "02",
+                name: "Distribution",
+                icon: "Cpu",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                headline: "Step-Up / Step-Down Transformers",
+                description:
+                  "Steps high transmission voltages up or down to operational facility voltage levels with custom dry-type and oil-filled transformers.",
+                equipment: [
+                  "Distribution Transformers",
+                  "Isolation Transformers",
+                  "Dry-Type Cast Resin",
+                  "Step-down Transformers",
+                ],
               },
               {
-                id: "logo-6",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
-                alt: "BuildMaster",
+                id: "panels",
+                step: "03",
+                name: "HT/LT Panels",
+                icon: "ShieldCheck",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
+                headline: "Distribution Panels, AMF & Changeover",
+                description:
+                  "Routes power safely across main LT Panels, HT breaker panels, PCC/MCC motor controls, AMF & ATS Panels.",
+                equipment: [
+                  "Main LT Switchgear",
+                  "HT Breaker Panels",
+                  "AMF & ATS Panels",
+                  "PCC & MCC Panels",
+                ],
               },
               {
-                id: "logo-7",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703682/kumarpower_website/cvntuob1pan8lodaj37k.jpg",
-                alt: "BuildMaster",
+                id: "power-quality",
+                step: "04",
+                name: "Power Quality & Protection",
+                icon: "Gauge",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
+                headline: "Voltage Regulation & Harmonics",
+                description:
+                  "Stabilizes fluctuating grid voltages, maintains high power factor via APFC capacitor banks, and filters active harmonic distortion.",
+                equipment: [
+                  "Servo Stabilisers",
+                  "APFC Capacitor Banks",
+                  "Active Harmonic Filters",
+                  "Surge Arrestors",
+                ],
               },
               {
-                id: "logo-8",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703685/kumarpower_website/i2hcjyehbydll3hg67nf.jpg",
-                alt: "BuildMaster",
+                id: "sub-distribution",
+                step: "05",
+                name: "Sub-Distribution",
+                icon: "BatteryCharging",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                headline: "Bus Ducts & Feeder Pillars",
+                description:
+                  "Transfers clean, protected electrical power through riser busbars, sub-distribution boards, and smart energy monitoring meters.",
+                equipment: [
+                  "Busbar Trunking Systems",
+                  "Floor Distribution Boards",
+                  "Feeder Pillars",
+                  "Smart Meters",
+                ],
               },
               {
-                id: "logo-9",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703686/kumarpower_website/uhmlaewcidzkrefpnl8g.jpg",
-                alt: "BuildMaster",
+                id: "final-load",
+                step: "06",
+                name: "Final Facility Load",
+                icon: "Factory",
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
+                headline: "Industrial, Commercial & Critical Facilities",
+                description:
+                  "Delivers continuous, highly stable electrical energy to critical infrastructure, manufacturing plants, commercial complexes, data centres, healthcare facilities, and residential buildings.",
+                equipment: [
+                  "Industrial Machinery",
+                  "Data Centre Servers",
+                  "Central HVAC Chillers",
+                  "Residential Equipment",
+                ],
+              },
+            ],
+          },
+        },
+        {
+          id: "sec-home-solution-portfolio",
+          type: "solutionPortfolio",
+          order: 4,
+          content: {
+            badge: "Comprehensive Capabilities",
+            title: "What Power Challenge Are You Solving?",
+            description:
+              "We structure complete electrical power systems around your specific operational challenge rather than displaying generic equipment inventory.",
+            categories: [
+              {
+                id: "uninterrupted-power",
+                title: "Uninterrupted Power",
+                subtitle:
+                  "For facilities where downtime causes massive financial loss.",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
+                features: ["CPCB IV+ Gensets", "BESS", "UPS Inverter", "Solar"],
+                link: "/products/kirloskar-diesel-generator",
               },
               {
-                id: "logo-10",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703688/kumarpower_website/pgpf5ubc3ylvzfnjn7my.jpg",
-                alt: "BuildMaster",
+                id: "electrical-distribution",
+                title: "Electrical Distribution",
+                subtitle:
+                  "Safe, controlled power routing from incoming high-voltage grid.",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                features: ["Transformers", "HT/LT Panels"],
+                link: "/products/transformers",
               },
               {
-                id: "logo-11",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928655/5d8a7ffc-390a-42d8-bee8-2a5c353e5d05_abj0u1.jpg",
-                alt: "Trusted Partner",
+                id: "renewable-integration",
+                title: "Renewable Energy Integration",
+                subtitle:
+                  "Integrating rooftop solar with battery storage and standby DG.",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                features: ["Solar Energy", "BESS", "EV Charging Station"],
+                link: "/products",
               },
               {
-                id: "logo-12",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762928656/68724243-11f2-42ec-85dc-69c153744f3c_n1154o.jpg",
-                alt: "Trusted Client",
+                id: "power-quality",
+                title: "Power Quality & Protection",
+                subtitle:
+                  "Eliminating voltage sag, harmonics, & power factor penalties.",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
+                features: ["Servo Stabilisers", "APFC Banks", "Surge Panels"],
+                link: "/products/servo-stabilizer",
+              },
+              {
+                id: "turnkey-projects",
+                title: "Turnkey Electrical Projects",
+                subtitle:
+                  "Single-point EPC accountability from concept to commissioning.",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                features: [
+                  "Design & EPC",
+                  "Heavy Cabling",
+                  "Substations",
+                  "Testing & AMC",
+                ],
+                link: "/services/installation",
               },
             ],
           },

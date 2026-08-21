@@ -2,6 +2,9 @@
 
 import { PageHeader } from "@/components/PageHeader";
 import { HeroSectionCMS } from "./components/HeroSectionCMS";
+import { PositioningStatementCMS } from "./components/PositioningStatementCMS";
+import { ElectricalEcosystemCMS } from "./components/ElectricalEcosystemCMS";
+import { SolutionPortfolioCMS } from "./components/SolutionPortfolioCMS";
 import { AboutSectionCMS } from "./components/AboutSectionCMS";
 import { GeneratorRangeSectionCMS } from "./components/GeneratorRangeSectionCMS";
 import { CTASectionCMS } from "./components/CTASectionCMS";
@@ -16,10 +19,13 @@ export default function HomeCMSPage() {
     <section className="flex flex-col gap-6 pb-12">
       <PageHeader
         title="Home Page Layout Content"
-        description="Manage all layout sections of your homepage (Hero, About, Generator Range, Power Solutions, Use Cases, Gallery, Testimonials & Footer). Expand any section to edit its details."
+        description="Manage all layout sections of your homepage (Hero, Positioning Statement, Ecosystem, Solutions, etc.). Expand any section to edit its details."
       />
 
       <HeroSectionCMS />
+      <PositioningStatementCMS />
+      <ElectricalEcosystemCMS />
+      <SolutionPortfolioCMS />
       <AboutSectionCMS />
       <GeneratorRangeSectionCMS />
       <CTASectionCMS />

@@ -2,15 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { fetchWithCache, clearCache } from "@/lib/apiCache";
-import { uploadFilesDeep } from "@/lib/uploadHelpers";
-import { InputField } from "@/components/InputField";
-import { PDFUploadField } from "@/components/PDFUploadField";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SaveButton } from "@/components/SaveButton";
-import { Plus, X, Upload, UploadCloud, CloudUpload, Image as ImageIcon } from "lucide-react";
+import { InputField } from "@/components/InputField";
+import { Upload, Video, Trash2, CheckCircle2, Play, ExternalLink } from "lucide-react";
 import toast from "react-hot-toast";
-
-type TrustLogo = { id: string; url: string | File; alt: string };
 
 interface HeroSectionCMSProps {
   saveUrl?: string;
@@ -33,40 +29,15 @@ export function HeroSectionCMS({
   };
 
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
   const [saved, setSaved] = useState(false);
-  const bulkInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   const [formData, setFormData] = useState<{
-    headingLine1: string;
-    headingLine2: string;
-    descriptionDesktop: string;
-    descriptionMobileLine1: string;
-    descriptionMobileLine2: string;
-    descriptionMobileLine3: string;
-    descriptionMobileLine4: string;
-    ctaPrimaryLabel: string;
-    ctaPrimaryUrl: string;
-    ctaSecondaryLabel: string;
-    companyProfilePdf: string | File;
-    trustedByLabel: string;
-    backgroundVideo: string | File;
+    backgroundVideo: string;
   }>({
-    headingLine1: "",
-    headingLine2: "",
-    descriptionDesktop: "",
-    descriptionMobileLine1: "",
-    descriptionMobileLine2: "",
-    descriptionMobileLine3: "",
-    descriptionMobileLine4: "",
-    ctaPrimaryLabel: "",
-    ctaPrimaryUrl: "",
-    ctaSecondaryLabel: "",
-    companyProfilePdf: "",
-    trustedByLabel: "",
     backgroundVideo: "",
   });
-
-  const [logos, setLogos] = useState<TrustLogo[]>([]);
 
   useEffect(() => {
     fetchWithCache(saveUrl)
@@ -74,49 +45,26 @@ export function HeroSectionCMS({
         if (json.success && json.data) {
           const hero = responseKey ? json.data?.[responseKey] : json.data;
           if (hero && typeof hero === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              ...Object.fromEntries(
-                Object.entries(hero).filter(([k]) => k in prev)
-              ),
-            }));
-            if (Array.isArray(hero.logos)) {
-              setLogos(hero.logos);
-            }
+            setFormData({
+              backgroundVideo: hero.backgroundVideo || "",
+            });
           }
         }
       })
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const handleFileUpload = (id: string, file: File) => {
-    setLogos((prev) =>
-      prev.map((l) => (l.id === id ? { ...l, url: file } : l))
-    );
-    toast.success("Logo image updated!");
-  };
-
-  const handleBulkFiles = (files: FileList | File[]) => {
-    const newLogos: TrustLogo[] = [];
-    Array.from(files).forEach((file) => {
-      if (!file.type.startsWith("image/")) return;
-      newLogos.push({ id: `logo-${Date.now()}-${Math.random()}`, url: file, alt: file.name });
-    });
-    setLogos((prev) => [...prev, ...newLogos]);
-    toast.success(`${newLogos.length} logos added`);
-    if (bulkInputRef.current) bulkInputRef.current.value = "";
-  };
-
   const handleVideoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     if (!file.type.startsWith("video/")) {
-      toast.error("Please select a valid video file.");
+      toast.error("Please select a valid video file (MP4, WebM, etc.).");
       return;
     }
 
-    const toastId = toast.loading("Uploading video...");
+    setIsUploading(true);
+    const toastId = toast.loading("Uploading hero background video...");
     try {
       const data = new FormData();
       data.append("file", file);
@@ -128,57 +76,34 @@ export function HeroSectionCMS({
 
       const json = await res.json();
       if (json.success && json.files?.length > 0) {
-        setFormData({ ...formData, backgroundVideo: json.files[0] });
+        setFormData({ backgroundVideo: json.files[0] });
         toast.success("Video uploaded successfully!", { id: toastId });
       } else {
         throw new Error(json.error || "Upload failed");
       }
     } catch (error: any) {
       toast.error(error.message || "Failed to upload video", { id: toastId });
+    } finally {
+      setIsUploading(false);
+      if (videoInputRef.current) videoInputRef.current.value = "";
     }
-  };
-
-  const addEmptyLogo = () => {
-    const newId = `logo-${Date.now()}`;
-    setLogos((prev) => [...prev, { id: newId, url: "", alt: "" }]);
-  };
-
-  const removeLogo = (id: string) => {
-    setLogos((prev) => prev.filter((l) => l.id !== id));
-    toast.success("Logo removed");
   };
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const rawPayload = {
-        ...formData,
-        logos,
-      };
-      const payload = await uploadFilesDeep(rawPayload);
-
-      if (payload.companyProfilePdf && typeof payload.companyProfilePdf === "string") {
-        setFormData(prev => ({ ...prev, companyProfilePdf: payload.companyProfilePdf }));
-      }
-      if (payload.backgroundVideo && typeof payload.backgroundVideo === "string") {
-        setFormData(prev => ({ ...prev, backgroundVideo: payload.backgroundVideo }));
-      }
-      if (payload.logos) {
-        setLogos(payload.logos);
-      }
-
       const res = await fetch(saveUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: responseKey, content: payload }),
+        body: JSON.stringify({ section: responseKey, content: formData }),
       });
       if (!res.ok) throw new Error("Save failed");
       clearCache(saveUrl);
       setSaved(true);
-      toast.success("Hero section saved!");
+      toast.success("Hero section saved successfully!");
       setTimeout(() => setSaved(false), 2000);
     } catch {
-      toast.error("Save failed");
+      toast.error("Failed to save hero section");
     } finally {
       setIsSaving(false);
     }
@@ -187,8 +112,8 @@ export function HeroSectionCMS({
   return (
     <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
-        title="Hero Section"
-        description="Manage homepage hero content — headings, CTAs, company profile PDF, background video, and trusted client logos marquee."
+        title="1. Hero Section (Full-Screen Video)"
+        description="Manage the full-screen background video journey displayed at the top of the landing page."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
       />
@@ -201,234 +126,96 @@ export function HeroSectionCMS({
         }`}
       >
         <div className="overflow-hidden flex flex-col gap-6 pt-1">
-
-          {/* Heading */}
-          <div className="space-y-3">
-            <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">Main Heading</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField
-                label="Heading Line 1"
-                value={formData.headingLine1}
-                onChange={(e) => setFormData({ ...formData, headingLine1: e.target.value })}
-                placeholder="e.g. Trusted Kirloskar Generator Dealer"
-              />
-              <InputField
-                label="Heading Line 2"
-                value={formData.headingLine2}
-                onChange={(e) => setFormData({ ...formData, headingLine2: e.target.value })}
-                placeholder="e.g. Certified Dealer for India's Power Needs"
-              />
-            </div>
-          </div>
-
-          {/* Description */}
-          <div className="space-y-4 pt-2 border-t border-slate-100">
-            <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">Description</p>
-            <InputField
-              label="Desktop Description (single line)"
-              value={formData.descriptionDesktop}
-              onChange={(e) => setFormData({ ...formData, descriptionDesktop: e.target.value })}
-              placeholder="Authorized Channel Distributor | ISO 9001:2015 | ..."
-            />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField
-                label="Mobile Line 1"
-                value={formData.descriptionMobileLine1}
-                onChange={(e) => setFormData({ ...formData, descriptionMobileLine1: e.target.value })}
-              />
-              <InputField
-                label="Mobile Line 2"
-                value={formData.descriptionMobileLine2}
-                onChange={(e) => setFormData({ ...formData, descriptionMobileLine2: e.target.value })}
-              />
-              <InputField
-                label="Mobile Line 3"
-                value={formData.descriptionMobileLine3}
-                onChange={(e) => setFormData({ ...formData, descriptionMobileLine3: e.target.value })}
-              />
-              <InputField
-                label="Mobile Line 4"
-                value={formData.descriptionMobileLine4}
-                onChange={(e) => setFormData({ ...formData, descriptionMobileLine4: e.target.value })}
-              />
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="space-y-4 pt-2 border-t border-slate-100">
-            <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">CTA Buttons & Documents</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField
-                label="Primary Button Label"
-                value={formData.ctaPrimaryLabel}
-                onChange={(e) => setFormData({ ...formData, ctaPrimaryLabel: e.target.value })}
-                placeholder="e.g. Explore Power Solutions"
-              />
-              <InputField
-                label="Primary Button URL"
-                value={formData.ctaPrimaryUrl}
-                onChange={(e) => setFormData({ ...formData, ctaPrimaryUrl: e.target.value })}
-                placeholder="e.g. /products"
-              />
-            </div>
-
-            <InputField
-              label="Secondary Button Label"
-              value={formData.ctaSecondaryLabel}
-              onChange={(e) => setFormData({ ...formData, ctaSecondaryLabel: e.target.value })}
-              placeholder="e.g. Download Profile"
-            />
-
-            {/* Company Profile PDF */}
-            <PDFUploadField
-              label="Company Profile PDF Document (Download Profile button)"
-              value={formData.companyProfilePdf}
-              onChange={(val) => setFormData({ ...formData, companyProfilePdf: val })}
-              tooltip="Upload company profile PDF downloaded when users click 'Download Profile'"
-            />
-          </div>
-
-          {/* Background Video */}
-          <div className="space-y-3 pt-2 border-t border-slate-100">
-            <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">Background Video</p>
-            <div className="flex flex-col gap-2">
-              <InputField
-                label="Background Video URL"
-                value={typeof formData.backgroundVideo === "string" ? formData.backgroundVideo : formData.backgroundVideo.name}
-                onChange={(e) => setFormData({ ...formData, backgroundVideo: e.target.value })}
-                placeholder="e.g. https://cdn.example.com/hero-video.mp4"
-                tooltip="MP4 video URL shown behind the hero content. You can upload one below or paste a URL directly."
-              />
-              <div className="flex items-center gap-4 mt-2">
-                <label className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl cursor-pointer transition">
-                  <Upload className="w-4 h-4" />
-                  Upload Video File
-                  <input
-                    type="file"
-                    accept="video/*"
-                    className="hidden"
-                    onChange={handleVideoUpload}
-                  />
-                </label>
-                {formData.backgroundVideo && typeof formData.backgroundVideo === "string" && formData.backgroundVideo.startsWith("http") && (
-                  <p className="text-xs text-slate-500 font-medium truncate mt-2">
-                    Current URL:{" "}
-                    <a href={formData.backgroundVideo} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                      {formData.backgroundVideo}
-                    </a>
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Trusted By Logos */}
-          <div className="space-y-4 pt-2 border-t border-slate-100">
+          {/* Background Video Section */}
+          <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-700">
-                  Trusted By Logos ({logos.length} client logos)
+                  Hero Background Video
                 </p>
-                <p className="text-[11px] text-slate-400 mt-0.5">
-                  Upload client brand logos to display in the scrolling marquee banner
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Upload an MP4 video or provide a direct video URL for the landing page hero.
                 </p>
               </div>
-              <button
-                type="button"
-                onClick={() => bulkInputRef.current?.click()}
-                className="flex items-center gap-1.5 px-4 py-2 bg-[#2D6FBA] hover:bg-[#22548e] text-white text-xs font-bold rounded-xl transition shadow-xs cursor-pointer"
-              >
-                <Upload className="w-3.5 h-3.5" />
-                Upload Logos
-              </button>
             </div>
 
+            <InputField
+              label="Background Video URL"
+              value={formData.backgroundVideo}
+              onChange={(e) => setFormData({ backgroundVideo: e.target.value })}
+              placeholder="e.g. /background.mp4 or https://your-cdn.com/hero.mp4"
+              tooltip="Direct URL to the video file or relative path"
+            />
+
+            {/* Video Upload Area */}
             <div
-              onClick={() => bulkInputRef.current?.click()}
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={(e) => {
-                e.preventDefault();
-                if (e.dataTransfer.files?.length) handleBulkFiles(e.dataTransfer.files);
-              }}
-              className="w-full border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 hover:bg-gray-100/80 flex flex-col items-center justify-center p-6 lg:p-8 transition-colors cursor-pointer group"
+              onClick={() => videoInputRef.current?.click()}
+              className="w-full border-2 border-dashed border-gray-200 hover:border-[#2D6FBA]/50 rounded-xl bg-gray-50 hover:bg-blue-50/20 flex flex-col items-center justify-center p-8 transition-colors cursor-pointer group"
             >
-              <div className="p-3 rounded-full bg-white shadow-xs ring-1 ring-gray-100 mb-3 text-[#2D6FBA] group-hover:scale-110 transition-transform">
-                <CloudUpload className="w-6 h-6" strokeWidth={2} />
+              <div className="p-3.5 rounded-full bg-white shadow-xs ring-1 ring-gray-100 mb-3 text-[#2D6FBA] group-hover:scale-110 transition-transform">
+                <Video className="w-6 h-6" strokeWidth={2} />
               </div>
-              <p className="text-gray-500 text-sm mb-1 text-center font-medium">
+              <p className="text-gray-700 text-sm mb-1 text-center font-medium">
                 <span className="text-[#2D6FBA] font-semibold hover:underline mr-1">
-                  Click to upload
+                  {isUploading ? "Uploading video..." : "Click to upload video file"}
                 </span>
-                or drag & drop client logo images
+                or drag & drop
               </p>
-              <p className="text-gray-400 text-xs text-center font-medium">
-                PNG, JPG, SVG or WebP supported
+              <p className="text-gray-400 text-xs text-center">
+                MP4, WebM or OGG format supported (Recommended: High-bitrate optimized MP4)
               </p>
             </div>
 
             <input
-              ref={bulkInputRef}
+              ref={videoInputRef}
               type="file"
-              accept="image/*"
-              multiple
+              accept="video/*"
               className="hidden"
-              onChange={(e) => e.target.files && handleBulkFiles(e.target.files)}
+              onChange={handleVideoUpload}
             />
 
-            <div className="space-y-2.5">
-              {logos.map((logo, idx) => (
-                <div
-                  key={logo.id}
-                  className="bg-slate-50/70 border border-slate-200/70 rounded-2xl px-4 py-3 flex items-center justify-between transition hover:bg-slate-50"
-                >
-                  <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="w-12 h-12 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-2xs">
-                      {logo.url ? (
-                        <img src={typeof logo.url === "string" ? logo.url : URL.createObjectURL(logo.url)} alt="Logo" className="w-full h-full object-contain" />
-                      ) : (
-                        <ImageIcon className="w-5 h-5 text-slate-300" />
-                      )}
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-xs font-bold text-slate-800 truncate">
-                        {logo.url ? "Uploaded Logo" : `Client Logo #${idx + 1}`}
-                      </h4>
-                      <p className="text-[11px] text-slate-400 font-medium">
-                        {logo.url
-                          ? typeof logo.url === "string" && logo.url.startsWith("data:")
-                            ? "Local File"
-                            : typeof logo.url !== "string" ? "Local File" : "Cloud / Remote"
-                          : "No file uploaded"}
-                      </p>
-                    </div>
+            {/* Video Preview Link */}
+            {formData.backgroundVideo && (
+              <div className="mt-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-[#2D6FBA] shrink-0">
+                    <Video className="w-4 h-4" />
                   </div>
-
-                  <div className="flex items-center gap-3 shrink-0">
-                    <label className="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 hover:text-[#2D6FBA] hover:border-[#2D6FBA]/40 rounded-xl text-xs font-semibold cursor-pointer transition shadow-2xs">
-                      {logo.url ? "Replace" : "Upload"}
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file) handleFileUpload(logo.id, file);
-                        }}
-                      />
-                    </label>
-
-                    <button
-                      type="button"
-                      onClick={() => removeLogo(logo.id)}
-                      className="w-8 h-8 rounded-full border border-slate-200/80 bg-white flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-300 transition cursor-pointer shadow-2xs"
-                      title="Remove image"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-slate-800">Current Video</span>
+                      <span className="inline-flex items-center gap-1 text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
+                        <CheckCircle2 className="w-3 h-3" />
+                        Uploaded / Set
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500 truncate mt-0.5 max-w-md">
+                      {formData.backgroundVideo}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href={formData.backgroundVideo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-[#2D6FBA] text-slate-700 hover:text-[#2D6FBA] text-xs font-semibold rounded-lg shadow-2xs transition"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    Preview Link
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ backgroundVideo: "" })}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-rose-200 hover:bg-rose-50 text-rose-600 text-xs font-semibold rounded-lg shadow-2xs transition cursor-pointer"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                    Remove
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="flex justify-end pt-4 border-t border-slate-100">
@@ -439,3 +226,4 @@ export function HeroSectionCMS({
     </div>
   );
 }
+
