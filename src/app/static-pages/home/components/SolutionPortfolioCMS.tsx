@@ -29,49 +29,6 @@ export interface PortfolioCategoryItem {
   link: string;
 }
 
-const DEFAULT_CATEGORIES: PortfolioCategoryItem[] = [
-  {
-    id: "uninterrupted-power",
-    title: "Uninterrupted Power",
-    subtitle: "For facilities where downtime causes massive financial loss.",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
-    features: ["CPCB IV+ Gensets", "BESS", "UPS Inverter", "Solar"],
-    link: "/products/kirloskar-diesel-generator",
-  },
-  {
-    id: "electrical-distribution",
-    title: "Electrical Distribution",
-    subtitle: "Safe, controlled power routing from incoming high-voltage grid.",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
-    features: ["Transformers", "HT/LT Panels"],
-    link: "/products/transformers",
-  },
-  {
-    id: "renewable-integration",
-    title: "Renewable Energy Integration",
-    subtitle: "Integrating rooftop solar with battery storage and standby DG.",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
-    features: ["Solar Energy", "BESS", "EV Charging Station"],
-    link: "/products",
-  },
-  {
-    id: "power-quality",
-    title: "Power Quality & Protection",
-    subtitle: "Eliminating voltage sag, harmonics, & power factor penalties.",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
-    features: ["Servo Stabilisers", "APFC Banks", "Surge Panels"],
-    link: "/products/servo-stabilizer",
-  },
-  {
-    id: "turnkey-projects",
-    title: "Turnkey Electrical Projects",
-    subtitle: "Single-point EPC accountability from concept to commissioning.",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
-    features: ["Design & EPC", "Heavy Cabling", "Substations", "Testing & AMC"],
-    link: "/services/installation",
-  },
-];
-
 interface SolutionPortfolioCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -94,7 +51,7 @@ export function SolutionPortfolioCMS({
 
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [expandedCard, setExpandedCard] = useState<string | null>("uninterrupted-power");
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
   const [newFeatureText, setNewFeatureText] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState<{
@@ -103,11 +60,10 @@ export function SolutionPortfolioCMS({
     description: string;
     categories: PortfolioCategoryItem[];
   }>({
-    badge: "Comprehensive Capabilities",
-    title: "What Power Challenge Are You Solving?",
-    description:
-      "We structure complete electrical power systems around your specific operational challenge rather than displaying generic equipment inventory.",
-    categories: DEFAULT_CATEGORIES,
+    badge: "",
+    title: "",
+    description: "",
+    categories: [],
   });
 
   useEffect(() => {
@@ -116,16 +72,17 @@ export function SolutionPortfolioCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              title: sectionData.title ?? prev.title,
-              description: sectionData.description ?? prev.description,
-              categories:
-                Array.isArray(sectionData.categories) && sectionData.categories.length > 0
-                  ? sectionData.categories
-                  : prev.categories,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              title: sectionData.title ?? "",
+              description: sectionData.description ?? "",
+              categories: Array.isArray(sectionData.categories)
+                ? sectionData.categories
+                : [],
+            });
+            if (Array.isArray(sectionData.categories) && sectionData.categories.length > 0) {
+              setExpandedCard(sectionData.categories[0].id);
+            }
           }
         }
       })

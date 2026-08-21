@@ -8,16 +8,23 @@ async function main() {
 
   // 1. Clean existing database
   try {
-    await prisma.section.deleteMany({});
-    await prisma.page.deleteMany({});
-    await prisma.navLink.deleteMany({});
-    await prisma.product.deleteMany({});
-    await prisma.enquiry.deleteMany({});
-    await prisma.user.deleteMany({});
-    await prisma.globalConfig.deleteMany({});
+    await prisma.$executeRawUnsafe(
+      `TRUNCATE TABLE "Section", "Page", "NavLink", "Product", "Enquiry", "User", "GlobalConfig" CASCADE;`
+    );
     console.log("🧹 Cleaned existing database tables.");
   } catch (err) {
-    console.warn("Table cleanup skipped:", err);
+    try {
+      await prisma.section.deleteMany({});
+      await prisma.page.deleteMany({});
+      await prisma.navLink.deleteMany({});
+      await prisma.product.deleteMany({});
+      await prisma.enquiry.deleteMany({});
+      await prisma.user.deleteMany({});
+      await prisma.globalConfig.deleteMany({});
+      console.log("🧹 Cleaned existing database tables via deleteMany.");
+    } catch (e) {
+      console.warn("Table cleanup skipped:", e);
+    }
   }
 
   // 2. Create Default Admin User
@@ -1115,7 +1122,8 @@ async function main() {
                 step: "01",
                 name: "Power Sources",
                 icon: "Zap",
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294582/kumarpower_website/ecosystem/stage1_power_sources.jpg",
                 headline: "Grid Entry, Solar Panels, Gensets & BESS",
                 description:
                   "Accepts high-voltage grid supply, integrates rooftop solar panels, Kirloskar CPCB IV+ diesel gensets, and battery energy storage (BESS).",
@@ -1131,7 +1139,8 @@ async function main() {
                 step: "02",
                 name: "Distribution",
                 icon: "Cpu",
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294585/kumarpower_website/ecosystem/stage2_transformers.jpg",
                 headline: "Step-Up / Step-Down Transformers",
                 description:
                   "Steps high transmission voltages up or down to operational facility voltage levels with custom dry-type and oil-filled transformers.",
@@ -1147,7 +1156,8 @@ async function main() {
                 step: "03",
                 name: "HT/LT Panels",
                 icon: "ShieldCheck",
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294588/kumarpower_website/ecosystem/stage3_panels.jpg",
                 headline: "Distribution Panels, AMF & Changeover",
                 description:
                   "Routes power safely across main LT Panels, HT breaker panels, PCC/MCC motor controls, AMF & ATS Panels.",
@@ -1163,7 +1173,8 @@ async function main() {
                 step: "04",
                 name: "Power Quality & Protection",
                 icon: "Gauge",
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294591/kumarpower_website/ecosystem/stage4_power_quality.jpg",
                 headline: "Voltage Regulation & Harmonics",
                 description:
                   "Stabilizes fluctuating grid voltages, maintains high power factor via APFC capacitor banks, and filters active harmonic distortion.",
@@ -1179,7 +1190,8 @@ async function main() {
                 step: "05",
                 name: "Sub-Distribution",
                 icon: "BatteryCharging",
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294594/kumarpower_website/ecosystem/stage5_busbar.jpg",
                 headline: "Bus Ducts & Feeder Pillars",
                 description:
                   "Transfers clean, protected electrical power through riser busbars, sub-distribution boards, and smart energy monitoring meters.",
@@ -1195,7 +1207,8 @@ async function main() {
                 step: "06",
                 name: "Final Facility Load",
                 icon: "Factory",
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294597/kumarpower_website/ecosystem/stage6_final_load.jpg",
                 headline: "Industrial, Commercial & Critical Facilities",
                 description:
                   "Delivers continuous, highly stable electrical energy to critical infrastructure, manufacturing plants, commercial complexes, data centres, healthcare facilities, and residential buildings.",
@@ -1225,7 +1238,7 @@ async function main() {
                 subtitle:
                   "For facilities where downtime causes massive financial loss.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294620/kumarpower_website/portfolio/uninterrupted_power.jpg",
                 features: ["CPCB IV+ Gensets", "BESS", "UPS Inverter", "Solar"],
                 link: "/products/kirloskar-diesel-generator",
               },
@@ -1235,7 +1248,7 @@ async function main() {
                 subtitle:
                   "Safe, controlled power routing from incoming high-voltage grid.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294622/kumarpower_website/portfolio/electrical_distribution.jpg",
                 features: ["Transformers", "HT/LT Panels"],
                 link: "/products/transformers",
               },
@@ -1245,7 +1258,7 @@ async function main() {
                 subtitle:
                   "Integrating rooftop solar with battery storage and standby DG.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294626/kumarpower_website/portfolio/renewable_integration.jpg",
                 features: ["Solar Energy", "BESS", "EV Charging Station"],
                 link: "/products",
               },
@@ -1255,7 +1268,7 @@ async function main() {
                 subtitle:
                   "Eliminating voltage sag, harmonics, & power factor penalties.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294629/kumarpower_website/portfolio/power_quality.jpg",
                 features: ["Servo Stabilisers", "APFC Banks", "Surge Panels"],
                 link: "/products/servo-stabilizer",
               },
@@ -1265,7 +1278,7 @@ async function main() {
                 subtitle:
                   "Single-point EPC accountability from concept to commissioning.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294632/kumarpower_website/portfolio/turnkey_projects.jpg",
                 features: [
                   "Design & EPC",
                   "Heavy Cabling",
@@ -1561,7 +1574,7 @@ async function main() {
                 title: "Critical Ground & Runway Operation Backup",
                 metric: "99.999% Power Uptime",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294620/kumarpower_website/portfolio/uninterrupted_power.jpg",
                 challenge:
                   "Zero-downtime standby power required for critical flight ground control, terminal lighting, and security infrastructure during grid outages.",
                 solution:
@@ -1578,7 +1591,7 @@ async function main() {
                 title: "Plant Electrical Distribution & Power Quality",
                 metric: "85% Breakdown Cut",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294622/kumarpower_website/portfolio/electrical_distribution.jpg",
                 challenge:
                   "Frequent utility voltage fluctuations, poor power factor penalties, and unorganized floor power distribution causing frequent machine trips.",
                 solution:
@@ -1595,7 +1608,7 @@ async function main() {
                 title: "Hybrid Solar-BESS Cost Reduction & Backup",
                 metric: "38% Energy Bill Cut",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294626/kumarpower_website/portfolio/renewable_integration.jpg",
                 challenge:
                   "High daytime electricity grid tariffs, strict diesel generator emission caps, and low solar self-consumption without storage.",
                 solution:
@@ -1617,48 +1630,158 @@ async function main() {
             logos: [
               {
                 id: "logo-1",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295237/kumarpower_website/associations/kirloskar_powergen.png",
                 alt: "Kirloskar Powergen",
               },
               {
                 id: "logo-2",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295239/kumarpower_website/associations/kirloskar_oil_engines.png",
                 alt: "Kirloskar Oil Engines",
               },
               {
                 id: "logo-3",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295240/kumarpower_website/associations/iia_logo.svg",
                 alt: "Indian Industries Association (IIA)",
               },
               {
                 id: "logo-4",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
-                alt: "Builders' Association of India (BAI)",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295243/kumarpower_website/associations/bai_association.png",
+                alt: "Builders Association of India (BAI)",
               },
               {
                 id: "logo-5",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295244/kumarpower_website/associations/ipa_association.png",
                 alt: "Indian Plumbing Association (IPA)",
               },
               {
                 id: "logo-6",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295246/kumarpower_website/associations/mba_association.png",
                 alt: "MES Builders Association of India (MBA)",
               },
               {
                 id: "logo-7",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703682/kumarpower_website/cvntuob1pan8lodaj37k.jpg",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295247/kumarpower_website/associations/bni_association.png",
                 alt: "BNI",
               },
               {
                 id: "logo-8",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703685/kumarpower_website/i2hcjyehbydll3hg67nf.jpg",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295249/kumarpower_website/associations/wscc_association.png",
                 alt: "World Sikh Chamber of Commerce (WSCC)",
               },
               {
                 id: "logo-9",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703686/kumarpower_website/uhmlaewcidzkrefpnl8g.jpg",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295250/kumarpower_website/associations/iso_quality_management.png",
                 alt: "ISO 9001:2015 Quality Management",
+              },
+              {
+                id: "logo-10",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295251/kumarpower_website/associations/certi_mba.png",
+                alt: "MBA Member Association",
+              },
+              {
+                id: "logo-11",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295252/kumarpower_website/associations/certi_bni.png",
+                alt: "BNI Member Association",
+              },
+              {
+                id: "logo-12",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295254/kumarpower_website/associations/certi_kirloskar.png",
+                alt: "Kirloskar Oil Engines Partner",
+              },
+              {
+                id: "logo-13",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295255/kumarpower_website/associations/certi_wscc.png",
+                alt: "WSCC World Sikh Chamber of Commerce",
+              },
+              {
+                id: "logo-14",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295256/kumarpower_website/associations/certi_bai.png",
+                alt: "BAI Builders Association of India",
+              },
+              {
+                id: "logo-15",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295258/kumarpower_website/associations/certi_member.png",
+                alt: "Member Association",
+              },
+              {
+                id: "logo-16",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295259/kumarpower_website/associations/certi_quality.png",
+                alt: "Industry Quality Alliance",
+              },
+              {
+                id: "logo-17",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295260/kumarpower_website/associations/certi_standards.png",
+                alt: "Statutory Standards Certification",
+              },
+              {
+                id: "logo-18",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295261/kumarpower_website/associations/trust_seasons.png",
+                alt: "Seasons",
+              },
+              {
+                id: "logo-19",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295262/kumarpower_website/associations/trust_sis.png",
+                alt: "SIS Security",
+              },
+              {
+                id: "logo-20",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295263/kumarpower_website/associations/trust_vistara.png",
+                alt: "Vistara",
+              },
+              {
+                id: "logo-21",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295264/kumarpower_website/associations/trust_gmr_infra.jpg",
+                alt: "GMR Infra",
+              },
+              {
+                id: "logo-22",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295266/kumarpower_website/associations/trust_honeywell.png",
+                alt: "Honeywell",
+              },
+              {
+                id: "logo-23",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295267/kumarpower_website/associations/trust_kashyapi.png",
+                alt: "Kashyapi",
+              },
+              {
+                id: "logo-24",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295268/kumarpower_website/associations/trust_caritas.png",
+                alt: "Caritas",
+              },
+              {
+                id: "logo-25",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295269/kumarpower_website/associations/trust_cec.png",
+                alt: "CEC",
+              },
+              {
+                id: "logo-26",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295270/kumarpower_website/associations/client_ace_construction.jpg",
+                alt: "ACE Construction",
+              },
+              {
+                id: "logo-27",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295272/kumarpower_website/associations/client_clarion.png",
+                alt: "Clarion",
+              },
+              {
+                id: "logo-28",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295273/kumarpower_website/associations/client_comed.png",
+                alt: "Comed",
+              },
+              {
+                id: "logo-29",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295274/kumarpower_website/associations/client_dps.jpg",
+                alt: "DPS",
+              },
+              {
+                id: "logo-30",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295276/kumarpower_website/associations/client_gepl.jpg",
+                alt: "GEPL",
+              },
+              {
+                id: "logo-31",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1787295277/kumarpower_website/associations/client_adidas.jpg",
+                alt: "Adidas",
               },
             ],
           },

@@ -18,15 +18,6 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 
-const DEFAULT_INDUSTRIES = [
-  "Manufacturing",
-  "Hospitality & Hotels",
-  "Healthcare & Hospitals",
-  "Data Centre",
-  "Commercial Real Estate",
-  "Infrastructure & Govt",
-];
-
 interface ConsultationFormData {
   // Section 1: Left Column Copy & Direct Contact Info
   badge: string;
@@ -48,23 +39,21 @@ interface ConsultationFormData {
 }
 
 const INITIAL_DATA: ConsultationFormData = {
-  badge: "WE'RE HERE TO HELP YOU",
-  heading: "Not Sure Which Electrical Solution You Need?",
-  description:
-    "Share your load, electricity bill, DG usage or project requirement. Our team will assess the application and recommend a suitable system—not simply the largest product.",
-  assessmentBtnText: "Request a Site Assessment",
-  expertBtnText: "Speak With a Power Expert",
-  phone: "+91 97738 51767",
-  salesEmail: "Sales@kumarpower.com",
-  accountsEmail: "Accounts@kumarpower.com",
-  supportEmail: "Support@kumarpower.com",
+  badge: "",
+  heading: "",
+  description: "",
+  assessmentBtnText: "",
+  expertBtnText: "",
+  phone: "",
+  salesEmail: "",
+  accountsEmail: "",
+  supportEmail: "",
 
-  formCardTitle: "Site Assessment & Enquiry Form",
-  submitBtnText: "Request a Site Assessment",
-  successTitle: "Site Assessment Requested!",
-  successMessage:
-    "Thank you. Our technical engineering team will review your application and get back to you shortly.",
-  industries: DEFAULT_INDUSTRIES,
+  formCardTitle: "",
+  submitBtnText: "",
+  successTitle: "",
+  successMessage: "",
+  industries: [],
 };
 
 interface ConsultationFormCMSProps {
@@ -97,26 +86,24 @@ export function ConsultationFormCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              heading: sectionData.heading ?? prev.heading,
-              description: sectionData.description ?? prev.description,
-              assessmentBtnText: sectionData.assessmentBtnText ?? prev.assessmentBtnText,
-              expertBtnText: sectionData.expertBtnText ?? prev.expertBtnText,
-              phone: sectionData.phone ?? prev.phone,
-              salesEmail: sectionData.salesEmail ?? prev.salesEmail,
-              accountsEmail: sectionData.accountsEmail ?? prev.accountsEmail,
-              supportEmail: sectionData.supportEmail ?? prev.supportEmail,
-              formCardTitle: sectionData.formCardTitle ?? prev.formCardTitle,
-              submitBtnText: sectionData.submitBtnText ?? prev.submitBtnText,
-              successTitle: sectionData.successTitle ?? prev.successTitle,
-              successMessage: sectionData.successMessage ?? prev.successMessage,
-              industries:
-                Array.isArray(sectionData.industries) && sectionData.industries.length > 0
-                  ? sectionData.industries
-                  : prev.industries,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              heading: sectionData.heading ?? "",
+              description: sectionData.description ?? "",
+              assessmentBtnText: sectionData.assessmentBtnText ?? "",
+              expertBtnText: sectionData.expertBtnText ?? "",
+              phone: sectionData.phone ?? "",
+              salesEmail: sectionData.salesEmail ?? "",
+              accountsEmail: sectionData.accountsEmail ?? "",
+              supportEmail: sectionData.supportEmail ?? "",
+              formCardTitle: sectionData.formCardTitle ?? "",
+              submitBtnText: sectionData.submitBtnText ?? "",
+              successTitle: sectionData.successTitle ?? "",
+              successMessage: sectionData.successMessage ?? "",
+              industries: Array.isArray(sectionData.industries)
+                ? sectionData.industries
+                : [],
+            });
           }
         }
       })

@@ -25,54 +25,6 @@ export type PartnerLogoItem = {
   alt: string;
 };
 
-const DEFAULT_LOGOS: PartnerLogoItem[] = [
-  {
-    id: "logo-1",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
-    alt: "Kirloskar Powergen",
-  },
-  {
-    id: "logo-2",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
-    alt: "Kirloskar Oil Engines",
-  },
-  {
-    id: "logo-3",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
-    alt: "Indian Industries Association (IIA)",
-  },
-  {
-    id: "logo-4",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
-    alt: "Builders' Association of India (BAI)",
-  },
-  {
-    id: "logo-5",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
-    alt: "Indian Plumbing Association (IPA)",
-  },
-  {
-    id: "logo-6",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
-    alt: "MES Builders Association of India (MBA)",
-  },
-  {
-    id: "logo-7",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703682/kumarpower_website/cvntuob1pan8lodaj37k.jpg",
-    alt: "BNI",
-  },
-  {
-    id: "logo-8",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703685/kumarpower_website/i2hcjyehbydll3hg67nf.jpg",
-    alt: "World Sikh Chamber of Commerce (WSCC)",
-  },
-  {
-    id: "logo-9",
-    url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703686/kumarpower_website/uhmlaewcidzkrefpnl8g.jpg",
-    alt: "ISO 9001:2015 Quality Management",
-  },
-];
-
 interface PartnerCertificationsCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -102,10 +54,9 @@ export function PartnerCertificationsCMS({
     description: string;
     logos: PartnerLogoItem[];
   }>({
-    title: "Trusted Association",
-    description:
-      "Certified and recognized by leading industry organizations for quality and excellence",
-    logos: DEFAULT_LOGOS,
+    title: "",
+    description: "",
+    logos: [],
   });
 
   useEffect(() => {
@@ -114,15 +65,11 @@ export function PartnerCertificationsCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              title: sectionData.title ?? prev.title,
-              description: sectionData.description ?? prev.description,
-              logos:
-                Array.isArray(sectionData.logos) && sectionData.logos.length > 0
-                  ? sectionData.logos
-                  : prev.logos,
-            }));
+            setFormData({
+              title: sectionData.title ?? "",
+              description: sectionData.description ?? "",
+              logos: Array.isArray(sectionData.logos) ? sectionData.logos : [],
+            });
           }
         }
       })

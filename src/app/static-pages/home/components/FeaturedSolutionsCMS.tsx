@@ -47,73 +47,6 @@ export interface FeaturedScenarioItem {
   components: string[];
 }
 
-const DEFAULT_SCENARIOS: FeaturedScenarioItem[] = [
-  {
-    id: "reduce-dg-dependence",
-    title: "Reduce DG Dependence",
-    badge: "Fuel & O&M Savings",
-    icon: "BatteryCharging",
-    headline: "Minimize Generator Hours & Diesel Expenses",
-    description:
-      "Combine battery energy storage (BESS), solar panels, and intelligent EMS controls to drastically lower generator runtime, carbon emissions, noise, and maintenance frequency.",
-    outcomes: [
-      "Up to 60% reduction in diesel consumption",
-      "Eliminating low-load generator running inefficiently",
-      "Instant zero-downtime microsecond battery takeover",
-      "Extended genset overhaul and maintenance intervals",
-    ],
-    components: [
-      "Battery Energy Storage (BESS)",
-      "Solar Panels",
-      "Smart EMS Controller",
-      "Kirloskar DG Set",
-    ],
-  },
-  {
-    id: "protect-critical-operations",
-    title: "Protect Critical Operations",
-    badge: "Zero Downtime",
-    icon: "ShieldAlert",
-    headline: "Uninterrupted Power for Mission-Critical Loads",
-    description:
-      "Create an ultra-reliable power architecture using Kirloskar DG sets, AMF panels, BESS, transformers, and servo stabilisers.",
-    outcomes: [
-      "100% power availability during main grid collapse",
-      "Seamless automatic transfer switch (ATS) sync",
-      "Isolation from grid harmonic spikes & voltage drops",
-      "Built-in redundant backup paths",
-    ],
-    components: [
-      "Kirloskar DG Sets",
-      "AMF Panels",
-      "BESS Storage",
-      "Transformers",
-      "Servo Stabilisers",
-    ],
-  },
-  {
-    id: "lower-energy-costs",
-    title: "Lower Energy Costs",
-    badge: "OPEX Optimization",
-    icon: "TrendingDown",
-    headline: "Target & Eliminate Avoidable Energy Charges",
-    description:
-      "Use APFC power-factor correction, rooftop solar generation, BESS peak-shaving, and energy monitoring to reduce maximum demand penalties and utility bills.",
-    outcomes: [
-      "Elimination of low power factor utility penalties",
-      "Peak demand charge shaving during high-rate hours",
-      "Substantial daytime solar self-consumption",
-      "Real-time facility load telemetry & alerts",
-    ],
-    components: [
-      "APFC Capacitor Panel",
-      "Rooftop Solar Panels",
-      "Peak Shaving BESS",
-      "Energy Management System",
-    ],
-  },
-];
-
 interface FeaturedSolutionsCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -136,7 +69,7 @@ export function FeaturedSolutionsCMS({
 
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [expandedScenario, setExpandedScenario] = useState<string | null>("reduce-dg-dependence");
+  const [expandedScenario, setExpandedScenario] = useState<string | null>(null);
   const [newOutcomeText, setNewOutcomeText] = useState<Record<string, string>>({});
   const [newComponentText, setNewComponentText] = useState<Record<string, string>>({});
 
@@ -147,12 +80,11 @@ export function FeaturedSolutionsCMS({
     ctaButtonLabel: string;
     scenarios: FeaturedScenarioItem[];
   }>({
-    badge: "Featured Operating Scenarios",
-    title: "Solutions Built Around Real Operating Challenges",
-    description:
-      "Switch between real-world operational challenges to see how Kumar Power integrates multiple technologies into a cohesive solution.",
-    ctaButtonLabel: "Request Custom Sizing For This Scenario",
-    scenarios: DEFAULT_SCENARIOS,
+    badge: "",
+    title: "",
+    description: "",
+    ctaButtonLabel: "",
+    scenarios: [],
   });
 
   useEffect(() => {
@@ -161,17 +93,18 @@ export function FeaturedSolutionsCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              title: sectionData.title ?? prev.title,
-              description: sectionData.description ?? prev.description,
-              ctaButtonLabel: sectionData.ctaButtonLabel ?? prev.ctaButtonLabel,
-              scenarios:
-                Array.isArray(sectionData.scenarios) && sectionData.scenarios.length > 0
-                  ? sectionData.scenarios
-                  : prev.scenarios,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              title: sectionData.title ?? "",
+              description: sectionData.description ?? "",
+              ctaButtonLabel: sectionData.ctaButtonLabel ?? "",
+              scenarios: Array.isArray(sectionData.scenarios)
+                ? sectionData.scenarios
+                : [],
+            });
+            if (Array.isArray(sectionData.scenarios) && sectionData.scenarios.length > 0) {
+              setExpandedScenario(sectionData.scenarios[0].id);
+            }
           }
         }
       })

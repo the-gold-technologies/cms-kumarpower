@@ -46,41 +46,6 @@ export interface StatItem {
   subtext: string;
 }
 
-const DEFAULT_STATS: StatItem[] = [
-  {
-    id: "stat-1",
-    icon: "Award",
-    value: "30+",
-    unit: "Years",
-    label: "Years of Experience",
-    subtext: "Delivering reliable electrical infrastructure since 1985.",
-  },
-  {
-    id: "stat-2",
-    icon: "ShieldCheck",
-    value: "5,000+",
-    unit: "Projects",
-    label: "Projects Executed",
-    subtext: "Across commercial, industrial, residential & institutional sectors.",
-  },
-  {
-    id: "stat-3",
-    icon: "Zap",
-    value: "250+",
-    unit: "MW",
-    label: "Largest Electrical Solutions Portfolio",
-    subtext: "Generators, transformers & solar-BESS systems.",
-  },
-  {
-    id: "stat-4",
-    icon: "Globe2",
-    value: "Pan-India",
-    unit: "Reach",
-    label: "Project Capability",
-    subtext: "Turnkey installation & 24/7 service network.",
-  },
-];
-
 interface NumbersCredibilityCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -107,7 +72,7 @@ export function NumbersCredibilityCMS({
   const [formData, setFormData] = useState<{
     stats: StatItem[];
   }>({
-    stats: DEFAULT_STATS,
+    stats: [],
   });
 
   useEffect(() => {
@@ -116,13 +81,9 @@ export function NumbersCredibilityCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              stats:
-                Array.isArray(sectionData.stats) && sectionData.stats.length > 0
-                  ? sectionData.stats
-                  : prev.stats,
-            }));
+            setFormData({
+              stats: Array.isArray(sectionData.stats) ? sectionData.stats : [],
+            });
           }
         }
       })

@@ -51,60 +51,6 @@ export interface CaseStudyItem {
   outcome: string;
 }
 
-const DEFAULT_CASE_STUDIES: CaseStudyItem[] = [
-  {
-    id: "aviation-delhi",
-    icon: "Plane",
-    sector: "Aviation Facility",
-    location: "Delhi NCR",
-    client: "Air India Terminal Operations",
-    title: "Critical Ground & Runway Operation Backup",
-    metric: "99.999% Power Uptime",
-    image:
-      "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
-    challenge:
-      "Zero-downtime standby power required for critical flight ground control, terminal lighting, and security infrastructure during grid outages.",
-    solution:
-      "Turnkey CPCB IV+ silent DG set synchronization, AMF panels, heavy-duty underground cabling, and 24/7 support.",
-    outcome:
-      "Achieved 99.999% power uptime during utility grid interruptions with sub-second failover transition.",
-  },
-  {
-    id: "manufacturing-haryana",
-    icon: "Factory",
-    sector: "Heavy Manufacturing",
-    location: "Delhi NCR",
-    client: "Automotive Precision Plant",
-    title: "Plant Electrical Distribution & Power Quality",
-    metric: "85% Breakdown Cut",
-    image:
-      "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
-    challenge:
-      "Frequent utility voltage fluctuations, poor power factor penalties, and unorganized floor power distribution causing frequent machine trips.",
-    solution:
-      "Turnkey supply and installation of custom distribution transformer, LT main switchgear panel, APFC capacitor bank, and servo stabilizer.",
-    outcome:
-      "Eliminated annual power factor penalty, reduced machine breakdown by 85%, and optimized plant voltage stability.",
-  },
-  {
-    id: "solar-bess-commercial",
-    icon: "Sun",
-    sector: "Commercial & Data Facility",
-    location: "Delhi NCR",
-    client: "Tech Park Infrastructure",
-    title: "Hybrid Solar-BESS Cost Reduction & Backup",
-    metric: "38% Energy Bill Cut",
-    image:
-      "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
-    challenge:
-      "High daytime electricity grid tariffs, strict diesel generator emission caps, and low solar self-consumption without storage.",
-    solution:
-      "Integrated 50 kWp rooftop solar panels with 100 kWh BESS and intelligent EMS control platform.",
-    outcome:
-      "Cut monthly energy bill by 38% and reduced generator run hours by 65% while keeping critical loads backed up.",
-  },
-];
-
 interface SelectedProjectsCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -127,7 +73,7 @@ export function SelectedProjectsCMS({
 
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [expandedCard, setExpandedCard] = useState<string | null>("aviation-delhi");
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<{
     badge: string;
@@ -137,13 +83,12 @@ export function SelectedProjectsCMS({
     ctaButtonUrl: string;
     caseStudies: CaseStudyItem[];
   }>({
-    badge: "Proven Field Execution",
-    title: "Solutions in Action",
-    description:
-      "Real-world case studies demonstrating our end-to-end power engineering, installation, and operational results.",
-    ctaButtonLabel: "View All Client References & Project Portfolio",
-    ctaButtonUrl: "/about/OurClients",
-    caseStudies: DEFAULT_CASE_STUDIES,
+    badge: "",
+    title: "",
+    description: "",
+    ctaButtonLabel: "",
+    ctaButtonUrl: "",
+    caseStudies: [],
   });
 
   useEffect(() => {
@@ -152,18 +97,19 @@ export function SelectedProjectsCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              title: sectionData.title ?? prev.title,
-              description: sectionData.description ?? prev.description,
-              ctaButtonLabel: sectionData.ctaButtonLabel ?? prev.ctaButtonLabel,
-              ctaButtonUrl: sectionData.ctaButtonUrl ?? prev.ctaButtonUrl,
-              caseStudies:
-                Array.isArray(sectionData.caseStudies) && sectionData.caseStudies.length > 0
-                  ? sectionData.caseStudies
-                  : prev.caseStudies,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              title: sectionData.title ?? "",
+              description: sectionData.description ?? "",
+              ctaButtonLabel: sectionData.ctaButtonLabel ?? "",
+              ctaButtonUrl: sectionData.ctaButtonUrl ?? "",
+              caseStudies: Array.isArray(sectionData.caseStudies)
+                ? sectionData.caseStudies
+                : [],
+            });
+            if (Array.isArray(sectionData.caseStudies) && sectionData.caseStudies.length > 0) {
+              setExpandedCard(sectionData.caseStudies[0].id);
+            }
           }
         }
       })

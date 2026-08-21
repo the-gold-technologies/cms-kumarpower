@@ -35,37 +35,6 @@ const AVAILABLE_ICONS: Record<string, any> = {
   CheckCircle2,
 };
 
-const DEFAULT_CAPABILITIES = [
-  {
-    id: "cap-1",
-    icon: "Compass",
-    title: "Design and Engineering",
-    description:
-      "Load assessment, system planning, equipment selection and technical coordination.",
-  },
-  {
-    id: "cap-2",
-    icon: "PackageCheck",
-    title: "Supply",
-    description:
-      "Reliable equipment sourced from established manufacturers and technology partners.",
-  },
-  {
-    id: "cap-3",
-    icon: "Wrench",
-    title: "Execution",
-    description:
-      "Installation, cabling, integration, testing and commissioning.",
-  },
-  {
-    id: "cap-4",
-    icon: "ShieldAlert",
-    title: "Lifecycle Support",
-    description:
-      "Preventive maintenance, breakdown support, upgrades and system optimisation.",
-  },
-];
-
 interface CapabilityItem {
   id: string;
   icon: string;
@@ -102,11 +71,10 @@ export function PositioningStatementCMS({
     description: string;
     capabilities: CapabilityItem[];
   }>({
-    badge: "Integrated Electrical Solution",
-    heading: "One Partner. Every Stage of Your Electrical Infrastructure.",
-    description:
-      "Kumar Power delivers integrated electrical solutions for commercial, industrial, institutional and infrastructure customers. We bring together power generators, transformers, distribution pannels, protection, power quality, renewable energy and battery storage under one coordinated solution.",
-    capabilities: DEFAULT_CAPABILITIES,
+    badge: "",
+    heading: "",
+    description: "",
+    capabilities: [],
   });
 
   useEffect(() => {
@@ -115,16 +83,14 @@ export function PositioningStatementCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              heading: sectionData.heading ?? prev.heading,
-              description: sectionData.description ?? prev.description,
-              capabilities:
-                Array.isArray(sectionData.capabilities) && sectionData.capabilities.length > 0
-                  ? sectionData.capabilities
-                  : prev.capabilities,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              heading: sectionData.heading ?? "",
+              description: sectionData.description ?? "",
+              capabilities: Array.isArray(sectionData.capabilities)
+                ? sectionData.capabilities
+                : [],
+            });
           }
         }
       })

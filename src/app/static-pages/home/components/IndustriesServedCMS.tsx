@@ -51,81 +51,6 @@ export interface IndustryCardItem {
   image: string | File;
 }
 
-const DEFAULT_INDUSTRIES: IndustryCardItem[] = [
-  {
-    id: "ind-manufacturing",
-    name: "Manufacturing",
-    icon: "Factory",
-    problem:
-      "Stable heavy power distribution, zero harmonic trips, and lower peak demand charges.",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ind-aviation",
-    name: "Aviation",
-    icon: "Plane",
-    problem:
-      "Dependable standby power & switchgear for ground control & runways (Air India projects).",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ind-healthcare",
-    name: "Healthcare",
-    icon: "HeartPulse",
-    problem:
-      "Zero-tolerance power failure for ICU life support, isolation transformers & instant failover.",
-    image:
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ind-data-centres",
-    name: "Data Centres",
-    icon: "Server",
-    problem:
-      "24/7 continuous high-density server power, sub-cycle BESS buffer, & HT/LT switchgear.",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ind-hospitality",
-    name: "Hospitality",
-    icon: "Hotel",
-    problem:
-      "Silent low-noise DG backup, uninterrupted guest HVAC comfort, and power factor savings.",
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ind-infrastructure",
-    name: "Infrastructure",
-    icon: "Landmark",
-    problem:
-      "Rugged distribution transformers, outdoor feeder pillars, & heavy-duty EPC cabling.",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ind-cold-storage",
-    name: "Cold Storage & Warehousing",
-    icon: "Truck",
-    problem:
-      "Continuous thermal refrigeration load protection, solar panels integration, & Battery Energy Storage (BESS).",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "ind-commercial",
-    name: "Commercial Towers",
-    icon: "Building",
-    problem:
-      "Elevator & chiller backup, central AMF switchgear, & rooftop solar power offset.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-  },
-];
-
 interface IndustriesServedCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -148,7 +73,7 @@ export function IndustriesServedCMS({
 
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [expandedCard, setExpandedCard] = useState<string | null>("ind-manufacturing");
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<{
     badge: string;
@@ -156,11 +81,10 @@ export function IndustriesServedCMS({
     description: string;
     industries: IndustryCardItem[];
   }>({
-    badge: "Sector-Specific Solutions",
-    title: "Solutions Designed for Your Industry",
-    description:
-      "We tailor electrical architecture to meet the specific operational, duty cycle, and statutory compliance demands of your sector.",
-    industries: DEFAULT_INDUSTRIES,
+    badge: "",
+    title: "",
+    description: "",
+    industries: [],
   });
 
   useEffect(() => {
@@ -169,16 +93,17 @@ export function IndustriesServedCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              title: sectionData.title ?? prev.title,
-              description: sectionData.description ?? prev.description,
-              industries:
-                Array.isArray(sectionData.industries) && sectionData.industries.length > 0
-                  ? sectionData.industries
-                  : prev.industries,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              title: sectionData.title ?? "",
+              description: sectionData.description ?? "",
+              industries: Array.isArray(sectionData.industries)
+                ? sectionData.industries
+                : [],
+            });
+            if (Array.isArray(sectionData.industries) && sectionData.industries.length > 0) {
+              setExpandedCard(sectionData.industries[0].id);
+            }
           }
         }
       })

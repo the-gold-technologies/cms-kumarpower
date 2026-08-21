@@ -53,105 +53,6 @@ export interface EcosystemStage {
   equipment: string[];
 }
 
-const DEFAULT_STAGES: EcosystemStage[] = [
-  {
-    id: "generation",
-    step: "01",
-    name: "Power Sources",
-    icon: "Zap",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
-    headline: "Grid Entry, Solar Panels, Gensets & BESS",
-    description:
-      "Accepts high-voltage grid supply, integrates rooftop solar panels, Kirloskar CPCB IV+ diesel gensets, and battery energy storage (BESS).",
-    equipment: [
-      "CPCB IV+ Gensets",
-      "Rooftop Solar Panels",
-      "Battery Energy Storage (BESS)",
-      "High-Voltage Substation",
-    ],
-  },
-  {
-    id: "distribution-trans",
-    step: "02",
-    name: "Distribution",
-    icon: "Cpu",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
-    headline: "Step-Up / Step-Down Transformers",
-    description:
-      "Steps high transmission voltages up or down to operational facility voltage levels with custom dry-type and oil-filled transformers.",
-    equipment: [
-      "Distribution Transformers",
-      "Isolation Transformers",
-      "Dry-Type Cast Resin",
-      "Step-down Transformers",
-    ],
-  },
-  {
-    id: "panels",
-    step: "03",
-    name: "HT/LT Panels",
-    icon: "ShieldCheck",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
-    headline: "Distribution Panels, AMF & Changeover",
-    description:
-      "Routes power safely across main LT Panels, HT breaker panels, PCC/MCC motor controls, AMF & ATS Panels.",
-    equipment: [
-      "Main LT Switchgear",
-      "HT Breaker Panels",
-      "AMF & ATS Panels",
-      "PCC & MCC Panels",
-    ],
-  },
-  {
-    id: "power-quality",
-    step: "04",
-    name: "Power Quality & Protection",
-    icon: "Gauge",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
-    headline: "Voltage Regulation & Harmonics",
-    description:
-      "Stabilizes fluctuating grid voltages, maintains high power factor via APFC capacitor banks, and filters active harmonic distortion.",
-    equipment: [
-      "Servo Stabilisers",
-      "APFC Capacitor Banks",
-      "Active Harmonic Filters",
-      "Surge Arrestors",
-    ],
-  },
-  {
-    id: "sub-distribution",
-    step: "05",
-    name: "Sub-Distribution",
-    icon: "BatteryCharging",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
-    headline: "Bus Ducts & Feeder Pillars",
-    description:
-      "Transfers clean, protected electrical power through riser busbars, sub-distribution boards, and smart energy monitoring meters.",
-    equipment: [
-      "Busbar Trunking Systems",
-      "Floor Distribution Boards",
-      "Feeder Pillars",
-      "Smart Meters",
-    ],
-  },
-  {
-    id: "final-load",
-    step: "06",
-    name: "Final Facility Load",
-    icon: "Factory",
-    image: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
-    headline: "Industrial, Commercial & Critical Facilities",
-    description:
-      "Delivers continuous, highly stable electrical energy to critical infrastructure, manufacturing plants, commercial complexes, data centres, healthcare facilities, and residential buildings.",
-    equipment: [
-      "Industrial Machinery",
-      "Data Centre Servers",
-      "Central HVAC Chillers",
-      "Residential Equipment",
-    ],
-  },
-];
-
 interface ElectricalEcosystemCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -174,7 +75,7 @@ export function ElectricalEcosystemCMS({
 
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [expandedStage, setExpandedStage] = useState<string | null>("generation");
+  const [expandedStage, setExpandedStage] = useState<string | null>(null);
   const [newEquipmentText, setNewEquipmentText] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState<{
@@ -183,11 +84,10 @@ export function ElectricalEcosystemCMS({
     description: string;
     stages: EcosystemStage[];
   }>({
-    badge: "Interactive System Flow",
-    title: "From Incoming Power to Final Load",
-    description:
-      "Automated power progression across all 6 electrical system stages. Click any stage to inspect equipment details.",
-    stages: DEFAULT_STAGES,
+    badge: "",
+    title: "",
+    description: "",
+    stages: [],
   });
 
   useEffect(() => {
@@ -196,16 +96,15 @@ export function ElectricalEcosystemCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              title: sectionData.title ?? prev.title,
-              description: sectionData.description ?? prev.description,
-              stages:
-                Array.isArray(sectionData.stages) && sectionData.stages.length > 0
-                  ? sectionData.stages
-                  : prev.stages,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              title: sectionData.title ?? "",
+              description: sectionData.description ?? "",
+              stages: Array.isArray(sectionData.stages) ? sectionData.stages : [],
+            });
+            if (Array.isArray(sectionData.stages) && sectionData.stages.length > 0) {
+              setExpandedStage(sectionData.stages[0].id);
+            }
           }
         }
       })

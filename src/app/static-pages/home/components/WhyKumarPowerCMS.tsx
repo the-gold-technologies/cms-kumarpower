@@ -47,45 +47,6 @@ export interface WhyReasonItem {
   desc: string;
 }
 
-const DEFAULT_REASONS: WhyReasonItem[] = [
-  {
-    id: "reason-1",
-    icon: "ShieldCheck",
-    title: "Single-Point Responsibility",
-    desc: "One engineering team coordinating generation, transformation, distribution, storage & turnkey execution.",
-  },
-  {
-    id: "reason-2",
-    icon: "Award",
-    title: "Established 30+ Year Track Record",
-    desc: "Decades of proven power sector experience executing 5,000+ complex industrial and commercial projects.",
-  },
-  {
-    id: "reason-3",
-    icon: "Cpu",
-    title: "Authorised Kirloskar Partnership",
-    desc: "Direct factory OEM warranty, certified engineers, and genuine spare parts supply pipeline.",
-  },
-  {
-    id: "reason-4",
-    icon: "Wrench",
-    title: "Solution-Based Sizing",
-    desc: "Equipment customized to your real load profile & duty cycle—not pushed off-the-shelf inventory.",
-  },
-  {
-    id: "reason-5",
-    icon: "Headset",
-    title: "Lifecycle Support & AMC",
-    desc: "Dedicated emergency response team, routine maintenance, testing & statutory commissioning.",
-  },
-  {
-    id: "reason-6",
-    icon: "Sun",
-    title: "Conventional & Hybrid Renewable",
-    desc: "Seamless integration of traditional DG power with rooftop solar panels and battery storage (BESS).",
-  },
-];
-
 interface WhyKumarPowerCMSProps {
   saveUrl?: string;
   responseKey?: string;
@@ -121,18 +82,16 @@ export function WhyKumarPowerCMS({
     modalOfficeDescription: string;
     reasons: WhyReasonItem[];
   }>({
-    badge: "Engineered Trust",
-    title: "Why Businesses Choose Kumar Power",
-    description:
-      "We structure complete electrical power systems around your specific operational challenge rather than displaying generic equipment inventory.",
-    leadershipButtonLabel: "Meet Leadership & Heritage",
-    modalBadge: "Leadership & Heritage",
-    modalTitle: "Behind Kumar Power",
-    modalDescription:
-      "Founded over three decades ago, Kumar Power has evolved from a pioneering generator dealership into an integrated electrical power systems engineering enterprise. Under veteran leadership, our team combines senior electrical engineers, certified technicians, and project managers committed to zero-downtime client infrastructure.",
-    modalOfficeTitle: "Head Office & Regional Reach",
-    modalOfficeDescription: "Delhi NCR • Pan-India Project Execution & Service Support",
-    reasons: DEFAULT_REASONS,
+    badge: "",
+    title: "",
+    description: "",
+    leadershipButtonLabel: "",
+    modalBadge: "",
+    modalTitle: "",
+    modalDescription: "",
+    modalOfficeTitle: "",
+    modalOfficeDescription: "",
+    reasons: [],
   });
 
   useEffect(() => {
@@ -141,22 +100,20 @@ export function WhyKumarPowerCMS({
         if (json.success && json.data) {
           const sectionData = responseKey ? json.data?.[responseKey] : json.data;
           if (sectionData && typeof sectionData === "object") {
-            setFormData((prev) => ({
-              ...prev,
-              badge: sectionData.badge ?? prev.badge,
-              title: sectionData.title ?? prev.title,
-              description: sectionData.description ?? prev.description,
-              leadershipButtonLabel: sectionData.leadershipButtonLabel ?? prev.leadershipButtonLabel,
-              modalBadge: sectionData.modalBadge ?? prev.modalBadge,
-              modalTitle: sectionData.modalTitle ?? prev.modalTitle,
-              modalDescription: sectionData.modalDescription ?? prev.modalDescription,
-              modalOfficeTitle: sectionData.modalOfficeTitle ?? prev.modalOfficeTitle,
-              modalOfficeDescription: sectionData.modalOfficeDescription ?? prev.modalOfficeDescription,
-              reasons:
-                Array.isArray(sectionData.reasons) && sectionData.reasons.length > 0
-                  ? sectionData.reasons
-                  : prev.reasons,
-            }));
+            setFormData({
+              badge: sectionData.badge ?? "",
+              title: sectionData.title ?? "",
+              description: sectionData.description ?? "",
+              leadershipButtonLabel: sectionData.leadershipButtonLabel ?? "",
+              modalBadge: sectionData.modalBadge ?? "",
+              modalTitle: sectionData.modalTitle ?? "",
+              modalDescription: sectionData.modalDescription ?? "",
+              modalOfficeTitle: sectionData.modalOfficeTitle ?? "",
+              modalOfficeDescription: sectionData.modalOfficeDescription ?? "",
+              reasons: Array.isArray(sectionData.reasons)
+                ? sectionData.reasons
+                : [],
+            });
           }
         }
       })
