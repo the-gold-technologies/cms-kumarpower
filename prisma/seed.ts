@@ -1607,600 +1607,96 @@ async function main() {
           },
         },
         {
-          id: "sec-home-about",
-          type: "about",
-          order: 2,
+          id: "sec-home-partner-certifications",
+          type: "partnerCertifications",
+          order: 10,
           content: {
-            bannerTitle: "ABOUT KUMAR POWER",
-            bannerSubtitle: "Powering Progress.",
-            mainHeadingLine1: "Engineering India's",
-            mainHeadingLine2: "Energy Backbone.",
+            title: "Trusted Association",
             description:
-              "For over 30+ years, Kumar Power has engineered uninterrupted power across India's industries, infrastructure, and institutions. With Kirloskar certification and ISO 9001:2015 accreditation, we serve 500+ enterprise clients with unmatched reliability and scale.",
-            feature1: "Kirloskar Authorized Distributor",
-            feature2: "24/7 Service Infrastructure",
-            feature3: "500+ Enterprise Clients",
-            feature4: "ISO 9001:2015 Accredited",
-            ctaLabel: "Explore Our Legacy",
-            ctaUrl: "/about/OurProfile",
-            teamImage:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784703171/kumarpower_website/vha58bhrkpu6yhmhammc.jpg",
-          },
-        },
-        {
-          id: "sec-home-generator-range",
-          type: "generator-range",
-          order: 3,
-          content: {
-            sectionTitle: "Explore Our Generator Range",
-            sectionDesc:
-              "Kirloskar-certified systems tailored for industrial, commercial, and backup applications. Download brochures for detailed specifications.",
-            cards: [
-              {
-                id: "gen-1",
-                title: "Kirloskar Optiprime Generator (125 – 6600 kVA)",
-                caption:
-                  "High-output Kirloskar Optiprime engineered for mission-critical facilities.",
-                category: "Optiprime",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "gen-2",
-                title: "Kirloskar Gas Generator (15 – 250 kVA)",
-                caption:
-                  "Clean, efficient power for commercial and industrial applications.",
-                category: "Gas Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703237/kumarpower_website/yparf7bahdtrfl3p0tjz.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318471/kumarpower_website/brochures_raw/NEW_CATELOG_-_GAS_GENSET.pdf",
-              },
-              {
-                id: "gen-3",
-                title: "Kirloskar CPCB4+ Diesel Generator (7.5 – 20 kVA)",
-                caption:
-                  "Portable power for events, remote sites, and emergency backup.",
-                category: "CPCB4+ Diesel Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703242/kumarpower_website/qnckibpukq9qy7h83s7p.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318453/kumarpower_website/brochures_raw/25-58.5.pdf",
-              },
-              {
-                id: "gen-4",
-                title: "Kirloskar CPCB4+ Diesel Generator (25 – 58.5 kVA)",
-                caption:
-                  "Balanced performance for medium-scale industrial needs.",
-                category: "CPCB4+ Diesel Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703247/kumarpower_website/j1rhhm2jwtonnds72k5d.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318467/kumarpower_website/brochures_raw/82.5-160.pdf",
-              },
-              {
-                id: "gen-5",
-                title: "Kirloskar CPCB4+ Diesel Generator (82.5 – 160 kVA)",
-                caption:
-                  "Scalable solutions with robust service network coverage.",
-                category: "CPCB4+ Diesel Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703244/kumarpower_website/bx4dizebcdvadsuozqfd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318451/kumarpower_website/brochures_raw/200-250.pdf",
-              },
-              {
-                id: "gen-6",
-                title: "Kirloskar CPCB4+ Diesel Generator (200 – 250 kVA)",
-                caption:
-                  "Versatile DG sets for plants, campuses, and commercial towers.",
-                category: "CPCB4+ Diesel Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703245/kumarpower_website/inxnbk5rir4rykhj0cfr.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318454/kumarpower_website/brochures_raw/320-750.pdf",
-              },
-              {
-                id: "gen-7",
-                title: "Kirloskar CPCB4+ Diesel Generator (320 – 750 kVA)",
-                caption:
-                  "Durable, high-efficiency backup for industries and campuses.",
-                category: "CPCB4+ Diesel Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703249/kumarpower_website/ohwufq3yx4yuuuahmw3g.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318464/kumarpower_website/brochures_raw/750_kVA-1500_kVA.pdf",
-              },
-              {
-                id: "gen-8",
-                title: "Kirloskar CPCB4+ Diesel Generator (750 – 1500 kVA)",
-                caption:
-                  "Low-emission, reliable diesel generator for versatile use.",
-                category: "CPCB4+ Diesel Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703251/kumarpower_website/m1k3mjmhyughj3ajg9a0.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318473/kumarpower_website/brochures_raw/OPTIPRIME-_117_400_500_640_1000_1500_2020_KVA.pdf",
-              },
-              {
-                id: "gen-9",
-                title: "Kirloskar Portable Generator (2.1 – 5 kVA)",
-                caption:
-                  "Compact portable power for small-scale events, sites, and emergency use.",
-                category: "Portable Generators",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703239/kumarpower_website/b3tdsaxtpw136j20rlxh.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-            ],
-          },
-        },
-        {
-          id: "sec-home-cta",
-          type: "cta",
-          order: 4,
-          content: {
-            title: "Need Expert Assistance?",
-            primaryBtnLabel: "Talk to an Expert",
-            primaryBtnUrl: "/contact",
-            whatsappBtnLabel: "Connect on WhatsApp",
-            whatsappNumber: "919773851767",
-            backgroundImage:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784703170/kumarpower_website/hif6xnvv5mggerl73bkd.png",
-          },
-        },
-        {
-          id: "sec-home-power-solutions",
-          type: "power-solutions",
-          order: 5,
-          content: {
-            topBannerImg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-            sectionTitle: "Power Solutions",
-            assocTitle: "Members of Associations",
-            assocSubtitle:
               "Certified and recognized by leading industry organizations for quality and excellence",
-            assocLogos: [
+            logos: [
               {
-                id: "assoc-1",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121853_okz8x7.png",
-                alt: "Association Member 1",
+                id: "logo-1",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                alt: "Kirloskar Powergen",
               },
               {
-                id: "assoc-2",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121836_ayhhxd.png",
-                alt: "Association Member 2",
+                id: "logo-2",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                alt: "Kirloskar Oil Engines",
               },
               {
-                id: "assoc-3",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121914_yztxrf.png",
-                alt: "Association Member 3",
+                id: "logo-3",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
+                alt: "Indian Industries Association (IIA)",
               },
               {
-                id: "assoc-4",
-                url: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762843802/Screenshot_2025-11-11_121748_ihrukv.png",
-                alt: "Association Member 4",
-              },
-            ],
-            actionTitle: "Power in Action",
-            products: [
-              {
-                id: "ps-1",
-                category: "CPCB4+ Diesel Generator",
-                title: "CPCB4+ Diesel Generators( 7.5 kVA - 20 kVA)",
-                desc: "Compact CPCB4+ compliant diesel generators designed for small businesses and commercial setups.",
-                specs: [
-                  "Range: 7.5 kVA - 20 kVA",
-                  "CPCB Norm: CPCB4+ Emission Compliance",
-                  "Fuel: Diesel",
-                  "Cooling: Liquid",
-                  "Phase: Three Phase",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703242/kumarpower_website/qnckibpukq9qy7h83s7p.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                id: "logo-4",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
+                alt: "Builders' Association of India (BAI)",
               },
               {
-                id: "ps-2",
-                category: "CPCB4+ Diesel Generator",
-                title: "CPCB4+ Diesel Generators(25 kVA - 58.5 kVA)",
-                desc: "Reliable CPCB4+ emission compliant diesel generators with advanced liquid cooling for efficient performance.",
-                specs: [
-                  "Range: 25 kVA - 58.5 kVA",
-                  "CPCB Norm: CPCB4+ Emission Compliance",
-                  "Fuel: Diesel",
-                  "Cooling: Liquid",
-                  "Phase: Three Phase",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703247/kumarpower_website/j1rhhm2jwtonnds72k5d.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                id: "logo-5",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                alt: "Indian Plumbing Association (IPA)",
               },
               {
-                id: "ps-3",
-                category: "CPCB4+ Diesel Generator",
-                title: "CPCB4+ Diesel Generators(82.5 kVA - 160 kVA)",
-                desc: "Versatile CPCB4+ compliant diesel generators designed for medium-scale industries and businesses.",
-                specs: [
-                  "Range: 82.5 kVA - 160 kVA",
-                  "CPCB Norm: CPCB4+ Emission Compliance",
-                  "Fuel: Diesel",
-                  "Cooling: Liquid",
-                  "Phase: Three Phase",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703244/kumarpower_website/bx4dizebcdvadsuozqfd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318451/kumarpower_website/brochures_raw/200-250.pdf",
+                id: "logo-6",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
+                alt: "MES Builders Association of India (MBA)",
               },
               {
-                id: "ps-4",
-                category: "CPCB4+ Diesel Generator",
-                title: "CPCB4+ Diesel Generators(200 kVA - 250 kVA)",
-                desc: "High-performance CPCB4+ compliant diesel generators with liquid cooling, ideal for industrial and commercial usage.",
-                specs: [
-                  "Range: 200 kVA - 250 kVA",
-                  "CPCB Norm: CPCB4+ Emission Compliance",
-                  "Fuel: Diesel",
-                  "Cooling: Liquid",
-                  "Phase: Three Phase",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703245/kumarpower_website/inxnbk5rir4rykhj0cfr.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318454/kumarpower_website/brochures_raw/320-750.pdf",
+                id: "logo-7",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703682/kumarpower_website/cvntuob1pan8lodaj37k.jpg",
+                alt: "BNI",
               },
               {
-                id: "ps-5",
-                category: "CPCB4+ Diesel Generator",
-                title: "CPCB4+ Diesel Generators(320 kVA - 750 kVA)",
-                desc: "Heavy-duty CPCB4+ compliant diesel generators offering superior efficiency and power reliability.",
-                specs: [
-                  "Range: 320 kVA - 750 kVA",
-                  "CPCB Norm: CPCB4+ Emission Compliance",
-                  "Fuel: Diesel",
-                  "Cooling: Liquid",
-                  "Phase: Three Phase",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703249/kumarpower_website/ohwufq3yx4yuuuahmw3g.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318464/kumarpower_website/brochures_raw/750_kVA-1500_kVA.pdf",
+                id: "logo-8",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703685/kumarpower_website/i2hcjyehbydll3hg67nf.jpg",
+                alt: "World Sikh Chamber of Commerce (WSCC)",
               },
               {
-                id: "ps-6",
-                category: "CPCB4+ Diesel Generator",
-                title: "CPCB4+ Diesel Generators(750 kVA - 1500 kVA)",
-                desc: "High-capacity CPCB4+ diesel generators for continuous heavy industrial and commercial applications.",
-                specs: [
-                  "Range: 750 kVA - 1500 kVA",
-                  "CPCB Norm: CPCB4+ Emission Compliance",
-                  "Fuel: Diesel",
-                  "Cooling: Liquid",
-                  "Phase: Three Phase",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703251/kumarpower_website/m1k3mjmhyughj3ajg9a0.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318473/kumarpower_website/brochures_raw/OPTIPRIME-_117_400_500_640_1000_1500_2020_KVA.pdf",
-              },
-              {
-                id: "ps-7",
-                category: "Optiprime Generators",
-                title: "Kirloskar Optiprime Generator",
-                desc: "Advanced diesel generators with CPCB4+ compliance, offering superior fuel efficiency and eco-friendly operations.",
-                specs: [
-                  "125 kva - 6600 kva",
-                  "CPCB4+ Compliant",
-                  "3 Phase Output",
-                  "Fuel: Diesel",
-                  "Application: Industrial, Commercial",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703235/kumarpower_website/i31vcugsqskwv56ixrhv.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-8",
-                category: "Gas Generators",
-                title: "Gas Generators",
-                desc: "Eco-friendly natural gas and LPG generators with lower emissions and operational costs for sustainable power generation.",
-                specs: [
-                  "15 kVA - 250 kVA",
-                  "Low Emissions",
-                  "Quiet Operation",
-                  "Fuel: Natural Gas, LPG",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703237/kumarpower_website/yparf7bahdtrfl3p0tjz.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318471/kumarpower_website/brochures_raw/NEW_CATELOG_-_GAS_GENSET.pdf",
-              },
-              {
-                id: "ps-9",
-                category: "Portable Generators",
-                title: "Portable Generators",
-                desc: "Compact and mobile power solutions for construction sites, events, and emergency backup with easy transport features.",
-                specs: [
-                  "2.1 kVA to 5 kVA",
-                  "Lightweight Design",
-                  "Fuel: Portable, Diesel",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703239/kumarpower_website/b3tdsaxtpw136j20rlxh.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-10",
-                category: "Electrical Panels",
-                title: "AMF Panels",
-                desc: "Automatic Mains Failure panels for seamless switching between mains and backup power supply, ensuring uninterrupted operation.",
-                specs: [
-                  "Auto/Manual Operation",
-                  "Engine Protection",
-                  "Programmable Logic Control",
-                  "Current Rating: 100-630A",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-11",
-                category: "Electrical Panels",
-                title: "Vacuum Circuit Breaker",
-                desc: "High-performance vacuum circuit breakers designed for medium voltage applications, ensuring safe and reliable power distribution.",
-                specs: [
-                  "Voltage Rating: Up to 36kV",
-                  "Interrupting Medium: Vacuum",
-                  "Low Maintenance Design",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-12",
-                category: "Electrical Panels",
-                title: "Distribution Boxes",
-                desc: "Sturdy and safe distribution boxes to manage and distribute electrical power efficiently for various installations.",
-                specs: [
-                  "Voltage Rating: Up to 415V",
-                  "Circuit Protection with MCB/ELCB",
-                  "Compact & Robust Design",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-13",
-                category: "Electrical Panels",
-                title: "Feeder Pillars",
-                desc: "Robust outdoor electrical distribution pillars designed for safe and efficient power distribution in various environments.",
-                specs: [
-                  "Voltage Rating: Up to 11kV",
-                  "Weather Resistant Design",
-                  "IP54 Protection Rating",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-14",
-                category: "Servo Stabilizers",
-                title: "Oil Cooled Servo Stabilizers",
-                desc: "Heavy-duty oil-cooled stabilizers designed for high-load applications, ensuring superior voltage regulation and thermal efficiency.",
-                specs: [
-                  "Power Range: 5kVA - 5000kVA",
-                  "Cooling: Oil Immersion",
-                  "Voltage Accuracy: ±1%",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-15",
-                category: "Servo Stabilizers",
-                title: "Air Cooled Servo Stabilizers",
-                desc: "Compact and efficient air-cooled stabilizers for commercial and IT infrastructure, offering reliable power protection.",
-                specs: [
-                  "Power Range: 5kVA - 500kVA",
-                  "Cooling: Natural/Forced Air",
-                  "Voltage Accuracy: ±1%",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-16",
-                category: "Transformers",
-                title: "Distribution Transformers",
-                desc: "Reliable and efficient transformers designed for safe power distribution in commercial and industrial sectors.",
-                specs: [
-                  "Capacity: 10kVA - 5000kVA",
-                  "Type: Oil-Filled/Dry Type",
-                  "Cooling: ONAN/ONAF",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-17",
-                category: "Transformers",
-                title: "Power Transformers",
-                desc: "Heavy-duty power transformers designed for high voltage transmission with superior energy efficiency and performance.",
-                specs: [
-                  "Capacity: 5MVA - 500MVA",
-                  "Type: Oil-Immersed",
-                  "Cooling: ONAF/OFWF",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-18",
-                category: "Transformers",
-                title: "Cast Resin Transformers",
-                desc: "Eco-friendly, low-maintenance dry-type transformers ideal for commercial and indoor installations.",
-                specs: [
-                  "Capacity: 100kVA - 2500kVA",
-                  "Type: Epoxy Resin Encapsulated",
-                  "Cooling: Air Natural (AN)",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
-              },
-              {
-                id: "ps-19",
-                category: "Transformers",
-                title: "Unitized Package Substation",
-                desc: "Compact and factory-built substations designed for fast installation, providing safe and efficient power distribution.",
-                specs: [
-                  "Voltage Rating: Up to 36kV",
-                  "Integrated Transformer, Switchgear & Protection",
-                  "Compact Outdoor Design",
-                ],
-                img: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703168/kumarpower_website/imxbzh1nuz8lw8im0vwd.jpg",
-                brochureUrl:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                id: "logo-9",
+                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703686/kumarpower_website/uhmlaewcidzkrefpnl8g.jpg",
+                alt: "ISO 9001:2015 Quality Management",
               },
             ],
           },
         },
         {
-          id: "sec-home-use-cases",
-          type: "use-cases",
-          order: 6,
+          id: "sec-home-consultation",
+          type: "consultation",
+          order: 11,
           content: {
-            headingLine1: "Power Solutions",
-            headingLine2: "for Metro Cities",
-            footerQuote:
-              "Kirloskar generators, with their reliable performance and versatility, are well-suited to meet the unique demands of metro city environments.",
-            items: [
-              {
-                id: "uc-1",
-                title: "Power Outages and Load Shedding",
-                text: "Despite robust infrastructure, metro areas still experience power outages caused by high demand, technical issues, maintenance work, grid failures, natural disasters, and peak-demand overload.",
-              },
-              {
-                id: "uc-2",
-                title: "High-Demand Areas",
-                text: "Metro cities are hubs for businesses, industries, commercial buildings, hospitals, malls, data centers, and IT companies—all of which require continuous power.",
-              },
-              {
-                id: "uc-3",
-                title: "Dependability for Events and Functions",
-                text: "Generators are essential for events such as weddings, concerts, public gatherings, construction projects, and outdoor activities.",
-              },
-              {
-                id: "uc-4",
-                title: "Backup for Critical Appliances",
-                text: "Households often need generators to keep essential appliances running during outages, such as refrigerators, medical equipment, and security systems.",
-              },
-              {
-                id: "uc-5",
-                title: "Increased Usage During Monsoon Season",
-                text: "Heavy rains and storms frequently disrupt power lines in metro cities, resulting in power outages. Generators help reduce the impact of these disruptions.",
-              },
-              {
-                id: "uc-6",
-                title: "Urbanization and Infrastructure Stress",
-                text: "Rapid urbanization places stress on existing power grids, occasionally leading to shortages or planned outages.",
-              },
-            ],
-          },
-        },
-        {
-          id: "sec-home-gallery",
-          type: "gallery",
-          order: 7,
-          content: {
-            title: "Photo Gallery",
-            subtitle:
-              "Explore our installations, equipment, and team in action through these images",
-            images: [
-              {
-                id: "img-1",
-                url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery1_uhk3zd.png",
-                caption: "Gallery image 1",
-              },
-              {
-                id: "img-2",
-                url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175177/gallery2_ei3h9z.png",
-                caption: "Gallery image 2",
-              },
-              {
-                id: "img-3",
-                url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175176/gallery3_dcqffp.png",
-                caption: "Gallery image 3",
-              },
-              {
-                id: "img-4",
-                url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175202/gallery4_nwutsh.png",
-                caption: "Gallery image 4",
-              },
-              {
-                id: "img-5",
-                url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175196/gallery5_zlyhc4.png",
-                caption: "Gallery image 5",
-              },
-              {
-                id: "img-6",
-                url: "https://res.cloudinary.com/dinhcaf2c/image/upload/v1755175198/gallery6_ulastu.png",
-                caption: "Gallery image 6",
-              },
-            ],
-          },
-        },
-        {
-          id: "sec-home-testimonials",
-          type: "testimonials",
-          order: 8,
-          content: {
-            heading: "Real Stories. Real Power.",
-            subtitle:
-              "Hear how our generators keep India powered — from Fortune 500 factories to city hospitals.",
-            items: [
-              {
-                id: "test-1",
-                headerTitle: "TESTIMONIAL BY POOJA JAIN - SHIKHERJEE JEWELLERS",
-                name: "Pooja Jain",
-                role: "Shikherjee Jewellers",
-                quote:
-                  "At Vilandl, we make bespoke Polki jewellery with the finest syndicate polkis, coloured gemstones and even finer details. We are extremely conscious about quality and create pieces that will be cherished for generations. We manufacture all of our jewellery pieces in-house and cater to both B2B and B2C clients. Recently, I referred Mr. R. S. Kumar from M/S Kumar Generator House to Mr Abhishek Jain of Jainco Sphere, a real estate company developing luxury homes in Delhi NCR. They had a detailed meeting and were really impressed with the knowledge and command he had on his industry. He suggested some important changes in their existing selection of material and design of LT panels and also, some value-added services which would enrich the experience of their customers. He was so convincing and transparent with his pricing and product detailing that Mr Abhishek gave an order for 2 of his under-construction buildings for Distribution panels, LT panels and chemical earthings. Also, the execution of work at the site was carried out with thorough professionalism and in a really time-bound manner. Mr Jain was very happy to work with M/s Kumar Generator House and highly recommends his services for Best quality, Best pricing and Best services.",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761903094/Screenshot_2025-10-31_145916_tf6wvg.png",
-              },
-              {
-                id: "test-2",
-                headerTitle:
-                  "TESTIMONIAL BY AANCHAL SAINI, AARK WORLD PVT. LTD.",
-                name: "Aanchal Saini",
-                role: "AARK World Pvt. Ltd.",
-                quote:
-                  "RENT IT BAE is a luxury fashion rental service offering Ethnic, Western & Accessories from designer labels at a fraction of MRP. Servicing 15 cities via Website, m-site, Android & iOS apps. First to introduce Monthly Fashion Subscription in the country. The company has it's 2 Flagship Stores in New Delhi (Rajouri Garden and Greater Kailash-1). RENT IT BAE has taken the media limelight for building country's first tech driven store. We highly appreciate the fast and seamless service provided by your company. The installation of inverters for RENT IT BAE's South Delhi Flagship Store at Greater Kailash seemed a fluid task with your service. The requirement for a power back up is a must for all companies now days especially in the retail sector. You understood the requirement and delivered the apt products at a reasonable price. All was done post one phone call. No follow ups were required. The products were delivered and installed within 24 hours. We would be happy to recommend your products and service.",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761903093/download_v9kdua.png",
-              },
-              {
-                id: "test-3",
-                headerTitle: "TESTIMONIAL BY BHARAT ANAND - BROWN GOLD",
-                name: "Bharat Anand",
-                role: "BROWNGOLD",
-                quote:
-                  "We at BROWNGOLD are a team of young & dynamic interior designers engaged in the business of providing complete design solutions for our clients, be it individuals, architects or corporate for the last 3 decades. We have a passion of interiors which enables us in providing quality & timely delivery of our design services & products for our clients pan India. We would like to place on record our appreciation for Mr. R.S. Kumar of Kumar Generator House. We had taken their services for our 40 kva kirloskar generator & a small generator of 7 kva. We would like to take this opportunity to thank you for providing excellent advice, excellent products & excellent service. We would not hesitate to recommend Kumar Generator House to prospective clients, looking for a high level of professional service, with attention on a long term client focused relationship. We are extremely pleased & look forward to increasing our level of business with yourselves in the coming",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902474/Gemini_Generated_Image_1je1r11je1r11je1_ksybnh.png",
-              },
+            badge: "WE'RE HERE TO HELP YOU",
+            heading: "Not Sure Which Electrical Solution You Need?",
+            description:
+              "Share your load, electricity bill, DG usage or project requirement. Our team will assess the application and recommend a suitable system—not simply the largest product.",
+            assessmentBtnText: "Request a Site Assessment",
+            expertBtnText: "Speak With a Power Expert",
+            phone: "+91 97738 51767",
+            salesEmail: "Sales@kumarpower.com",
+            accountsEmail: "Accounts@kumarpower.com",
+            supportEmail: "Support@kumarpower.com",
+            formCardTitle: "Site Assessment & Enquiry Form",
+            submitBtnText: "Request a Site Assessment",
+            successTitle: "Site Assessment Requested!",
+            successMessage:
+              "Thank you. Our technical engineering team will review your application and get back to you shortly.",
+            industries: [
+              "Manufacturing",
+              "Hospitality & Hotels",
+              "Healthcare & Hospitals",
+              "Data Centre",
+              "Commercial Real Estate",
+              "Infrastructure & Govt",
             ],
           },
         },
         {
           id: "sec-home-footer",
           type: "footer",
-          order: 9,
+          order: 12,
           content: {
             aboutBio:
               "Kumar Power is certified ISO 9001:2015 Company & have emerged as the leading Power Solution Providers. Being an authorized Channel Partner of Kirloskar Oil Engines Limited, Kumar Power is committed to provide quality power solutions.",

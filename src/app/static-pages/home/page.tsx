@@ -10,13 +10,8 @@ import { IndustriesServedCMS } from "./components/IndustriesServedCMS";
 import { WhyKumarPowerCMS } from "./components/WhyKumarPowerCMS";
 import { NumbersCredibilityCMS } from "./components/NumbersCredibilityCMS";
 import { SelectedProjectsCMS } from "./components/SelectedProjectsCMS";
-import { AboutSectionCMS } from "./components/AboutSectionCMS";
-import { GeneratorRangeSectionCMS } from "./components/GeneratorRangeSectionCMS";
-import { CTASectionCMS } from "./components/CTASectionCMS";
-import { PowerSolutionsSectionCMS } from "./components/PowerSolutionsSectionCMS";
-import { UseCasesSectionCMS } from "./components/UseCasesSectionCMS";
-import { GallerySectionCMS } from "./components/GallerySectionCMS";
-import { TestimonialsSectionCMS } from "./components/TestimonialsSectionCMS";
+import { PartnerCertificationsCMS } from "./components/PartnerCertificationsCMS";
+import { ConsultationFormCMS } from "./components/ConsultationFormCMS";
 import { FooterCMS } from "@/components/FooterCMS";
 
 export default function HomeCMSPage() {
@@ -36,13 +31,8 @@ export default function HomeCMSPage() {
       <WhyKumarPowerCMS />
       <NumbersCredibilityCMS />
       <SelectedProjectsCMS />
-      <AboutSectionCMS />
-      <GeneratorRangeSectionCMS />
-      <CTASectionCMS />
-      <PowerSolutionsSectionCMS />
-      <UseCasesSectionCMS />
-      <GallerySectionCMS />
-      <TestimonialsSectionCMS />
+      <PartnerCertificationsCMS />
+      <ConsultationFormCMS />
       <FooterCMS />
     </section>
   );
