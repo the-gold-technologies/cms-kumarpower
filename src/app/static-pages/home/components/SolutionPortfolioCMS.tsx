@@ -222,7 +222,7 @@ export function SolutionPortfolioCMS({
                 label="Main Section Title"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                placeholder="e.g. What Power Challenge Are You Solving?"
+                placeholder="e.g. What Power Challenge Are You Facing?"
               />
             </div>
 

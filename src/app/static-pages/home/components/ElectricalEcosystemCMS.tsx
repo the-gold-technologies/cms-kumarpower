@@ -219,7 +219,7 @@ export function ElectricalEcosystemCMS({
     <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
         title="3. Complete Electrical Ecosystem (System Flow)"
-        description="Manage the interactive 6-stage power flow (Power Sources, Transformers, HT/LT Panels, Power Quality, Sub-Distribution, Final Load) with visual photos, headlines, and equipment items."
+        description="Manage the interactive 5-stage power flow (Power Sources, HT/LT Panels, Power Quality, Sub-Distribution, Final Load) with visual photos, headlines, and equipment items."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
       />

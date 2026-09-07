@@ -25,6 +25,10 @@ import {
   Layers,
   Sparkles,
   Zap,
+  GraduationCap,
+  FileCheck,
+  Calendar,
+  HardHat,
 } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -37,6 +41,10 @@ const AVAILABLE_ICONS: Record<string, any> = {
   Landmark,
   Truck,
   Building,
+  GraduationCap,
+  FileCheck,
+  Calendar,
+  HardHat,
   Cpu,
   Layers,
   Sparkles,
