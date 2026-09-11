@@ -1459,7 +1459,7 @@ async function main() {
                 title: "Critical Ground & Runway Operation Backup",
                 metric: "99.999% Power Uptime",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294620/kumarpower_website/portfolio/uninterrupted_power.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789118622/kumarpower_website/portfolio/aviation_backup_power_installation.jpg",
                 challenge:
                   "Zero-downtime standby power required for critical flight ground control, terminal lighting, and security infrastructure during grid outages.",
                 solution:
