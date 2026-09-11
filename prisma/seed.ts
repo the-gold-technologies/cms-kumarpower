@@ -994,7 +994,7 @@ async function main() {
                 name: "Power Sources",
                 icon: "Zap",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294582/kumarpower_website/ecosystem/stage1_power_sources.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789117364/kumarpower_website/ecosystem/stage1_power_sources_kirloskar.jpg",
                 headline: "Grid Entry, Solar Panels, Gensets & BESS",
                 description:
                   "Accepts high-voltage grid supply, integrates rooftop solar panels, Kirloskar CPCB IV+ diesel gensets, and battery energy storage (BESS).",
