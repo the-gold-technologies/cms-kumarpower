@@ -112,10 +112,20 @@ async function main() {
       isActive: true,
     },
     {
+      id: "nav-2-7",
+      label: "Portable Generators",
+      url: "/products/kirloskar-portable-generator",
+      order: 2,
+      type: "Sub Link",
+      parent: "nav-2",
+      isStatic: true,
+      isActive: true,
+    },
+    {
       id: "nav-2-2",
       label: "Transformers/Substation",
       url: "/products/transformers",
-      order: 2,
+      order: 3,
       type: "Sub Link",
       parent: "nav-2",
       isStatic: true,
@@ -125,7 +135,7 @@ async function main() {
       id: "nav-2-3",
       label: "Electrical Panels",
       url: "/products/panels",
-      order: 3,
+      order: 4,
       type: "Sub Link",
       parent: "nav-2",
       isStatic: true,
@@ -135,7 +145,7 @@ async function main() {
       id: "nav-2-4",
       label: "Battery Energy Storage System",
       url: "/products/optiprime",
-      order: 4,
+      order: 5,
       type: "Sub Link",
       parent: "nav-2",
       isStatic: true,
@@ -145,7 +155,7 @@ async function main() {
       id: "nav-2-5",
       label: "Solar and Renewable Energy",
       url: "/products",
-      order: 5,
+      order: 6,
       type: "Sub Link",
       parent: "nav-2",
       isStatic: true,
@@ -155,7 +165,7 @@ async function main() {
       id: "nav-2-6",
       label: "Servo Stabiliser Pannel",
       url: "/products/servo-stabilizer",
-      order: 6,
+      order: 7,
       type: "Sub Link",
       parent: "nav-2",
       isStatic: true,
@@ -2824,6 +2834,7 @@ async function main() {
                 id: "dg-1",
                 name: "7.5 kVA to 20 kVA Diesel generators",
                 range: "7.5 kVA to 20 kVA",
+                category: "diesel",
                 fuelType: "Diesel",
                 cpcbNorm: "CPCB-IV+",
                 cooling: "Liquid",
@@ -2843,6 +2854,7 @@ async function main() {
                 id: "dg-2",
                 name: "25 kVA to 58.5 kVA Diesel generators",
                 range: "25 kVA to 58.5 kVA",
+                category: "diesel",
                 fuelType: "Diesel",
                 cpcbNorm: "CPCB-IV+",
                 cooling: "Liquid",
@@ -2862,6 +2874,7 @@ async function main() {
                 id: "dg-3",
                 name: "82.5 kVA to 160 kVA Diesel generators",
                 range: "82.5 kVA to 160 kVA",
+                category: "diesel",
                 fuelType: "Diesel",
                 cpcbNorm: "CPCB-IV+",
                 cooling: "Liquid",
@@ -2880,7 +2893,8 @@ async function main() {
               {
                 id: "dg-4",
                 name: "200 kVA to 250 kVA Diesel Generators",
-                range: "200 - 250 kVA",
+                range: "200 kVA to 250 kVA",
+                category: "diesel",
                 fuelType: "Diesel",
                 cpcbNorm: "CPCB-IV+",
                 cooling: "Liquid",
@@ -2899,7 +2913,8 @@ async function main() {
               {
                 id: "dg-5",
                 name: "320 kVA - 750 kVA Diesel Generators",
-                range: "320 - 750 kVA",
+                range: "320 kVA - 750 kVA",
+                category: "diesel",
                 fuelType: "Diesel",
                 cpcbNorm: "CPCB-IV+",
                 cooling: "Liquid",
@@ -2918,7 +2933,8 @@ async function main() {
               {
                 id: "dg-6",
                 name: "750 kVA - 1500 kVA Diesel Generators",
-                range: "750 - 1500 kVA",
+                range: "750 kVA - 1500 kVA",
+                category: "diesel",
                 fuelType: "Diesel",
                 cpcbNorm: "CPCB-IV+",
                 cooling: "Liquid",
@@ -3091,10 +3107,11 @@ async function main() {
     {
       title: "Electrical Panels",
       slug: "panels",
-      description: "High quality AMF & power distribution electrical panels",
+      description:
+        "High-quality electrical control panels for power distribution, control, and protection",
       metaTitle: "Electrical Control Panels Dealer in Delhi | Kumar Power",
       metaDescription:
-        "Custom electrical panels for power distribution and protection.",
+        "Explore our range of high-quality electrical control panels for power distribution, control, and protection of electrical systems trusted by industries",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -3108,35 +3125,83 @@ async function main() {
             heroHeading: "Electrical Control Panels - Kumar Power",
             heroSub:
               "We offer a comprehensive range of electrical panels designed for power distribution, control, and protection across industrial and commercial installations.",
-            sectionTitle: "Electrical Panels",
+            heroBg:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
+            sectionTitle: "Electrical Panel",
             sectionDesc:
-              "Browse our complete range of electrical control, AMF, and distribution panels.",
+              "Browse our complete range of generators, panels, stabilizers and transformers.",
             panels: [
               {
                 id: "p-1",
-                name: "Auto Main Failure (AMF) Panels",
+                name: "AMF Panels",
                 range: "Various",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Fan/Natural",
+                phase: "Three Phase",
+                rating: "4.7",
+                ratingCount: "112",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714184/kumarpower_website/products_and_certs/xdwoqirxbqvzwz5sllkq.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714197/kumarpower_website/products_and_certs/wzzvqr27kooz9g6f6jnb.png",
                 description:
-                  "Automated power switching between main grid power and generator backup.",
+                  "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
                 technicalSpecs:
-                  "Equipped with digital micro-processor controllers, automatic mains failure detection, and seamless generator start logic.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                  "Our Auto Mains Failure (AMF) panels are engineered for seamless power transition, featuring a microprocessor-based controller that manages automatic start/stop logic with precision. The panels utilize high-quality contactors or motorized breakers for reliable changeover operations. Comprehensive protection logic safeguards the load from voltage fluctuations, phase reversals, and frequency errors. The interface includes clear LED/LCD indications for Mains and DG status, ensuring operators have full visibility of the power system at all times.",
+                brochurePdf: "",
               },
               {
                 id: "p-2",
-                name: "Auto Synchronizing Panels",
+                name: "Vacuum Circuit Breaker",
                 range: "Various",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Fan/Natural",
+                phase: "Three Phase",
+                rating: "4.6",
+                ratingCount: "98",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714178/kumarpower_website/products_and_certs/j9vig3utu86xmqjukvl4.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714191/kumarpower_website/products_and_certs/bkgweet29lfsnlpcz3xm.png",
                 description:
-                  "Multi-generator load sharing and grid synchronizing control panels.",
+                  "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
                 technicalSpecs:
-                  "Designed for complex multi-genset installations requiring load demand management and auto load sharing.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                  "These robust Vacuum Circuit Breaker (VCB) panels are designed for critical High Voltage (HV) protection. They feature high-grade vacuum bottles that ensure efficient arc quenching and extended operational life. Safety is paramount, with mechanical interlocks included to prevent accidental operation during maintenance. The spring-charged mechanism ensures fast closing and opening times for rapid fault clearing. Due to the sealed vacuum technology, these breakers require minimal maintenance, providing a reliable long-term solution for industrial power distribution.",
+                brochurePdf: "",
+              },
+              {
+                id: "p-3",
+                name: "Distribution Boxes",
+                range: "Various",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Fan/Natural",
+                phase: "Three Phase",
+                rating: "4.6",
+                ratingCount: "98",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714198/kumarpower_website/products_and_certs/n08ka6m8bmiwhgl7iez4.png",
+                description:
+                  "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
+                technicalSpecs:
+                  "Our heavy-duty Power Distribution Boards (PDB) and Main Distribution Boards (MDB) are built to handle complex electrical networks. They feature high-conductivity Electrolytic Grade Aluminum or Copper busbars for efficient power transfer. The enclosures are fabricated from CRCA Sheet steel and powder-coated for superior rust resistance and durability. Available with Ingress Protection ratings of IP42, IP54, or IP65, and offering customized compartment designs for flexible cable entry and exit, these boxes are tailored to meet specific site requirements.",
+                brochurePdf: "",
+              },
+              {
+                id: "p-4",
+                name: "Feeder Pillars",
+                range: "Various",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Fan/Natural",
+                phase: "Three Phase",
+                rating: "4.6",
+                ratingCount: "98",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714200/kumarpower_website/products_and_certs/n5yfp0gp7jzgdcdaahno.png",
+                description:
+                  "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
+                technicalSpecs:
+                  "Designed specifically for outdoor applications, these weatherproof Feeder Pillars provide localized power distribution in harsh environments. They feature a robust double-door, canopy design that effectively withstands rain, dust, and direct sunlight. The plinth-mounted construction ensures stability, while lockable doors and shrouded busbars prevent accidental contact and unauthorized access. These units are the standard choice for street lighting control, township power distribution, and industrial yard electrification.",
+                brochurePdf: "",
               },
             ],
           },
@@ -3206,12 +3271,13 @@ async function main() {
       ],
     },
     {
-      title: "Distribution Transformers",
+      title: "Transformers",
       slug: "transformers",
-      description: "Durable and efficient transformers from 100 to 2500 kVA",
+      description:
+        "Durable and efficient transformers designed for various industrial and commercial applications.",
       metaTitle: "Transformers Dealer in Delhi - Kumar Power",
       metaDescription:
-        "High-efficiency step-down transformers for utility and industry.",
+        "Explore Kumar Power’s transformer range: Distribution, Power, Cast Resin, and Unitized Package Substations, built for efficiency, safety, and reliability",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -3224,7 +3290,7 @@ async function main() {
             heroHeadingPart2: "Kumar Power",
             heroHeading: "Transformers Dealer in Delhi - Kumar Power",
             heroSub:
-              "At Kumar Power, we offer a diverse range of transformers designed to meet various industrial and commercial needs.",
+              "At Kumar Power, we offer a diverse range of transformers designed to meet various industrial and commercial needs. Our product lineup includes Distribution Transformers, Power Transformers, Cast Resin Transformers, and Unitized Package Substations.",
             heroBg:
               "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
             sectionTitle: "Transformers",
@@ -3233,33 +3299,75 @@ async function main() {
             transformers: [
               {
                 id: "t-1",
-                name: "Oil Immersed Step Down Transformers",
+                name: "Distribution Transformers",
                 range: "100-2500 kVA",
-                rating: "4.9",
-                ratingCount: "142",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Oil/Dry",
+                phase: "Three Phase",
+                rating: "4.8",
+                ratingCount: "88",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784714204/kumarpower_website/products_and_certs/zae649ckiadypi91wztf.jpg",
                 description:
-                  "High-efficiency step-down transformers for utility and industrial applications.",
+                  "Durable and efficient transformers designed for various industrial and commercial applications.",
                 technicalSpecs:
-                  "Hermetically sealed or conservator design with high grade CRGO silicon steel core for minimal losses.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                  "These reliable step-down transformers are crafted for utility and industrial use, featuring a core made from CRGO (Cold Rolled Grain Oriented) silicon steel laminations to minimize losses. The windings are constructed from high-quality Electrolytic Copper or Aluminum with robust paper insulation. Utilizing ONAN (Oil Natural Air Natural) cooling and complying with IS 1180 energy efficiency levels, they include an off-circuit tap changer, allowing for precise voltage adjustments to match network requirements.",
+                brochurePdf: "",
               },
               {
                 id: "t-2",
-                name: "Dry Type Resin Encapsulated Transformers",
-                range: "100-3150 kVA",
-                rating: "4.8",
-                ratingCount: "98",
+                name: "Power Transformers",
+                range: "1-10 MVA",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Oil",
+                phase: "Three Phase",
+                rating: "4.9",
+                ratingCount: "76",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784714206/kumarpower_website/products_and_certs/vjb5xintrvujvimj3k0u.jpg",
                 description:
-                  "Fire-safe dry type transformers for indoor buildings, hospitals, and basements.",
+                  "Durable and efficient transformers designed for various industrial and commercial applications.",
                 technicalSpecs:
-                  "Vacuum resin encapsulated coils providing high moisture resistance and zero risk of oil pollution.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                  "Built for high-capacity transmission and receiving stations, these power transformers are available in capacities up to 10 MVA. They are housed in robust welded steel tanks equipped with radiators for efficient cooling. The units come standard with essential protective accessories including Buchholz relays, Magnetic Oil Level Gauges (MOG), and Winding Temperature Indicators (WTI). Fully type-tested for impulse and short circuit withstand capacity, they ensure stability and reliability in major power grids.",
+                brochurePdf: "",
+              },
+              {
+                id: "t-3",
+                name: "Cast Resin Transformers",
+                range: "1-10 MVA",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Oil",
+                phase: "Three Phase",
+                rating: "4.9",
+                ratingCount: "76",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714207/kumarpower_website/products_and_certs/owpwf1vifk0qdpgnr3dd.jpg",
+                description:
+                  "Durable and efficient transformers designed for various industrial and commercial applications.",
+                technicalSpecs:
+                  "These Dry-type Cast Resin Transformers (CRT) are the premier choice for fire-safe applications. The coils are encapsulated in epoxy resin cast under vacuum (Class F/H insulation), making the unit self-extinguishing, non-explosive, and highly fire-resistant. Being virtually maintenance-free with no oil to check or leak, they offer significant operational advantages. They are specifically designed for indoor installations in high-risk areas such as malls, hospitals, commercial basements, and residential towers.",
+                brochurePdf: "",
+              },
+              {
+                id: "t-4",
+                name: "Unitized Package Substation",
+                range: "500-5000 kVA",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Oil/Dry",
+                phase: "Three Phase",
+                rating: "4.6",
+                ratingCount: "98",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714194/kumarpower_website/products_and_certs/ucbookmf7ze3cqc1ruwb.png",
+                description:
+                  "Complete electrical substation solution with integrated transformer, panels, and protection systems.",
+                technicalSpecs:
+                  "The Unitized Package Substation (USS) is a compact, space-saving solution that seamlessly integrates a Ring Main Unit (RMU), a Transformer, and a Low Voltage (LV) panel into a single enclosure. Designed as a ready-to-install \"plug-and-play\" unit, it drastically reduces installation time and complexity. The compartmentalized design ensures maximum operator safety by isolating high-voltage components. With an aesthetic that blends well with urban architecture, it is the ideal choice for modern infrastructure projects.",
+                brochurePdf: "",
               },
             ],
           },
