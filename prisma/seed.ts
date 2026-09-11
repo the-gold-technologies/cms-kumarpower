@@ -1103,7 +1103,7 @@ async function main() {
                 subtitle:
                   "Safe, controlled power routing from incoming high-voltage grid.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294622/kumarpower_website/portfolio/electrical_distribution.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789118874/kumarpower_website/portfolio/heavy_manufacturing_plant_power.jpg",
                 features: ["Transformers", "HT/LT Panels"],
                 link: "/products/transformers",
               },
