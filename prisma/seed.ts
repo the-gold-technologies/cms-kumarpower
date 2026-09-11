@@ -192,10 +192,20 @@ async function main() {
       isActive: true,
     },
     {
+      id: "nav-8",
+      label: "Testimonials",
+      url: "/about/Testimonials",
+      order: 6,
+      type: "Main Link",
+      parent: "-",
+      isStatic: true,
+      isActive: true,
+    },
+    {
       id: "nav-7",
       label: "Contact",
       url: "/contact",
-      order: 6,
+      order: 7,
       type: "Main Link",
       parent: "-",
       isStatic: true,
@@ -1722,11 +1732,11 @@ async function main() {
             title: "Know About Kumar Power",
             subtitle: "–Trusted Name in Power Solutions Industry",
             image:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1789116856/KumarPower-Assets/edrirhvwhkzfa2zpkj49.png",
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1789121108/kumarpower_website/ourprofile/ourprofile_hero.png",
             paragraph1:
               "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
             paragraph2:
-              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions.",
+              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions..",
             paragraph3:
               "As an authorized dealer and service provider for Kirloskar Green generators, we bring the reliability and efficiency of world-class power solutions to our clients. Our team of certified engineers and technicians ensures that every installation meets the highest standards of performance and safety.",
             paragraph4:
@@ -1749,7 +1759,7 @@ async function main() {
                 description:
                   "Kumar Power was established with a vision to provide reliable power solutions to businesses across India.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704223/kumarpower_website/bwgeiy0jke8ywdmfdorc.png",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121109/kumarpower_website/ourprofile/timeline_1995_foundation.png",
               },
               {
                 id: "time-2",
@@ -1758,7 +1768,7 @@ async function main() {
                 description:
                   "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704228/kumarpower_website/s5gywmnc1lrmjatpwtdj.png",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121110/kumarpower_website/ourprofile/timeline_2001_kirloskar_partnership.png",
               },
               {
                 id: "time-3",
@@ -1767,7 +1777,7 @@ async function main() {
                 description:
                   "Achieved ISO 9001:2015 certification, validating our commitment to quality management systems.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121111/kumarpower_website/ourprofile/timeline_2012_iso_certification.png",
               },
               {
                 id: "time-4",
@@ -1776,7 +1786,7 @@ async function main() {
                 description:
                   "Expanded operations to all major cities in India with service centers and technical support teams.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704226/kumarpower_website/gwmb07sfgghp7czfvdrc.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789122116/kumarpower_website/ourprofile/timeline_2020_nationwide_expansion.jpg",
               },
             ],
           },
@@ -1794,7 +1804,7 @@ async function main() {
                 role: "(Founder)",
                 bio: "RS Kumar is the Founder of Kumar Generator House, a company he established with a vision to provide reliable and sustainable power solutions. With decades of industry experience, he has been the driving force behind the company's growth and success. His leadership is centered on innovation, customer satisfaction, and a commitment to excellence. Under his guidance, Kumar Generator House has become a trusted name in the industry, focused on empowering businesses and communities with top-quality solutions.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704214/kumarpower_website/qinxclk113sp7i6njiwz.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121113/kumarpower_website/ourprofile/team_rs_kumar.png",
               },
               {
                 id: "team-2",
@@ -1802,7 +1812,7 @@ async function main() {
                 role: "(Director)",
                 bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704215/kumarpower_website/lzucapxqx652nhlr6ufm.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121114/kumarpower_website/ourprofile/team_ms_kumar.png",
               },
               {
                 id: "team-3",
@@ -1810,7 +1820,7 @@ async function main() {
                 role: "(Director)",
                 bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, He is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704217/kumarpower_website/ahzrtelijqxkyg5hmafo.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121116/kumarpower_website/ourprofile/team_js_kumar.png",
               },
             ],
           },
@@ -1852,9 +1862,9 @@ async function main() {
             bullet3: "Continuous improvement through customer feedback",
             bullet4: "Regular training and skill enhancement for our team",
             isoCertImg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1789121111/kumarpower_website/ourprofile/timeline_2012_iso_certification.png",
             kirloskarCertImg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784704221/kumarpower_website/mtjwhs960zambsokn9z5.png",
+              "https://res.cloudinary.com/dmhabztbf/image/upload/v1757064221/Screenshot_2025-06-02_at_12.44.43_PM_lxdedo_tuh3qm.png",
             isoCertTitle: "ISO 9001:2015",
             kirloskarCertTitle: "Kirloskar Authorized",
           },
@@ -1891,11 +1901,11 @@ async function main() {
             title: "Know About Kumar Power",
             subtitle: "–Trusted Name in Power Solutions Industry",
             image:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784704223/kumarpower_website/bwgeiy0jke8ywdmfdorc.png",
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1789121108/kumarpower_website/ourprofile/ourprofile_hero.png",
             paragraph1:
               "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
             paragraph2:
-              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions.",
+              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions..",
             paragraph3:
               "As an authorized dealer and service provider for Kirloskar Green generators, we bring the reliability and efficiency of world-class power solutions to our clients. Our team of certified engineers and technicians ensures that every installation meets the highest standards of performance and safety.",
             paragraph4:
@@ -1918,7 +1928,7 @@ async function main() {
                 description:
                   "Kumar Power was established with a vision to provide reliable power solutions to businesses across India.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704228/kumarpower_website/s5gywmnc1lrmjatpwtdj.png",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121109/kumarpower_website/ourprofile/timeline_1995_foundation.png",
               },
               {
                 id: "time-2",
@@ -1927,7 +1937,7 @@ async function main() {
                 description:
                   "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121110/kumarpower_website/ourprofile/timeline_2001_kirloskar_partnership.png",
               },
               {
                 id: "time-3",
@@ -1936,7 +1946,7 @@ async function main() {
                 description:
                   "Achieved ISO 9001:2015 certification, validating our commitment to quality management systems.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704226/kumarpower_website/gwmb07sfgghp7czfvdrc.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121111/kumarpower_website/ourprofile/timeline_2012_iso_certification.png",
               },
               {
                 id: "time-4",
@@ -1945,7 +1955,7 @@ async function main() {
                 description:
                   "Expanded operations to all major cities in India with service centers and technical support teams.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704214/kumarpower_website/qinxclk113sp7i6njiwz.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789122116/kumarpower_website/ourprofile/timeline_2020_nationwide_expansion.jpg",
               },
             ],
           },
@@ -1963,7 +1973,7 @@ async function main() {
                 role: "(Founder)",
                 bio: "RS Kumar is the Founder of Kumar Generator House, a company he established with a vision to provide reliable and sustainable power solutions. With decades of industry experience, he has been the driving force behind the company's growth and success. His leadership is centered on innovation, customer satisfaction, and a commitment to excellence. Under his guidance, Kumar Generator House has become a trusted name in the industry, focused on empowering businesses and communities with top-quality solutions.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704215/kumarpower_website/lzucapxqx652nhlr6ufm.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121113/kumarpower_website/ourprofile/team_rs_kumar.png",
               },
               {
                 id: "team-2",
@@ -1971,7 +1981,7 @@ async function main() {
                 role: "(Director)",
                 bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704217/kumarpower_website/ahzrtelijqxkyg5hmafo.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121114/kumarpower_website/ourprofile/team_ms_kumar.png",
               },
               {
                 id: "team-3",
@@ -1979,7 +1989,7 @@ async function main() {
                 role: "(Director)",
                 bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, He is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784704217/kumarpower_website/ahzrtelijqxkyg5hmafo.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121116/kumarpower_website/ourprofile/team_js_kumar.png",
               },
             ],
           },
@@ -1990,6 +2000,29 @@ async function main() {
           order: 4,
           content: {
             qualityTitle: "Our Commitment to Quality",
+            cards: [
+              {
+                id: "q-card-1",
+                title: "Timely Delivery",
+                description:
+                  "We understand the critical nature of power solutions and ensure on-time delivery and installation.",
+                path: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+              },
+              {
+                id: "q-card-2",
+                title: "Expert Engineering",
+                description:
+                  "Our team of qualified engineers ensures robust design and flawless implementation of all projects.",
+                path: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+              },
+              {
+                id: "q-card-3",
+                title: "Business Continuity",
+                description:
+                  "Our solutions are designed to provide uninterrupted power supply, ensuring your operations never stop.",
+                path: "M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2",
+              },
+            ],
             policyTitle: "Quality Policy Statement",
             policyStatement:
               "At Kumar Power, we are committed to delivering world-class power products and turnkey solutions that exceed customer expectations. Our robust design, meticulous manufacturing, and comprehensive testing ensure reliability and performance in every installation.",
@@ -1998,9 +2031,11 @@ async function main() {
             bullet3: "Continuous improvement through customer feedback",
             bullet4: "Regular training and skill enhancement for our team",
             isoCertImg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1789121111/kumarpower_website/ourprofile/timeline_2012_iso_certification.png",
             kirloskarCertImg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784704221/kumarpower_website/mtjwhs960zambsokn9z5.png",
+              "https://res.cloudinary.com/dmhabztbf/image/upload/v1757064221/Screenshot_2025-06-02_at_12.44.43_PM_lxdedo_tuh3qm.png",
+            isoCertTitle: "ISO 9001:2015",
+            kirloskarCertTitle: "Kirloskar Authorized",
           },
         },
         {
