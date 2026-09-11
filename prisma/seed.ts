@@ -1062,7 +1062,7 @@ async function main() {
                 name: "Final Facility Load",
                 icon: "Factory",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294597/kumarpower_website/ecosystem/stage6_final_load.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789117733/kumarpower_website/ecosystem/stage5_final_load_crossroads.jpg",
                 headline:
                   "Industrial, Commercial, Residential & Critical Facilities",
                 description:
