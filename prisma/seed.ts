@@ -9,7 +9,7 @@ async function main() {
   // 1. Clean existing database
   try {
     await prisma.$executeRawUnsafe(
-      `TRUNCATE TABLE "Section", "Page", "NavLink", "Product", "Enquiry", "User", "GlobalConfig" CASCADE;`
+      `TRUNCATE TABLE "Section", "Page", "NavLink", "Product", "Enquiry", "User", "GlobalConfig" CASCADE;`,
     );
     console.log("🧹 Cleaned existing database tables.");
   } catch (err) {
@@ -942,7 +942,8 @@ async function main() {
           order: 2,
           content: {
             badge: "Integrated Electrical Solution",
-            heading: "One Partner. Every Stage of Your Electrical Infrastructure.",
+            heading:
+              "One Partner. Every Stage of Your Electrical Infrastructure.",
             description:
               "Kumar Power delivers integrated electrical solutions for commercial, industrial, institutional and infrastructure customers. We bring together power generators, transformers, distribution pannels, protection, power quality, renewable energy and battery storage under one coordinated solution.",
             capabilities: [
@@ -1062,7 +1063,8 @@ async function main() {
                 icon: "Factory",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1787294597/kumarpower_website/ecosystem/stage6_final_load.jpg",
-                headline: "Industrial, Commercial, Residential & Critical Facilities",
+                headline:
+                  "Industrial, Commercial, Residential & Critical Facilities",
                 description:
                   "Delivers continuous, highly stable electrical energy to critical infrastructure, manufacturing plants, commercial complexes, data centres, healthcare facilities, and residential buildings.",
                 equipment: [
@@ -1173,10 +1175,7 @@ async function main() {
                   "Instant zero-downtime microsecond battery takeover",
                   "Extended genset overhaul and maintenance intervals",
                 ],
-                components: [
-                  "Battery Energy Storage (BESS)",
-                  "Solar Panels",
-                ],
+                components: ["Battery Energy Storage (BESS)", "Solar Panels"],
               },
               {
                 id: "protect-critical-operations",
@@ -1192,11 +1191,7 @@ async function main() {
                   "Isolation from grid harmonic spikes & voltage drops",
                   "Built-in redundant backup paths",
                 ],
-                components: [
-                  "AMF Panels",
-                  "BESS Storage",
-                  "Servo Stabilisers",
-                ],
+                components: ["AMF Panels", "BESS Storage", "Servo Stabilisers"],
               },
               {
                 id: "lower-energy-costs",
@@ -1727,7 +1722,7 @@ async function main() {
             title: "Know About Kumar Power",
             subtitle: "–Trusted Name in Power Solutions Industry",
             image:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784704202/kumarpower_website/uecht8cyoejxorpstiwp.png",
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1789116856/KumarPower-Assets/edrirhvwhkzfa2zpkj49.png",
             paragraph1:
               "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
             paragraph2:
@@ -3236,34 +3231,42 @@ async function main() {
               "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
             servos: [
               {
-                id: "s-1",
-                name: "Oil Cooled Servo Voltage Stabilizers",
-                range: "10-2000 kVA",
-                rating: "4.9",
-                ratingCount: "185",
+                id: "single-phase-servo",
+                name: "Oil Cooled Servo Stabilizers",
+                range: "5-100 kVA",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Air/Oil",
+                phase: "Single Phase",
+                rating: "4.5",
+                ratingCount: "134",
+                category: "servo",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714202/kumarpower_website/products_and_certs/azaokay703ttagwvjix4.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703263/kumarpower_website/jx1vnoi0vmtz5rxutgao.jpg",
                 description:
-                  "Heavy-duty oil cooled stabilizers for continuous industrial voltage regulation.",
+                  "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
                 technicalSpecs:
-                  "Custom engineered transformer oil cooling with high dielectric strength and micro-processor voltage correction.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                  "This range delivers precision voltage correction using advanced oil-immersed technology, making it ideal for heavy-duty cycles. It achieves correction speeds greater than 20V per second with an output voltage regulation accuracy of ±1%. The oil-cooled design ensures superior heat dissipation, extending component life. Built with high-grade variacs (toroidal transformers) and buck-boost transformers, it offers comprehensive protection including low/high voltage cutoffs and overload protection, ensuring total safety for connected equipment.",
+                brochurePdf: "",
               },
               {
-                id: "s-2",
-                name: "Air Cooled Servo Voltage Stabilizers",
-                range: "5-100 kVA",
-                rating: "4.8",
-                ratingCount: "134",
+                id: "three-phase-servo",
+                name: "Air Cooled Servo Stabilizers",
+                range: "15-500 kVA",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Air/Oil",
+                phase: "Three Phase",
+                rating: "4.7",
+                ratingCount: "122",
+                category: "servo",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714203/kumarpower_website/products_and_certs/eewzp3qihuoxbkpxdwj5.jpg",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703265/kumarpower_website/ymrmhvqbilpfle4uf0pr.jpg",
                 description:
-                  "Clean air cooled voltage stabilizers for commercial and indoor equipment.",
+                  "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
                 technicalSpecs:
-                  "Maintenance-free air cooling design providing >98% efficiency and fast voltage response times.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+                  "Designed for indoor applications, these compact air-cooled stabilizers offer >98% efficiency at full load. They feature independent phase control technology, ensuring a balanced output voltage even when the input supply is unbalanced. The unit comes equipped with digital voltmeters and ammeters for easy monitoring of performance parameters. With a low-maintenance air-cooled design that eliminates the need for oil replacement, these stabilizers are a clean and efficient solution for commercial and industrial voltage regulation.",
+                brochurePdf: "",
               },
             ],
           },
@@ -3366,7 +3369,7 @@ async function main() {
                 description:
                   "Complete electrical substation solution with integrated transformer, panels, and protection systems.",
                 technicalSpecs:
-                  "The Unitized Package Substation (USS) is a compact, space-saving solution that seamlessly integrates a Ring Main Unit (RMU), a Transformer, and a Low Voltage (LV) panel into a single enclosure. Designed as a ready-to-install \"plug-and-play\" unit, it drastically reduces installation time and complexity. The compartmentalized design ensures maximum operator safety by isolating high-voltage components. With an aesthetic that blends well with urban architecture, it is the ideal choice for modern infrastructure projects.",
+                  'The Unitized Package Substation (USS) is a compact, space-saving solution that seamlessly integrates a Ring Main Unit (RMU), a Transformer, and a Low Voltage (LV) panel into a single enclosure. Designed as a ready-to-install "plug-and-play" unit, it drastically reduces installation time and complexity. The compartmentalized design ensures maximum operator safety by isolating high-voltage components. With an aesthetic that blends well with urban architecture, it is the ideal choice for modern infrastructure projects.',
                 brochurePdf: "",
               },
             ],
