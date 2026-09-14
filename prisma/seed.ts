@@ -3870,7 +3870,6 @@ async function main() {
                 id: "c-ind-5",
                 name: "Veolia India (P) Ltd.",
                 category: "Industries",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Veolia_logo.svg/320px-Veolia_logo.svg.png",
               },
               {
                 id: "c-ind-6",
@@ -4054,7 +4053,6 @@ async function main() {
                 id: "c-ind-42",
                 name: "Tata Chemicals Ltd",
                 category: "Industries",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_Chemicals_Logo.svg/320px-Tata_Chemicals_Logo.svg.png",
               },
               {
                 id: "c-ind-43",
@@ -4065,7 +4063,6 @@ async function main() {
                 id: "c-ind-44",
                 name: "SIS India Ltd.",
                 category: "Industries",
-                logo: "https://sisindia.com/wp-content/uploads/2021/04/main-logo.png",
               },
               {
                 id: "c-ind-45",
@@ -4294,7 +4291,7 @@ async function main() {
                 id: "c-ret-21",
                 name: "Nike Showroom",
                 category: "Retail Outlets",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361083/KumarPower-Assets/clients/ji0mktb6xhikvszmcyt2.jpg",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/320px-Logo_NIKE.svg.png",
               },
               { id: "c-ret-22", name: "Anekvarna", category: "Retail Outlets" },
               {
@@ -4383,7 +4380,6 @@ async function main() {
                 id: "c-bnk-1",
                 name: "Central Bank of India",
                 category: "Banks",
-                logo: "https://centralbank.bank.in/sites/default/files/cbi-logo.jpg",
               },
               {
                 id: "c-bnk-2",
@@ -4409,7 +4405,6 @@ async function main() {
                 id: "c-bnk-6",
                 name: "Axis Bank",
                 category: "Banks",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Axis_Bank_logo.svg/320px-Axis_Bank_logo.svg.png",
               },
               {
                 id: "c-bnk-7",
@@ -4662,7 +4657,6 @@ async function main() {
                 id: "c-edu-43",
                 name: "Salwan Public School",
                 category: "Educational Institutions",
-                logo: "https://salwanpublicschool.edu.in/wp-content/uploads/2026/01/SPS_White-1001x1001.png",
               },
               {
                 id: "c-edu-44",
