@@ -3612,6 +3612,7 @@ async function main() {
                 id: "c-cont-13",
                 name: "Ace Pipeline Contracts (P) Ltd.",
                 category: "Contractors/Govt Offices",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361082/KumarPower-Assets/clients/zta6skgxv8gg0uncebiq.jpg",
               },
               {
                 id: "c-cont-14",
@@ -3858,6 +3859,7 @@ async function main() {
                 id: "c-ind-3",
                 name: "Berger Paints (1) Ltd.",
                 category: "Industries",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Berger_Paints_logo.png",
               },
               {
                 id: "c-ind-4",
@@ -3868,6 +3870,7 @@ async function main() {
                 id: "c-ind-5",
                 name: "Veolia India (P) Ltd.",
                 category: "Industries",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Veolia_logo.svg/320px-Veolia_logo.svg.png",
               },
               {
                 id: "c-ind-6",
@@ -3934,6 +3937,7 @@ async function main() {
                 id: "c-ind-19",
                 name: "Comed Chemicals Ltd.",
                 category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712914/kumarpower_website/pages/npeoktrvuao1tzhnyf2b.jpg",
               },
               {
                 id: "c-ind-20",
@@ -3959,6 +3963,7 @@ async function main() {
                 id: "c-ind-24",
                 name: "HDFC Sales Pvt. Ltd.",
                 category: "Industries",
+                logo: "https://www.hdfcsales.com/images/hdfc-sales-logo-blue-updated.svg",
               },
               {
                 id: "c-ind-25",
@@ -4049,6 +4054,7 @@ async function main() {
                 id: "c-ind-42",
                 name: "Tata Chemicals Ltd",
                 category: "Industries",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_Chemicals_Logo.svg/320px-Tata_Chemicals_Logo.svg.png",
               },
               {
                 id: "c-ind-43",
@@ -4059,6 +4065,7 @@ async function main() {
                 id: "c-ind-44",
                 name: "SIS India Ltd.",
                 category: "Industries",
+                logo: "https://sisindia.com/wp-content/uploads/2021/04/main-logo.png",
               },
               {
                 id: "c-ind-45",
@@ -4100,6 +4107,7 @@ async function main() {
                 id: "c-ind-53",
                 name: "SJVN Ltd., Rampur Hydro Electric Project",
                 category: "Industries",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/SJVN_Logo.png",
               },
               {
                 id: "c-ind-54",
@@ -4138,6 +4146,48 @@ async function main() {
                 name: "Concept Communication",
                 category: "Industries",
               },
+              {
+                id: "c-ind-63",
+                name: "Honeywell India",
+                category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712895/kumarpower_website/pages/oyqudkfjkh1b3quulplh.png",
+              },
+              {
+                id: "c-ind-64",
+                name: "Air India",
+                category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712905/kumarpower_website/pages/iuibicnolojsadd28sp4.png",
+              },
+              {
+                id: "c-ind-65",
+                name: "British Paints",
+                category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712906/kumarpower_website/pages/rbcdges456kvxuzujc9l.jpg",
+              },
+              {
+                id: "c-ind-66",
+                name: "PWC",
+                category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712920/kumarpower_website/pages/onlo0n5zhobds9eolqzu.png",
+              },
+              {
+                id: "c-ind-67",
+                name: "Vistara",
+                category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712924/kumarpower_website/pages/l9bjz9xrufsdvyurjidz.jpg",
+              },
+              {
+                id: "c-ind-68",
+                name: "GEPL",
+                category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712883/kumarpower_website/pages/babowmbn5turkicygkbr.jpg",
+              },
+              {
+                id: "c-ind-69",
+                name: "OJC",
+                category: "Industries",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712912/kumarpower_website/pages/veflyibxqbnymwlrndng.jpg",
+              },
               // Retail Outlets
               {
                 id: "c-ret-1",
@@ -4158,6 +4208,7 @@ async function main() {
                 id: "c-ret-4",
                 name: "ADI Sports (1) (P) Ltd.",
                 category: "Retail Outlets",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712884/kumarpower_website/pages/elr86cg9o5ehtbvtn2ks.jpg",
               },
               {
                 id: "c-ret-5",
@@ -4243,6 +4294,7 @@ async function main() {
                 id: "c-ret-21",
                 name: "Nike Showroom",
                 category: "Retail Outlets",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361083/KumarPower-Assets/clients/ji0mktb6xhikvszmcyt2.jpg",
               },
               { id: "c-ret-22", name: "Anekvarna", category: "Retail Outlets" },
               {
@@ -4331,6 +4383,7 @@ async function main() {
                 id: "c-bnk-1",
                 name: "Central Bank of India",
                 category: "Banks",
+                logo: "https://centralbank.bank.in/sites/default/files/cbi-logo.jpg",
               },
               {
                 id: "c-bnk-2",
@@ -4352,8 +4405,18 @@ async function main() {
                 name: "Kangra Bank, Prahladpur, New Delhi.",
                 category: "Banks",
               },
-              { id: "c-bnk-6", name: "Axis Bank", category: "Banks" },
-              { id: "c-bnk-7", name: "Canara Bank, Meerut", category: "Banks" },
+              {
+                id: "c-bnk-6",
+                name: "Axis Bank",
+                category: "Banks",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Axis_Bank_logo.svg/320px-Axis_Bank_logo.svg.png",
+              },
+              {
+                id: "c-bnk-7",
+                name: "Canara Bank, Meerut",
+                category: "Banks",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/9/99/Canara_bank_logo.png",
+              },
               { id: "c-bnk-8", name: "The Karnataka Bank", category: "Banks" },
               {
                 id: "c-bnk-9",
@@ -4428,6 +4491,7 @@ async function main() {
                 id: "c-edu-10",
                 name: "Vikas Publication (P) Ltd",
                 category: "Educational Institutions",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789360387/KumarPower-Assets/clients/fnrvyj8ogyovcan0rnt4.jpg",
               },
               {
                 id: "c-edu-11",
@@ -4463,6 +4527,7 @@ async function main() {
                 id: "c-edu-17",
                 name: "ARMY PUBLIC SCHOOL",
                 category: "Educational Institutions",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361119/KumarPower-Assets/clients/wgjepbfjtanbei9tsrnq.png",
               },
               {
                 id: "c-edu-18",
@@ -4493,6 +4558,7 @@ async function main() {
                 id: "c-edu-23",
                 name: "Deshbandhu College",
                 category: "Educational Institutions",
+                logo: "https://deshbandhucollege.ac.in/images/logonew.jpg",
               },
               {
                 id: "c-edu-24",
@@ -4513,6 +4579,7 @@ async function main() {
                 id: "c-edu-27",
                 name: "Springdales School",
                 category: "Educational Institutions",
+                logo: "https://springdales.com/wp-content/uploads/2020/12/logo.png",
               },
               {
                 id: "c-edu-28",
@@ -4533,6 +4600,7 @@ async function main() {
                 id: "c-edu-31",
                 name: "Rai Foundation",
                 category: "Educational Institutions",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712917/kumarpower_website/pages/n9fiiakuoeyxtlldrasz.jpg",
               },
               {
                 id: "c-edu-32",
@@ -4543,6 +4611,7 @@ async function main() {
                 id: "c-edu-33",
                 name: "IGNOU, Regional Centre, NCT of Delhi",
                 category: "Educational Institutions",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712923/kumarpower_website/pages/aefj0djwk27dqj8antl2.png",
               },
               {
                 id: "c-edu-34",
@@ -4593,6 +4662,7 @@ async function main() {
                 id: "c-edu-43",
                 name: "Salwan Public School",
                 category: "Educational Institutions",
+                logo: "https://salwanpublicschool.edu.in/wp-content/uploads/2026/01/SPS_White-1001x1001.png",
               },
               {
                 id: "c-edu-44",
@@ -4603,6 +4673,7 @@ async function main() {
                 id: "c-edu-45",
                 name: "DPS School",
                 category: "Educational Institutions",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712881/kumarpower_website/pages/l7vudrgnj0wn8x6geidl.jpg",
               },
               {
                 id: "c-edu-46",
@@ -4770,6 +4841,12 @@ async function main() {
                 name: "Hi Physix Laboratory India (P) Ltd.",
                 category: "Medical Facilities",
               },
+              {
+                id: "c-med-32",
+                name: "Apollo Hospitals",
+                category: "Medical Facilities",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712900/kumarpower_website/pages/xbt3t4r0bsw48y1oaucl.png",
+              },
               // Construction
               {
                 id: "c-con-1",
@@ -4795,6 +4872,7 @@ async function main() {
                 id: "c-con-5",
                 name: "S&P Infrastructure Developers (P) ltd.",
                 category: "Construction",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712899/kumarpower_website/pages/fia6l5umqisbfn184vix.jpg",
               },
               {
                 id: "c-con-6",
@@ -4870,6 +4948,7 @@ async function main() {
                 id: "c-con-20",
                 name: "KEC International Ltd.",
                 category: "Construction",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712910/kumarpower_website/pages/bpexoloid3d5rgpf2qju.jpg",
               },
               {
                 id: "c-con-21",
@@ -4945,8 +5024,14 @@ async function main() {
                 id: "c-con-35",
                 name: "Continental Engineering Corporation",
                 category: "Construction",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712872/kumarpower_website/pages/wzn7iloxksjdn9vdl9nz.jpg",
               },
-              { id: "c-con-36", name: "CEC", category: "Construction" },
+              {
+                id: "c-con-36",
+                name: "CEC",
+                category: "Construction",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712872/kumarpower_website/pages/wzn7iloxksjdn9vdl9nz.jpg",
+              },
               {
                 id: "c-con-37",
                 name: "E-Homes Infrastructure (P) Ltd",
@@ -4971,6 +5056,24 @@ async function main() {
                 id: "c-con-41",
                 name: "ATS Township (P) Ltd.",
                 category: "Construction",
+              },
+              {
+                id: "c-con-42",
+                name: "Ace Construction",
+                category: "Construction",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712874/kumarpower_website/pages/mxqbgjryo9awqzfjzyei.jpg",
+              },
+              {
+                id: "c-con-43",
+                name: "NCC Limited",
+                category: "Construction",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712903/kumarpower_website/pages/ots16de8ab4ep5y2qtvm.jpg",
+              },
+              {
+                id: "c-con-44",
+                name: "NBCC Limited",
+                category: "Construction",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712908/kumarpower_website/pages/eqgmlclkhvgd3brunbit.png",
               },
               // Spiritual & NGOs
               {
@@ -5255,6 +5358,24 @@ async function main() {
                 name: "THE GRACE HOUSE (Hotel)",
                 category: "Hospitality & Hotels",
               },
+              {
+                id: "c-hot-25",
+                name: "Seasons",
+                category: "Hospitality & Hotels",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712902/kumarpower_website/pages/srgu3xp1bqpt0j0owygp.png",
+              },
+              {
+                id: "c-hot-26",
+                name: "Mapple Hotels",
+                category: "Hospitality & Hotels",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712913/kumarpower_website/pages/h4qlwyke69y5ou0uvhwy.jpg",
+              },
+              {
+                id: "c-hot-27",
+                name: "Clarion",
+                category: "Hospitality & Hotels",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712878/kumarpower_website/pages/pxzw9z3efrvmt4xqrgo6.png",
+              },
               // Exporters
               {
                 id: "c-exp-1",
@@ -5360,6 +5481,7 @@ async function main() {
                 id: "c-mfg-6",
                 name: "Suez India (P) Ltd.",
                 category: "Manufacturers/Wholesalers/Suppliers",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712896/kumarpower_website/pages/esahf0nbza5bbekpynjy.png",
               },
               {
                 id: "c-mfg-7",
@@ -5445,6 +5567,7 @@ async function main() {
                 id: "c-mfg-23",
                 name: "APL Apollo Tubes Ltd.",
                 category: "Manufacturers/Wholesalers/Suppliers",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361127/KumarPower-Assets/clients/qjbhjxwcwgoyar2h1hqx.jpg",
               },
               {
                 id: "c-mfg-24",
@@ -5470,6 +5593,7 @@ async function main() {
                 id: "c-mfg-28",
                 name: "Bisleri international",
                 category: "Manufacturers/Wholesalers/Suppliers",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Bisleri_logo.svg/320px-Bisleri_logo.svg.png",
               },
               {
                 id: "c-mfg-29",
@@ -5520,6 +5644,7 @@ async function main() {
                 id: "c-mfg-38",
                 name: "Daikin Airconditioning India (P) Ltd.",
                 category: "Manufacturers/Wholesalers/Suppliers",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712921/kumarpower_website/pages/olmrtpm51ks5emr2eyok.jpg",
               },
               {
                 id: "c-mfg-39",
@@ -5641,6 +5766,7 @@ async function main() {
                 id: "c-inf-2",
                 name: "Sikka Infrastructure (P) Ltd",
                 category: "Infrastructure",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789360386/KumarPower-Assets/clients/uzckdtlrwvqvkl3j1ggg.jpg",
               },
               {
                 id: "c-inf-3",
@@ -5656,6 +5782,7 @@ async function main() {
                 id: "c-inf-5",
                 name: "Afcons Infrastructure Ltd.",
                 category: "Infrastructure",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712909/kumarpower_website/pages/mznhggiitrdnbyvwxlea.png",
               },
               {
                 id: "c-inf-6",
@@ -5666,6 +5793,7 @@ async function main() {
                 id: "c-inf-7",
                 name: "Kashyapi Infrastructure (P) Ltd.",
                 category: "Infrastructure",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789360388/KumarPower-Assets/clients/oyjyponductweikdbzef.png",
               },
               {
                 id: "c-inf-8",
@@ -5676,6 +5804,18 @@ async function main() {
                 id: "c-inf-9",
                 name: "Goyala Infra Projects (P) Ltd.",
                 category: "Infrastructure",
+              },
+              {
+                id: "c-inf-10",
+                name: "GMR Infrastructure",
+                category: "Infrastructure",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712863/kumarpower_website/pages/rpsj6uyhi7kl2gdsc8ng.jpg",
+              },
+              {
+                id: "c-inf-11",
+                name: "Adani Group",
+                category: "Infrastructure",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712898/kumarpower_website/pages/bhpjqp3anzsiowfrltvt.png",
               },
               // Beauty Salon
               {
@@ -5876,6 +6016,13 @@ async function main() {
                   "GND India Ltd.",
                   "World Phone internet P. Ltd.",
                   "Concept Communication",
+                  "Honeywell India",
+                  "Air India",
+                  "British Paints",
+                  "PWC",
+                  "Vistara",
+                  "GEPL",
+                  "OJC",
                 ],
               },
               retail: {
@@ -6032,6 +6179,7 @@ async function main() {
                   "Kesar Hospital",
                   "Revive Hospital",
                   "Hi Physix Laboratory India (P) Ltd.",
+                  "Apollo Hospitals",
                 ],
               },
               construction: {
@@ -6078,6 +6226,9 @@ async function main() {
                   "Spherical Construction & Interiors",
                   "Dharamraj Construct (1) Pvt. Ltd.",
                   "ATS Township (P) Ltd.",
+                  "Ace Construction",
+                  "NCC Limited",
+                  "NBCC Limited",
                 ],
               },
               spiritual: {
@@ -6149,6 +6300,9 @@ async function main() {
                   "Darbar Restaurant (Restaurant)",
                   "PRADEEP JI, OYO Hotels, (Hotel)",
                   "THE GRACE HOUSE (Hotel)",
+                  "Seasons",
+                  "Mapple Hotels",
+                  "Clarion",
                 ],
               },
               cpwd: {
@@ -6267,6 +6421,8 @@ async function main() {
                   "Kashyapi Infrastructure (P) Ltd.",
                   "Liza Infrastructure Pvt. Ltd.",
                   "Goyala Infra Projects (P) Ltd.",
+                  "GMR Infrastructure",
+                  "Adani Group",
                 ],
               },
               beautySalon: {

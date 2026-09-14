@@ -13,8 +13,17 @@ import {
   UploadCloud,
   X,
   Image as ImageIcon,
+  Search,
+  Filter,
+  ChevronLeft,
+  ChevronRight,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  Link as LinkIcon,
 } from "lucide-react";
 import toast from "react-hot-toast";
+import { uploadFile } from "@/lib/uploadHelpers";
 
 type ClientLogo = {
   id: string;
@@ -27,10 +36,20 @@ type ClientItem = {
   id: string;
   name: string;
   category: string;
+  logo?: string;
 };
 
 export default function OurClientsStaticPageCMS() {
   const bulkLogoInputRef = useRef<HTMLInputElement>(null);
+  const bulkClientLogoRef = useRef<HTMLInputElement>(null);
+
+  // Section 3 Search, Filter & Pagination states
+  const [clientSearch, setClientSearch] = useState("");
+  const [clientCategoryFilter, setClientCategoryFilter] = useState("ALL");
+  const [clientPage, setClientPage] = useState(1);
+  const [uploadingClientId, setUploadingClientId] = useState<string | null>(null);
+  const [isBulkUploadingClients, setIsBulkUploadingClients] = useState(false);
+  const itemsPerPage = 20;
 
   // Accordion states
   const [isHeroOpen, setIsHeroOpen] = useState(true);
@@ -184,7 +203,7 @@ export default function OurClientsStaticPageCMS() {
   const addClient = () => {
     setClients((prev) => [
       ...prev,
-      { id: `c-${Date.now()}`, name: "", category: "Industries" },
+      { id: `c-${Date.now()}`, name: "", category: "Industries", logo: "" },
     ]);
     toast.success("New client entry added!");
   };
@@ -192,6 +211,56 @@ export default function OurClientsStaticPageCMS() {
   const removeClient = (id: string) => {
     setClients((prev) => prev.filter((c) => c.id !== id));
     toast.success("Client entry removed");
+  };
+
+  const handleClientLogoUpload = async (id: string, file: File) => {
+    setUploadingClientId(id);
+    try {
+      const url = await uploadFile(file);
+      if (url) {
+        handleClientChange(id, "logo", url);
+        toast.success("Client logo uploaded! Remember to save.");
+      }
+    } catch (err: any) {
+      toast.error(err.message || "Failed to upload logo");
+    } finally {
+      setUploadingClientId(null);
+    }
+  };
+
+  const handleBulkClientLogos = async (files: FileList | File[]) => {
+    const fileArray = Array.from(files).filter((f) => f.type.startsWith("image/"));
+    if (fileArray.length === 0) return;
+
+    setIsBulkUploadingClients(true);
+    let matched = 0;
+    try {
+      for (const file of fileArray) {
+        const baseName = file.name.replace(/\.[^/.]+$/, "").trim().toLowerCase();
+        // find matching client by company name
+        const found = clients.find((c) => {
+          const cn = c.name.toLowerCase();
+          return cn.includes(baseName) || baseName.includes(cn.split(" ")[0].toLowerCase());
+        });
+
+        if (found) {
+          const url = await uploadFile(file);
+          if (url) {
+            handleClientChange(found.id, "logo", url);
+            matched++;
+          }
+        }
+      }
+      if (matched > 0) {
+        toast.success(`Matched and uploaded ${matched} client logo(s)! Don't forget to save.`);
+      } else {
+        toast.error("No client names matched the uploaded filenames.");
+      }
+    } catch (err: any) {
+      toast.error("Bulk upload error: " + err.message);
+    } finally {
+      setIsBulkUploadingClients(false);
+    }
   };
 
   const handleSaveStats = async () => {
@@ -536,8 +605,8 @@ export default function OurClientsStaticPageCMS() {
       {/* 3. Prestigious Clients Industry List */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
-          title={`3. Prestigious Clients Industry Directory (${clients.length} Entries)`}
-          description="Manage client names & industry sector categories (Builders, Petrol Pump, Healthcare, Embassies, etc.)."
+          title={`3. Prestigious Clients Industry Directory (${clients.length} Entries · ${clients.filter((c) => !!c.logo).length} with Logos)`}
+          description="Manage client logos, names & industry sector categories. Logos replace company names when available; company names remain when logos are missing."
           isOpen={isClientsOpen}
           onToggle={() => setIsClientsOpen(!isClientsOpen)}
         />
@@ -564,53 +633,363 @@ export default function OurClientsStaticPageCMS() {
               </div>
             </div>
 
-            <div className="flex justify-end border-t border-slate-100 pt-6">
-              <button
-                type="button"
-                onClick={addClient}
-                className="flex items-center gap-1.5 px-4 py-2 bg-[#2D6FBA] text-white text-xs font-bold rounded-xl hover:bg-[#22548e] transition cursor-pointer"
-              >
-                <Plus className="w-4 h-4" /> Add Client Entry
-              </button>
+            {/* Filter, Search & Bulk Actions Bar */}
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-4">
+              <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                <div className="flex-1 flex flex-col sm:flex-row items-center gap-3">
+                  {/* Search Input */}
+                  <div className="relative w-full sm:w-72">
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <input
+                      type="text"
+                      value={clientSearch}
+                      onChange={(e) => {
+                        setClientSearch(e.target.value);
+                        setClientPage(1);
+                      }}
+                      placeholder="Search company or industry..."
+                      className="w-full pl-9 pr-8 py-2 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#2D6FBA] text-slate-800"
+                    />
+                    {clientSearch && (
+                      <button
+                        type="button"
+                        onClick={() => setClientSearch("")}
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Category Filter Dropdown */}
+                  <div className="relative w-full sm:w-60">
+                    <Filter className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <select
+                      value={clientCategoryFilter}
+                      onChange={(e) => {
+                        setClientCategoryFilter(e.target.value);
+                        setClientPage(1);
+                      }}
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-[#2D6FBA] text-slate-800 cursor-pointer"
+                    >
+                      <option value="ALL">All Categories ({clients.length})</option>
+                      {Array.from(new Set(clients.map((c) => c.category).filter(Boolean))).map((cat) => {
+                        const count = clients.filter((c) => c.category === cat).length;
+                        return (
+                          <option key={cat} value={cat}>
+                            {cat} ({count})
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  {/* Bulk Logo Upload Button */}
+                  <input
+                    ref={bulkClientLogoRef}
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => {
+                      if (e.target.files?.length) {
+                        handleBulkClientLogos(e.target.files);
+                      }
+                    }}
+                  />
+                  <button
+                    type="button"
+                    disabled={isBulkUploadingClients}
+                    onClick={() => bulkClientLogoRef.current?.click()}
+                    className="flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 hover:border-[#2D6FBA]/50 text-slate-700 text-xs font-semibold rounded-xl transition shadow-2xs cursor-pointer disabled:opacity-50"
+                    title="Upload multiple logos named after companies"
+                  >
+                    {isBulkUploadingClients ? (
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#2D6FBA]" />
+                    ) : (
+                      <UploadCloud className="w-3.5 h-3.5 text-[#2D6FBA]" />
+                    )}
+                    Bulk Match Logos
+                  </button>
+
+                  {/* Add Single Client Entry */}
+                  <button
+                    type="button"
+                    onClick={addClient}
+                    className="flex items-center gap-1.5 px-3.5 py-2 bg-[#2D6FBA] text-white text-xs font-bold rounded-xl hover:bg-[#22548e] transition cursor-pointer shadow-xs"
+                  >
+                    <Plus className="w-3.5 h-3.5" /> Add Client Entry
+                  </button>
+                </div>
+              </div>
+
+              {/* Status & Results Counter */}
+              <div className="flex items-center justify-between text-xs text-slate-500 pt-1 border-t border-slate-200/60">
+                <div className="flex items-center gap-2">
+                  <span>
+                    Showing{" "}
+                    <strong className="text-slate-700">
+                      {Math.min(
+                        (clientPage - 1) * itemsPerPage + 1,
+                        clients.filter((c) => {
+                          const matchesSearch =
+                            !clientSearch ||
+                            c.name.toLowerCase().includes(clientSearch.toLowerCase()) ||
+                            c.category.toLowerCase().includes(clientSearch.toLowerCase());
+                          const matchesCat =
+                            clientCategoryFilter === "ALL" || c.category === clientCategoryFilter;
+                          return matchesSearch && matchesCat;
+                        }).length
+                      )}
+                      -
+                      {Math.min(
+                        clientPage * itemsPerPage,
+                        clients.filter((c) => {
+                          const matchesSearch =
+                            !clientSearch ||
+                            c.name.toLowerCase().includes(clientSearch.toLowerCase()) ||
+                            c.category.toLowerCase().includes(clientSearch.toLowerCase());
+                          const matchesCat =
+                            clientCategoryFilter === "ALL" || c.category === clientCategoryFilter;
+                          return matchesSearch && matchesCat;
+                        }).length
+                      )}
+                    </strong>{" "}
+                    of{" "}
+                    <strong className="text-slate-700">
+                      {
+                        clients.filter((c) => {
+                          const matchesSearch =
+                            !clientSearch ||
+                            c.name.toLowerCase().includes(clientSearch.toLowerCase()) ||
+                            c.category.toLowerCase().includes(clientSearch.toLowerCase());
+                          const matchesCat =
+                            clientCategoryFilter === "ALL" || c.category === clientCategoryFilter;
+                          return matchesSearch && matchesCat;
+                        }).length
+                      }
+                    </strong>{" "}
+                    filtered entries
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-medium text-[11px]">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                    {clients.filter((c) => !!c.logo).length} with Logos
+                  </span>
+                  <span className="flex items-center gap-1 text-slate-600 bg-slate-200/60 px-2 py-0.5 rounded-md font-medium text-[11px]">
+                    <AlertCircle className="w-3 h-3 text-slate-400" />
+                    {clients.filter((c) => !c.logo).length} Name Only
+                  </span>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {clients.map((c, idx) => (
-                <div
-                  key={c.id}
-                  className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 relative"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA] bg-blue-50 px-2 py-0.5 rounded-md">
-                      Client Entry #{idx + 1}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => removeClient(c.id)}
-                      className="text-slate-400 hover:text-red-500 transition cursor-pointer"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+            {/* Client Cards Grid (Paginated) */}
+            {(() => {
+              const filtered = clients.filter((c) => {
+                const matchesSearch =
+                  !clientSearch ||
+                  c.name.toLowerCase().includes(clientSearch.toLowerCase()) ||
+                  c.category.toLowerCase().includes(clientSearch.toLowerCase());
+                const matchesCat =
+                  clientCategoryFilter === "ALL" || c.category === clientCategoryFilter;
+                return matchesSearch && matchesCat;
+              });
+
+              const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+              const paginated = filtered.slice(
+                (clientPage - 1) * itemsPerPage,
+                clientPage * itemsPerPage
+              );
+
+              return (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {paginated.map((c) => {
+                      const realIndex = clients.findIndex((item) => item.id === c.id);
+                      const isUploading = uploadingClientId === c.id;
+
+                      return (
+                        <div
+                          key={c.id}
+                          className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 relative hover:border-[#2D6FBA]/40 transition"
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA] bg-blue-50 px-2 py-0.5 rounded-md">
+                                Client Entry #{realIndex + 1}
+                              </span>
+                              {c.logo ? (
+                                <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded-md flex items-center gap-1">
+                                  <CheckCircle2 className="w-2.5 h-2.5" /> Logo Active
+                                </span>
+                              ) : (
+                                <span className="text-[10px] font-medium text-slate-500 bg-slate-200/70 px-2 py-0.5 rounded-md">
+                                  Name Only
+                                </span>
+                              )}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => removeClient(c.id)}
+                              className="text-slate-400 hover:text-red-500 transition cursor-pointer"
+                              title="Delete entry"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </div>
+
+                          {/* Company Logo Management Area */}
+                          <div className="space-y-1.5">
+                            <label className="block text-xs font-semibold text-slate-700">
+                              Company Logo (Replaces name when provided)
+                            </label>
+                            <div className="flex items-center gap-3 bg-white border border-slate-200 rounded-xl p-2">
+                              <div className="w-16 h-12 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center overflow-hidden shrink-0 p-1">
+                                {c.logo ? (
+                                  <img
+                                    src={c.logo}
+                                    alt={c.name || "Client logo"}
+                                    className="max-h-full max-w-full object-contain"
+                                    onError={(e) => {
+                                      e.currentTarget.style.display = "none";
+                                    }}
+                                  />
+                                ) : (
+                                  <ImageIcon className="w-5 h-5 text-slate-300" />
+                                )}
+                              </div>
+
+                              <div className="flex-1 min-w-0">
+                                <p className="text-[11px] text-slate-500 truncate font-mono">
+                                  {c.logo ? c.logo : "No logo uploaded (displays company name)"}
+                                </p>
+                                <div className="flex items-center gap-2 mt-1.5">
+                                  <label className="px-2.5 py-1 bg-blue-50 text-[#2D6FBA] hover:bg-blue-100 rounded-lg text-[11px] font-bold cursor-pointer transition flex items-center gap-1">
+                                    {isUploading ? (
+                                      <>
+                                        <Loader2 className="w-3 h-3 animate-spin" /> Uploading...
+                                      </>
+                                    ) : (
+                                      <>
+                                        <Upload className="w-3 h-3" />
+                                        {c.logo ? "Replace Logo" : "Upload Logo"}
+                                      </>
+                                    )}
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="hidden"
+                                      disabled={isUploading}
+                                      onChange={(e) => {
+                                        const file = e.target.files?.[0];
+                                        if (file) handleClientLogoUpload(c.id, file);
+                                      }}
+                                    />
+                                  </label>
+
+                                  {c.logo && (
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        handleClientChange(c.id, "logo", "");
+                                        toast.success("Logo removed. Company name will display.");
+                                      }}
+                                      className="px-2 py-1 text-slate-500 hover:text-red-500 rounded-lg text-[11px] font-medium transition cursor-pointer"
+                                    >
+                                      Remove Logo
+                                    </button>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <InputField
+                            label="Client / Organization Name"
+                            value={c.name}
+                            onChange={(e) =>
+                              handleClientChange(c.id, "name", e.target.value)
+                            }
+                            placeholder="e.g. Air India"
+                          />
+                          <InputField
+                            label="Industry Sector / Tab Category"
+                            value={c.category}
+                            onChange={(e) =>
+                              handleClientChange(c.id, "category", e.target.value)
+                            }
+                            placeholder="e.g. Aviation & Logistics"
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
-                  <InputField
-                    label="Client / Organization Name"
-                    value={c.name}
-                    onChange={(e) =>
-                      handleClientChange(c.id, "name", e.target.value)
-                    }
-                    placeholder="e.g. Air India"
-                  />
-                  <InputField
-                    label="Industry Sector / Tab Category"
-                    value={c.category}
-                    onChange={(e) =>
-                      handleClientChange(c.id, "category", e.target.value)
-                    }
-                    placeholder="e.g. Aviation & Logistics"
-                  />
-                </div>
-              ))}
-            </div>
+
+                  {/* Pagination Controls */}
+                  {totalPages > 1 && (
+                    <div className="flex items-center justify-between border-t border-slate-100 pt-4 px-2">
+                      <p className="text-xs text-slate-500">
+                        Page <strong className="text-slate-800">{clientPage}</strong> of{" "}
+                        <strong className="text-slate-800">{totalPages}</strong>
+                      </p>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          disabled={clientPage <= 1}
+                          onClick={() => setClientPage((p) => Math.max(p - 1, 1))}
+                          className="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-xl hover:bg-slate-50 disabled:opacity-40 disabled:pointer-events-none transition cursor-pointer flex items-center gap-1"
+                        >
+                          <ChevronLeft className="w-3.5 h-3.5" /> Prev
+                        </button>
+
+                        <div className="flex items-center gap-1">
+                          {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                            let pageNum = clientPage;
+                            if (totalPages <= 5) {
+                              pageNum = i + 1;
+                            } else if (clientPage <= 3) {
+                              pageNum = i + 1;
+                            } else if (clientPage >= totalPages - 2) {
+                              pageNum = totalPages - 4 + i;
+                            } else {
+                              pageNum = clientPage - 2 + i;
+                            }
+
+                            return (
+                              <button
+                                key={pageNum}
+                                type="button"
+                                onClick={() => setClientPage(pageNum)}
+                                className={`w-8 h-8 rounded-xl text-xs font-bold transition cursor-pointer ${
+                                  clientPage === pageNum
+                                    ? "bg-[#2D6FBA] text-white"
+                                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
+                                }`}
+                              >
+                                {pageNum}
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        <button
+                          type="button"
+                          disabled={clientPage >= totalPages}
+                          onClick={() => setClientPage((p) => Math.min(p + 1, totalPages))}
+                          className="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-xl hover:bg-slate-50 disabled:opacity-40 disabled:pointer-events-none transition cursor-pointer flex items-center gap-1"
+                        >
+                          Next <ChevronRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </>
+              );
+            })()}
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton
