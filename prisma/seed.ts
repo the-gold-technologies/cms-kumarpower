@@ -165,7 +165,7 @@ async function main() {
       id: "nav-2-6",
       label: "Servo Stabiliser Pannel",
       url: "/products/servo-stabilizer",
-      order: 7,
+      order: 6,
       type: "Sub Link",
       parent: "nav-2",
       isStatic: true,
@@ -186,16 +186,6 @@ async function main() {
       label: "Insights",
       url: "/blogs",
       order: 5,
-      type: "Main Link",
-      parent: "-",
-      isStatic: true,
-      isActive: true,
-    },
-    {
-      id: "nav-8",
-      label: "Testimonials",
-      url: "/about/Testimonials",
-      order: 6,
       type: "Main Link",
       parent: "-",
       isStatic: true,
@@ -1662,9 +1652,48 @@ async function main() {
           },
         },
         {
+          id: "sec-home-testimonials",
+          type: "testimonials",
+          order: 11,
+          content: {
+            title: "Real Stories. Real Power.",
+            subtitle:
+              "Hear how our generators keep India powered — from Fortune 500 factories to city hospitals.",
+            testimonials: [
+              {
+                id: "test-home-1",
+                headerText: "TESTIMONIAL BY POOJA JAIN - SHIKHERJEE",
+                authorName: "Pooja Jain",
+                companyName: "Shikherjee Jewellers",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376352/kumarpower_website/testimonials/shikherjee.png",
+                quote:
+                  "At Vilandi, we make bespoke Polki jewellery with the finest syndicate polkis, coloured gemstones and even finer details. We are extremely conscious about quality and create pieces that will be cherished for generations. We manufacture all of our jewellery pieces in-house and cater to both B2B and B2C clients. Recently, I referred Mr. R. S. Kumar from M/S Kumar Generator House to Mr Abhishek Jain of Jainco Sphere, a real estate company developing luxury homes in Delhi NCR. They had a detailed meeting and were really impressed with the knowledge and command he had on his industry. He suggested some important changes in their existing selection of material and design of LT panels and also, some value-added services which would enrich the experience of their customers. He was so convincing and transparent with his pricing and product detailing that Mr Abhishek gave an order for 2 of his under-construction buildings for Distribution panels, LT panels and chemical earthings. Also, the execution of work at the site was carried out with thorough professionalism and in a really time-bound manner. Mr Jain was very happy to work with M/s Kumar Generator House and highly recommends his services for Best quality, Best pricing and Best services.",
+              },
+              {
+                id: "test-home-2",
+                headerText: "TESTIMONIAL BY AANCHAL SAINI, AARK WORLD",
+                authorName: "Aanchal Saini",
+                companyName: "AARK World Pvt. Ltd.",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376353/kumarpower_website/testimonials/aark-world.png",
+                quote:
+                  "RENT IT BAE is a luxury fashion rental service offering Ethnic, Western & Accessories from designer labels at a fraction of MRP. Servicing 15 cities via Website, m-site, Android & iOS apps. First to introduce Monthly Fashion Subscription in the country. The company has it's 2 Flagship Stores in New Delhi (Rajouri Garden and Greater Kailash-1). RENT IT BAE has taken the media limelight for building country's first tech driven store. We highly appreciate the fast and seamless service provided by your company. The installation of inverters for RENT IT BAE's South Delhi Flagship Store at Greater Kailash seemed a fluid task with your service. The requirement for a power back up is a must for all companies now days especially in the retail sector. You understood the requirement and delivered the apt products at a reasonable price. All was done post one phone call. No follow ups were required. The products were delivered and installed within 24 hours. We would be happy to recommend your products and service.",
+              },
+              {
+                id: "test-home-3",
+                headerText: "TESTIMONIAL BY BHARAT ANAND - BROWNGOLD",
+                authorName: "Bharat Anand",
+                companyName: "Browngold",
+                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376354/kumarpower_website/testimonials/brown-gold.png",
+                quote:
+                  "We at BROWNGOLD are a team of young & dynamic interior designers engaged in the business of providing complete design solutions for our clients, be it individuals, architects or corporate for the last 3 decades. We have a passion of interiors which enables us in providing quality & timely delivery of our design services & products for our clients pan India. We would like to place on record our appreciation for Mr. R.S. Kumar of Kumar Generator House. We had taken their services for our 40 kva kirloskar generator & a small generator of 7 kva. We would like to take this opportunity to thank you for providing excellent advice, excellent products & excellent service. We would not hesitate to recommend Kumar Generator House to prospective clients, looking for a high level of professional service, with attention on a long term client focused relationship. We are extremely pleased & look forward to increasing our level of business with yourselves in the coming",
+              },
+            ],
+          },
+        },
+        {
           id: "sec-home-consultation",
           type: "consultation",
-          order: 11,
+          order: 12,
           content: {
             badge: "WE'RE HERE TO HELP YOU",
             heading: "Not Sure Which Electrical Solution You Need?",
@@ -1694,7 +1723,7 @@ async function main() {
         {
           id: "sec-home-footer",
           type: "footer",
-          order: 12,
+          order: 13,
           content: {
             aboutBio:
               "Kumar Power is certified ISO 9001:2015 Company & have emerged as the leading Power Solution Providers. Being an authorized Channel Partner of Kirloskar Oil Engines Limited, Kumar Power is committed to provide quality power solutions.",

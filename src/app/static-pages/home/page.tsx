@@ -11,6 +11,7 @@ import { WhyKumarPowerCMS } from "./components/WhyKumarPowerCMS";
 import { NumbersCredibilityCMS } from "./components/NumbersCredibilityCMS";
 import { SelectedProjectsCMS } from "./components/SelectedProjectsCMS";
 import { PartnerCertificationsCMS } from "./components/PartnerCertificationsCMS";
+import { LandingTestimonialsCMS } from "./components/LandingTestimonialsCMS";
 import { ConsultationFormCMS } from "./components/ConsultationFormCMS";
 import { FooterCMS } from "@/components/FooterCMS";
 
@@ -32,6 +33,7 @@ export default function HomeCMSPage() {
       <NumbersCredibilityCMS />
       <SelectedProjectsCMS />
       <PartnerCertificationsCMS />
+      <LandingTestimonialsCMS />
       <ConsultationFormCMS />
       <FooterCMS />
     </section>
