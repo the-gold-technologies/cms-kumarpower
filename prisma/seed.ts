@@ -1692,14 +1692,15 @@ async function main() {
             ],
           },
         },
-                {
+        {
           id: "sec-home-dg-calculator",
           type: "dgCalculator",
           order: 12,
           content: {
             badge: "DG Sizing Calculator",
             heading: "Calculate Your Ideal DG Capacity",
-            subheading: "Enter your facility connected load to instantly calculate the recommended DG capacity.",
+            subheading:
+              "Enter your facility connected load to instantly calculate the recommended DG capacity.",
             inputLabel: "Total Load (kW)",
             inputSubtext: "Including any jerk load, if any",
             presets: [10, 25, 50, 100, 150, 250, 500],
@@ -1708,8 +1709,8 @@ async function main() {
             complianceBadge: "Kirloskar CPCB IV+ Compliant DG Set",
             availableRatings: [
               7.5, 10, 12.5, 15, 20, 25, 30, 35, 40, 45, 50, 62.5, 75, 82.5,
-              100, 125, 160, 200, 250, 320, 380, 400, 500, 600, 625, 750,
-              1010, 1250, 1500, 2000,
+              100, 125, 160, 200, 250, 320, 380, 400, 500, 600, 625, 750, 1010,
+              1250, 1500, 2000,
             ],
             ctaButtonText: "Get Instant Quote for {kva} kVA",
             specsButtonText: "View Specs",
@@ -1823,7 +1824,7 @@ async function main() {
                 description:
                   "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121110/kumarpower_website/ourprofile/timeline_2001_kirloskar_partnership.png",
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789979602/kumarpower_website/ourprofile/timeline_2001_kirloskar_partnership_1789979600653.jpg",
               },
               {
                 id: "time-3",
