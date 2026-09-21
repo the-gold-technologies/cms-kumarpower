@@ -12,6 +12,7 @@ import { NumbersCredibilityCMS } from "./components/NumbersCredibilityCMS";
 import { SelectedProjectsCMS } from "./components/SelectedProjectsCMS";
 import { PartnerCertificationsCMS } from "./components/PartnerCertificationsCMS";
 import { LandingTestimonialsCMS } from "./components/LandingTestimonialsCMS";
+import { DGCalculatorCMS } from "./components/DGCalculatorCMS";
 import { ConsultationFormCMS } from "./components/ConsultationFormCMS";
 import { FooterCMS } from "@/components/FooterCMS";
 
@@ -34,6 +35,7 @@ export default function HomeCMSPage() {
       <SelectedProjectsCMS />
       <PartnerCertificationsCMS />
       <LandingTestimonialsCMS />
+      <DGCalculatorCMS />
       <ConsultationFormCMS />
       <FooterCMS />
     </section>
