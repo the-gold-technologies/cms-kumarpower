@@ -163,7 +163,7 @@ async function main() {
     },
     {
       id: "nav-2-6",
-      label: "Servo Stabiliser Pannel",
+      label: "Servo Stabilizer Panel",
       url: "/products/servo-stabilizer",
       order: 6,
       type: "Sub Link",
@@ -934,6 +934,8 @@ async function main() {
           content: {
             backgroundVideo:
               "https://res.cloudinary.com/dpa93copz/video/upload/v1787210178/KumarPower-Assets/stiebk7378ocjujciakt.mp4",
+            mobileBackgroundVideo:
+              "https://res.cloudinary.com/dpa93copz/video/upload/v1789972500/KumarPower-Assets/gv1uojtoiqhdfxi2qhwz.mp4",
           },
         },
         {
@@ -941,11 +943,11 @@ async function main() {
           type: "positioningStatement",
           order: 2,
           content: {
-            badge: "Integrated Electrical Solution",
+            badge: "Integrated Electrical Solutions",
             heading:
               "One Partner. Every Stage of Your Electrical Infrastructure.",
             description:
-              "Kumar Power delivers integrated electrical solutions for commercial, industrial, institutional and infrastructure customers. We bring together power generators, transformers, distribution pannels, protection, power quality, renewable energy and battery storage under one coordinated solution.",
+              "Kumar Power delivers integrated electrical solutions for commercial, industrial, institutional and infrastructure customers. We bring together power generators, transformers, distribution panels, power quality & protection, renewable energy and battery storage under one coordinated solution.",
             capabilities: [
               {
                 id: "cap-1",
@@ -986,7 +988,7 @@ async function main() {
             badge: "Interactive System Flow",
             title: "From Incoming Power to Final Load",
             description:
-              "Automated power progression across all 6 electrical system stages. Click any stage to inspect equipment details.",
+              "Automated power progression across all 5 electrical system stages. Click any stage to inspect equipment details.",
             stages: [
               {
                 id: "generation",
@@ -995,7 +997,7 @@ async function main() {
                 icon: "Zap",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1789117364/kumarpower_website/ecosystem/stage1_power_sources_kirloskar.jpg",
-                headline: "Grid Entry, Solar Panels, Gensets & BESS",
+                headline: "Main Grid, Solar Panels, Gensets & BESS",
                 description:
                   "Accepts high-voltage grid supply, integrates rooftop solar panels, Kirloskar CPCB IV+ diesel gensets, and battery energy storage (BESS).",
                 equipment: [
@@ -1014,7 +1016,7 @@ async function main() {
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1787294588/kumarpower_website/ecosystem/stage3_panels.jpg",
                 headline: "Distribution Panels, AMF & Changeover",
                 description:
-                  "Routes power safely across main LT Panels, HT breaker panels, PCC/MCC motor controls, AMF & ATS Panels.",
+                  "Routes power safely across main LT Panels, HT breaker panels, PCC/MCC panels, AMF & ATS Panels.",
                 equipment: [
                   "LT Panel",
                   "HT Panels",
@@ -1033,7 +1035,7 @@ async function main() {
                 description:
                   "Stabilizes fluctuating grid voltages, maintains high power factor via APFC capacitor banks, and filters active harmonic distortion.",
                 equipment: [
-                  "Servo Stabilisers",
+                  "Servo Stabilizers",
                   "APFC Capacitor Banks",
                   "Active Harmonic Filters",
                   "Surge Arrestors",
@@ -1093,8 +1095,8 @@ async function main() {
                 subtitle:
                   "For facilities where downtime causes massive financial loss.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294620/kumarpower_website/portfolio/uninterrupted_power.jpg",
-                features: ["CPCB IV+ Gensets", "BESS", "UPS Inverter", "Solar"],
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789117364/kumarpower_website/ecosystem/stage1_power_sources_kirloskar.jpg",
+                features: ["CPCB IV+ Gensets", "UPS Inverter"],
                 link: "/products/kirloskar-diesel-generator",
               },
               {
@@ -1125,7 +1127,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1787294629/kumarpower_website/portfolio/power_quality.jpg",
                 features: [
-                  "Servo Stabilisers",
+                  "Servo Stabilizers",
                   "APFC Capacitor Banks",
                   "Active Harmonic Filters",
                   "Surge Arrestors",
@@ -1184,14 +1186,14 @@ async function main() {
                 icon: "ShieldAlert",
                 headline: "Uninterrupted Power for Mission-Critical Loads",
                 description:
-                  "Create an ultra-reliable power architecture using Kirloskar DG sets, AMF panels, BESS, transformers, and servo stabilisers.",
+                  "Create an ultra-reliable power architecture using Kirloskar DG sets, AMF panels, BESS, transformers, and servo stabilizers.",
                 outcomes: [
                   "100% power availability during main grid collapse",
                   "Seamless automatic transfer switch (ATS) sync",
                   "Isolation from grid harmonic spikes & voltage drops",
                   "Built-in redundant backup paths",
                 ],
-                components: ["AMF Panels", "BESS Storage", "Servo Stabilisers"],
+                components: ["AMF Panels", "BESS Storage", "Servo Stabilizers"],
               },
               {
                 id: "lower-energy-costs",
@@ -1309,17 +1311,17 @@ async function main() {
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1788776667/kumarpower_website/industries/industry_education.jpg",
               },
               {
-                id: "ind-registration",
-                name: "Registration",
-                icon: "FileCheck",
+                id: "ind-institutions",
+                name: "Institutions",
+                icon: "Landmark",
                 problem:
-                  "Zero-downtime mission-critical power for registry offices, verification centers & record systems.",
+                  "Zero-downtime mission-critical power for government, educational & public institutions.",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1788776668/kumarpower_website/industries/industry_registration.jpg",
               },
               {
                 id: "ind-event",
-                name: "Event",
+                name: "Events",
                 icon: "Calendar",
                 problem:
                   "Silent, synchronized mobile generators and distribution panels for high-profile events & expos.",
@@ -1676,7 +1678,7 @@ async function main() {
                 companyName: "AARK World Pvt. Ltd.",
                 logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376353/kumarpower_website/testimonials/aark-world.png",
                 quote:
-                  "RENT IT BAE is a luxury fashion rental service offering Ethnic, Western & Accessories from designer labels at a fraction of MRP. Servicing 15 cities via Website, m-site, Android & iOS apps. First to introduce Monthly Fashion Subscription in the country. The company has it's 2 Flagship Stores in New Delhi (Rajouri Garden and Greater Kailash-1). RENT IT BAE has taken the media limelight for building country's first tech driven store. We highly appreciate the fast and seamless service provided by your company. The installation of inverters for RENT IT BAE's South Delhi Flagship Store at Greater Kailash seemed a fluid task with your service. The requirement for a power back up is a must for all companies now days especially in the retail sector. You understood the requirement and delivered the apt products at a reasonable price. All was done post one phone call. No follow ups were required. The products were delivered and installed within 24 hours. We would be happy to recommend your products and service.",
+                  "RENT IT BAE is a luxury fashion rental service offering Ethnic, Western & Accessories from designer labels at a fraction of MRP. Servicing 15 cities via Website, m-site, Android & iOS apps. First to introduce Monthly Fashion Subscription in the country. The company has its 2 Flagship Stores in New Delhi (Rajouri Garden and Greater Kailash-1). RENT IT BAE has taken the media limelight for building the country's first tech-driven store. We highly appreciate the fast and seamless service provided by your company. The installation of inverters for RENT IT BAE's South Delhi Flagship Store at Greater Kailash seemed a fluid task with your service. The requirement for a power backup is a must for all companies nowadays, especially in the retail sector. You understood the requirement and delivered the apt products at a reasonable price. All was done post one phone call. No follow ups were required. The products were delivered and installed within 24 hours. We would be happy to recommend your products and service.",
               },
               {
                 id: "test-home-3",
@@ -1685,7 +1687,7 @@ async function main() {
                 companyName: "Browngold",
                 logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376354/kumarpower_website/testimonials/brown-gold.png",
                 quote:
-                  "We at BROWNGOLD are a team of young & dynamic interior designers engaged in the business of providing complete design solutions for our clients, be it individuals, architects or corporate for the last 3 decades. We have a passion of interiors which enables us in providing quality & timely delivery of our design services & products for our clients pan India. We would like to place on record our appreciation for Mr. R.S. Kumar of Kumar Generator House. We had taken their services for our 40 kva kirloskar generator & a small generator of 7 kva. We would like to take this opportunity to thank you for providing excellent advice, excellent products & excellent service. We would not hesitate to recommend Kumar Generator House to prospective clients, looking for a high level of professional service, with attention on a long term client focused relationship. We are extremely pleased & look forward to increasing our level of business with yourselves in the coming",
+                  "We at BROWNGOLD are a team of young & dynamic interior designers engaged in the business of providing complete design solutions for our clients, be it individuals, architects or corporate for the last 3 decades. We have a passion of interiors which enables us in providing quality & timely delivery of our design services & products for our clients pan India. We would like to place on record our appreciation for Mr. R.S. Kumar of Kumar Generator House. We had taken their services for our 40 kva kirloskar generator & a small generator of 7 kva. We would like to take this opportunity to thank you for providing excellent advice, excellent products & excellent service. We would not hesitate to recommend Kumar Generator House to prospective clients, looking for a high level of professional service, with attention on a long term client focused relationship. We are extremely pleased & look forward to increasing our level of business with yourselves in the coming years.",
               },
             ],
           },
@@ -1702,7 +1704,7 @@ async function main() {
             assessmentBtnText: "Request a Site Assessment",
             expertBtnText: "Speak With a Power Expert",
             phone: "+91 97738 51767",
-            salesEmail: "Sales@kumarpower.com",
+            salesEmail: "Sales@kumarpower.com,Sales2@kumarpower.com",
             accountsEmail: "Accounts@kumarpower.com",
             supportEmail: "Support@kumarpower.com",
             formCardTitle: "Site Assessment & Enquiry Form",
@@ -1765,7 +1767,7 @@ async function main() {
             paragraph1:
               "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
             paragraph2:
-              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions..",
+              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations. We specialize in SITC (Supply, Installation, Testing & Commissioning) and end-to-end turnkey power solutions.",
             paragraph3:
               "As an authorized dealer and service provider for Kirloskar Green generators, we bring the reliability and efficiency of world-class power solutions to our clients. Our team of certified engineers and technicians ensures that every installation meets the highest standards of performance and safety.",
             paragraph4:
@@ -1839,7 +1841,7 @@ async function main() {
                 id: "team-2",
                 name: "MS KUMAR",
                 role: "(Director)",
-                bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
+                bio: "MS Kumar (Manjot Singh Kumar) is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, he leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1789121114/kumarpower_website/ourprofile/team_ms_kumar.png",
               },
@@ -1847,7 +1849,7 @@ async function main() {
                 id: "team-3",
                 name: "JS KUMAR",
                 role: "(Director)",
-                bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, He is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
+                bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, he is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1789121116/kumarpower_website/ourprofile/team_js_kumar.png",
               },
@@ -1934,7 +1936,7 @@ async function main() {
             paragraph1:
               "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
             paragraph2:
-              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations, our expertise spans across SITC (Supply, Installation, Testing & Commissioning) and end-to-end power solutions..",
+              "Our expertise spans across sales, installation, commissioning, and maintenance of diesel generators, ensuring uninterrupted power supply for critical operations. We specialize in SITC (Supply, Installation, Testing & Commissioning) and end-to-end turnkey power solutions.",
             paragraph3:
               "As an authorized dealer and service provider for Kirloskar Green generators, we bring the reliability and efficiency of world-class power solutions to our clients. Our team of certified engineers and technicians ensures that every installation meets the highest standards of performance and safety.",
             paragraph4:
@@ -2008,7 +2010,7 @@ async function main() {
                 id: "team-2",
                 name: "MS KUMAR",
                 role: "(Director)",
-                bio: "MS Kumar is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, Manjot leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
+                bio: "MS Kumar (Manjot Singh Kumar) is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, he leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1789121114/kumarpower_website/ourprofile/team_ms_kumar.png",
               },
@@ -2016,7 +2018,7 @@ async function main() {
                 id: "team-3",
                 name: "JS KUMAR",
                 role: "(Director)",
-                bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, He is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
+                bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, he is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1789121116/kumarpower_website/ourprofile/team_js_kumar.png",
               },
@@ -2464,7 +2466,7 @@ async function main() {
               stickyTextPart1: "Kumar Power:",
               stickyTextPart2:
                 "India's Most Trusted Kirloskar-Certified Generator Brand!",
-              downloadBtn1Label: "Download Bharat Rajptar",
+              downloadBtn1Label: "Download Bharat Rajpatra",
               downloadBtn1Url:
                 "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
               downloadBtn2Label: "Download Direction 76",
@@ -2486,7 +2488,7 @@ async function main() {
       description: "Kumar Power Certifications",
       metaTitle: "Certifications & Awards - Kumar Power",
       metaDescription:
-        "Authorisation certificates and awards demonstrating our commitment to quality.",
+        "Authorization certificates and awards demonstrating our commitment to quality.",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -2503,11 +2505,11 @@ async function main() {
             certificates: [
               {
                 id: "cert-1",
-                name: "Authorisation Certification",
+                name: "Authorization Certification",
                 year: "2024",
                 description:
                   "Kumar Generator House is our authorised KOEL Green Dealer for sale of KOEL Green Diesel Generating Sets and Chhota Chilli Range of generators",
-                issuer: "Authorisation certificate",
+                issuer: "Authorization certificate",
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1784714152/kumarpower_website/products_and_certs/glrlbbblktcu31rtsgdq.jpg",
               },
@@ -2607,7 +2609,7 @@ async function main() {
             stickyTextPart1: "Kumar Power:",
             stickyTextPart2:
               "India's Most Trusted Kirloskar-Certified Generator Brand!",
-            downloadBtn1Label: "Download Bharat Rajptar",
+            downloadBtn1Label: "Download Bharat Rajpatra",
             downloadBtn1Url:
               "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
             downloadBtn2Label: "Download Direction 76",
@@ -2653,7 +2655,7 @@ async function main() {
             stickyTextPart1: "Kumar Power:",
             stickyTextPart2:
               "India's Most Trusted Kirloskar-Certified Generator Brand!",
-            downloadBtn1Label: "Download Bharat Rajptar",
+            downloadBtn1Label: "Download Bharat Rajpatra",
             downloadBtn1Url:
               "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
             downloadBtn2Label: "Download Direction 76",
@@ -2699,7 +2701,7 @@ async function main() {
               {
                 id: "cat-1",
                 range: "7.5 kVA to 20 kVA",
-                name: "Kirloskar Diesel generators",
+                name: "Kirloskar Diesel Generators",
                 fuelType: "Diesel",
                 cpcbNorm: "CPCB-IV+",
                 cooling: "Liquid",
@@ -2856,7 +2858,7 @@ async function main() {
               "Explore Kirloskar Diesel Generators at Kumar Power for reliable backup and prime power solutions. Ideal for industrial and commercial applications in the required power range.",
             heroBg:
               "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
-            sectionTitle: "CPCB4+ Diesel Generators",
+            sectionTitle: "CPCB IV+ Diesel Generators",
             sectionDesc:
               "Kirloskar's range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
             certTitle: "Certified Excellence",
@@ -2891,7 +2893,7 @@ async function main() {
             gensets: [
               {
                 id: "dg-1",
-                name: "7.5 kVA to 20 kVA Diesel generators",
+                name: "7.5 kVA to 20 kVA Diesel Generators",
                 range: "7.5 kVA to 20 kVA",
                 category: "diesel",
                 fuelType: "Diesel",
@@ -2911,7 +2913,7 @@ async function main() {
               },
               {
                 id: "dg-2",
-                name: "25 kVA to 58.5 kVA Diesel generators",
+                name: "25 kVA to 58.5 kVA Diesel Generators",
                 range: "25 kVA to 58.5 kVA",
                 category: "diesel",
                 fuelType: "Diesel",
@@ -2931,7 +2933,7 @@ async function main() {
               },
               {
                 id: "dg-3",
-                name: "82.5 kVA to 160 kVA Diesel generators",
+                name: "82.5 kVA to 160 kVA Diesel Generators",
                 range: "82.5 kVA to 160 kVA",
                 category: "diesel",
                 fuelType: "Diesel",
@@ -3090,7 +3092,7 @@ async function main() {
             gensets: [
               {
                 id: "pg-1",
-                name: "2.1 kVA to 5 kVA Portable generators",
+                name: "2.1 kVA to 5 kVA Portable Generators",
                 range: "2.1 kVA to 5 kVA",
                 fuelType: "Gasoline",
                 cpcbNorm: "CPCB-IV+",
@@ -3503,7 +3505,7 @@ async function main() {
               },
               {
                 id: "c-malls-6",
-                name: "Celebration de grande (Banquet Hall)",
+                name: "Celebration De Grande (Banquet Hall)",
                 category: "Malls/Banquet Halls/Farm & Guest Houses",
               },
               {
@@ -3543,7 +3545,7 @@ async function main() {
               },
               {
                 id: "c-malls-14",
-                name: "Mr. P.J. Sight, Chattarpur (Farm House)",
+                name: "Mr. P.J. Singh, Chattarpur (Farm House)",
                 category: "Malls/Banquet Halls/Farm & Guest Houses",
               },
               {
@@ -3579,7 +3581,7 @@ async function main() {
               // Contractors/Govt Offices
               {
                 id: "c-cont-1",
-                name: "National Engineers & Contractors (MES) - Company Clos",
+                name: "National Engineers & Contractors (MES) - Company Closed",
                 category: "Contractors/Govt Offices",
               },
               {
@@ -3614,7 +3616,7 @@ async function main() {
               },
               {
                 id: "c-cont-8",
-                name: "Gupta Engineers & Contactors (MES)",
+                name: "Gupta Engineers & Contractors (MES)",
                 category: "Contractors/Govt Offices",
               },
               {
@@ -3690,13 +3692,13 @@ async function main() {
               },
               {
                 id: "c-cont-23",
-                name: "Surjit Ling & Done (MES)",
+                name: "Surjit Singh & Sons (MES)",
                 category: "Contractors/Govt Offices",
               },
               // Builders
               {
                 id: "c-bld-1",
-                name: "Mango Infatech Solutions (P) Ltd.",
+                name: "Mango Infotech Solutions (P) Ltd.",
                 category: "Builders",
               },
               { id: "c-bld-2", name: "LG Builders", category: "Builders" },
@@ -3743,7 +3745,7 @@ async function main() {
               },
               {
                 id: "c-bld-12",
-                name: "Chopra Promotors",
+                name: "Chopra Promoters",
                 category: "Builders",
               },
               {
@@ -5843,12 +5845,12 @@ async function main() {
               // Beauty Salon
               {
                 id: "c-bty-1",
-                name: "ADAMO SALOON, Malviya Nagar",
+                name: "ADAMO SALON, Malviya Nagar",
                 category: "Beauty Salon",
               },
               {
                 id: "c-bty-2",
-                name: "Hair Café Beauty Saloon",
+                name: "Hair Café Beauty Salon",
                 category: "Beauty Salon",
               },
               {
@@ -5863,7 +5865,7 @@ async function main() {
               },
               {
                 id: "c-bty-5",
-                name: "Suhag Beauty Saloon, Dwarka",
+                name: "Suhag Beauty Salon, Dwarka",
                 category: "Beauty Salon",
               },
             ],
@@ -5876,7 +5878,7 @@ async function main() {
                   "Silver Grand Services (Banquet Hall)",
                   "Ananda Farm (Farmhouse)",
                   "Baghol Hospitality Infra Services (P) Ltd. (Guest House)",
-                  "Celebration de grande (Banquet Hall)",
+                  "Celebration De Grande (Banquet Hall)",
                   "Variety Shopping Centre (Shopping Mall)",
                   "Mr. Pawan, Eden Garden (Farmhouse)",
                   "Saifi Farm (Farm House)",
@@ -5884,7 +5886,7 @@ async function main() {
                   "Aashirwad Banquet Hall",
                   "RD FIESTA (Banquet Hall)",
                   "Beauty Green Farm House",
-                  "Mr. P.J. Sight, Chattarpur (Farm House)",
+                  "Mr. P.J. Singh, Chattarpur (Farm House)",
                   "Mr. Lalit Dua, Dua Farms (Farm House)",
                   "Farida Begum, Farm No. 7 (Farm House)",
                   "UK Chaudhary, Jona Farm House (Farm House)",
@@ -5896,14 +5898,14 @@ async function main() {
               contractors: {
                 title: "Contractors/Govt Offices",
                 clients: [
-                  "National Engineers & Contractors (MES) - Company Clos",
+                  "National Engineers & Contractors (MES) - Company Closed",
                   "Chauhan Hi-Tech Projects (P) Ltd.",
                   "The Collector, Camp Office, Tiruvannamalai.",
                   "Trishul Enterprises",
                   "JM Associates",
                   "BD Raizada & Co. (MES)",
                   "Ajit Jain & Co. (MES)",
-                  "Gupta Engineers & Contactors (MES)",
+                  "Gupta Engineers & Contractors (MES)",
                   "RS Sharma Contractors (P) Ltd. (MES)",
                   "Globe Civil Projects Pvt.Ltd.",
                   "Dharamraj Contracts (I) (P) Ltd.",
@@ -5918,13 +5920,13 @@ async function main() {
                   "Virender Construction (MES)",
                   "Yogesh - MR sales (MES)",
                   "Global Enterprises (MES)",
-                  "Surjit Ling & Done (MES)",
+                  "Surjit Singh & Sons (MES)",
                 ],
               },
               builders: {
                 title: "Builders",
                 clients: [
-                  "Mango Infatech Solutions (P) Ltd.",
+                  "Mango Infotech Solutions (P) Ltd.",
                   "LG Builders",
                   "Vikas Buildtech (P) Ltd.",
                   "Surjit Singh & Sons",
@@ -5935,7 +5937,7 @@ async function main() {
                   "M/s. Ratan Buildtech (P) Ltd.",
                   "Chettinad Property Developers (P) Ltd.",
                   "M/s. Osaaka Realtors (P) Ltd.",
-                  "Chopra Promotors",
+                  "Chopra Promoters",
                   "M/s. Chauhan Associates",
                   "Shomit Finance Ltd.",
                   "Mr. SK Goyal (PLHS Builders)",
@@ -6451,11 +6453,11 @@ async function main() {
               beautySalon: {
                 title: "Beauty Salon",
                 clients: [
-                  "ADAMO SALOON, Malviya Nagar",
-                  "Hair Café Beauty Saloon",
+                  "ADAMO SALON, Malviya Nagar",
+                  "Hair Café Beauty Salon",
                   "Spa Aqua, GK-I",
                   "Toni & Guy, Model Town",
-                  "Suhag Beauty Saloon, Dwarka",
+                  "Suhag Beauty Salon, Dwarka",
                 ],
               },
             },
@@ -6647,7 +6649,7 @@ async function main() {
                 roleCompany: "Proprietor, New Delhi",
                 logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_144354_iiu1nu.png",
                 quote:
-                  "We at Atul Jewellers are engaged in retail & wholesale of precious gemstones, diamonds & fine jewellery for almost five decades. We are the only jewellery house in Delhi, with in-house state of art gem testing & diamond grading laboratory, and we also provide this facility to almost 500 retailers across Delhi NCR. I wish to record our appreciation and acknowledgement, for R.S. Kumar of Kumar Generator House, who has provided gensets for our new store at Defence Colony. Mr. Kumar and his team is extremely professional in their approach.",
+                  "We at Atul Jewellers are engaged in retail & wholesale of precious gemstones, diamonds & fine jewellery for almost five decades. We are the only jewellery house in Delhi, with in-house state of art gem testing & diamond grading laboratory, and we also provide this facility to almost 500 retailers across Delhi NCR. I wish to record our appreciation and acknowledgement, for R.S. Kumar of Kumar Generator House, who has provided gensets for our new store at Defence Colony. Mr. Kumar and his team are extremely professional in their approach.",
                 dateText: "Dated: 28th Dec. 2018",
               },
               {
@@ -6673,7 +6675,7 @@ async function main() {
                 roleCompany: "Olympus, Intown Realtors Pvt Ltd",
                 logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_145022_ffeb43.png",
                 quote:
-                  "I K.K. Setia, Director of Intown Realtors, have been in commercial Real Estate business for the last 18 years. I recently needed a generator for my Sector 18 office building and reached out to Mr. Manjot Singh Kumar. His team promptly inspected the site, provided a tailored solution, and even assisted with necessary approvals.",
+                  "I K.K. Setia, Director of Intown Realtors, have been in the commercial real estate business for the last 18 years. I recently needed a generator for my Sector 18 office building and reached out to Mr. Manjot Singh Kumar. His team promptly inspected the site, provided a tailored solution, and even assisted with necessary approvals.",
                 dateText: "3rd March, 2025",
               },
               {
@@ -6766,7 +6768,7 @@ async function main() {
             stat3Text: "Installations Nationwide",
             ctaTitle: "Ready to join India's most reliable power network?",
             ctaDesc:
-              "From hospitals to data centers, from factories to airports — Kumar power delivers uninterrupted power solutions tailored to your needs.",
+              "From hospitals to data centers, from factories to airports — Kumar Power delivers uninterrupted power solutions tailored to your needs.",
             ctaBtnText: "Request Consultation",
             brochureBtnText: "Download Brochure",
             whatsappText: "WhatsApp Support",
@@ -6839,7 +6841,7 @@ async function main() {
 <blockquote>
 <p>Think of an AMF panel as the brain of your backup power system. It continuously monitors the main power supply and takes action without any human intervention.</p>
 </blockquote>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137532/kumarpower_website/blog_migrated/amf-panel-for-dg-set-electrical-control-panel.jpg" alt="AMF Panel For DG Set - Modern Power Soltions" /></p>
+<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137532/kumarpower_website/blog_migrated/amf-panel-for-dg-set-electrical-control-panel.jpg" alt="AMF Panel For DG Set - Modern Power Solutions" /></p>
 <p>1. Monitoring: The AMF panel constantly monitors the incoming mains supply voltage and frequency.<br>
 2. Detecting Failure: If the mains supply fails, drops below a certain voltage, or experiences a phase loss, the AMF panel detects this anomaly instantly.<br>
 3. Starting the Generator: It sends a start signal to the generator's engine control unit (ECU).<br>
@@ -6867,10 +6869,10 @@ async function main() {
 <p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg" alt="The Power of Silence" /></p>
 <p>A canopy can only reduce sound; it can't totally silence the generator. When a generator is used to make electricity, the engine inside it starts running on its rated RPM (Revolutions Per Minute). In a generator, RPM is directly linked to its power generation capacity and engine speed.</p>
 <blockquote>
-<p>As in India, 50 Hz is the standard frequency for electricity. When the alternator inside the generator rotates, it generates AC electricity. To maintain the frequency of 50Hz, the piston of the engine has to run at a specific speed, such as 1500RPM or 3000RPM. When the engine runs at this speed, they generate a lot of noise.</p>
+<p>As in India, 50 Hz is the standard frequency for electricity. When the alternator inside the generator rotates, it generates AC electricity. To maintain the frequency of 50Hz, the piston of the engine has to run at a specific speed, such as 1500RPM or 3000RPM. When the engine runs at this speed, it generates a lot of noise.</p>
 </blockquote>
 <h2>Why Choose Kirloskar?</h2>
-<p>Whether you need a compact 15 kVA generator for a commercial building or office, or a heavy-duty 1500 kVA DG set for your large industrial facility. When people search for a reliable silent generator in India, the name Kirloskar comes up for good reason. Kirloskar Oil Engines Limited (KOEL) (1946) carries over a century (starting of Kirloskar 1888) of engineering heritage and currently operates one of the largest genset fleets in the country, serving 50+ countries globally.</p>
+<p>Whether you need a compact 15 kVA generator for a commercial building or office, or a heavy-duty 1500 kVA DG set for your large industrial facility, when people search for a reliable silent generator in India, the name Kirloskar comes up for good reason. Kirloskar Oil Engines Limited (KOEL) (1946) carries over a century (starting of Kirloskar 1888) of engineering heritage and currently operates one of the largest genset fleets in the country, serving 50+ countries globally.</p>
 <p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1784983055/KumarPower-Assets/v3kwtoml4ltegduz27in.jpg" alt="Power That Blends Into the Background" /></p>`,
             },
             {
@@ -6928,7 +6930,7 @@ async function main() {
                 "https://res.cloudinary.com/dpa93copz/image/upload/v1785137466/kumarpower_website/blog_migrated/blog1.png",
               readTime: "5 min read",
               status: "Published",
-              content: `<p>Abhishek A very comprehensive preventive maintenance strategy is one of the most important investments businesses can make to improve generator reliability, operational efficiency, and long-term performance.</p>
+              content: `<p>A very comprehensive preventive maintenance strategy is one of the most important investments businesses can make to improve generator reliability, operational efficiency, and long-term performance.</p>
 <blockquote>
 <p>“Routine maintenance prevents unexpected failures and significantly extends generator lifespan.”</p>
 </blockquote>
