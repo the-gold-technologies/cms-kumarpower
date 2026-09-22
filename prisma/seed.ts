@@ -2654,189 +2654,238 @@ async function main() {
           type: "generators",
           order: 1,
           content: {
-            "heroBg": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
-            "gensets": [
-                        {
-                                    "id": "dg-1",
-                                    "name": "7.5 kVA to 20 kVA Diesel Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714180/kumarpower_website/products_and_certs/xrrqjdwx727kuavykav3.jpg",
-                                    "phase": "Three Phase",
-                                    "range": "7.5 kVA to 20 kVA",
-                                    "rating": "4.8",
-                                    "cooling": "Liquid",
-                                    "category": "diesel",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Diesel",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714228/kumarpower_website/products_and_certs/p43cmp3eergzesyylcqe.jpg",
-                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                                    "ratingCount": "153",
-                                    "technicalSpecs": "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power."
-                        },
-                        {
-                                    "id": "dg-2",
-                                    "name": "25 kVA to 58.5 kVA Diesel Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714184/kumarpower_website/products_and_certs/xdwoqirxbqvzwz5sllkq.jpg",
-                                    "phase": "Three Phase",
-                                    "range": "25 kVA to 58.5 kVA",
-                                    "rating": "4.9",
-                                    "cooling": "Liquid",
-                                    "category": "diesel",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Diesel",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714231/kumarpower_website/products_and_certs/vuismmwuz2zcgqh1bhsh.jpg",
-                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                                    "ratingCount": "132",
-                                    "technicalSpecs": "These mid-range workhorses are built for stability and endurance, powered by Kirloskar's liquid-cooled 3R1040 and 4R1040 series engines equipped with heavy-duty radiators. The system integrates advanced anti-vibration mounts to ensure smooth operation and minimal structural stress. Featuring a brushless, single-bearing alternator with IP23 protection and managed by the KG545 Digital Controller, these units offer comprehensive remote monitoring capabilities. They are perfectly suited for restaurants, commercial complexes, and small manufacturing units requiring consistent uptime."
-                        },
-                        {
-                                    "id": "dg-3",
-                                    "name": "82.5 kVA to 160 kVA Diesel Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714178/kumarpower_website/products_and_certs/j9vig3utu86xmqjukvl4.jpg",
-                                    "phase": "Three Phase",
-                                    "range": "82.5 kVA to 160 kVA",
-                                    "rating": "4.8",
-                                    "cooling": "Liquid",
-                                    "category": "diesel",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Diesel",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714235/kumarpower_website/products_and_certs/tztxdfdga87zbyguxg3p.jpg",
-                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                                    "ratingCount": "118",
-                                    "technicalSpecs": "Designed for industrial-grade performance, this range utilizes 4 and 6 cylinder inline turbocharged and intercooled engines to handle demanding loads. With G3 Class electronic governing, these generators provide precise frequency regulation and excellent sudden load acceptance, capable of handling 100% block loading. The fuel tanks are sized for 8-10 hours of continuous running, ensuring uninterrupted workflow. These are the preferred power solution for construction sites, medium-scale industries, hospitals, and hotels where power quality cannot be compromised."
-                        },
-                        {
-                                    "id": "dg-4",
-                                    "name": "200 kVA to 250 kVA Diesel Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714165/kumarpower_website/products_and_certs/n0s7hl3qm65qyueqpkra.jpg",
-                                    "phase": "Three Phase",
-                                    "range": "200 kVA to 250 kVA",
-                                    "rating": "4.7",
-                                    "cooling": "Liquid",
-                                    "category": "diesel",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Diesel",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714239/kumarpower_website/products_and_certs/d9d72hlytpr3awuux62e.jpg",
-                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                                    "ratingCount": "178",
-                                    "technicalSpecs": "This series features high-performance Kirloskar DV Series engines (with V-Type configuration options) that deliver robust power for critical infrastructure. They offer best-in-class fluid efficiency, optimizing both fuel and DEF consumption to lower operational costs. Controlled by an advanced ECU for precise engine management and diagnostics, these units include comprehensive safety protections against Over-speed, Low Lube Oil Pressure (LLOP), and High Water Temperature. They are engineered for large commercial hubs, infrastructure projects, and data centers."
-                        },
-                        {
-                                    "id": "dg-5",
-                                    "name": "320 kVA - 750 kVA Diesel Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714169/kumarpower_website/products_and_certs/rdvkcepag17r62vonbao.jpg",
-                                    "phase": "Three Phase",
-                                    "range": "320 kVA - 750 kVA",
-                                    "rating": "4.9",
-                                    "cooling": "Liquid",
-                                    "category": "diesel",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Diesel",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714242/kumarpower_website/products_and_certs/zxjcgmnltc5lzyyqlovq.jpg",
-                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                                    "ratingCount": "96",
-                                    "technicalSpecs": "These heavy-duty powerhouses are designed for 24/7 continuous operations in harsh environments, powered by SL90 and DV Series turbocharged after-cooled engines. The system allows for easy paralleling and synchronization with the grid or other DG sets to create flexible power plants. With GSM/GPRS-enabled controllers for remote monitoring and long service intervals of 500 hours, these generators significantly reduce Opex. They are the standard for heavy engineering industries, malls, mining operations, and large-scale real estate developments."
-                        },
-                        {
-                                    "id": "dg-6",
-                                    "name": "750 kVA - 1500 kVA Diesel Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714186/kumarpower_website/products_and_certs/lfs4vcyoxue0s64vlpt3.jpg",
-                                    "phase": "Three Phase",
-                                    "range": "750 kVA - 1500 kVA",
-                                    "rating": "4.9",
-                                    "cooling": "Liquid",
-                                    "category": "diesel",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Diesel",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714246/kumarpower_website/products_and_certs/hwrisjalxeanjxazoulw.jpg",
-                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                                    "ratingCount": "86",
-                                    "technicalSpecs": "Representing the ultimate in power solutions, this range features the legendary K-Series and DV-Series engines known for massive power density within a compact footprint. They utilize full authority electronic engine management systems for peak performance and can be configured with heavy-duty remote radiator options for specialized installations. Designed for absolute reliability in continuous duty cycles, these generators power critical national assets including power plants, mega-infrastructure projects, international airports, and hyperscale data centers."
-                        }
+            heroBg:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
+            gensets: [
+              {
+                id: "dg-1",
+                name: "7.5 kVA to 20 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714180/kumarpower_website/products_and_certs/xrrqjdwx727kuavykav3.jpg",
+                phase: "Three Phase",
+                range: "7.5 kVA to 20 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714228/kumarpower_website/products_and_certs/p43cmp3eergzesyylcqe.jpg",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "153",
+                technicalSpecs:
+                  "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power.",
+              },
+              {
+                id: "dg-2",
+                name: "25 kVA to 58.5 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714184/kumarpower_website/products_and_certs/xdwoqirxbqvzwz5sllkq.jpg",
+                phase: "Three Phase",
+                range: "25 kVA to 58.5 kVA",
+                rating: "4.9",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714231/kumarpower_website/products_and_certs/vuismmwuz2zcgqh1bhsh.jpg",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "132",
+                technicalSpecs:
+                  "These mid-range workhorses are built for stability and endurance, powered by Kirloskar's liquid-cooled 3R1040 and 4R1040 series engines equipped with heavy-duty radiators. The system integrates advanced anti-vibration mounts to ensure smooth operation and minimal structural stress. Featuring a brushless, single-bearing alternator with IP23 protection and managed by the KG545 Digital Controller, these units offer comprehensive remote monitoring capabilities. They are perfectly suited for restaurants, commercial complexes, and small manufacturing units requiring consistent uptime.",
+              },
+              {
+                id: "dg-3",
+                name: "82.5 kVA to 160 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714178/kumarpower_website/products_and_certs/j9vig3utu86xmqjukvl4.jpg",
+                phase: "Three Phase",
+                range: "82.5 kVA to 160 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714235/kumarpower_website/products_and_certs/tztxdfdga87zbyguxg3p.jpg",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "118",
+                technicalSpecs:
+                  "Designed for industrial-grade performance, this range utilizes 4 and 6 cylinder inline turbocharged and intercooled engines to handle demanding loads. With G3 Class electronic governing, these generators provide precise frequency regulation and excellent sudden load acceptance, capable of handling 100% block loading. The fuel tanks are sized for 8-10 hours of continuous running, ensuring uninterrupted workflow. These are the preferred power solution for construction sites, medium-scale industries, hospitals, and hotels where power quality cannot be compromised.",
+              },
+              {
+                id: "dg-4",
+                name: "200 kVA to 250 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714165/kumarpower_website/products_and_certs/n0s7hl3qm65qyueqpkra.jpg",
+                phase: "Three Phase",
+                range: "200 kVA to 250 kVA",
+                rating: "4.7",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714239/kumarpower_website/products_and_certs/d9d72hlytpr3awuux62e.jpg",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "178",
+                technicalSpecs:
+                  "This series features high-performance Kirloskar DV Series engines (with V-Type configuration options) that deliver robust power for critical infrastructure. They offer best-in-class fluid efficiency, optimizing both fuel and DEF consumption to lower operational costs. Controlled by an advanced ECU for precise engine management and diagnostics, these units include comprehensive safety protections against Over-speed, Low Lube Oil Pressure (LLOP), and High Water Temperature. They are engineered for large commercial hubs, infrastructure projects, and data centers.",
+              },
+              {
+                id: "dg-5",
+                name: "320 kVA - 750 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714169/kumarpower_website/products_and_certs/rdvkcepag17r62vonbao.jpg",
+                phase: "Three Phase",
+                range: "320 kVA - 750 kVA",
+                rating: "4.9",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714242/kumarpower_website/products_and_certs/zxjcgmnltc5lzyyqlovq.jpg",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "96",
+                technicalSpecs:
+                  "These heavy-duty powerhouses are designed for 24/7 continuous operations in harsh environments, powered by SL90 and DV Series turbocharged after-cooled engines. The system allows for easy paralleling and synchronization with the grid or other DG sets to create flexible power plants. With GSM/GPRS-enabled controllers for remote monitoring and long service intervals of 500 hours, these generators significantly reduce Opex. They are the standard for heavy engineering industries, malls, mining operations, and large-scale real estate developments.",
+              },
+              {
+                id: "dg-6",
+                name: "750 kVA - 1500 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714186/kumarpower_website/products_and_certs/lfs4vcyoxue0s64vlpt3.jpg",
+                phase: "Three Phase",
+                range: "750 kVA - 1500 kVA",
+                rating: "4.9",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714246/kumarpower_website/products_and_certs/hwrisjalxeanjxazoulw.jpg",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "86",
+                technicalSpecs:
+                  "Representing the ultimate in power solutions, this range features the legendary K-Series and DV-Series engines known for massive power density within a compact footprint. They utilize full authority electronic engine management systems for peak performance and can be configured with heavy-duty remote radiator options for specialized installations. Designed for absolute reliability in continuous duty cycles, these generators power critical national assets including power plants, mega-infrastructure projects, international airports, and hyperscale data centers.",
+              },
             ],
-            "helpSub": "Our team of experts will help you select the perfect solution based on your industry and budget.",
-            "heroSub": "Explore Kirloskar Generators at Kumar Power for reliable backup and prime power solutions. Ideal for industrial and commercial applications in the required power range.",
-            "certTitle": "Certified Excellence",
-            "helpTitle": "Need Help Choosing the Right Electrical Solution?",
-            "cert1Title": "ISO 9001:2015",
-            "cert2Title": "CPCB-IV+",
-            "cert3Title": "Kirloskar Authorized",
-            "gasGensets": [
-                        {
-                                    "id": "gg-1",
-                                    "name": "15 kVA to 250 kVA Gas Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714172/kumarpower_website/products_and_certs/jok8mlfzuk4ycexlywjo.jpg",
-                                    "phase": "Single/Three Phase",
-                                    "range": "15 kVA to 250 kVA",
-                                    "rating": "4.8",
-                                    "cooling": "Liquid",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Natural Gas/CNG",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714249/kumarpower_website/products_and_certs/h3vfgttfpmmvs8kxiulg.jpg",
-                                    "description": "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
-                                    "ratingCount": "142",
-                                    "technicalSpecs": "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses."
-                        }
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            heroSub:
+              "Explore Kirloskar Generators at Kumar Power for reliable backup and prime power solutions. Ideal for industrial and commercial applications in the required power range.",
+            certTitle: "Certified Excellence",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+            gasGensets: [
+              {
+                id: "gg-1",
+                name: "15 kVA to 250 kVA Gas Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714172/kumarpower_website/products_and_certs/jok8mlfzuk4ycexlywjo.jpg",
+                phase: "Single/Three Phase",
+                range: "15 kVA to 250 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Natural Gas/CNG",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714249/kumarpower_website/products_and_certs/h3vfgttfpmmvs8kxiulg.jpg",
+                description:
+                  "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
+                ratingCount: "142",
+                technicalSpecs:
+                  "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses.",
+              },
             ],
-            "helpBtnText": "Talk to an Expert",
-            "heroHeading": "Kirloskar Generators Distributor",
-            "sectionDesc": "Kirloskar's range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-            "sectionTitle": "CPCB IV+ Diesel Generators",
-            "gasSectionDesc": "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
-            "whyChooseTitle": "Why Choose Kirloskar Generators?",
-            "gasSectionTitle": "Gas Generators",
-            "portableGensets": [
-                        {
-                                    "id": "pg-1",
-                                    "name": "2.1 kVA to 5 kVA Portable Generators",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714188/kumarpower_website/products_and_certs/gw95efnw5vjihttymsdf.jpg",
-                                    "phase": "Single Phase",
-                                    "range": "2.1 kVA to 5 kVA",
-                                    "rating": "4.7",
-                                    "cooling": "Air",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Gasoline",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714210/kumarpower_website/products_and_certs/tzrlmnc6fnymyk4hpacr.jpg",
-                                    "description": "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
-                                    "ratingCount": "165",
-                                    "technicalSpecs": "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools."
-                        }
+            helpBtnText: "Talk to an Expert",
+
+            sectionDesc:
+              "Kirloskar's range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+            sectionTitle: "CPCB IV+ Diesel Generators",
+            gasSectionDesc:
+              "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
+            whyChooseTitle: "Why Choose Kirloskar Generators?",
+            gasSectionTitle: "Gas Generators",
+            portableGensets: [
+              {
+                id: "pg-1",
+                name: "2.1 kVA to 5 kVA Portable Generators",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714188/kumarpower_website/products_and_certs/gw95efnw5vjihttymsdf.jpg",
+                phase: "Single Phase",
+                range: "2.1 kVA to 5 kVA",
+                rating: "4.7",
+                cooling: "Air",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Gasoline",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714210/kumarpower_website/products_and_certs/tzrlmnc6fnymyk4hpacr.jpg",
+                description:
+                  "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
+                ratingCount: "165",
+                technicalSpecs:
+                  "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools.",
+              },
             ],
-            "heroHeadingPart1": "Kirloskar Generators",
-            "heroHeadingPart2": "Distributor",
-            "optiprimeGensets": [
-                        {
-                                    "id": "op-1",
-                                    "name": "Kirloskar Optiprime Generator",
-                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714167/kumarpower_website/products_and_certs/gnoy4jyfav3qis3leaey.jpg",
-                                    "phase": "Three Phase",
-                                    "range": "100 kVA",
-                                    "rating": "4.8",
-                                    "cooling": "Liquid",
-                                    "cpcbNorm": "CPCB-IV+",
-                                    "fuelType": "Diesel",
-                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714225/kumarpower_website/products_and_certs/a2zvjvfh1fiqkavdyppg.jpg",
-                                    "description": "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
-                                    "ratingCount": "195",
-                                    "technicalSpecs": "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns."
-                        }
+            heroHeadingPart1: "Kirloskar Generators",
+            heroHeadingPart2: "Distributor",
+            optiprimeGensets: [
+              {
+                id: "op-1",
+                name: "Kirloskar Optiprime Generator",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714167/kumarpower_website/products_and_certs/gnoy4jyfav3qis3leaey.jpg",
+                phase: "Three Phase",
+                range: "100 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714225/kumarpower_website/products_and_certs/a2zvjvfh1fiqkavdyppg.jpg",
+                description:
+                  "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+                ratingCount: "195",
+                technicalSpecs:
+                  "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns.",
+              },
             ],
-            "whyChooseCard1Desc": "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
-            "whyChooseCard2Desc": "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
-            "whyChooseCard3Desc": "Quick start capability ensures minimal downtime during power outages.",
-            "whyChooseCard4Desc": "Acoustic engineering reduces noise levels for urban and sensitive environments.",
-            "whyChooseCard5Desc": "Modular design with accessible components simplifies service and maintenance.",
-            "whyChooseCard6Desc": "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
-            "portableSectionDesc": "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
-            "whyChooseCard1Title": "Unmatched Reliability",
-            "whyChooseCard2Title": "Fuel Efficiency",
-            "whyChooseCard3Title": "Rapid Response",
-            "whyChooseCard4Title": "Low Noise Operation",
-            "whyChooseCard5Title": "Easy Maintenance",
-            "whyChooseCard6Title": "Smart Controls",
-            "optiprimeSectionDesc": "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
-            "portableSectionTitle": "Portable Generators",
-            "optiprimeSectionTitle": "Optiprime"
-},
+            whyChooseCard1Desc:
+              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard2Desc:
+              "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            whyChooseCard3Desc:
+              "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard4Desc:
+              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard5Desc:
+              "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard6Desc:
+              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            portableSectionDesc:
+              "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
+            whyChooseCard1Title: "Unmatched Reliability",
+            whyChooseCard2Title: "Fuel Efficiency",
+            whyChooseCard3Title: "Rapid Response",
+            whyChooseCard4Title: "Low Noise Operation",
+            whyChooseCard5Title: "Easy Maintenance",
+            whyChooseCard6Title: "Smart Controls",
+            optiprimeSectionDesc:
+              "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+            portableSectionTitle: "Portable Generators",
+            optiprimeSectionTitle: "Optiprime",
+          },
         },
       ],
     },
@@ -2858,7 +2907,7 @@ async function main() {
           content: {
             heroHeadingPart1: "Electrical Control Panels -",
             heroHeadingPart2: "Kumar Power",
-            heroHeading: "Electrical Control Panels - Kumar Power",
+
             heroSub:
               "We offer a comprehensive range of electrical panels designed for power distribution, control, and protection across industrial and commercial installations.",
             heroBg:
@@ -2987,11 +3036,10 @@ async function main() {
           type: "servo-stabilizer",
           order: 1,
           content: {
-            heroHeadingPart1: "Digital Servo Voltage Stabilizer",
-            heroHeadingPart2: "Dealer in Delhi",
-            heroHeading: "Digital Servo Voltage Stabilizer Dealer in Delhi",
+            heroHeadingPart1: "Digital Servo Voltage",
+            heroHeadingPart2: "Stabilizer Dealer",
             heroSub:
-              "We provide servo voltage stabilizers designed to correct voltage fluctuations and deliver consistent output power. Best for industrial, commercial, and technical environments to protect equipment & improve performance.",
+              "We provide servo voltage stabilizers designed to correct voltage fluctuations and deliver consistent output power across India. Ideal for industrial, commercial, and technical environments, our stabilizers help protect equipment, ensure reliable operation, and improve overall performance with Pan-India availability and support..",
             heroBg:
               "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
             sectionTitle: "Servo Stabilizers",
@@ -3073,7 +3121,7 @@ async function main() {
       slug: "transformers",
       description:
         "Durable and efficient transformers designed for various industrial and commercial applications.",
-      metaTitle: "Transformers Dealer in Delhi - Kumar Power",
+      metaTitle: "Transformers Dealer - Kumar Power",
       metaDescription:
         "Explore Kumar Power’s transformer range: Distribution, Power, Cast Resin, and Unitized Package Substations, built for efficiency, safety, and reliability",
       isStatic: true,
@@ -3084,11 +3132,10 @@ async function main() {
           type: "transformers",
           order: 1,
           content: {
-            heroHeadingPart1: "Transformers Dealer in Delhi -",
+            heroHeadingPart1: "Transformers Dealer -",
             heroHeadingPart2: "Kumar Power",
-            heroHeading: "Transformers Dealer in Delhi - Kumar Power",
             heroSub:
-              "At Kumar Power, we offer a diverse range of transformers designed to meet various industrial and commercial needs. Our product lineup includes Distribution Transformers, Power Transformers, Cast Resin Transformers, and Unitized Package Substations.",
+              "At Kumar Power, we offer a diverse range of transformers designed to meet various industrial and commercial needs across India. Our product lineup includes Distribution Transformers, Power Transformers, Cast Resin Transformers, and Unitized Package Substations. With a strong Pan-India presence, we are committed to delivering reliable, efficient, and high-quality transformer solutions to customers across the country.",
             heroBg:
               "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
             sectionTitle: "Transformers",
@@ -6744,7 +6791,8 @@ async function main() {
             heroHeadingPart2: "Storage Systems (BESS)",
             heroSub:
               "Next-generation Lithium Iron Phosphate (LiFePO4) energy storage solutions engineered for commercial, industrial, and renewable synchronization.",
-            heroBg: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055702/KumarPower-Assets/bess/dswbao341k3cqikss8dn.jpg",
+            heroBg:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1790055702/KumarPower-Assets/bess/dswbao341k3cqikss8dn.jpg",
             sectionTitle: "Battery Energy Storage Range",
             sectionDesc:
               "High-efficiency, zero-emission BESS units engineered for seamless backup, peak demand shaving, DG synchronization, and solar hybridization.",
@@ -6788,12 +6836,14 @@ async function main() {
                 phase: "Three / Single",
                 rating: 4.8,
                 ratingCount: 142,
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055703/KumarPower-Assets/bess/jsczats2smhch7fft6q8.png",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055703/KumarPower-Assets/bess/jsczats2smhch7fft6q8.png",
                 description:
                   "Compact energy storage system designed for retail showrooms, clinics, and offices requiring reliable backup with zero sound and emissions.",
                 technicalSpecs:
                   "Rated Output: 5 kW\nBattery Chemistry: Tier-1 Lithium Iron Phosphate (LiFePO4)\nEnergy Capacity: 10 kWh - 20 kWh Scalable\nRound-Trip Efficiency: >94%\nCycle Life: 6000+ Cycles @ 80% DOD\nResponse Time: <20 ms (Seamless Switchover)\nProtection: IP54 Indoor / Outdoor Enclosure\nInverter: Integrated Hybrid Bi-Directional Inverter\nMonitoring: Smart BMS with Cloud Mobile App & Modbus Protocol",
-                applications: "Retail Stores, Clinics, Residential Complexes, Small Offices"
+                applications:
+                  "Retail Stores, Clinics, Residential Complexes, Small Offices",
               },
               {
                 id: "bess-10kw",
@@ -6807,12 +6857,14 @@ async function main() {
                 phase: "Three Phase",
                 rating: 4.8,
                 ratingCount: 168,
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055704/KumarPower-Assets/bess/hggwxzkpxwefudvygv2f.png",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055704/KumarPower-Assets/bess/hggwxzkpxwefudvygv2f.png",
                 description:
                   "High-efficiency commercial storage unit designed for critical infrastructure, telecom base stations, and light commercial loads with seamless transfer time.",
                 technicalSpecs:
                   "Rated Output: 10 kW\nBattery Chemistry: Lithium Iron Phosphate (LiFePO4)\nEnergy Capacity: 20 kWh - 40 kWh\nRated Voltage: 400V Three Phase AC\nRound-Trip Efficiency: >94.5%\nCycle Life: 6000+ Cycles\nOverload Capacity: 110% Continuous, 150% for 10s\nProtection Rating: IP54\nSafety: Aerosol Fire Suppression & Multi-stage Cell Protection\nCommunication: Ethernet / CAN / RS485 Modbus TCP",
-                applications: "Telecom Towers, Warehouses, Diagnostic Centers, Restaurants"
+                applications:
+                  "Telecom Towers, Warehouses, Diagnostic Centers, Restaurants",
               },
               {
                 id: "bess-20kw",
@@ -6826,12 +6878,14 @@ async function main() {
                 phase: "Three Phase",
                 rating: 4.9,
                 ratingCount: 195,
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055705/KumarPower-Assets/bess/yj1tx3jr0ycr0qikn8cq.png",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055705/KumarPower-Assets/bess/yj1tx3jr0ycr0qikn8cq.png",
                 description:
                   "Robust commercial & industrial energy storage system built for peak shaving, demand charge management, and renewable energy integration.",
                 technicalSpecs:
                   "Rated Output: 20 kW\nBattery Chemistry: Automotive-Grade LiFePO4\nEnergy Capacity: 40 kWh - 80 kWh Racks\nOperating Voltage Range: 400V - 600V DC Link\nSystem Efficiency: Up to 95%\nCycle Life: 6000+ Cycles @ 25°C\nThermal Management: Liquid / Intelligent Forced Air Cooling\nGrid Functions: Peak Shaving, Solar Self-Consumption, Backup Power\nBMS: Cell-level temperature, voltage, and state-of-health balancing",
-                applications: "Hotels, Schools, Educational Campuses, Commercial Buildings"
+                applications:
+                  "Hotels, Schools, Educational Campuses, Commercial Buildings",
               },
               {
                 id: "bess-40kw",
@@ -6845,12 +6899,14 @@ async function main() {
                 phase: "Three Phase",
                 rating: 4.9,
                 ratingCount: 176,
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055706/KumarPower-Assets/bess/ypt6j6sta53gq0cifnkc.png",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055706/KumarPower-Assets/bess/ypt6j6sta53gq0cifnkc.png",
                 description:
                   "High-capacity industrial cabinet engineered for heavy demand shaving, high duty cycles, and seamless integration with existing DG sets.",
                 technicalSpecs:
                   "Rated Output: 40 kW Continuous\nBattery Chemistry: Grade-A LFP (LiFePO4) Cells\nEnergy Capacity: 80 kWh - 160 kWh Modular Expansion\nNominal AC Voltage: 415V Three Phase, 50 Hz\nRound-Trip Efficiency: >95%\nThermal Management: Precision Liquid Cooling for Extended Cell Longevity\nProtection: IP54 Outdoor Rated Weatherproof Enclosure\nDG Synchronization: Smart Generator Auto-Start & Microgrid Integration\nFire Safety: Dual-stage smoke/gas detection with automated suppression",
-                applications: "Manufacturing Plants, Cold Storage Facilities, Data Centers, EV Stations"
+                applications:
+                  "Manufacturing Plants, Cold Storage Facilities, Data Centers, EV Stations",
               },
               {
                 id: "bess-60kw",
@@ -6864,12 +6920,14 @@ async function main() {
                 phase: "Three Phase",
                 rating: 4.9,
                 ratingCount: 154,
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055707/KumarPower-Assets/bess/aixzlwooixkp4uvxg1ur.png",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055707/KumarPower-Assets/bess/aixzlwooixkp4uvxg1ur.png",
                 description:
                   "Engineered for large manufacturing units and commercial hubs. Provides high discharge rates, black start capability, and power quality improvement.",
                 technicalSpecs:
                   "Rated Output: 60 kW Continuous\nBattery Chemistry: Advanced Tier-1 LFP Cells\nEnergy Capacity: 120 kWh - 250 kWh\nNominal Voltage: 600V - 1000V DC System\nEfficiency: >95.2% Overall Round-Trip\nThermal System: Closed-loop Liquid Thermal Management (±2°C Uniformity)\nFault Ride-Through: Low Voltage Ride Through (LVRT) & Frequency Regulation\nCertifications: IEC 62619, IEC 62477, UN 38.3, UL 9540A compliant\nSoftware: Cloud EMS with real-time tariff arbitrage & DG runtime reduction",
-                applications: "Industrial Parks, Textile Mills, Automobile Ancillaries, Hospitals"
+                applications:
+                  "Industrial Parks, Textile Mills, Automobile Ancillaries, Hospitals",
               },
               {
                 id: "bess-container",
@@ -6883,24 +6941,27 @@ async function main() {
                 phase: "Three Phase",
                 rating: 4.9,
                 ratingCount: 220,
-                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790056713/KumarPower-Assets/bess/stho41j0mxcqeh8uleit.jpg",
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790056713/KumarPower-Assets/bess/stho41j0mxcqeh8uleit.jpg",
                 description:
                   "Turnkey modular containerized battery energy storage solution ready for utility substations, solar farms, microgrids, and large-scale industrial plants.",
                 technicalSpecs:
                   "Power Rating: 100 kW to 1 MW+ Scalable\nEnergy Capacity: 200 kWh to 2 MWh+ per standard 20ft / 40ft Container\nBattery Chemistry: Tier-1 High Energy Density LiFePO4\nDC Voltage: Up to 1500V High Voltage Architecture\nRound-Trip Efficiency: >95%\nThermal Management: Industrial Liquid Cooling with Integrated HVAC & Chiller\nSubstation Integration: Built-in Step-Up Transformer, Bi-directional PCS & Switchgear\nFire Safety: Deflagration venting, aerosol fire suppression & BMS disconnect\nCompliance: CE, IEC 62933, UL 9540 / UL 9540A, IEEE 1547",
-                applications: "Solar & Wind Farms, Grid Substations, Mega Malls, Ports, Large Hospitals"
-              }
-            ]
-          }
-        }
-      ]
+                applications:
+                  "Solar & Wind Farms, Grid Substations, Mega Malls, Ports, Large Hospitals",
+              },
+            ],
+          },
+        },
+      ],
     },
     {
       title: "Solar Panels & Systems",
       slug: "solar",
       description:
         "Tier-1 Mono PERC & TOPCon Bifacial Solar Panels for Commercial and Industrial Power.",
-      metaTitle: "Tier-1 Commercial Solar Panels & Rooftop Systems | Kumar Power",
+      metaTitle:
+        "Tier-1 Commercial Solar Panels & Rooftop Systems | Kumar Power",
       metaDescription:
         "Explore high-efficiency Tier-1 Mono PERC and TOPCon Bifacial solar panels from Kumar Power. Seamless DG synchronization and BESS integration.",
       visibility: "published",
@@ -6964,7 +7025,7 @@ async function main() {
                 technicalSpecs:
                   "Rated Maximum Power (Pmax): 550W\nModule Efficiency: 21.3%\nCell Technology: Tier-1 Monocrystalline PERC (182mm wafer)\nCell Configuration: 144 (6x24) Half-Cut Cells with multi-busbar design\nOpen Circuit Voltage (Voc): 49.80 V\nOptimum Operating Voltage (Vmp): 41.95 V\nShort Circuit Current (Isc): 13.98 A\nOptimum Operating Current (Imp): 13.12 A\nTemperature Coefficient of Pmax: -0.35% / °C\nJunction Box: IP68 rated, 3 bypass diodes, UV resistant cables\nFrame: Anodized aluminium alloy (35mm), high mechanical strength\nMechanical Load: 5400 Pa front (snow), 2400 Pa rear (wind)\nCertifications: IEC 61215, IEC 61730, UL 61730, CE, BIS certified",
                 applications:
-                  "Commercial Complexes, Industrial Sheds, Warehouses, Educational Institutions"
+                  "Commercial Complexes, Industrial Sheds, Warehouses, Educational Institutions",
               },
               {
                 id: "solar-580w-bifacial",
@@ -6983,7 +7044,7 @@ async function main() {
                 technicalSpecs:
                   "Rated Maximum Power (Pmax): 580W Front (up to 750W with rear gain)\nModule Efficiency: 22.5%\nCell Technology: N-Type TOPCon 16BB Cell Architecture\nBifaciality Factor: 80% ± 5%\nOpen Circuit Voltage (Voc): 51.20 V\nOptimum Operating Voltage (Vmp): 42.80 V\nShort Circuit Current (Isc): 14.35 A\nOptimum Operating Current (Imp): 13.55 A\nTemperature Coefficient of Pmax: -0.30% / °C (Superior hot-climate performance)\nDegradation: <1.0% first year, <0.4% annual linear degradation over 30 years\nGlass: 2.0mm + 2.0mm High Transmission AR Coated Semi-Tempered Glass\nProtection: IP68 Junction Box, MC4-EVO2 compatible connectors\nCompliance: IEC 61215, IEC 61730, ISO 9001:2015, BIS Approved",
                 applications:
-                  "Industrial Rooftops, Carports, Ground-Mount Parks, Flat RCC Roofs"
+                  "Industrial Rooftops, Carports, Ground-Mount Parks, Flat RCC Roofs",
               },
               {
                 id: "solar-670w-highpower",
@@ -7002,7 +7063,7 @@ async function main() {
                 technicalSpecs:
                   "Rated Maximum Power (Pmax): 670W\nModule Efficiency: 21.6%\nCell Technology: Monocrystalline G12 (210mm) Triple-Cut Cells\nOpen Circuit Voltage (Voc): 46.20 V\nOptimum Operating Voltage (Vmp): 38.60 V\nShort Circuit Current (Isc): 18.52 A\nOptimum Operating Current (Imp): 17.36 A\nLow-Light Performance: Outstanding irradiance response in hazy/overcast weather\nPID Resistance: Guaranteed anti-PID via cell and encapsulation quality\nMaximum System Voltage: 1500V DC (IEC/UL)\nJunction Box: IP68 with 3 diodes, 4mm² output cables\nMechanical Rigidity: Heavy-duty 35mm anodized frame with pre-drilled drain holes",
                 applications:
-                  "Heavy Manufacturing Plants, Logistics Hubs, Textile Mills, Solar Farms"
+                  "Heavy Manufacturing Plants, Logistics Hubs, Textile Mills, Solar Farms",
               },
               {
                 id: "solar-inverter-sync",
@@ -7021,7 +7082,7 @@ async function main() {
                 technicalSpecs:
                   "Inverter Type: Multi-MPPT Commercial Grid-Tie Inverter\nRated AC Output: 20 kW to 250 kW Scalable\nMaximum DC Input Voltage: 1100V\nMPPT Voltage Range: 200V - 1000V\nMax Efficiency: 98.8% (European Efficiency: 98.4%)\nDG Synchronization: Built-in RS485 / Modbus protocol for dynamic generator throttle control\nProtection: Reverse polarity, DC switch, AC/DC Type II SPD, islanding protection, string monitoring\nEnclosure: IP66 weather-sealed for harsh outdoor industrial conditions\nCommunication: WiFi, 4G, Ethernet, and Cloud IoT generation portal",
                 applications:
-                  "Commercial Complexes with DG Sets, Factories, Hospitals, Cold Storage Units"
+                  "Commercial Complexes with DG Sets, Factories, Hospitals, Cold Storage Units",
               },
               {
                 id: "solar-rooftop-turnkey",
@@ -7040,12 +7101,12 @@ async function main() {
                 technicalSpecs:
                   "System Size: Custom engineered from 10 kWp up to 500 kWp+\nMounting Structure: Hot-dip galvanized steel / anodized aluminium engineered for 150 km/h wind gusts\nBalance of System (BOS): UV-stabilized solar DC cables, copper earthing pits, lightning arrestor\nProtection: ACDB / DCDB with surge arrestors and individual string disconnects\nApproval Liaison: Net Metering sanctioning, CEIG safety approval, and grid connection\nAnnual Generation: ~1400 - 1500 kWh per kWp installed per year\nCarbon Offset: Approx 1.2 Tons CO2 reduction per kWp annually",
                 applications:
-                  "Industrial Sheds, Factory Roofs, Commercial Towers, Hospitals, Educational Campuses"
-              }
-            ]
-          }
-        }
-      ]
+                  "Industrial Sheds, Factory Roofs, Commercial Towers, Hospitals, Educational Campuses",
+              },
+            ],
+          },
+        },
+      ],
     },
   ];
 
