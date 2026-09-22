@@ -2117,7 +2117,7 @@ async function main() {
             bannerSubtitle:
               "Let's build something extraordinary. Talk to our experts today.",
             bannerBgImage:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784703170/kumarpower_website/hif6xnvv5mggerl73bkd.png",
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1790074906/KumarPower-Assets/rqqfeyh4a2s0qqiypyjs.jpg",
             primaryBtnLabel: "Start Your Inquiry",
             whatsappBtnLabel: "Connect on WhatsApp",
             whatsappNumber: "+919773851767",
