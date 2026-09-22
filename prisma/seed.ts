@@ -103,19 +103,9 @@ async function main() {
     },
     {
       id: "nav-2-1",
-      label: "Power Generation",
-      url: "/products/kirloskar-diesel-generator",
+      label: "Generators",
+      url: "/products/generators",
       order: 1,
-      type: "Sub Link",
-      parent: "nav-2",
-      isStatic: true,
-      isActive: true,
-    },
-    {
-      id: "nav-2-7",
-      label: "Portable Generators",
-      url: "/products/kirloskar-portable-generator",
-      order: 2,
       type: "Sub Link",
       parent: "nav-2",
       isStatic: true,
@@ -144,7 +134,7 @@ async function main() {
     {
       id: "nav-2-4",
       label: "Battery Energy Storage System",
-      url: "/products/optiprime",
+      url: "/products/generators",
       order: 5,
       type: "Sub Link",
       parent: "nav-2",
@@ -1097,7 +1087,7 @@ async function main() {
                 image:
                   "https://res.cloudinary.com/dpa93copz/image/upload/v1789117364/kumarpower_website/ecosystem/stage1_power_sources_kirloskar.jpg",
                 features: ["CPCB IV+ Gensets", "UPS Inverter"],
-                link: "/products/kirloskar-diesel-generator",
+                link: "/products/generators",
               },
               {
                 id: "electrical-distribution",
@@ -1714,7 +1704,7 @@ async function main() {
             ],
             ctaButtonText: "Get Instant Quote for {kva} kVA",
             specsButtonText: "View Specs",
-            specsButtonUrl: "/products/kirloskar-diesel-generator",
+            specsButtonUrl: "/products/generators",
           },
         },
         {
@@ -2740,7 +2730,7 @@ async function main() {
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 technicalSpecs:
                   "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power.",
-                productLink: "/products/kirloskar-diesel-generator",
+                productLink: "/products/generators",
               },
               {
                 id: "cat-2",
@@ -2759,7 +2749,7 @@ async function main() {
                   "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
                 technicalSpecs:
                   "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses.",
-                productLink: "/products/kirloskar-gas-generator",
+                productLink: "/products/generators",
               },
               {
                 id: "cat-3",
@@ -2778,7 +2768,7 @@ async function main() {
                   "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
                 technicalSpecs:
                   "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools.",
-                productLink: "/products/kirloskar-portable-generator",
+                productLink: "/products/generators",
               },
               {
                 id: "cat-4",
@@ -2797,7 +2787,7 @@ async function main() {
                   "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
                 technicalSpecs:
                   "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns.",
-                productLink: "/products/optiprime",
+                productLink: "/products/generators",
               },
               {
                 id: "cat-5",
@@ -2862,331 +2852,203 @@ async function main() {
       ],
     },
     {
-      title: "Kirloskar Diesel Generators",
-      slug: "kirloskar-diesel-generator",
-      description: "Kirloskar Diesel Generators range from 7.5 kVA to 1500 kVA",
-      metaTitle: "Kirloskar Diesel Generators Dealer in Delhi | Kumar Power",
+      title: "Kirloskar Generators",
+      slug: "generators",
+      description: "Kirloskar Generators range from 2.1 kVA to 2000 kVA",
+      metaTitle: "Kirloskar Generators Distributor | Kumar Power",
       metaDescription:
-        "Explore CPCB-IV+ compliant Kirloskar Diesel Generators.",
+        "Explore Kirloskar-certified generators from Kumar Power, engineered for superior performance, reliability, and full compliance with CPCB norms.",
       isStatic: true,
       visibility: "published",
       sections: [
         {
-          id: "sec-kirloskar-diesel-generator-main",
-          type: "kirloskar-diesel-generator",
+          id: "sec-generators-main",
+          type: "generators",
           order: 1,
           content: {
-            heroHeadingPart1: "Kirloskar Diesel Generators",
-            heroHeadingPart2: "Dealer in Delhi",
-            heroHeading: "Kirloskar Diesel Generators Dealer in Delhi",
-            heroSub:
-              "Explore Kirloskar Diesel Generators at Kumar Power for reliable backup and prime power solutions. Ideal for industrial and commercial applications in the required power range.",
-            heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
-            sectionTitle: "CPCB IV+ Diesel Generators",
-            sectionDesc:
-              "Kirloskar's range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-            certTitle: "Certified Excellence",
-            helpTitle: "Need Help Choosing the Right Electrical Solution?",
-            helpSub:
-              "Our team of experts will help you select the perfect solution based on your industry and budget.",
-            helpBtnText: "Talk to an Expert",
-            whyChooseTitle: "Why Choose Kirloskar Generators?",
-
-            whyChooseCard1Title: "Unmatched Reliability",
-            whyChooseCard1Desc:
-              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
-            whyChooseCard2Title: "Fuel Efficiency",
-            whyChooseCard2Desc:
-              "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
-            whyChooseCard3Title: "Rapid Response",
-            whyChooseCard3Desc:
-              "Quick start capability ensures minimal downtime during power outages.",
-            whyChooseCard4Title: "Low Noise Operation",
-            whyChooseCard4Desc:
-              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
-            whyChooseCard5Title: "Easy Maintenance",
-            whyChooseCard5Desc:
-              "Modular design with accessible components simplifies service and maintenance.",
-            whyChooseCard6Title: "Smart Controls",
-            whyChooseCard6Desc:
-              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
-            cert1Title: "ISO 9001:2015",
-            cert2Title: "CPCB-IV+",
-            cert3Title: "Kirloskar Authorized",
-
-            gensets: [
-              {
-                id: "dg-1",
-                name: "7.5 kVA to 20 kVA Diesel Generators",
-                range: "7.5 kVA to 20 kVA",
-                category: "diesel",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                rating: "4.8",
-                ratingCount: "153",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714180/kumarpower_website/products_and_certs/xrrqjdwx727kuavykav3.jpg",
-                description:
-                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                technicalSpecs:
-                  "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714228/kumarpower_website/products_and_certs/p43cmp3eergzesyylcqe.jpg",
-              },
-              {
-                id: "dg-2",
-                name: "25 kVA to 58.5 kVA Diesel Generators",
-                range: "25 kVA to 58.5 kVA",
-                category: "diesel",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                rating: "4.9",
-                ratingCount: "132",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714184/kumarpower_website/products_and_certs/xdwoqirxbqvzwz5sllkq.jpg",
-                description:
-                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                technicalSpecs:
-                  "These mid-range workhorses are built for stability and endurance, powered by Kirloskar's liquid-cooled 3R1040 and 4R1040 series engines equipped with heavy-duty radiators. The system integrates advanced anti-vibration mounts to ensure smooth operation and minimal structural stress. Featuring a brushless, single-bearing alternator with IP23 protection and managed by the KG545 Digital Controller, these units offer comprehensive remote monitoring capabilities. They are perfectly suited for restaurants, commercial complexes, and small manufacturing units requiring consistent uptime.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714231/kumarpower_website/products_and_certs/vuismmwuz2zcgqh1bhsh.jpg",
-              },
-              {
-                id: "dg-3",
-                name: "82.5 kVA to 160 kVA Diesel Generators",
-                range: "82.5 kVA to 160 kVA",
-                category: "diesel",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                rating: "4.8",
-                ratingCount: "118",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714178/kumarpower_website/products_and_certs/j9vig3utu86xmqjukvl4.jpg",
-                description:
-                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                technicalSpecs:
-                  "Designed for industrial-grade performance, this range utilizes 4 and 6 cylinder inline turbocharged and intercooled engines to handle demanding loads. With G3 Class electronic governing, these generators provide precise frequency regulation and excellent sudden load acceptance, capable of handling 100% block loading. The fuel tanks are sized for 8-10 hours of continuous running, ensuring uninterrupted workflow. These are the preferred power solution for construction sites, medium-scale industries, hospitals, and hotels where power quality cannot be compromised.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714235/kumarpower_website/products_and_certs/tztxdfdga87zbyguxg3p.jpg",
-              },
-              {
-                id: "dg-4",
-                name: "200 kVA to 250 kVA Diesel Generators",
-                range: "200 kVA to 250 kVA",
-                category: "diesel",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                rating: "4.7",
-                ratingCount: "178",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714165/kumarpower_website/products_and_certs/n0s7hl3qm65qyueqpkra.jpg",
-                description:
-                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                technicalSpecs:
-                  "This series features high-performance Kirloskar DV Series engines (with V-Type configuration options) that deliver robust power for critical infrastructure. They offer best-in-class fluid efficiency, optimizing both fuel and DEF consumption to lower operational costs. Controlled by an advanced ECU for precise engine management and diagnostics, these units include comprehensive safety protections against Over-speed, Low Lube Oil Pressure (LLOP), and High Water Temperature. They are engineered for large commercial hubs, infrastructure projects, and data centers.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714239/kumarpower_website/products_and_certs/d9d72hlytpr3awuux62e.jpg",
-              },
-              {
-                id: "dg-5",
-                name: "320 kVA - 750 kVA Diesel Generators",
-                range: "320 kVA - 750 kVA",
-                category: "diesel",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                rating: "4.9",
-                ratingCount: "96",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714169/kumarpower_website/products_and_certs/rdvkcepag17r62vonbao.jpg",
-                description:
-                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                technicalSpecs:
-                  "These heavy-duty powerhouses are designed for 24/7 continuous operations in harsh environments, powered by SL90 and DV Series turbocharged after-cooled engines. The system allows for easy paralleling and synchronization with the grid or other DG sets to create flexible power plants. With GSM/GPRS-enabled controllers for remote monitoring and long service intervals of 500 hours, these generators significantly reduce Opex. They are the standard for heavy engineering industries, malls, mining operations, and large-scale real estate developments.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714242/kumarpower_website/products_and_certs/zxjcgmnltc5lzyyqlovq.jpg",
-              },
-              {
-                id: "dg-6",
-                name: "750 kVA - 1500 kVA Diesel Generators",
-                range: "750 kVA - 1500 kVA",
-                category: "diesel",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                rating: "4.9",
-                ratingCount: "86",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714186/kumarpower_website/products_and_certs/lfs4vcyoxue0s64vlpt3.jpg",
-                description:
-                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                technicalSpecs:
-                  "Representing the ultimate in power solutions, this range features the legendary K-Series and DV-Series engines known for massive power density within a compact footprint. They utilize full authority electronic engine management systems for peak performance and can be configured with heavy-duty remote radiator options for specialized installations. Designed for absolute reliability in continuous duty cycles, these generators power critical national assets including power plants, mega-infrastructure projects, international airports, and hyperscale data centers.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714246/kumarpower_website/products_and_certs/hwrisjalxeanjxazoulw.jpg",
-              },
+            "heroBg": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
+            "gensets": [
+                        {
+                                    "id": "dg-1",
+                                    "name": "7.5 kVA to 20 kVA Diesel Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714180/kumarpower_website/products_and_certs/xrrqjdwx727kuavykav3.jpg",
+                                    "phase": "Three Phase",
+                                    "range": "7.5 kVA to 20 kVA",
+                                    "rating": "4.8",
+                                    "cooling": "Liquid",
+                                    "category": "diesel",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Diesel",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714228/kumarpower_website/products_and_certs/p43cmp3eergzesyylcqe.jpg",
+                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                                    "ratingCount": "153",
+                                    "technicalSpecs": "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power."
+                        },
+                        {
+                                    "id": "dg-2",
+                                    "name": "25 kVA to 58.5 kVA Diesel Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714184/kumarpower_website/products_and_certs/xdwoqirxbqvzwz5sllkq.jpg",
+                                    "phase": "Three Phase",
+                                    "range": "25 kVA to 58.5 kVA",
+                                    "rating": "4.9",
+                                    "cooling": "Liquid",
+                                    "category": "diesel",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Diesel",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714231/kumarpower_website/products_and_certs/vuismmwuz2zcgqh1bhsh.jpg",
+                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                                    "ratingCount": "132",
+                                    "technicalSpecs": "These mid-range workhorses are built for stability and endurance, powered by Kirloskar's liquid-cooled 3R1040 and 4R1040 series engines equipped with heavy-duty radiators. The system integrates advanced anti-vibration mounts to ensure smooth operation and minimal structural stress. Featuring a brushless, single-bearing alternator with IP23 protection and managed by the KG545 Digital Controller, these units offer comprehensive remote monitoring capabilities. They are perfectly suited for restaurants, commercial complexes, and small manufacturing units requiring consistent uptime."
+                        },
+                        {
+                                    "id": "dg-3",
+                                    "name": "82.5 kVA to 160 kVA Diesel Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714178/kumarpower_website/products_and_certs/j9vig3utu86xmqjukvl4.jpg",
+                                    "phase": "Three Phase",
+                                    "range": "82.5 kVA to 160 kVA",
+                                    "rating": "4.8",
+                                    "cooling": "Liquid",
+                                    "category": "diesel",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Diesel",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714235/kumarpower_website/products_and_certs/tztxdfdga87zbyguxg3p.jpg",
+                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                                    "ratingCount": "118",
+                                    "technicalSpecs": "Designed for industrial-grade performance, this range utilizes 4 and 6 cylinder inline turbocharged and intercooled engines to handle demanding loads. With G3 Class electronic governing, these generators provide precise frequency regulation and excellent sudden load acceptance, capable of handling 100% block loading. The fuel tanks are sized for 8-10 hours of continuous running, ensuring uninterrupted workflow. These are the preferred power solution for construction sites, medium-scale industries, hospitals, and hotels where power quality cannot be compromised."
+                        },
+                        {
+                                    "id": "dg-4",
+                                    "name": "200 kVA to 250 kVA Diesel Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714165/kumarpower_website/products_and_certs/n0s7hl3qm65qyueqpkra.jpg",
+                                    "phase": "Three Phase",
+                                    "range": "200 kVA to 250 kVA",
+                                    "rating": "4.7",
+                                    "cooling": "Liquid",
+                                    "category": "diesel",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Diesel",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714239/kumarpower_website/products_and_certs/d9d72hlytpr3awuux62e.jpg",
+                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                                    "ratingCount": "178",
+                                    "technicalSpecs": "This series features high-performance Kirloskar DV Series engines (with V-Type configuration options) that deliver robust power for critical infrastructure. They offer best-in-class fluid efficiency, optimizing both fuel and DEF consumption to lower operational costs. Controlled by an advanced ECU for precise engine management and diagnostics, these units include comprehensive safety protections against Over-speed, Low Lube Oil Pressure (LLOP), and High Water Temperature. They are engineered for large commercial hubs, infrastructure projects, and data centers."
+                        },
+                        {
+                                    "id": "dg-5",
+                                    "name": "320 kVA - 750 kVA Diesel Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714169/kumarpower_website/products_and_certs/rdvkcepag17r62vonbao.jpg",
+                                    "phase": "Three Phase",
+                                    "range": "320 kVA - 750 kVA",
+                                    "rating": "4.9",
+                                    "cooling": "Liquid",
+                                    "category": "diesel",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Diesel",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714242/kumarpower_website/products_and_certs/zxjcgmnltc5lzyyqlovq.jpg",
+                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                                    "ratingCount": "96",
+                                    "technicalSpecs": "These heavy-duty powerhouses are designed for 24/7 continuous operations in harsh environments, powered by SL90 and DV Series turbocharged after-cooled engines. The system allows for easy paralleling and synchronization with the grid or other DG sets to create flexible power plants. With GSM/GPRS-enabled controllers for remote monitoring and long service intervals of 500 hours, these generators significantly reduce Opex. They are the standard for heavy engineering industries, malls, mining operations, and large-scale real estate developments."
+                        },
+                        {
+                                    "id": "dg-6",
+                                    "name": "750 kVA - 1500 kVA Diesel Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714186/kumarpower_website/products_and_certs/lfs4vcyoxue0s64vlpt3.jpg",
+                                    "phase": "Three Phase",
+                                    "range": "750 kVA - 1500 kVA",
+                                    "rating": "4.9",
+                                    "cooling": "Liquid",
+                                    "category": "diesel",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Diesel",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714246/kumarpower_website/products_and_certs/hwrisjalxeanjxazoulw.jpg",
+                                    "description": "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                                    "ratingCount": "86",
+                                    "technicalSpecs": "Representing the ultimate in power solutions, this range features the legendary K-Series and DV-Series engines known for massive power density within a compact footprint. They utilize full authority electronic engine management systems for peak performance and can be configured with heavy-duty remote radiator options for specialized installations. Designed for absolute reliability in continuous duty cycles, these generators power critical national assets including power plants, mega-infrastructure projects, international airports, and hyperscale data centers."
+                        }
             ],
-          },
-        },
-      ],
-    },
-    {
-      title: "Kirloskar Gas Generators",
-      slug: "kirloskar-gas-generator",
-      description: "Eco-friendly natural gas and CNG generators",
-      metaTitle: "Kirloskar Gas Generators Dealer in Delhi | Kumar Power",
-      metaDescription: "Eco-friendly gas generators for clean power solutions.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-kirloskar-gas-generator-main",
-          type: "kirloskar-gas-generator",
-          order: 1,
-          content: {
-            heroHeadingPart1: "Kirloskar Gas Generators",
-            heroHeadingPart2: "Dealer in Delhi",
-            heroHeading: "Kirloskar Gas Generators Dealer in Delhi",
-            heroSub:
-              "Kirloskar Oil Engines Ltd (KOEL) offers a range of gas-powered generator sets (gensets) designed to provide reliable and efficient power solutions across various applications.",
-            heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
-            sectionTitle: "Gas Generators",
-            sectionDesc:
-              "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
-            gensets: [
-              {
-                id: "gg-1",
-                name: "15 kVA to 250 kVA Gas Generators",
-                range: "15 kVA to 250 kVA",
-                fuelType: "Natural Gas/CNG",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Single/Three Phase",
-                rating: "4.8",
-                ratingCount: "142",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714172/kumarpower_website/products_and_certs/jok8mlfzuk4ycexlywjo.jpg",
-                description:
-                  "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
-                technicalSpecs:
-                  "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714249/kumarpower_website/products_and_certs/h3vfgttfpmmvs8kxiulg.jpg",
-              },
+            "helpSub": "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            "heroSub": "Explore Kirloskar Generators at Kumar Power for reliable backup and prime power solutions. Ideal for industrial and commercial applications in the required power range.",
+            "certTitle": "Certified Excellence",
+            "helpTitle": "Need Help Choosing the Right Electrical Solution?",
+            "cert1Title": "ISO 9001:2015",
+            "cert2Title": "CPCB-IV+",
+            "cert3Title": "Kirloskar Authorized",
+            "gasGensets": [
+                        {
+                                    "id": "gg-1",
+                                    "name": "15 kVA to 250 kVA Gas Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714172/kumarpower_website/products_and_certs/jok8mlfzuk4ycexlywjo.jpg",
+                                    "phase": "Single/Three Phase",
+                                    "range": "15 kVA to 250 kVA",
+                                    "rating": "4.8",
+                                    "cooling": "Liquid",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Natural Gas/CNG",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714249/kumarpower_website/products_and_certs/h3vfgttfpmmvs8kxiulg.jpg",
+                                    "description": "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
+                                    "ratingCount": "142",
+                                    "technicalSpecs": "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses."
+                        }
             ],
-          },
-        },
-      ],
-    },
-    {
-      title: "Kirloskar Portable Generators",
-      slug: "kirloskar-portable-generator",
-      description: "Compact portable generators for versatile power needs",
-      metaTitle: "Kirloskar Portable Generators Dealer in Delhi | Kumar Power",
-      metaDescription: "Lightweight and mobile power generators.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-kirloskar-portable-generator-main",
-          type: "kirloskar-portable-generator",
-          order: 1,
-          content: {
-            heroHeadingPart1: "Kirloskar Portable Generators",
-            heroHeadingPart2: "Dealer in Delhi",
-            heroHeading: "Kirloskar Portable Generators Dealer in Delhi",
-            heroSub:
-              "Kirloskar Oil Engines Ltd (KOEL) offers a range of portable generator sets with power outputs from 2.1 kVA to 5 kVA, designed to provide reliable and efficient power solutions for various applications.",
-            heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
-            sectionTitle: "Portable Generators",
-            sectionDesc:
-              "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
-            gensets: [
-              {
-                id: "pg-1",
-                name: "2.1 kVA to 5 kVA Portable Generators",
-                range: "2.1 kVA to 5 kVA",
-                fuelType: "Gasoline",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Air",
-                phase: "Single Phase",
-                rating: "4.7",
-                ratingCount: "165",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714188/kumarpower_website/products_and_certs/gw95efnw5vjihttymsdf.jpg",
-                description:
-                  "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
-                technicalSpecs:
-                  "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714210/kumarpower_website/products_and_certs/tzrlmnc6fnymyk4hpacr.jpg",
-              },
+            "helpBtnText": "Talk to an Expert",
+            "heroHeading": "Kirloskar Generators Distributor",
+            "sectionDesc": "Kirloskar's range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+            "sectionTitle": "CPCB IV+ Diesel Generators",
+            "gasSectionDesc": "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
+            "whyChooseTitle": "Why Choose Kirloskar Generators?",
+            "gasSectionTitle": "Gas Generators",
+            "portableGensets": [
+                        {
+                                    "id": "pg-1",
+                                    "name": "2.1 kVA to 5 kVA Portable Generators",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714188/kumarpower_website/products_and_certs/gw95efnw5vjihttymsdf.jpg",
+                                    "phase": "Single Phase",
+                                    "range": "2.1 kVA to 5 kVA",
+                                    "rating": "4.7",
+                                    "cooling": "Air",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Gasoline",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714210/kumarpower_website/products_and_certs/tzrlmnc6fnymyk4hpacr.jpg",
+                                    "description": "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
+                                    "ratingCount": "165",
+                                    "technicalSpecs": "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools."
+                        }
             ],
-          },
-        },
-      ],
-    },
-    {
-      title: "Kirloskar Optiprime Generator",
-      slug: "optiprime",
-      description:
-        "Advanced Optiprime generators for optimized fuel efficiency",
-      metaTitle: "Optiprime Generators Dealer in Delhi | Kumar Power",
-      metaDescription:
-        "Variable speed and IoT monitoring generator technology.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-optiprime-main",
-          type: "optiprime",
-          order: 1,
-          content: {
-            heroHeadingPart1: "Optiprime Genset Dealer in Delhi -",
-            heroHeadingPart2: "Kumar Power",
-            heroHeading: "Optiprime Genset Dealer in Delhi - Kumar Power",
-            heroSub:
-              "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
-            heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
-            sectionTitle: "Optiprime",
-            sectionDesc:
-              "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
-            gensets: [
-              {
-                id: "op-1",
-                name: "Kirloskar Optiprime Generator",
-                range: "100 kVA",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                rating: "4.8",
-                ratingCount: "195",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714167/kumarpower_website/products_and_certs/gnoy4jyfav3qis3leaey.jpg",
-                description:
-                  "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
-                technicalSpecs:
-                  "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns.",
-                brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714225/kumarpower_website/products_and_certs/a2zvjvfh1fiqkavdyppg.jpg",
-              },
+            "heroHeadingPart1": "Kirloskar Generators",
+            "heroHeadingPart2": "Distributor",
+            "optiprimeGensets": [
+                        {
+                                    "id": "op-1",
+                                    "name": "Kirloskar Optiprime Generator",
+                                    "image": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714167/kumarpower_website/products_and_certs/gnoy4jyfav3qis3leaey.jpg",
+                                    "phase": "Three Phase",
+                                    "range": "100 kVA",
+                                    "rating": "4.8",
+                                    "cooling": "Liquid",
+                                    "cpcbNorm": "CPCB-IV+",
+                                    "fuelType": "Diesel",
+                                    "brochurePdf": "https://res.cloudinary.com/dpa93copz/image/upload/v1784714225/kumarpower_website/products_and_certs/a2zvjvfh1fiqkavdyppg.jpg",
+                                    "description": "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+                                    "ratingCount": "195",
+                                    "technicalSpecs": "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns."
+                        }
             ],
-          },
+            "whyChooseCard1Desc": "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            "whyChooseCard2Desc": "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            "whyChooseCard3Desc": "Quick start capability ensures minimal downtime during power outages.",
+            "whyChooseCard4Desc": "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            "whyChooseCard5Desc": "Modular design with accessible components simplifies service and maintenance.",
+            "whyChooseCard6Desc": "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            "portableSectionDesc": "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
+            "whyChooseCard1Title": "Unmatched Reliability",
+            "whyChooseCard2Title": "Fuel Efficiency",
+            "whyChooseCard3Title": "Rapid Response",
+            "whyChooseCard4Title": "Low Noise Operation",
+            "whyChooseCard5Title": "Easy Maintenance",
+            "whyChooseCard6Title": "Smart Controls",
+            "optiprimeSectionDesc": "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+            "portableSectionTitle": "Portable Generators",
+            "optiprimeSectionTitle": "Optiprime"
+},
         },
       ],
     },

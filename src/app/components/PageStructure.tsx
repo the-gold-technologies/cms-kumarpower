@@ -71,9 +71,9 @@ const PAGES_LIST: PageListItem[] = [
   },
   {
     id: "p8",
-    title: "Kirloskar Diesel Generator",
+    title: "Generators",
     type: "PRODUCT",
-    slug: "products/kirloskar-diesel-generator",
+    slug: "products/generators",
     visibility: "public",
     sectionsCount: 6,
   },
