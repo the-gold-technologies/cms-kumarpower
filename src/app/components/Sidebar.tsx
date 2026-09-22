@@ -65,6 +65,7 @@ const sidebarLinks: SidebarLink[] = [
         href: "/static-pages/products/generators",
       },
       { title: "Electrical Panels", href: "/static-pages/products/panels" },
+      { title: "Battery Energy Storage", href: "/static-pages/products/bess" },
       {
         title: "Servo Stabilizers",
         href: "/static-pages/products/servo-stabilizer",

@@ -6856,6 +6856,149 @@ async function main() {
         },
       ],
     },
+    {
+      title: "Battery Energy Storage System (BESS)",
+      slug: "bess",
+      description:
+        "High-efficiency Lithium Iron Phosphate (LiFePO4) energy storage solutions engineered for commercial, industrial, and renewable synchronization.",
+      metaTitle: "Battery Energy Storage Systems (BESS) | Kumar Power",
+      metaDescription:
+        "Explore Kumar Power Battery Energy Storage Systems (BESS) from 5 kW to 1 MW+ containerized solutions. Tier-1 LFP chemistry for clean commercial and industrial energy backup.",
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-bess-main",
+          type: "bess",
+          order: 0,
+          content: {
+            heroHeadingPart1: "Battery Energy",
+            heroHeadingPart2: "Storage Systems (BESS)",
+            heroSub:
+              "Next-generation Lithium Iron Phosphate (LiFePO4) energy storage solutions engineered for commercial, industrial, and renewable synchronization.",
+            heroBg: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055702/KumarPower-Assets/bess/dswbao341k3cqikss8dn.jpg",
+            sectionTitle: "Battery Energy Storage Range",
+            sectionDesc:
+              "High-efficiency, zero-emission BESS units engineered for seamless backup, peak demand shaving, DG synchronization, and solar hybridization.",
+            products: [
+              {
+                id: "bess-5kw",
+                name: "5 kW Commercial BESS",
+                range: "5 kW",
+                powerRating: "5 kW",
+                capacityRange: "10 - 20 kWh",
+                chemistry: "LFP (LiFePO4)",
+                voltage: "48V - 400V",
+                cooling: "Air Cooled",
+                phase: "Three / Single",
+                rating: 4.8,
+                ratingCount: 142,
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055703/KumarPower-Assets/bess/jsczats2smhch7fft6q8.png",
+                description:
+                  "Compact energy storage system designed for retail showrooms, clinics, and offices requiring reliable backup with zero sound and emissions.",
+                technicalSpecs:
+                  "Rated Output: 5 kW\nBattery Chemistry: Tier-1 Lithium Iron Phosphate (LiFePO4)\nEnergy Capacity: 10 kWh - 20 kWh Scalable\nRound-Trip Efficiency: >94%\nCycle Life: 6000+ Cycles @ 80% DOD\nResponse Time: <20 ms (Seamless Switchover)\nProtection: IP54 Indoor / Outdoor Enclosure\nInverter: Integrated Hybrid Bi-Directional Inverter\nMonitoring: Smart BMS with Cloud Mobile App & Modbus Protocol",
+                applications: "Retail Stores, Clinics, Residential Complexes, Small Offices"
+              },
+              {
+                id: "bess-10kw",
+                name: "10 kW Intelligent BESS",
+                range: "10 kW",
+                powerRating: "10 kW",
+                capacityRange: "20 - 40 kWh",
+                chemistry: "LFP (LiFePO4)",
+                voltage: "400V Three Phase",
+                cooling: "Air Cooled",
+                phase: "Three Phase",
+                rating: 4.8,
+                ratingCount: 168,
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055704/KumarPower-Assets/bess/hggwxzkpxwefudvygv2f.png",
+                description:
+                  "High-efficiency commercial storage unit designed for critical infrastructure, telecom base stations, and light commercial loads with seamless transfer time.",
+                technicalSpecs:
+                  "Rated Output: 10 kW\nBattery Chemistry: Lithium Iron Phosphate (LiFePO4)\nEnergy Capacity: 20 kWh - 40 kWh\nRated Voltage: 400V Three Phase AC\nRound-Trip Efficiency: >94.5%\nCycle Life: 6000+ Cycles\nOverload Capacity: 110% Continuous, 150% for 10s\nProtection Rating: IP54\nSafety: Aerosol Fire Suppression & Multi-stage Cell Protection\nCommunication: Ethernet / CAN / RS485 Modbus TCP",
+                applications: "Telecom Towers, Warehouses, Diagnostic Centers, Restaurants"
+              },
+              {
+                id: "bess-20kw",
+                name: "20 kW Industrial BESS",
+                range: "20 kW",
+                powerRating: "20 kW",
+                capacityRange: "40 - 80 kWh",
+                chemistry: "LFP (LiFePO4)",
+                voltage: "400V - 600V",
+                cooling: "Liquid / Forced Air",
+                phase: "Three Phase",
+                rating: 4.9,
+                ratingCount: 195,
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055705/KumarPower-Assets/bess/yj1tx3jr0ycr0qikn8cq.png",
+                description:
+                  "Robust commercial & industrial energy storage system built for peak shaving, demand charge management, and renewable energy integration.",
+                technicalSpecs:
+                  "Rated Output: 20 kW\nBattery Chemistry: Automotive-Grade LiFePO4\nEnergy Capacity: 40 kWh - 80 kWh Racks\nOperating Voltage Range: 400V - 600V DC Link\nSystem Efficiency: Up to 95%\nCycle Life: 6000+ Cycles @ 25°C\nThermal Management: Liquid / Intelligent Forced Air Cooling\nGrid Functions: Peak Shaving, Solar Self-Consumption, Backup Power\nBMS: Cell-level temperature, voltage, and state-of-health balancing",
+                applications: "Hotels, Schools, Educational Campuses, Commercial Buildings"
+              },
+              {
+                id: "bess-40kw",
+                name: "40 kW Heavy Duty BESS",
+                range: "40 kW",
+                powerRating: "40 kW",
+                capacityRange: "80 - 160 kWh",
+                chemistry: "LFP (LiFePO4)",
+                voltage: "400V - 800V",
+                cooling: "Liquid Cooled",
+                phase: "Three Phase",
+                rating: 4.9,
+                ratingCount: 176,
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055706/KumarPower-Assets/bess/ypt6j6sta53gq0cifnkc.png",
+                description:
+                  "High-capacity industrial cabinet engineered for heavy demand shaving, high duty cycles, and seamless integration with existing DG sets.",
+                technicalSpecs:
+                  "Rated Output: 40 kW Continuous\nBattery Chemistry: Grade-A LFP (LiFePO4) Cells\nEnergy Capacity: 80 kWh - 160 kWh Modular Expansion\nNominal AC Voltage: 415V Three Phase, 50 Hz\nRound-Trip Efficiency: >95%\nThermal Management: Precision Liquid Cooling for Extended Cell Longevity\nProtection: IP54 Outdoor Rated Weatherproof Enclosure\nDG Synchronization: Smart Generator Auto-Start & Microgrid Integration\nFire Safety: Dual-stage smoke/gas detection with automated suppression",
+                applications: "Manufacturing Plants, Cold Storage Facilities, Data Centers, EV Stations"
+              },
+              {
+                id: "bess-60kw",
+                name: "60 kW High Capacity BESS",
+                range: "60 kW",
+                powerRating: "60 kW",
+                capacityRange: "120 - 250 kWh",
+                chemistry: "LFP (LiFePO4)",
+                voltage: "600V - 1000V",
+                cooling: "Liquid Cooled",
+                phase: "Three Phase",
+                rating: 4.9,
+                ratingCount: 154,
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790055707/KumarPower-Assets/bess/aixzlwooixkp4uvxg1ur.png",
+                description:
+                  "Engineered for large manufacturing units and commercial hubs. Provides high discharge rates, black start capability, and power quality improvement.",
+                technicalSpecs:
+                  "Rated Output: 60 kW Continuous\nBattery Chemistry: Advanced Tier-1 LFP Cells\nEnergy Capacity: 120 kWh - 250 kWh\nNominal Voltage: 600V - 1000V DC System\nEfficiency: >95.2% Overall Round-Trip\nThermal System: Closed-loop Liquid Thermal Management (±2°C Uniformity)\nFault Ride-Through: Low Voltage Ride Through (LVRT) & Frequency Regulation\nCertifications: IEC 62619, IEC 62477, UN 38.3, UL 9540A compliant\nSoftware: Cloud EMS with real-time tariff arbitrage & DG runtime reduction",
+                applications: "Industrial Parks, Textile Mills, Automobile Ancillaries, Hospitals"
+              },
+              {
+                id: "bess-container",
+                name: "Utility-Scale Containerized BESS",
+                range: "100 kW - 1 MW+",
+                powerRating: "100 kW - 1 MW+",
+                capacityRange: "200 kWh - 2 MWh+",
+                chemistry: "LFP (LiFePO4)",
+                voltage: "400V - 1500V",
+                cooling: "Industrial Liquid & HVAC",
+                phase: "Three Phase",
+                rating: 4.9,
+                ratingCount: 220,
+                image: "https://res.cloudinary.com/dpa93copz/image/upload/v1790056713/KumarPower-Assets/bess/stho41j0mxcqeh8uleit.jpg",
+                description:
+                  "Turnkey modular containerized battery energy storage solution ready for utility substations, solar farms, microgrids, and large-scale industrial plants.",
+                technicalSpecs:
+                  "Power Rating: 100 kW to 1 MW+ Scalable\nEnergy Capacity: 200 kWh to 2 MWh+ per standard 20ft / 40ft Container\nBattery Chemistry: Tier-1 High Energy Density LiFePO4\nDC Voltage: Up to 1500V High Voltage Architecture\nRound-Trip Efficiency: >95%\nThermal Management: Industrial Liquid Cooling with Integrated HVAC & Chiller\nSubstation Integration: Built-in Step-Up Transformer, Bi-directional PCS & Switchgear\nFire Safety: Deflagration venting, aerosol fire suppression & BMS disconnect\nCompliance: CE, IEC 62933, UL 9540 / UL 9540A, IEEE 1547",
+                applications: "Solar & Wind Farms, Grid Substations, Mega Malls, Ports, Large Hospitals"
+              }
+            ]
+          }
+        }
+      ]
+    },
   ];
 
   try {

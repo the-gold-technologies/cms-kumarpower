@@ -103,9 +103,9 @@ const PAGES_LIST: PageListItem[] = [
   },
   {
     id: "p12",
-    title: "Optiprime",
+    title: "Battery Energy Storage System (BESS)",
     type: "PRODUCT",
-    slug: "products/optiprime",
+    slug: "products/bess",
     visibility: "public",
     sectionsCount: 4,
   },
