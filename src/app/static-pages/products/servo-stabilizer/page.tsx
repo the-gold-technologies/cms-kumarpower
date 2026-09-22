@@ -27,14 +27,17 @@ type ServoCard = {
 const API_ENDPOINT = "/api/servo-stabilizer";
 const SECTION_TYPE = "servo-stabilizer";
 
-export default function ServoStabilizerCMSPage() {
+export default function ServoStabilizersCMSPage() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isServosOpen, setIsServosOpen] = useState(false);
+  const [isExtraOpen, setIsExtraOpen] = useState(false);
 
   const [savingHero, setSavingHero] = useState(false);
   const [savedHero, setSavedHero] = useState(false);
   const [savingServos, setSavingServos] = useState(false);
   const [savedServos, setSavedServos] = useState(false);
+  const [savingExtra, setSavingExtra] = useState(false);
+  const [savedExtra, setSavedExtra] = useState(false);
 
   // Hero Section
   const [heroHeadingPart1, setHeroHeadingPart1] = useState("Servo Voltage");
@@ -45,6 +48,32 @@ export default function ServoStabilizerCMSPage() {
 
   // Servos List
   const [servos, setServos] = useState<ServoCard[]>([]);
+
+  // Why Choose Section
+  const [whyChooseTitle, setWhyChooseTitle] = useState("Why Choose Kirloskar Generators?");
+  const [whyChooseCard1Title, setWhyChooseCard1Title] = useState("Unmatched Reliability");
+  const [whyChooseCard1Desc, setWhyChooseCard1Desc] = useState("");
+  const [whyChooseCard2Title, setWhyChooseCard2Title] = useState("Fuel Efficiency");
+  const [whyChooseCard2Desc, setWhyChooseCard2Desc] = useState("");
+  const [whyChooseCard3Title, setWhyChooseCard3Title] = useState("Rapid Response");
+  const [whyChooseCard3Desc, setWhyChooseCard3Desc] = useState("");
+  const [whyChooseCard4Title, setWhyChooseCard4Title] = useState("Low Noise Operation");
+  const [whyChooseCard4Desc, setWhyChooseCard4Desc] = useState("");
+  const [whyChooseCard5Title, setWhyChooseCard5Title] = useState("Easy Maintenance");
+  const [whyChooseCard5Desc, setWhyChooseCard5Desc] = useState("");
+  const [whyChooseCard6Title, setWhyChooseCard6Title] = useState("Smart Controls");
+  const [whyChooseCard6Desc, setWhyChooseCard6Desc] = useState("");
+
+  // Certifications Section
+  const [certTitle, setCertTitle] = useState("Certified Excellence");
+  const [cert1Title, setCert1Title] = useState("ISO 9001:2015");
+  const [cert2Title, setCert2Title] = useState("CPCB-IV+");
+  const [cert3Title, setCert3Title] = useState("Kirloskar Authorized");
+
+  // Help Section
+  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
+  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
+  const [helpBtnText, setHelpBtnText] = useState("Talk to an Expert");
 
   useEffect(() => {
     fetchWithCache(API_ENDPOINT)
@@ -57,6 +86,29 @@ export default function ServoStabilizerCMSPage() {
           if (data.heroSub !== undefined) setHeroSub(data.heroSub);
           if (data.heroBg !== undefined) setHeroBg(data.heroBg);
           if (Array.isArray(data.servos)) setServos(data.servos);
+          // Why Choose
+          if (data.whyChooseTitle !== undefined) setWhyChooseTitle(data.whyChooseTitle);
+          if (data.whyChooseCard1Title !== undefined) setWhyChooseCard1Title(data.whyChooseCard1Title);
+          if (data.whyChooseCard1Desc !== undefined) setWhyChooseCard1Desc(data.whyChooseCard1Desc);
+          if (data.whyChooseCard2Title !== undefined) setWhyChooseCard2Title(data.whyChooseCard2Title);
+          if (data.whyChooseCard2Desc !== undefined) setWhyChooseCard2Desc(data.whyChooseCard2Desc);
+          if (data.whyChooseCard3Title !== undefined) setWhyChooseCard3Title(data.whyChooseCard3Title);
+          if (data.whyChooseCard3Desc !== undefined) setWhyChooseCard3Desc(data.whyChooseCard3Desc);
+          if (data.whyChooseCard4Title !== undefined) setWhyChooseCard4Title(data.whyChooseCard4Title);
+          if (data.whyChooseCard4Desc !== undefined) setWhyChooseCard4Desc(data.whyChooseCard4Desc);
+          if (data.whyChooseCard5Title !== undefined) setWhyChooseCard5Title(data.whyChooseCard5Title);
+          if (data.whyChooseCard5Desc !== undefined) setWhyChooseCard5Desc(data.whyChooseCard5Desc);
+          if (data.whyChooseCard6Title !== undefined) setWhyChooseCard6Title(data.whyChooseCard6Title);
+          if (data.whyChooseCard6Desc !== undefined) setWhyChooseCard6Desc(data.whyChooseCard6Desc);
+          // Certifications
+          if (data.certTitle !== undefined) setCertTitle(data.certTitle);
+          if (data.cert1Title !== undefined) setCert1Title(data.cert1Title);
+          if (data.cert2Title !== undefined) setCert2Title(data.cert2Title);
+          if (data.cert3Title !== undefined) setCert3Title(data.cert3Title);
+          // Help
+          if (data.helpTitle !== undefined) setHelpTitle(data.helpTitle);
+          if (data.helpSub !== undefined) setHelpSub(data.helpSub);
+          if (data.helpBtnText !== undefined) setHelpBtnText(data.helpBtnText);
         }
       })
       .catch(console.error);
@@ -69,12 +121,33 @@ export default function ServoStabilizerCMSPage() {
       heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
       heroSub,
       heroBg,
+      sectionTitle: "Servo Voltage Stabilizers",
+      sectionDesc: "Explore Kirloskar-certified servo stabilizers from Kumar Power, engineered for high performance, reliability, and full compliance with latest CPCB norms.",
       servos,
+      whyChooseTitle,
+      whyChooseCard1Title,
+      whyChooseCard1Desc,
+      whyChooseCard2Title,
+      whyChooseCard2Desc,
+      whyChooseCard3Title,
+      whyChooseCard3Desc,
+      whyChooseCard4Title,
+      whyChooseCard4Desc,
+      whyChooseCard5Title,
+      whyChooseCard5Desc,
+      whyChooseCard6Title,
+      whyChooseCard6Desc,
+      certTitle,
+      cert1Title,
+      cert2Title,
+      cert3Title,
+      helpTitle,
+      helpSub,
+      helpBtnText,
     };
 
     const payload = await uploadFilesDeep(rawPayload);
 
-    // Sync state
     if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
     if (payload.servos) setServos(payload.servos);
 
@@ -108,6 +181,14 @@ export default function ServoStabilizerCMSPage() {
     setTimeout(() => setSavedServos(false), 2000);
   };
 
+  const handleSaveExtra = async () => {
+    setSavingExtra(true);
+    await saveAllToDB();
+    setSavingExtra(false);
+    setSavedExtra(true);
+    setTimeout(() => setSavedExtra(false), 2000);
+  };
+
   const handleServoChange = (id: string, field: keyof ServoCard, val: string | File) => {
     setServos((prev) => prev.map((s) => (s.id === id ? { ...s, [field]: val } : s)));
   };
@@ -137,7 +218,7 @@ export default function ServoStabilizerCMSPage() {
     <div className="flex flex-col gap-6 pb-12">
       <PageHeader
         title="Servo Voltage Stabilizers CMS (/products/servo-stabilizer)"
-        description="Manage banner text, oil cooled & air cooled servo stabilizer models, technical specs & brochures."
+        description="Manage banner text, stabilizer models, why choose benefits, certification badges, and consultation helpline text."
       />
 
       {/* 1. Hero Section */}
@@ -211,6 +292,93 @@ export default function ServoStabilizerCMSPage() {
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton isSaving={savingServos} saved={savedServos} onClick={handleSaveServos} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Why Choose, Certifications & Help Section */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title="3. Why Choose, Certifications & Help Section"
+          description="Manage Why Choose Us benefits, certification badges, and consultation helpline text."
+          isOpen={isExtraOpen}
+          onToggle={() => setIsExtraOpen(!isExtraOpen)}
+        />
+        <div className={`grid transition-all duration-300 ${isExtraOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+          <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <InputField
+              label="Why Choose Section Title"
+              value={whyChooseTitle}
+              onChange={(e) => setWhyChooseTitle(e.target.value)}
+              placeholder="Why Choose Kirloskar Generators?"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 1 Title" value={whyChooseCard1Title} onChange={(e) => setWhyChooseCard1Title(e.target.value)} />
+                <TextAreaField label="Card 1 Description" value={whyChooseCard1Desc} onChange={(e) => setWhyChooseCard1Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 2 Title" value={whyChooseCard2Title} onChange={(e) => setWhyChooseCard2Title(e.target.value)} />
+                <TextAreaField label="Card 2 Description" value={whyChooseCard2Desc} onChange={(e) => setWhyChooseCard2Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 3 Title" value={whyChooseCard3Title} onChange={(e) => setWhyChooseCard3Title(e.target.value)} />
+                <TextAreaField label="Card 3 Description" value={whyChooseCard3Desc} onChange={(e) => setWhyChooseCard3Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 4 Title" value={whyChooseCard4Title} onChange={(e) => setWhyChooseCard4Title(e.target.value)} />
+                <TextAreaField label="Card 4 Description" value={whyChooseCard4Desc} onChange={(e) => setWhyChooseCard4Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 5 Title" value={whyChooseCard5Title} onChange={(e) => setWhyChooseCard5Title(e.target.value)} />
+                <TextAreaField label="Card 5 Description" value={whyChooseCard5Desc} onChange={(e) => setWhyChooseCard5Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 6 Title" value={whyChooseCard6Title} onChange={(e) => setWhyChooseCard6Title(e.target.value)} />
+                <TextAreaField label="Card 6 Description" value={whyChooseCard6Desc} onChange={(e) => setWhyChooseCard6Desc(e.target.value)} rows={2} />
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200">
+              <InputField
+                label="Certifications Section Title"
+                value={certTitle}
+                onChange={(e) => setCertTitle(e.target.value)}
+                placeholder="Certified Excellence"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+                <InputField label="Badge 1 Label" value={cert1Title} onChange={(e) => setCert1Title(e.target.value)} />
+                <InputField label="Badge 2 Label" value={cert2Title} onChange={(e) => setCert2Title(e.target.value)} />
+                <InputField label="Badge 3 Label" value={cert3Title} onChange={(e) => setCert3Title(e.target.value)} />
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200 space-y-4">
+              <InputField
+                label="Help Section Title"
+                value={helpTitle}
+                onChange={(e) => setHelpTitle(e.target.value)}
+                placeholder="Need Help Choosing the Right Electrical Solution?"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <TextAreaField
+                  label="Help Section Description"
+                  value={helpSub}
+                  onChange={(e) => setHelpSub(e.target.value)}
+                  rows={2}
+                />
+                <InputField
+                  label="Help Button Label"
+                  value={helpBtnText}
+                  onChange={(e) => setHelpBtnText(e.target.value)}
+                  placeholder="Talk to an Expert"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end pt-4 border-t border-slate-100">
+              <SaveButton isSaving={savingExtra} saved={savedExtra} onClick={handleSaveExtra} />
             </div>
           </div>
         </div>

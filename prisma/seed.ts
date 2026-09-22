@@ -2866,6 +2866,33 @@ async function main() {
             sectionTitle: "Electrical Panel",
             sectionDesc:
               "Browse our complete range of generators, panels, stabilizers and transformers.",
+            whyChooseTitle: "Why Choose Kumar Power Electrical Panels?",
+            whyChooseCard1Title: "CPRI Certified & Tested",
+            whyChooseCard1Desc:
+              "Fully compliant with IEC 61439 and IS standards with verified fault current withstand ratings.",
+            whyChooseCard2Title: "High Fault Tolerance",
+            whyChooseCard2Desc:
+              "Engineered with premium busbars and Type-2 coordination to prevent short circuits and arcing.",
+            whyChooseCard3Title: "Seamless Automation",
+            whyChooseCard3Desc:
+              "Smart AMF and PLC-based auto-synchronization ensures micro-second changeover without manual intervention.",
+            whyChooseCard4Title: "IP54 / IP55 Protection",
+            whyChooseCard4Desc:
+              "Heavy-duty powder coated enclosures built to withstand harsh industrial and outdoor environments.",
+            whyChooseCard5Title: "Modular & Expandable",
+            whyChooseCard5Desc:
+              "Standardized cubicle compartments allow easy future load expansion and quick component replacement.",
+            whyChooseCard6Title: "IoT & SCADA Integration",
+            whyChooseCard6Desc:
+              "Integrated digital multifunction meters with RS485 / Modbus for real-time monitoring and analytics.",
+            certTitle: "Certified Excellence",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPRI Tested",
+            cert3Title: "IEC 61439",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            helpBtnText: "Talk to an Expert",
             panels: [
               {
                 id: "p-1",
@@ -2970,6 +2997,33 @@ async function main() {
             sectionTitle: "Servo Stabilizers",
             sectionDesc:
               "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
+            whyChooseTitle: "Why Choose Kumar Power Servo Stabilizers?",
+            whyChooseCard1Title: "Unmatched Reliability",
+            whyChooseCard1Desc:
+              "Engineered for 24/7 heavy industrial operation with redundant micro-controller circuits and fail-safe trip mechanisms.",
+            whyChooseCard2Title: "High Precision Regulation",
+            whyChooseCard2Desc:
+              "Delivers razor-sharp ±1% voltage accuracy with rapid correction speed exceeding 20V per second across all three phases.",
+            whyChooseCard3Title: "Low Loss Toroidal Variac",
+            whyChooseCard3Desc:
+              "Premium copper-wound toroidal variacs and buck-boost transformers minimize idle losses and maximize operating efficiency.",
+            whyChooseCard4Title: "Low Noise & Cool Running",
+            whyChooseCard4Desc:
+              "Transformer grade oil cooling and natural convection ensure whisper-quiet performance and superior heat dissipation.",
+            whyChooseCard5Title: "Comprehensive Protection",
+            whyChooseCard5Desc:
+              "Built-in electronic cutoff against high/low voltage, phase failure, phase reversal, and heavy short-circuit overloads.",
+            whyChooseCard6Title: "Digital Micro-Controller",
+            whyChooseCard6Desc:
+              "Advanced digital metering interface with real-time input/output voltage display and automated diagnostic monitoring.",
+            certTitle: "Certified Excellence",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            helpBtnText: "Talk to an Expert",
             servos: [
               {
                 id: "single-phase-servo",
@@ -3040,6 +3094,33 @@ async function main() {
             sectionTitle: "Transformers",
             sectionDesc:
               "Durable and efficient transformers designed for various industrial and commercial applications.",
+            whyChooseTitle: "Why Choose Kumar Power Transformers?",
+            whyChooseCard1Title: "Unmatched Reliability",
+            whyChooseCard1Desc:
+              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard2Title: "Energy Efficiency",
+            whyChooseCard2Desc:
+              "Low-loss CRGO core and copper windings deliver superior efficiency, reducing your electricity bills significantly.",
+            whyChooseCard3Title: "Rapid Response",
+            whyChooseCard3Desc:
+              "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard4Title: "Low Noise Operation",
+            whyChooseCard4Desc:
+              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard5Title: "Easy Maintenance",
+            whyChooseCard5Desc:
+              "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard6Title: "Smart Controls",
+            whyChooseCard6Desc:
+              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            certTitle: "Certified Excellence",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            helpBtnText: "Talk to an Expert",
             transformers: [
               {
                 id: "t-1",
@@ -6667,6 +6748,33 @@ async function main() {
             sectionTitle: "Battery Energy Storage Range",
             sectionDesc:
               "High-efficiency, zero-emission BESS units engineered for seamless backup, peak demand shaving, DG synchronization, and solar hybridization.",
+            whyChooseTitle: "Why Choose Kumar Power BESS?",
+            whyChooseCard1Title: "Tier-1 LFP Chemistry",
+            whyChooseCard1Desc:
+              "High safety Lithium Iron Phosphate (LiFePO4) cells with 6,000+ cycle life and zero thermal runaway risk.",
+            whyChooseCard2Title: "Instant Zero-Break Switchover",
+            whyChooseCard2Desc:
+              "Sub-20 millisecond automatic grid failover eliminates downtime for critical mission loads and IT servers.",
+            whyChooseCard3Title: "Peak Shaving & Cost Reduction",
+            whyChooseCard3Desc:
+              "Stores power during off-peak hours and discharges during peak tariff periods to drastically cut commercial electricity bills.",
+            whyChooseCard4Title: "Solar & DG Synchronization",
+            whyChooseCard4Desc:
+              "Seamlessly integrates with on-grid/off-grid solar inverters and diesel gensets to optimize fuel consumption.",
+            whyChooseCard5Title: "Intelligent Cloud BMS",
+            whyChooseCard5Desc:
+              "Real-time cell level temperature and voltage telemetry with cloud analytics and predictive diagnostics.",
+            whyChooseCard6Title: "Modular Scalability",
+            whyChooseCard6Desc:
+              "Easily expandable from 20 kWh commercial systems up to multi-megawatt utility installations.",
+            certTitle: "Certified Excellence",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CE & IEC 62619",
+            cert3Title: "UL 9540A Tested",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            helpBtnText: "Talk to an Expert",
             products: [
               {
                 id: "bess-5kw",
@@ -6830,6 +6938,14 @@ async function main() {
             whyChooseCard6Title: "Turnkey EPC & Approvals",
             whyChooseCard6Desc:
               "End-to-end engineering, structure fabrication, DISCOM net metering approval, CEIG inspection, and 24/7 cloud generation monitoring.",
+            certTitle: "Certified Excellence",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "BIS Certified",
+            cert3Title: "ALMM Enlisted",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            helpBtnText: "Talk to an Expert",
             products: [
               {
                 id: "solar-550w-mono",

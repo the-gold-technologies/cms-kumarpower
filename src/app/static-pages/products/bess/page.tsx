@@ -47,6 +47,35 @@ export default function BESSCMSPage() {
   const [savedSection, setSavedSection] = useState(false);
   const [savingProducts, setSavingProducts] = useState(false);
   const [savedProducts, setSavedProducts] = useState(false);
+  const [isExtraOpen, setIsExtraOpen] = useState(false);
+  const [savingExtra, setSavingExtra] = useState(false);
+  const [savedExtra, setSavedExtra] = useState(false);
+
+  // Why Choose Section
+  const [whyChooseTitle, setWhyChooseTitle] = useState("Why Choose Kumar Power BESS?");
+  const [whyChooseCard1Title, setWhyChooseCard1Title] = useState("Tier-1 LFP Chemistry");
+  const [whyChooseCard1Desc, setWhyChooseCard1Desc] = useState("High safety Lithium Iron Phosphate (LiFePO4) cells with 6,000+ lifecycle and zero thermal runaway risk.");
+  const [whyChooseCard2Title, setWhyChooseCard2Title] = useState("Instant Zero-Break Switchover");
+  const [whyChooseCard2Desc, setWhyChooseCard2Desc] = useState("Sub-20 millisecond automatic grid failover eliminates downtime for critical mission loads and IT servers.");
+  const [whyChooseCard3Title, setWhyChooseCard3Title] = useState("Peak Shaving & Cost Reduction");
+  const [whyChooseCard3Desc, setWhyChooseCard3Desc] = useState("Stores power during off-peak hours and discharges during peak tariff periods to drastically cut electricity bills.");
+  const [whyChooseCard4Title, setWhyChooseCard4Title] = useState("Solar & DG Synchronization");
+  const [whyChooseCard4Desc, setWhyChooseCard4Desc] = useState("Seamlessly integrates with on-grid/off-grid solar inverters and diesel gensets to optimize fuel consumption.");
+  const [whyChooseCard5Title, setWhyChooseCard5Title] = useState("Intelligent Cloud BMS");
+  const [whyChooseCard5Desc, setWhyChooseCard5Desc] = useState("Real-time cell level temperature and voltage telemetry with cloud analytics and predictive diagnostics.");
+  const [whyChooseCard6Title, setWhyChooseCard6Title] = useState("Modular Scalability");
+  const [whyChooseCard6Desc, setWhyChooseCard6Desc] = useState("Easily expandable from 20 kWh commercial systems up to multi-megawatt utility installations.");
+
+  // Certifications Section
+  const [certTitle, setCertTitle] = useState("Certified Excellence");
+  const [cert1Title, setCert1Title] = useState("ISO 9001:2015");
+  const [cert2Title, setCert2Title] = useState("CE & IEC 62619");
+  const [cert3Title, setCert3Title] = useState("UL 9540A Tested");
+
+  // Help Section
+  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
+  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
+  const [helpBtnText, setHelpBtnText] = useState("Talk to an Expert");
 
   // Hero Section
   const [heroHeadingPart1, setHeroHeadingPart1] = useState("Battery Energy");
@@ -79,6 +108,29 @@ export default function BESSCMSPage() {
           if (data.sectionTitle !== undefined) setSectionTitle(data.sectionTitle);
           if (data.sectionDesc !== undefined) setSectionDesc(data.sectionDesc);
           if (Array.isArray(data.products)) setProducts(data.products);
+          // Why Choose
+          if (data.whyChooseTitle !== undefined) setWhyChooseTitle(data.whyChooseTitle);
+          if (data.whyChooseCard1Title !== undefined) setWhyChooseCard1Title(data.whyChooseCard1Title);
+          if (data.whyChooseCard1Desc !== undefined) setWhyChooseCard1Desc(data.whyChooseCard1Desc);
+          if (data.whyChooseCard2Title !== undefined) setWhyChooseCard2Title(data.whyChooseCard2Title);
+          if (data.whyChooseCard2Desc !== undefined) setWhyChooseCard2Desc(data.whyChooseCard2Desc);
+          if (data.whyChooseCard3Title !== undefined) setWhyChooseCard3Title(data.whyChooseCard3Title);
+          if (data.whyChooseCard3Desc !== undefined) setWhyChooseCard3Desc(data.whyChooseCard3Desc);
+          if (data.whyChooseCard4Title !== undefined) setWhyChooseCard4Title(data.whyChooseCard4Title);
+          if (data.whyChooseCard4Desc !== undefined) setWhyChooseCard4Desc(data.whyChooseCard4Desc);
+          if (data.whyChooseCard5Title !== undefined) setWhyChooseCard5Title(data.whyChooseCard5Title);
+          if (data.whyChooseCard5Desc !== undefined) setWhyChooseCard5Desc(data.whyChooseCard5Desc);
+          if (data.whyChooseCard6Title !== undefined) setWhyChooseCard6Title(data.whyChooseCard6Title);
+          if (data.whyChooseCard6Desc !== undefined) setWhyChooseCard6Desc(data.whyChooseCard6Desc);
+          // Certifications
+          if (data.certTitle !== undefined) setCertTitle(data.certTitle);
+          if (data.cert1Title !== undefined) setCert1Title(data.cert1Title);
+          if (data.cert2Title !== undefined) setCert2Title(data.cert2Title);
+          if (data.cert3Title !== undefined) setCert3Title(data.cert3Title);
+          // Help
+          if (data.helpTitle !== undefined) setHelpTitle(data.helpTitle);
+          if (data.helpSub !== undefined) setHelpSub(data.helpSub);
+          if (data.helpBtnText !== undefined) setHelpBtnText(data.helpBtnText);
         }
       })
       .catch(console.error);
@@ -94,6 +146,26 @@ export default function BESSCMSPage() {
       sectionTitle,
       sectionDesc,
       products,
+      whyChooseTitle,
+      whyChooseCard1Title,
+      whyChooseCard1Desc,
+      whyChooseCard2Title,
+      whyChooseCard2Desc,
+      whyChooseCard3Title,
+      whyChooseCard3Desc,
+      whyChooseCard4Title,
+      whyChooseCard4Desc,
+      whyChooseCard5Title,
+      whyChooseCard5Desc,
+      whyChooseCard6Title,
+      whyChooseCard6Desc,
+      certTitle,
+      cert1Title,
+      cert2Title,
+      cert3Title,
+      helpTitle,
+      helpSub,
+      helpBtnText,
     };
 
     const payload = await uploadFilesDeep(rawPayload);
@@ -137,6 +209,14 @@ export default function BESSCMSPage() {
     setSavingProducts(false);
     setSavedProducts(true);
     setTimeout(() => setSavedProducts(false), 2000);
+  };
+
+  const handleSaveExtra = async () => {
+    setSavingExtra(true);
+    await saveAllToDB();
+    setSavingExtra(false);
+    setSavedExtra(true);
+    setTimeout(() => setSavedExtra(false), 2000);
   };
 
   const handleProductChange = (id: string, field: keyof BESSCard, val: any) => {
@@ -286,6 +366,92 @@ export default function BESSCMSPage() {
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton isSaving={savingProducts} saved={savedProducts} onClick={handleSaveProducts} />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* 4. Why Choose, Certifications & Help Section */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title="4. Why Choose, Certifications & Help Section"
+          description="Manage Why Choose Us benefits, certification badges, and consultation helpline text."
+          isOpen={isExtraOpen}
+          onToggle={() => setIsExtraOpen(!isExtraOpen)}
+        />
+        <div className={`grid transition-all duration-300 ${isExtraOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+          <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <InputField
+              label="Why Choose Section Title"
+              value={whyChooseTitle}
+              onChange={(e) => setWhyChooseTitle(e.target.value)}
+              placeholder="Why Choose Kumar Power BESS?"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 1 Title" value={whyChooseCard1Title} onChange={(e) => setWhyChooseCard1Title(e.target.value)} />
+                <TextAreaField label="Card 1 Description" value={whyChooseCard1Desc} onChange={(e) => setWhyChooseCard1Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 2 Title" value={whyChooseCard2Title} onChange={(e) => setWhyChooseCard2Title(e.target.value)} />
+                <TextAreaField label="Card 2 Description" value={whyChooseCard2Desc} onChange={(e) => setWhyChooseCard2Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 3 Title" value={whyChooseCard3Title} onChange={(e) => setWhyChooseCard3Title(e.target.value)} />
+                <TextAreaField label="Card 3 Description" value={whyChooseCard3Desc} onChange={(e) => setWhyChooseCard3Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 4 Title" value={whyChooseCard4Title} onChange={(e) => setWhyChooseCard4Title(e.target.value)} />
+                <TextAreaField label="Card 4 Description" value={whyChooseCard4Desc} onChange={(e) => setWhyChooseCard4Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 5 Title" value={whyChooseCard5Title} onChange={(e) => setWhyChooseCard5Title(e.target.value)} />
+                <TextAreaField label="Card 5 Description" value={whyChooseCard5Desc} onChange={(e) => setWhyChooseCard5Desc(e.target.value)} rows={2} />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField label="Card 6 Title" value={whyChooseCard6Title} onChange={(e) => setWhyChooseCard6Title(e.target.value)} />
+                <TextAreaField label="Card 6 Description" value={whyChooseCard6Desc} onChange={(e) => setWhyChooseCard6Desc(e.target.value)} rows={2} />
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200">
+              <InputField
+                label="Certifications Section Title"
+                value={certTitle}
+                onChange={(e) => setCertTitle(e.target.value)}
+                placeholder="Certified Excellence"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+                <InputField label="Badge 1 Label" value={cert1Title} onChange={(e) => setCert1Title(e.target.value)} />
+                <InputField label="Badge 2 Label" value={cert2Title} onChange={(e) => setCert2Title(e.target.value)} />
+                <InputField label="Badge 3 Label" value={cert3Title} onChange={(e) => setCert3Title(e.target.value)} />
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200 space-y-4">
+              <InputField
+                label="Help Section Title"
+                value={helpTitle}
+                onChange={(e) => setHelpTitle(e.target.value)}
+                placeholder="Need Help Choosing the Right Electrical Solution?"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <TextAreaField
+                  label="Help Section Description"
+                  value={helpSub}
+                  onChange={(e) => setHelpSub(e.target.value)}
+                  rows={2}
+                />
+                <InputField
+                  label="Help Button Label"
+                  value={helpBtnText}
+                  onChange={(e) => setHelpBtnText(e.target.value)}
+                  placeholder="Talk to an Expert"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end pt-4 border-t border-slate-100">
+              <SaveButton isSaving={savingExtra} saved={savedExtra} onClick={handleSaveExtra} />
             </div>
           </div>
         </div>
