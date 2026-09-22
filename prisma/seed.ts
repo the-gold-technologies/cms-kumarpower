@@ -2501,7 +2501,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714228/kumarpower_website/products_and_certs/p43cmp3eergzesyylcqe.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790083929/KumarPower-Assets/rbllwma73evgjbffxz9s",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "153",
@@ -2521,7 +2521,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714231/kumarpower_website/products_and_certs/vuismmwuz2zcgqh1bhsh.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084591/KumarPower-Assets/egsmsy23slugigikxi5o",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "132",
@@ -2541,7 +2541,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714235/kumarpower_website/products_and_certs/tztxdfdga87zbyguxg3p.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084689/KumarPower-Assets/ckrbz4wxuxxi7n0iekfn",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "118",
@@ -2561,7 +2561,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714239/kumarpower_website/products_and_certs/d9d72hlytpr3awuux62e.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084789/KumarPower-Assets/uzhow5cneafasbsv3rm3",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "178",
@@ -2581,7 +2581,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714242/kumarpower_website/products_and_certs/zxjcgmnltc5lzyyqlovq.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084792/KumarPower-Assets/g8ywf9silx7ktnaxsoqc",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "96",
@@ -2601,7 +2601,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714246/kumarpower_website/products_and_certs/hwrisjalxeanjxazoulw.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084917/KumarPower-Assets/sd3omycvfdgemmjflpyn",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "86",
@@ -2631,7 +2631,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Natural Gas/CNG",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714249/kumarpower_website/products_and_certs/h3vfgttfpmmvs8kxiulg.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790085241/KumarPower-Assets/t3uipriazgldl3iwcb52",
                 description:
                   "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
                 ratingCount: "142",
@@ -2661,7 +2661,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Gasoline",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714210/kumarpower_website/products_and_certs/tzrlmnc6fnymyk4hpacr.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790086236/KumarPower-Assets/f9mwdncknibilne2gcyo",
                 description:
                   "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
                 ratingCount: "165",
@@ -2684,7 +2684,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714225/kumarpower_website/products_and_certs/a2zvjvfh1fiqkavdyppg.jpg",
+                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790085930/KumarPower-Assets/jrhopuzhwpvezb64fgdp",
                 description:
                   "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
                 ratingCount: "195",
