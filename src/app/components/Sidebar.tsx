@@ -46,18 +46,17 @@ const sidebarLinks: SidebarLink[] = [
     icon: BookOpen,
     sublinks: [
       { title: "Home", href: "/static-pages/home" },
-      { title: "Our Profile", href: "/static-pages/our-profile" },
+      { title: "About", href: "/static-pages/our-profile" },
       { title: "Testimonials", href: "/static-pages/testimonials" },
       { title: "Our Clients", href: "/static-pages/our-clients" },
       { title: "Photo Gallery", href: "/static-pages/photo-gallery" },
       { title: "Certifications", href: "/static-pages/certifications" },
-      { title: "Products Overview", href: "/static-pages/products" },
-      { title: "Blogs Overview", href: "/static-pages/blog" },
-      { title: "Contact Us", href: "/static-pages/contact" },
+      { title: "Blogs", href: "/static-pages/blog" },
+      { title: "Contact", href: "/static-pages/contact" },
     ],
   },
   {
-    title: "PRODUCT DROPDOWN PAGES",
+    title: "SOLUTIONS",
     icon: Package,
     sublinks: [
       {
@@ -65,7 +64,8 @@ const sidebarLinks: SidebarLink[] = [
         href: "/static-pages/products/generators",
       },
       { title: "Electrical Panels", href: "/static-pages/products/panels" },
-      { title: "Battery Energy Storage", href: "/static-pages/products/bess" },
+      { title: "Battery Energy Storage (BESS)", href: "/static-pages/products/bess" },
+      { title: "Solar Panels", href: "/static-pages/products/solar" },
       {
         title: "Servo Stabilizers",
         href: "/static-pages/products/servo-stabilizer",
@@ -78,11 +78,11 @@ const sidebarLinks: SidebarLink[] = [
     icon: Wrench,
     sublinks: [
       {
-        title: "Turnkey SITC Installation",
+        title: "Installation",
         href: "/static-pages/services/installation",
       },
       {
-        title: "Engine Repair & Overhaul",
+        title: "Repair & Overhaul",
         href: "/static-pages/services/repair-overhaul",
       },
     ],

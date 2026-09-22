@@ -134,7 +134,7 @@ async function main() {
     {
       id: "nav-2-4",
       label: "Battery Energy Storage System",
-      url: "/products/generators",
+      url: "/products/bess",
       order: 5,
       type: "Sub Link",
       parent: "nav-2",
@@ -143,8 +143,8 @@ async function main() {
     },
     {
       id: "nav-2-5",
-      label: "Solar and Renewable Energy",
-      url: "/products",
+      label: "Solar Panels",
+      url: "/products/solar",
       order: 6,
       type: "Sub Link",
       parent: "nav-2",
@@ -153,7 +153,7 @@ async function main() {
     },
     {
       id: "nav-2-6",
-      label: "Servo Stabilizer Panel",
+      label: "Servo Stabilizers",
       url: "/products/servo-stabilizer",
       order: 6,
       type: "Sub Link",
@@ -2635,218 +2635,6 @@ async function main() {
             cert1Title: "ISO 9001:2015",
             cert2Title: "CPCB-IV+",
             cert3Title: "Kirloskar Authorized",
-          },
-        },
-      ],
-    },
-    {
-      title: "Products",
-      slug: "products",
-      description: "Kumar Power Products Showcase",
-      metaTitle: "Products - Kumar Power",
-      metaDescription:
-        "Explore our full range of Kirloskar-certified diesel generators, gas generators, portable generators, electrical panels, servo stabilizers, and transformers.",
-      isStatic: true,
-      visibility: "published",
-      sections: [
-        {
-          id: "sec-products-main",
-          type: "products",
-          order: 1,
-          content: {
-            heroHeadingPart1: "Powering Progress,",
-            heroHeadingPart2: "One Generator at a Time",
-            heroHeading: "Powering Progress, One Generator at a Time",
-            heroSub:
-              "Explore our full range of Kirloskar-certified diesel generators, trusted across India's most demanding industries.",
-            heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
-            btn1Text: "Request a Quote",
-            btn1Url: "/contact",
-            btn2Text: "Download Product Catalogue",
-            btn2Url:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
-
-            stickyTextPart1: "Kumar Power:",
-            stickyTextPart2:
-              "India's Most Trusted Kirloskar-Certified Generator Brand!",
-            downloadBtn1Label: "Download Bharat Rajpatra",
-            downloadBtn1Url:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
-            downloadBtn2Label: "Download Direction 76",
-            downloadBtn2Url:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
-            talkBtnLabel: "Talk to Power Expert",
-            requestBtnLabel: "Request Quote",
-            cert1Title: "ISO 9001:2015",
-            cert2Title: "CPCB-IV+",
-            cert3Title: "Kirloskar Authorized",
-
-            sectionTitle: "ALL Products",
-            sectionDesc:
-              "We offer a complete range of power and electrical solutions including Kirloskar Diesel Generators, Kirloskar Gas Generators, Kirloskar Portable Generators, Electrical Panels, Servo Voltage Stabilizers, and Transformers, engineered for reliable performance across residential, commercial, and industrial applications.",
-            certTitle: "Certified Excellence",
-            helpTitle: "Need Help Choosing the Right Electrical Solution?",
-            helpSub:
-              "Our team of experts will help you select the perfect solution based on your industry and budget.",
-            helpBtnText: "Talk to an Expert",
-            whyChooseTitle: "Why Choose Kirloskar Generators?",
-
-            whyChooseCard1Title: "Unmatched Reliability",
-            whyChooseCard1Desc:
-              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
-            whyChooseCard2Title: "Fuel Efficiency",
-            whyChooseCard2Desc:
-              "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
-            whyChooseCard3Title: "Rapid Response",
-            whyChooseCard3Desc:
-              "Quick start capability ensures minimal downtime during power outages.",
-            whyChooseCard4Title: "Low Noise Operation",
-            whyChooseCard4Desc:
-              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
-            whyChooseCard5Title: "Easy Maintenance",
-            whyChooseCard5Desc:
-              "Modular design with accessible components simplifies service and maintenance.",
-            whyChooseCard6Title: "Smart Controls",
-            whyChooseCard6Desc:
-              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
-            // cert properties removed as they are duplicates
-
-            categories: [
-              {
-                id: "cat-1",
-                range: "7.5 kVA to 20 kVA",
-                name: "Kirloskar Diesel Generators",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                ratingCount: 153,
-                rating: 4.8,
-                category: "diesel",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714180/kumarpower_website/products_and_certs/xrrqjdwx727kuavykav3.jpg",
-                description:
-                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
-                technicalSpecs:
-                  "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power.",
-                productLink: "/products/generators",
-              },
-              {
-                id: "cat-2",
-                range: "15 kVA to 250 kVA",
-                name: "Kirloskar Gas Generators",
-                fuelType: "Natural Gas/CNG",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Single/Three Phase",
-                ratingCount: 145,
-                rating: 4.6,
-                category: "gas",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714172/kumarpower_website/products_and_certs/jok8mlfzuk4ycexlywjo.jpg",
-                description:
-                  "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
-                technicalSpecs:
-                  "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses.",
-                productLink: "/products/generators",
-              },
-              {
-                id: "cat-3",
-                range: "2.1 kVA to 5 kVA",
-                name: "Kirloskar Portable Generators",
-                fuelType: "Gasoline",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Air",
-                phase: "Single Phase",
-                ratingCount: 210,
-                rating: 4.5,
-                category: "portable",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714188/kumarpower_website/products_and_certs/gw95efnw5vjihttymsdf.jpg",
-                description:
-                  "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
-                technicalSpecs:
-                  "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools.",
-                productLink: "/products/generators",
-              },
-              {
-                id: "cat-4",
-                range: "100 kVA",
-                name: "Kirloskar Optiprime Generator",
-                fuelType: "Diesel",
-                cpcbNorm: "CPCB-IV+",
-                cooling: "Liquid",
-                phase: "Three Phase",
-                ratingCount: 195,
-                rating: 4.8,
-                category: "optiprime",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714167/kumarpower_website/products_and_certs/gnoy4jyfav3qis3leaey.jpg",
-                description:
-                  "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
-                technicalSpecs:
-                  "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns.",
-                productLink: "/products/generators",
-              },
-              {
-                id: "cat-5",
-                range: "Various",
-                name: "AMF Panels",
-                fuelType: "N/A",
-                cpcbNorm: "N/A",
-                cooling: "Fan/Natural",
-                phase: "Three Phase",
-                ratingCount: 112,
-                rating: 4.7,
-                category: "electrical",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714197/kumarpower_website/products_and_certs/wzzvqr27kooz9g6f6jnb.png",
-                description:
-                  "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
-                technicalSpecs:
-                  "Our Auto Mains Failure (AMF) panels are engineered for seamless power transition, featuring a microprocessor-based controller that manages automatic start/stop logic with precision. The panels utilize high-quality contactors or motorized breakers for reliable changeover operations. Comprehensive protection logic safeguards the load from voltage fluctuations, phase reversals, and frequency errors. The interface includes clear LED/LCD indications for Mains and DG status, ensuring operators have full visibility of the power system at all times.",
-                productLink: "/products/panels",
-              },
-              {
-                id: "cat-6",
-                range: "5-100 kVA",
-                name: "Oil Cooled Servo Stabilizers",
-                fuelType: "N/A",
-                cpcbNorm: "N/A",
-                cooling: "Air/Oil",
-                phase: "Single Phase",
-                ratingCount: 134,
-                rating: 4.5,
-                category: "servo",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714202/kumarpower_website/products_and_certs/azaokay703ttagwvjix4.jpg",
-                description:
-                  "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
-                technicalSpecs:
-                  "This range delivers precision voltage correction using advanced oil-immersed technology, making it ideal for heavy-duty cycles. It achieves correction speeds greater than 20V per second with an output voltage regulation accuracy of ±1%. The oil-cooled design ensures superior heat dissipation, extending component life. Built with high-grade variacs (toroidal transformers) and buck-boost transformers, it offers comprehensive protection including low/high voltage cutoffs and overload protection, ensuring total safety for connected equipment.",
-                productLink: "/products/servo-stabilizer",
-              },
-              {
-                id: "cat-7",
-                range: "100-2500 kVA",
-                name: "Distribution Transformers",
-                fuelType: "N/A",
-                cpcbNorm: "N/A",
-                cooling: "Oil/Dry",
-                phase: "Three Phase",
-                ratingCount: 88,
-                rating: 4.8,
-                category: "transformers",
-                image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714204/kumarpower_website/products_and_certs/zae649ckiadypi91wztf.jpg",
-                description:
-                  "Durable and efficient transformers designed for various industrial and commercial applications.",
-                technicalSpecs:
-                  "These reliable step-down transformers are crafted for utility and industrial use, featuring a core made from CRGO (Cold Rolled Grain Oriented) silicon steel laminations to minimize losses. The windings are constructed from high-quality Electrolytic Copper or Aluminum with robust paper insulation. Utilizing ONAN (Oil Natural Air Natural) cooling and complying with IS 1180 energy efficiency levels, they include an off-circuit tap changer, allowing for precise voltage adjustments to match network requirements.",
-                productLink: "/products/transformers",
-              },
-            ],
           },
         },
       ],
@@ -6993,6 +6781,150 @@ async function main() {
                 technicalSpecs:
                   "Power Rating: 100 kW to 1 MW+ Scalable\nEnergy Capacity: 200 kWh to 2 MWh+ per standard 20ft / 40ft Container\nBattery Chemistry: Tier-1 High Energy Density LiFePO4\nDC Voltage: Up to 1500V High Voltage Architecture\nRound-Trip Efficiency: >95%\nThermal Management: Industrial Liquid Cooling with Integrated HVAC & Chiller\nSubstation Integration: Built-in Step-Up Transformer, Bi-directional PCS & Switchgear\nFire Safety: Deflagration venting, aerosol fire suppression & BMS disconnect\nCompliance: CE, IEC 62933, UL 9540 / UL 9540A, IEEE 1547",
                 applications: "Solar & Wind Farms, Grid Substations, Mega Malls, Ports, Large Hospitals"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      title: "Solar Panels & Systems",
+      slug: "solar",
+      description:
+        "Tier-1 Mono PERC & TOPCon Bifacial Solar Panels for Commercial and Industrial Power.",
+      metaTitle: "Tier-1 Commercial Solar Panels & Rooftop Systems | Kumar Power",
+      metaDescription:
+        "Explore high-efficiency Tier-1 Mono PERC and TOPCon Bifacial solar panels from Kumar Power. Seamless DG synchronization and BESS integration.",
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-solar-main",
+          type: "solar",
+          order: 0,
+          content: {
+            heroHeadingPart1: "High-Efficiency",
+            heroHeadingPart2: "Solar Panels & Systems",
+            heroSub:
+              "Tier-1 Mono PERC and TOPCon Bifacial solar photovoltaic panels engineered for commercial, industrial, and residential rooftop clean energy generation.",
+            heroBg:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1790057405/KumarPower-Assets/solar/z9t1nchzpb9zozfilo1g.jpg",
+            sectionTitle: "Solar Photovoltaic Panel Range",
+            sectionDesc:
+              "Harness clean solar energy with Tier-1 high-efficiency panels engineered for maximum yield, DG synchronization, and seamless integration with Kumar Power BESS.",
+            whyChooseTitle: "Why Choose Kumar Power Solar Solutions",
+            whyChooseCard1Title: "Tier-1 High Efficiency",
+            whyChooseCard1Desc:
+              "Engineered with premium Grade-A monocrystalline silicon cells delivering up to 22.5% module conversion efficiency for maximum kWh per square meter.",
+            whyChooseCard2Title: "Smart DG-Solar Synchronization",
+            whyChooseCard2Desc:
+              "Zero-export controllers and dynamic load matching protect diesel generators from reverse power, cutting diesel consumption up to 50% during daylight.",
+            whyChooseCard3Title: "Seamless BESS Hybridization",
+            whyChooseCard3Desc:
+              "Pairs natively with Kumar Power Battery Energy Storage Systems (BESS) for round-the-clock solar power, peak demand shaving, and clean zero-emission backup.",
+            whyChooseCard4Title: "25-Year Performance Warranty",
+            whyChooseCard4Desc:
+              "Backed by comprehensive linear power warranties guaranteeing over 84.8% power output retention after 25 years of continuous commercial operation.",
+            whyChooseCard5Title: "Rapid Capital Payback",
+            whyChooseCard5Desc:
+              "Substantially cuts commercial grid tariff costs with payback typically achieved in 3 to 4 years, alongside accelerated depreciation and tax benefits.",
+            whyChooseCard6Title: "Turnkey EPC & Approvals",
+            whyChooseCard6Desc:
+              "End-to-end engineering, structure fabrication, DISCOM net metering approval, CEIG inspection, and 24/7 cloud generation monitoring.",
+            products: [
+              {
+                id: "solar-550w-mono",
+                name: "550W Tier-1 Mono PERC Solar Panel",
+                powerRating: "550 Watt",
+                efficiency: "21.3%",
+                cellType: "Mono PERC 182mm",
+                technology: "144 Half-Cut Cells",
+                warranty: "25 Yrs Performance",
+                rating: 4.8,
+                ratingCount: 162,
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057845/KumarPower-Assets/solar/afsys6bopq2q7rpkp6uv.jpg",
+                description:
+                  "High-power Mono PERC module engineered for commercial and industrial rooftops. Minimizes hotspot risk and maximizes energy yield even under partial shading.",
+                technicalSpecs:
+                  "Rated Maximum Power (Pmax): 550W\nModule Efficiency: 21.3%\nCell Technology: Tier-1 Monocrystalline PERC (182mm wafer)\nCell Configuration: 144 (6x24) Half-Cut Cells with multi-busbar design\nOpen Circuit Voltage (Voc): 49.80 V\nOptimum Operating Voltage (Vmp): 41.95 V\nShort Circuit Current (Isc): 13.98 A\nOptimum Operating Current (Imp): 13.12 A\nTemperature Coefficient of Pmax: -0.35% / °C\nJunction Box: IP68 rated, 3 bypass diodes, UV resistant cables\nFrame: Anodized aluminium alloy (35mm), high mechanical strength\nMechanical Load: 5400 Pa front (snow), 2400 Pa rear (wind)\nCertifications: IEC 61215, IEC 61730, UL 61730, CE, BIS certified",
+                applications:
+                  "Commercial Complexes, Industrial Sheds, Warehouses, Educational Institutions"
+              },
+              {
+                id: "solar-580w-bifacial",
+                name: "580W TOPCon N-Type Bifacial Panel",
+                powerRating: "580W (+30% Rear)",
+                efficiency: "22.5%",
+                cellType: "N-Type TOPCon",
+                technology: "Dual Glass Bifacial",
+                warranty: "30 Yrs Performance",
+                rating: 4.9,
+                ratingCount: 184,
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057847/KumarPower-Assets/solar/uhlp3fchrpddbytbv68c.jpg",
+                description:
+                  "Cutting-edge N-Type TOPCon bifacial module capturing reflected light from the rear surface. Generates up to 30% additional power on reflective rooftops and ground mounts.",
+                technicalSpecs:
+                  "Rated Maximum Power (Pmax): 580W Front (up to 750W with rear gain)\nModule Efficiency: 22.5%\nCell Technology: N-Type TOPCon 16BB Cell Architecture\nBifaciality Factor: 80% ± 5%\nOpen Circuit Voltage (Voc): 51.20 V\nOptimum Operating Voltage (Vmp): 42.80 V\nShort Circuit Current (Isc): 14.35 A\nOptimum Operating Current (Imp): 13.55 A\nTemperature Coefficient of Pmax: -0.30% / °C (Superior hot-climate performance)\nDegradation: <1.0% first year, <0.4% annual linear degradation over 30 years\nGlass: 2.0mm + 2.0mm High Transmission AR Coated Semi-Tempered Glass\nProtection: IP68 Junction Box, MC4-EVO2 compatible connectors\nCompliance: IEC 61215, IEC 61730, ISO 9001:2015, BIS Approved",
+                applications:
+                  "Industrial Rooftops, Carports, Ground-Mount Parks, Flat RCC Roofs"
+              },
+              {
+                id: "solar-670w-highpower",
+                name: "670W Ultra-High Power Industrial Panel",
+                powerRating: "670 Watt",
+                efficiency: "21.6%",
+                cellType: "G12 210mm Wafer",
+                technology: "Triple-Cut Large Cells",
+                warranty: "25 Yrs Performance",
+                rating: 4.8,
+                ratingCount: 140,
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057848/KumarPower-Assets/solar/bhqbwisfvj4puo6fgnhz.jpg",
+                description:
+                  "Engineered for large utility projects and high-load industrial plants. Lowers BOS (Balance of System) costs and reduces structural racking requirements.",
+                technicalSpecs:
+                  "Rated Maximum Power (Pmax): 670W\nModule Efficiency: 21.6%\nCell Technology: Monocrystalline G12 (210mm) Triple-Cut Cells\nOpen Circuit Voltage (Voc): 46.20 V\nOptimum Operating Voltage (Vmp): 38.60 V\nShort Circuit Current (Isc): 18.52 A\nOptimum Operating Current (Imp): 17.36 A\nLow-Light Performance: Outstanding irradiance response in hazy/overcast weather\nPID Resistance: Guaranteed anti-PID via cell and encapsulation quality\nMaximum System Voltage: 1500V DC (IEC/UL)\nJunction Box: IP68 with 3 diodes, 4mm² output cables\nMechanical Rigidity: Heavy-duty 35mm anodized frame with pre-drilled drain holes",
+                applications:
+                  "Heavy Manufacturing Plants, Logistics Hubs, Textile Mills, Solar Farms"
+              },
+              {
+                id: "solar-inverter-sync",
+                name: "Solar-DG Hybrid Sync Controller & Inverter",
+                powerRating: "20 kW - 250 kW",
+                efficiency: "98.8% Max",
+                cellType: "Multi-MPPT Hybrid",
+                technology: "Zero Export / DG Sync",
+                warranty: "5-10 Yrs Warranty",
+                rating: 4.9,
+                ratingCount: 156,
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057849/KumarPower-Assets/solar/mrpeevfzr2n1nkchlpsv.jpg",
+                description:
+                  "High-efficiency on-grid string inverter with dynamic DG reverse power protection and smart export limitation, maximizing fuel savings when DG operates.",
+                technicalSpecs:
+                  "Inverter Type: Multi-MPPT Commercial Grid-Tie Inverter\nRated AC Output: 20 kW to 250 kW Scalable\nMaximum DC Input Voltage: 1100V\nMPPT Voltage Range: 200V - 1000V\nMax Efficiency: 98.8% (European Efficiency: 98.4%)\nDG Synchronization: Built-in RS485 / Modbus protocol for dynamic generator throttle control\nProtection: Reverse polarity, DC switch, AC/DC Type II SPD, islanding protection, string monitoring\nEnclosure: IP66 weather-sealed for harsh outdoor industrial conditions\nCommunication: WiFi, 4G, Ethernet, and Cloud IoT generation portal",
+                applications:
+                  "Commercial Complexes with DG Sets, Factories, Hospitals, Cold Storage Units"
+              },
+              {
+                id: "solar-rooftop-turnkey",
+                name: "Turnkey Rooftop Solar Array System",
+                powerRating: "10 kWp - 500 kWp+",
+                efficiency: "System PR >80%",
+                cellType: "Tier-1 PV Modules",
+                technology: "Elevated Structure",
+                warranty: "Turnkey EPC Warranty",
+                rating: 4.9,
+                ratingCount: 220,
+                image:
+                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057850/KumarPower-Assets/solar/glny66g28gewsvydagkh.jpg",
+                description:
+                  "Complete end-to-end solar EPC package including shadow-free structure design, Tier-1 panels, BOS components, DISCOM net-metering approvals, and commissioning.",
+                technicalSpecs:
+                  "System Size: Custom engineered from 10 kWp up to 500 kWp+\nMounting Structure: Hot-dip galvanized steel / anodized aluminium engineered for 150 km/h wind gusts\nBalance of System (BOS): UV-stabilized solar DC cables, copper earthing pits, lightning arrestor\nProtection: ACDB / DCDB with surge arrestors and individual string disconnects\nApproval Liaison: Net Metering sanctioning, CEIG safety approval, and grid connection\nAnnual Generation: ~1400 - 1500 kWh per kWp installed per year\nCarbon Offset: Approx 1.2 Tons CO2 reduction per kWp annually",
+                applications:
+                  "Industrial Sheds, Factory Roofs, Commercial Towers, Hospitals, Educational Campuses"
               }
             ]
           }
