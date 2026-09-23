@@ -114,3 +114,15 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model JobApplication {
+  id        String   @id @default(cuid())
+  fullName  String
+  email     String
+  phone     String
+  message   String?
+  resumeUrl String?
+  status    String   @default("New")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

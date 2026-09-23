@@ -64,37 +64,44 @@ export default function EnquiriesCMSPage() {
     {
       header: "Contact Details",
       cell: (row) => (
-        <div className="flex flex-col gap-0.5 text-[11px]">
-          <span className="font-bold text-slate-800 flex items-center gap-1">
-            <Mail className="w-3 h-3 text-slate-400" /> {row.email}
+        <div className="flex flex-col gap-0.5 text-[11px] max-w-[220px]">
+          <span className="font-bold text-slate-800 flex items-center gap-1.5 truncate" title={row.email}>
+            <Mail className="w-3 h-3 text-slate-400 shrink-0" />
+            <span className="truncate">{row.email}</span>
           </span>
-          <span className="text-slate-500 flex items-center gap-1">
-            <PhoneCall className="w-3 h-3 text-slate-400" /> {row.phone}
+          <span className="text-slate-500 flex items-center gap-1.5 whitespace-nowrap">
+            <PhoneCall className="w-3 h-3 text-slate-400 shrink-0" /> {row.phone}
           </span>
         </div>
       ),
     },
     {
       header: "Product / Requirement",
-      accessorKey: "productOrService",
+      cell: (row) => (
+        <span className="font-semibold text-slate-800">
+          {row.interestedIn || "General Inquiry"}
+        </span>
+      ),
     },
     {
       header: "Callback Request",
       cell: (row) => (
-        row.callback ? (
-          <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full font-bold text-[10px] border border-emerald-200">
-            <CheckCircle2 className="w-3 h-3" /> Call Back
-          </span>
-        ) : (
-          <span className="text-slate-400 text-[10px]">Email Info</span>
-        )
+        <div className="whitespace-nowrap">
+          {row.callback ? (
+            <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full font-bold text-[10px] border border-emerald-200">
+              <CheckCircle2 className="w-3 h-3" /> Call Back
+            </span>
+          ) : (
+            <span className="text-slate-400 text-[10px]">Email Info</span>
+          )}
+        </div>
       ),
     },
     {
       header: "Status",
       cell: (row) => (
         <span
-          className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase ${
+          className={`inline-block whitespace-nowrap px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase ${
             row.status === "New"
               ? "bg-rose-50 text-rose-600 border border-rose-200"
               : row.status === "Contacted"
@@ -144,28 +151,35 @@ export default function EnquiriesCMSPage() {
             </div>
 
             <div className="space-y-4 text-xs">
-              <div className="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <div className="min-w-0">
                   <span className="text-slate-400 font-bold block mb-1 uppercase text-[10px]">Email Address</span>
-                  <span className="font-extrabold text-slate-900">{selectedEnquiry.email}</span>
+                  <span className="font-extrabold text-slate-900 break-all select-all">{selectedEnquiry.email}</span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-slate-400 font-bold block mb-1 uppercase text-[10px]">Phone Number</span>
-                  <span className="font-extrabold text-slate-900">{selectedEnquiry.phone}</span>
+                  <span className="font-extrabold text-slate-900 break-all select-all">{selectedEnquiry.phone}</span>
                 </div>
               </div>
 
+              {selectedEnquiry.company && selectedEnquiry.company !== "N/A" && (
+                <div className="bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
+                  <span className="text-slate-400 font-bold uppercase text-[10px]">Company / Organization</span>
+                  <span className="font-extrabold text-slate-800">{selectedEnquiry.company}</span>
+                </div>
+              )}
+
               <div>
                 <span className="text-slate-400 font-bold block mb-1 uppercase text-[10px]">Interested Product / Service</span>
-                <div className="p-3 bg-blue-50 text-[#2D6FBA] rounded-xl font-bold border border-blue-100">
-                  {selectedEnquiry.productOrService}
+                <div className="p-3 bg-blue-50 text-[#2D6FBA] rounded-xl font-bold border border-blue-100 break-words">
+                  {selectedEnquiry.interestedIn || "General Inquiry"}
                 </div>
               </div>
 
               <div>
                 <span className="text-slate-400 font-bold block mb-1 uppercase text-[10px]">Client Message</span>
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 leading-relaxed text-slate-800">
-                  {selectedEnquiry.message}
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 leading-relaxed text-slate-800 whitespace-pre-wrap break-words">
+                  {selectedEnquiry.message || "No message provided."}
                 </div>
               </div>
 

@@ -80,7 +80,7 @@ export function DataTable<T extends { id: string }>({
                 </th>
               ))}
               {(onEdit || onDelete) && (
-                <th className="py-3.5 px-4 text-right">Actions</th>
+                <th className="py-3.5 px-4 text-right whitespace-nowrap min-w-[100px]">Actions</th>
               )}
             </tr>
           </thead>
@@ -107,25 +107,27 @@ export function DataTable<T extends { id: string }>({
                     </td>
                   ))}
                   {(onEdit || onDelete) && (
-                    <td className="py-4 px-4 text-right space-x-2">
-                      {onEdit && (
-                        <button
-                          onClick={() => onEdit(row)}
-                          className="p-2 text-[#2D6FBA] hover:bg-blue-50 rounded-xl transition-colors cursor-pointer"
-                          title="Edit"
-                        >
-                          <Edit3 className="w-4 h-4" />
-                        </button>
-                      )}
-                      {onDelete && (
-                        <button
-                          onClick={() => onDelete(row)}
-                          className="p-2 text-rose-500 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer"
-                          title="Delete"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      )}
+                    <td className="py-4 px-4 text-right whitespace-nowrap min-w-[100px]">
+                      <div className="inline-flex items-center justify-end gap-1.5 whitespace-nowrap">
+                        {onEdit && (
+                          <button
+                            onClick={() => onEdit(row)}
+                            className="p-2 text-[#2D6FBA] hover:bg-blue-50 rounded-xl transition-colors cursor-pointer"
+                            title="Edit / View Details"
+                          >
+                            <Edit3 className="w-4 h-4" />
+                          </button>
+                        )}
+                        {onDelete && (
+                          <button
+                            onClick={() => onDelete(row)}
+                            className="p-2 text-rose-500 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer"
+                            title="Delete"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        )}
+                      </div>
                     </td>
                   )}
                 </tr>

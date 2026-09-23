@@ -96,7 +96,7 @@ export function RecentEnquiries() {
                   </div>
                 </td>
                 <td className="py-3.5 px-4 text-slate-800 font-semibold">
-                  {enq.productOrService}
+                  {enq.interestedIn || "General Inquiry"}
                 </td>
                 <td className="py-3.5 px-4">
                   {enq.callback ? (

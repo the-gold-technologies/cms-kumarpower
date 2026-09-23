@@ -99,7 +99,10 @@ const sidebarLinks: SidebarLink[] = [
   {
     title: "SUBMISSIONS & LEADS",
     icon: Inbox,
-    sublinks: [{ title: "Leads & Enquiries", href: "/submissions/enquiries" }],
+    sublinks: [
+      { title: "Leads & Enquiries", href: "/submissions/enquiries" },
+      { title: "Job Applications", href: "/submissions/applications" },
+    ],
   },
   {
     title: "SETTINGS",

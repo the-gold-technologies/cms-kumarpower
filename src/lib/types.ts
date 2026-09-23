@@ -36,7 +36,6 @@ export interface EnquiryItem {
   phone: string;
   company?: string;
   department?: string;
-  productOrService?: string;
   callbackRequest?: string;
   callback?: boolean;
   interestedIn?: string;
@@ -76,4 +75,16 @@ export interface PageSeo {
   ogDescription?: string;
   ogImage?: string;
   schema?: string;
+}
+
+export interface JobApplicationItem {
+  id: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  message?: string | null;
+  resumeUrl?: string | null;
+  status: "New" | "Reviewed" | "Shortlisted" | "Rejected";
+  createdAt: string;
+  updatedAt?: string;
 }

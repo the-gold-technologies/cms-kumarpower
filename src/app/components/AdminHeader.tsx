@@ -14,6 +14,7 @@ const SEARCH_ITEMS = [
   { title: "Client Logos CMS", category: "Pages", url: "/static-pages/our-clients", icon: BookOpen },
   { title: "Contact Page CMS", category: "Pages", url: "/static-pages/contact", icon: BookOpen },
   { title: "Enquiries Submissions", category: "Submissions", url: "/submissions/enquiries", icon: Inbox },
+  { title: "Job Applications", category: "Submissions", url: "/submissions/applications", icon: FileText },
   { title: "Global SEO & Sitemap", category: "SEO Management", url: "/seo/global", icon: Globe },
   { title: "Admin Profile Settings", category: "Settings", url: "/settings/profile", icon: Settings },
 ];

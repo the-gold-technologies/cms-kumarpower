@@ -23,7 +23,7 @@ export async function POST(req: Request) {
         email: body.email || "client@example.com",
         phone: body.phone || "+91 98110 00000",
         company: body.company || "N/A",
-        interestedIn: body.interestedIn || body.service || "General Lead",
+        interestedIn: body.interestedIn || "General Lead",
         message: body.message || "",
         status: "New",
       },
