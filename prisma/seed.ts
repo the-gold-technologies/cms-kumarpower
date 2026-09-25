@@ -9,7 +9,7 @@ async function main() {
   // 1. Clean existing database
   try {
     await prisma.$executeRawUnsafe(
-      `TRUNCATE TABLE "Section", "Page", "NavLink", "Product", "Enquiry", "User", "GlobalConfig" CASCADE;`,
+      `TRUNCATE TABLE "Section", "Page", "NavLink", "Product", "Enquiry", "User", "GlobalConfig", "JobApplication" CASCADE;`,
     );
     console.log("🧹 Cleaned existing database tables.");
   } catch (err) {
@@ -19,6 +19,7 @@ async function main() {
       await prisma.navLink.deleteMany({});
       await prisma.product.deleteMany({});
       await prisma.enquiry.deleteMany({});
+      await prisma.jobApplication.deleteMany({});
       await prisma.user.deleteMany({});
       await prisma.globalConfig.deleteMany({});
       console.log("🧹 Cleaned existing database tables via deleteMany.");

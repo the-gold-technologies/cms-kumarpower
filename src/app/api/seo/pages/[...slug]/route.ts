@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import { getPageSlugForUrl } from "../route";
+import { getPageSlugForUrl } from "@/lib/utils";
 
 export async function GET(
   request: Request,

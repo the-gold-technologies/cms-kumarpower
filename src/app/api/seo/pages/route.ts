@@ -1,23 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-
-export function getPageSlugForUrl(raw: string): string {
-  if (!raw) return "";
-  const parts = raw.trim().split("/").filter(Boolean);
-  if (parts.length === 0 || raw === "/") return "home";
-
-  const lastPart = parts[parts.length - 1]
-    .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .toLowerCase();
-
-  const slugAliases: Record<string, string> = {
-    ourprofile: "our-profile",
-    ourclients: "our-clients",
-    photogallery: "photo-gallery",
-  };
-
-  return slugAliases[lastPart] || lastPart;
-}
+import { getPageSlugForUrl } from "@/lib/utils";
 
 // Additional pages in footer/site (AMC and Emergency Support removed)
 const FOOTER_ADDITIONAL_PAGES = [
