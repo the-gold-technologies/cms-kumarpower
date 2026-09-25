@@ -1,6 +1,33 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+export function getPageSlugForUrl(raw: string): string {
+  if (!raw) return "";
+  const parts = raw.trim().split("/").filter(Boolean);
+  if (parts.length === 0 || raw === "/") return "home";
+
+  const lastPart = parts[parts.length - 1]
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .toLowerCase();
+
+  const slugAliases: Record<string, string> = {
+    ourprofile: "our-profile",
+    ourclients: "our-clients",
+    photogallery: "photo-gallery",
+  };
+
+  return slugAliases[lastPart] || lastPart;
+}
+
+// Additional pages in footer/site (AMC and Emergency Support removed)
+const FOOTER_ADDITIONAL_PAGES = [
+  { url: "/about/Testimonials", label: "Testimonials", pageSlug: "testimonials" },
+  { url: "/about/PhotoGallery", label: "Photo Gallery", pageSlug: "photo-gallery" },
+  { url: "/about/Certifications", label: "Certifications & Awards", pageSlug: "certifications" },
+  { url: "/services/installation", label: "Installation Services", pageSlug: "installation" },
+  { url: "/services/repair-overhaul", label: "Repair & Overhaul", pageSlug: "repair-overhaul" },
+];
+
 export async function GET() {
   try {
     const pages = await prisma.page.findMany({
@@ -19,94 +46,72 @@ export async function GET() {
       orderBy: { order: "asc" },
     });
 
-    const servicesPage = await prisma.page.findUnique({
-      where: { slug: "services" },
-      include: {
-        sections: true,
-      },
-    });
-
-    const mergedData = links.map((link: any) => {
-      const urlMatchesSlug = (url: string, slug: string) => {
-        if (url === "/" && slug === "home") return true;
-        return url === `/${slug}`;
-      };
-
-      // 1. Try to match with a regular page
-      const matchedPage = pages.find((p: any) =>
-        urlMatchesSlug(link.url, p.slug),
+    // 1. Process Main Navigation Links
+    const mainNavData = links.map((link: any) => {
+      const canonicalSlug = getPageSlugForUrl(link.url);
+      const matchedPage = pages.find(
+        (p: any) =>
+          p.slug.toLowerCase() === canonicalSlug.toLowerCase() ||
+          p.slug.toLowerCase() === link.url.replace(/^\/+|\/+$/g, "").toLowerCase()
       );
 
-      if (matchedPage) {
-        return {
-          id: link.id,
-          pageId: matchedPage.id,
-          title: link.label,
-          slug: matchedPage.slug,
-          metaTitle: matchedPage.metaTitle,
-          metaDescription: matchedPage.metaDescription,
-          type: link.type || matchedPage.type,
-          visibility: matchedPage.visibility,
-          parent: link.parent,
-          order: link.order,
-          description: link.description,
-          navTitle: link.title,
-          isStatic: link.isStatic,
-        };
-      }
-
-      // 2. Try to match with a service sub-page
-      if (link.url.startsWith("/service/") && servicesPage) {
-        const serviceId = link.url.split("/service/")[1];
-        const section = servicesPage.sections.find(
-          (s: any) => s.type === serviceId,
-        );
-        if (section) {
-          const content = section.content as any;
-          return {
-            id: link.id,
-            pageId: `${servicesPage.id}-${serviceId}`,
-            title: link.label,
-            slug: link.url.replace(/^\//, ""),
-            metaTitle: content.seo?.metaTitle || null,
-            metaDescription: content.seo?.metaDescription || null,
-            type: link.type || "sub-link",
-            visibility: "published",
-            parent: link.parent,
-            order: link.order,
-            description: link.description,
-            navTitle: link.title,
-            isStatic: link.isStatic,
-          };
-        }
-      }
-
-      // 3. Fallback for static/missing links
       return {
         id: link.id,
-        pageId: null,
+        pageId: matchedPage?.id || null,
         title: link.label,
-        slug: link.url === "/" ? "home" : link.url.replace(/^\//, ""),
-        metaTitle: null,
-        metaDescription: null,
-        type: link.type || "static",
-        visibility: "published",
+        slug: link.url === "/" ? "home" : link.url.replace(/^\/+|\/+$/g, ""),
+        metaTitle: matchedPage?.metaTitle || null,
+        metaDescription: matchedPage?.metaDescription || null,
+        type: link.type || matchedPage?.type || "Main Link",
+        visibility: matchedPage?.visibility || "published",
         parent: link.parent,
         order: link.order,
         description: link.description,
         navTitle: link.title,
-        isStatic: link.isStatic,
+        isStatic: link.isStatic ?? true,
       };
     });
 
-    const finalData = mergedData;
+    // 2. Process Footer / Additional Pages at the bottom (excluding AMC & Emergency Support)
+    const existingUrls = new Set(links.map((l: any) => l.url.toLowerCase()));
+    let nextOrder = links.length + 1;
+
+    const footerData: any[] = [];
+    for (const item of FOOTER_ADDITIONAL_PAGES) {
+      if (!existingUrls.has(item.url.toLowerCase())) {
+        const canonicalSlug = getPageSlugForUrl(item.url);
+        const matchedPage = pages.find(
+          (p: any) =>
+            p.slug.toLowerCase() === canonicalSlug.toLowerCase() ||
+            p.slug.toLowerCase() === item.pageSlug.toLowerCase()
+        );
+
+        footerData.push({
+          id: `footer-${canonicalSlug}`,
+          pageId: matchedPage?.id || null,
+          title: item.label,
+          slug: item.url.replace(/^\/+|\/+$/g, ""),
+          metaTitle: matchedPage?.metaTitle || null,
+          metaDescription: matchedPage?.metaDescription || null,
+          type: "Footer Page",
+          visibility: matchedPage?.visibility || "published",
+          parent: "-",
+          order: nextOrder++,
+          description: null,
+          navTitle: item.label,
+          isStatic: true,
+        });
+      }
+    }
+
+    const finalData = [...mainNavData, ...footerData];
 
     return NextResponse.json({ success: true, data: finalData });
   } catch (error) {
     console.error("Error fetching pages for SEO:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

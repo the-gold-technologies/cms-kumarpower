@@ -1,17 +1,18 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getPageSlugForUrl } from "../route";
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ slug: string | string[] }> }
+  { params }: { params: Promise<{ slug: string | string[] }> },
 ) {
   try {
     const { slug: rawSlug } = await params;
     const slug = Array.isArray(rawSlug) ? rawSlug.join("/") : rawSlug;
+    const canonicalSlug = getPageSlugForUrl(slug);
 
-    // 1. Try exact match
     let page = await prisma.page.findUnique({
-      where: { slug },
+      where: { slug: canonicalSlug },
       select: {
         id: true,
         title: true,
@@ -29,12 +30,9 @@ export async function GET(
       },
     });
 
-    // 2. Fallback to matching last segment of URL (e.g. services/annual-maintenance -> annual-maintenance)
-    if (!page && slug.includes("/")) {
-      const parts = slug.split("/");
-      const lastPart = parts[parts.length - 1];
+    if (!page && slug !== canonicalSlug) {
       page = await prisma.page.findUnique({
-        where: { slug: lastPart },
+        where: { slug },
         select: {
           id: true,
           title: true,
@@ -56,7 +54,7 @@ export async function GET(
     if (!page) {
       return NextResponse.json(
         { success: false, error: "Page not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -65,18 +63,19 @@ export async function GET(
     console.error("Error fetching page SEO data:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
 export async function PUT(
   request: Request,
-  { params }: { params: Promise<{ slug: string | string[] }> }
+  { params }: { params: Promise<{ slug: string | string[] }> },
 ) {
   try {
     const { slug: rawSlug } = await params;
     const slug = Array.isArray(rawSlug) ? rawSlug.join("/") : rawSlug;
+    const targetSlug = getPageSlugForUrl(slug);
 
     const body = await request.json();
     const { seo } = body;
@@ -84,21 +83,8 @@ export async function PUT(
     if (!seo) {
       return NextResponse.json(
         { success: false, error: "SEO data is required" },
-        { status: 400 }
+        { status: 400 },
       );
-    }
-
-    // 1. Resolve slug to target database record
-    let targetSlug = slug;
-    let existingPage = await prisma.page.findUnique({ where: { slug } });
-
-    if (!existingPage && slug.includes("/")) {
-      const parts = slug.split("/");
-      const lastPart = parts[parts.length - 1];
-      existingPage = await prisma.page.findUnique({ where: { slug: lastPart } });
-      if (existingPage) {
-        targetSlug = lastPart;
-      }
     }
 
     const updatedPage = await prisma.page.upsert({
@@ -117,7 +103,9 @@ export async function PUT(
       },
       create: {
         slug: targetSlug,
-        title: seo.metaTitle || targetSlug.charAt(0).toUpperCase() + targetSlug.slice(1),
+        title:
+          seo.metaTitle ||
+          targetSlug.charAt(0).toUpperCase() + targetSlug.slice(1),
         metaTitle: seo.metaTitle,
         metaDescription: seo.metaDescription,
         keywords: seo.targetKeywords || seo.keywords,
@@ -127,7 +115,7 @@ export async function PUT(
         ogDescription: seo.ogDescription,
         ogImage: seo.ogImage,
         schema: seo.schema,
-        headingOptions: seo.headingOptions || {},
+        headingOptions: seo.headingOptions || "h1",
         visibility: "published",
       },
     });
@@ -137,7 +125,7 @@ export async function PUT(
     console.error("Error updating page SEO data:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
