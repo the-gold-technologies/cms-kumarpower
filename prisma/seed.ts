@@ -308,6 +308,10 @@ async function main() {
       metaTitle: "Repair & Overhaul Services - Kumar Power",
       metaDescription:
         "Professional restoration and renewal of power systems for optimal performance and reliability",
+      keywords: "generator repair, overhaul services, DG set repair, power system maintenance, Kumar Power",
+      ogTitle: "Repair & Overhaul Services - Kumar Power",
+      ogDescription: "Professional restoration and renewal of power systems for optimal performance and reliability.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -549,6 +553,10 @@ async function main() {
       metaTitle: "Installation Services - Kumar Power",
       metaDescription:
         "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
+      keywords: "generator installation, power system installation, commissioning services, Kumar Power Delhi",
+      ogTitle: "Installation Services - Kumar Power",
+      ogDescription: "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -922,6 +930,10 @@ async function main() {
         "Kirloskar Generator Dealer | Authorized Distributor in Delhi NCR",
       metaDescription:
         "Looking for a reliable Kirloskar Generator dealer? Explore affordable prices, expert installation, 24/7 service support & high-efficiency DG sets.",
+      keywords: "Kirloskar generator dealer, generator distributor Delhi NCR, DG set dealer, diesel generator, Kumar Power",
+      ogTitle: "Kirloskar Generator Dealer | Authorized Distributor in Delhi NCR",
+      ogDescription: "Looking for a reliable Kirloskar Generator dealer? Explore affordable prices, expert installation, 24/7 service support & high-efficiency DG sets.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -1777,6 +1789,10 @@ async function main() {
       metaTitle: "Our Profile & Company History - Kumar Power",
       metaDescription:
         "Learn about our 30+ years of power generation legacy in India.",
+      keywords: "Kumar Power company profile, generator company history Delhi, power solutions India, authorized Kirloskar dealer",
+      ogTitle: "Our Profile & Company History - Kumar Power",
+      ogDescription: "Learn about our 30+ years of power generation legacy in India.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -1946,6 +1962,10 @@ async function main() {
       metaTitle: "Contact Us - Kumar Power",
       metaDescription:
         "Reach out for generator quotes, support, or site visits.",
+      keywords: "contact Kumar Power, generator quote Delhi, DG set support, site visit, power solutions inquiry",
+      ogTitle: "Contact Us - Kumar Power",
+      ogDescription: "Reach out for generator quotes, support, or site visits.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -2030,6 +2050,10 @@ async function main() {
       metaTitle: "Photo Gallery - Kumar Power",
       metaDescription:
         "A visual showcase of our generator installations, events, and industrial projects.",
+      keywords: "Kumar Power photo gallery, generator installation photos, industrial projects gallery, DG set images",
+      ogTitle: "Photo Gallery - Kumar Power",
+      ogDescription: "A visual showcase of our generator installations, events, and industrial projects.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -2376,6 +2400,10 @@ async function main() {
       metaTitle: "Certifications & Awards - Kumar Power",
       metaDescription:
         "Authorization certificates and awards demonstrating our commitment to quality.",
+      keywords: "Kumar Power certifications, Kirloskar authorized dealer, ISO certified generator company, power industry awards",
+      ogTitle: "Certifications & Awards - Kumar Power",
+      ogDescription: "Authorization certificates and awards demonstrating our commitment to quality.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -2518,6 +2546,10 @@ async function main() {
       metaTitle: "Kirloskar Generators Distributor | Kumar Power",
       metaDescription:
         "Explore Kirloskar-certified generators from Kumar Power, engineered for superior performance, reliability, and full compliance with CPCB norms.",
+      keywords: "Kirloskar generator distributor, diesel generator dealer Delhi, CPCB IV+ genset, DG set price, Kumar Power generators",
+      ogTitle: "Kirloskar Generators Distributor | Kumar Power",
+      ogDescription: "Explore Kirloskar-certified generators engineered for superior performance, reliability, and full CPCB compliance.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -2769,6 +2801,10 @@ async function main() {
       metaTitle: "Electrical Control Panels Dealer in Delhi | Kumar Power",
       metaDescription:
         "Explore our range of high-quality electrical control panels for power distribution, control, and protection of electrical systems trusted by industries",
+      keywords: "electrical control panels Delhi, power distribution panels, LT panels dealer, electrical panel manufacturer, Kumar Power",
+      ogTitle: "Electrical Control Panels Dealer in Delhi | Kumar Power",
+      ogDescription: "Explore high-quality electrical control panels for power distribution, control, and protection trusted by industries.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -2900,6 +2936,10 @@ async function main() {
       metaTitle: "Servo Stabilizers Dealer in Delhi | Kumar Power",
       metaDescription:
         "Protect equipment from voltage fluctuations with servo stabilizers.",
+      keywords: "servo stabilizer dealer Delhi, voltage stabilizer, servo controlled voltage stabilizer, servo stabilizer price, Kumar Power",
+      ogTitle: "Servo Stabilizers Dealer in Delhi | Kumar Power",
+      ogDescription: "Protect your equipment from voltage fluctuations with high-quality servo stabilizers from Kumar Power.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -2996,6 +3036,10 @@ async function main() {
       metaTitle: "Transformers Dealer - Kumar Power",
       metaDescription:
         "Explore Kumar Power’s transformer range: Distribution, Power, Cast Resin, and Unitized Package Substations, built for efficiency, safety, and reliability",
+      keywords: "transformer dealer Delhi, distribution transformer, power transformer, cast resin transformer, Kumar Power transformers",
+      ogTitle: "Transformers Dealer - Kumar Power",
+      ogDescription: "Explore distribution, power, cast resin, and unitized package substations built for efficiency, safety, and reliability.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -3124,6 +3168,10 @@ async function main() {
       description: "Kumar Power Client Directory",
       metaTitle: "Our Clients - Kumar Power",
       metaDescription: "Trusted by over 500+ corporate clients across India.",
+      keywords: "Kumar Power clients, corporate clients India, generator company clients, power solutions clients Delhi",
+      ogTitle: "Our Clients - Kumar Power",
+      ogDescription: "Trusted by over 500+ corporate clients across India.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -6283,6 +6331,10 @@ async function main() {
       description: "Customer Reviews and Testimonials",
       metaTitle: "Testimonials - Kumar Power",
       metaDescription: "Read feedback and reviews from our valued clients.",
+      keywords: "Kumar Power testimonials, generator company reviews, client feedback, power solutions reviews India",
+      ogTitle: "Testimonials - Kumar Power",
+      ogDescription: "Read feedback and reviews from our valued clients.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -6464,6 +6516,10 @@ async function main() {
       metaTitle: "Blogs & Articles - Kumar Power",
       metaDescription:
         "Explore expert articles, case studies, and latest trends in industrial power solutions.",
+      keywords: "power solutions blog, generator articles, industrial power trends, Kumar Power blog, DG set tips",
+      ogTitle: "Blogs & Articles - Kumar Power",
+      ogDescription: "Explore expert articles, case studies, and latest trends in industrial power solutions.",
+      headingOptions: "h1",
       isStatic: true,
       visibility: "published",
       sections: [
@@ -6652,6 +6708,10 @@ async function main() {
       metaTitle: "Battery Energy Storage Systems (BESS) | Kumar Power",
       metaDescription:
         "Explore Kumar Power Battery Energy Storage Systems (BESS) from 5 kW to 1 MW+ containerized solutions. Tier-1 LFP chemistry for clean commercial and industrial energy backup.",
+      keywords: "BESS dealer India, battery energy storage system, LFP battery storage, industrial energy backup, Kumar Power BESS",
+      ogTitle: "Battery Energy Storage Systems (BESS) | Kumar Power",
+      ogDescription: "Explore BESS from 5 kW to 1 MW+ containerized solutions with Tier-1 LFP chemistry for clean industrial energy backup.",
+      headingOptions: "h1",
       visibility: "published",
       sections: [
         {
@@ -6836,6 +6896,10 @@ async function main() {
         "Tier-1 Commercial Solar Panels & Rooftop Systems | Kumar Power",
       metaDescription:
         "Explore high-efficiency Tier-1 Mono PERC and TOPCon Bifacial solar panels from Kumar Power. Seamless DG synchronization and BESS integration.",
+      keywords: "solar panels dealer India, Tier-1 solar panels, rooftop solar system, BESS integration, Kumar Power solar",
+      ogTitle: "Tier-1 Commercial Solar Panels & Rooftop Systems | Kumar Power",
+      ogDescription: "Explore high-efficiency Tier-1 Mono PERC and TOPCon Bifacial solar panels with seamless DG synchronization and BESS integration.",
+      headingOptions: "h1",
       visibility: "published",
       sections: [
         {
@@ -6992,6 +7056,14 @@ async function main() {
           description: pageItem.description,
           metaTitle: pageItem.metaTitle || null,
           metaDescription: pageItem.metaDescription || null,
+          keywords: (pageItem as any).keywords || null,
+          canonicalUrl: (pageItem as any).canonicalUrl || null,
+          noIndex: (pageItem as any).noIndex || false,
+          ogTitle: (pageItem as any).ogTitle || null,
+          ogDescription: (pageItem as any).ogDescription || null,
+          ogImage: (pageItem as any).ogImage || null,
+          headingOptions: (pageItem as any).headingOptions || null,
+          schema: (pageItem as any).schema || null,
           isStatic: true,
           visibility: pageItem.visibility,
         },
