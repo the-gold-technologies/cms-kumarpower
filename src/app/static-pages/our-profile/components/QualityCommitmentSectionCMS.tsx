@@ -24,21 +24,21 @@ export function QualityCommitmentSectionCMS({
   onToggle: controlledOnToggle,
 }: QualityCommitmentSectionCMSProps) {
   const [internalIsOpen, setInternalIsOpen] = useState(false);
-  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const isOpen =
+    controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
   const setIsOpen = (val: any) => {
     if (controlledOnToggle) controlledOnToggle();
-    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+    else
+      setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
   };
 
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const [qualityTitle, setQualityTitle] = useState("");
-  const [cards, setCards] = useState<Array<{ id: string; title: string; description: string }>>([
-    { id: "card-1", title: "Timely Delivery", description: "We understand the critical nature of power solutions and ensure on-time delivery and installation." },
-    { id: "card-2", title: "Expert Engineering", description: "Our team of qualified engineers ensures robust design and flawless implementation of all projects." },
-    { id: "card-3", title: "Business Continuity", description: "Our solutions are designed to provide uninterrupted power supply, ensuring your operations never stop." }
-  ]);
+  const [cards, setCards] = useState<
+    Array<{ id: string; title: string; description: string }>
+  >([]);
   const [policyTitle, setPolicyTitle] = useState("");
   const [policyStatement, setPolicyStatement] = useState("");
   const [bullet1, setBullet1] = useState("");
@@ -57,20 +57,26 @@ export function QualityCommitmentSectionCMS({
             if (q.qualityTitle !== undefined) setQualityTitle(q.qualityTitle);
             if (Array.isArray(q.cards) && q.cards.length > 0) setCards(q.cards);
             if (q.policyTitle !== undefined) setPolicyTitle(q.policyTitle);
-            if (q.policyStatement !== undefined) setPolicyStatement(q.policyStatement);
+            if (q.policyStatement !== undefined)
+              setPolicyStatement(q.policyStatement);
             if (q.bullet1 !== undefined) setBullet1(q.bullet1);
             if (q.bullet2 !== undefined) setBullet2(q.bullet2);
             if (q.bullet3 !== undefined) setBullet3(q.bullet3);
             if (q.bullet4 !== undefined) setBullet4(q.bullet4);
             if (q.isoCertImg !== undefined) setIsoCertImg(q.isoCertImg);
-            if (q.kirloskarCertImg !== undefined) setKirloskarCertImg(q.kirloskarCertImg);
+            if (q.kirloskarCertImg !== undefined)
+              setKirloskarCertImg(q.kirloskarCertImg);
           }
         }
       })
       .catch(console.error);
   }, [saveUrl, responseKey]);
 
-  const updateCard = (index: number, field: "title" | "description", value: string) => {
+  const updateCard = (
+    index: number,
+    field: "title" | "description",
+    value: string,
+  ) => {
     const updated = [...cards];
     updated[index] = { ...updated[index], [field]: value };
     setCards(updated);
@@ -79,10 +85,26 @@ export function QualityCommitmentSectionCMS({
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const rawPayload = { qualityTitle, cards, policyTitle, policyStatement, bullet1, bullet2, bullet3, bullet4, isoCertImg, kirloskarCertImg };
+      const rawPayload = {
+        qualityTitle,
+        cards,
+        policyTitle,
+        policyStatement,
+        bullet1,
+        bullet2,
+        bullet3,
+        bullet4,
+        isoCertImg,
+        kirloskarCertImg,
+      };
       const payload = await uploadFilesDeep(rawPayload);
-      if (payload.isoCertImg && typeof payload.isoCertImg === "string") setIsoCertImg(payload.isoCertImg);
-      if (payload.kirloskarCertImg && typeof payload.kirloskarCertImg === "string") setKirloskarCertImg(payload.kirloskarCertImg);
+      if (payload.isoCertImg && typeof payload.isoCertImg === "string")
+        setIsoCertImg(payload.isoCertImg);
+      if (
+        payload.kirloskarCertImg &&
+        typeof payload.kirloskarCertImg === "string"
+      )
+        setKirloskarCertImg(payload.kirloskarCertImg);
 
       const res = await fetch(saveUrl, {
         method: "POST",
@@ -125,10 +147,15 @@ export function QualityCommitmentSectionCMS({
           />
 
           <div className="space-y-4 pt-2 border-t border-slate-100">
-            <h4 className="font-semibold text-slate-800 text-sm">Quality Commitment Cards (3 Pillars)</h4>
+            <h4 className="font-semibold text-slate-800 text-sm">
+              Quality Commitment Cards (3 Pillars)
+            </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {cards.map((card, idx) => (
-                <div key={card.id || idx} className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <div
+                  key={card.id || idx}
+                  className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3"
+                >
                   <InputField
                     label={`Card ${idx + 1} Title`}
                     value={card.title}
@@ -137,7 +164,9 @@ export function QualityCommitmentSectionCMS({
                   <TextAreaField
                     label={`Card ${idx + 1} Description`}
                     value={card.description}
-                    onChange={(e) => updateCard(idx, "description", e.target.value)}
+                    onChange={(e) =>
+                      updateCard(idx, "description", e.target.value)
+                    }
                     rows={2}
                   />
                 </div>
@@ -196,7 +225,11 @@ export function QualityCommitmentSectionCMS({
           </div>
 
           <div className="flex justify-end pt-4 border-t border-slate-100">
-            <SaveButton isSaving={isSaving} saved={saved} onClick={handleSave} />
+            <SaveButton
+              isSaving={isSaving}
+              saved={saved}
+              onClick={handleSave}
+            />
           </div>
         </div>
       </div>

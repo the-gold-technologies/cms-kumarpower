@@ -58,6 +58,12 @@ async function main() {
         customFooterScripts: `<link rel="stylesheet" href="https://sidewidget.vercel.app/react-widget-uv.css">\n<script>window.process = { env: {} };</script>\n<script src="https://sidewidget.vercel.app/react-widget-uv.iife.js"></script>\n<react-widget-uv agent_id="9efb6a86-285d-4201-a1fe-b77b58efa2cf" schema="6af30ad4-a50c-4acc-8996-d5f562b6987f" type="thunderemotionlite"></react-widget-uv>`,
         schema:
           '{\n  "@context": "https://schema.org",\n  "@type": "Organization",\n  "name": "Kumar Power",\n  "url": "https://www.kumarpower.com"\n}',
+        socialLinks: {
+          facebook: "https://www.facebook.com/kumargenerator/",
+          instagram: "https://www.instagram.com/Kumarpowerlimitless",
+          linkedin: "https://www.linkedin.com/company/kumar-generator-house---india/",
+          youtube: "https://youtube.com/@kumarpowertv?si=mFgisAy9mp6Uu0LE",
+        },
         headingOptions: "h1",
         sitemapEnabled: true,
         robotsTxt:
@@ -1755,6 +1761,8 @@ async function main() {
             instagramUrl: "https://www.instagram.com/Kumarpowerlimitless",
             linkedinUrl:
               "https://www.linkedin.com/company/kumar-generator-house---india/",
+            youtubeUrl: "https://youtube.com/@kumarpowertv?si=mFgisAy9mp6Uu0LE",
+            connectTitle: "Connect with us:",
             copyrightText: "© 2026 Kumar Power. All rights reserved.",
           },
         },

@@ -40,9 +40,6 @@ export function FooterCMS({
     salesEmail: "",
     supportEmail: "",
     accountsEmail: "",
-    facebookUrl: "",
-    instagramUrl: "",
-    linkedinUrl: "",
     copyrightText: "",
   });
 
@@ -86,7 +83,7 @@ export function FooterCMS({
     <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
         title="Footer Section"
-        description="Manage company bio, office address, phone numbers, email addresses, social media links & copyright info."
+        description="Manage company bio, office address, phone numbers, email addresses & copyright info."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
       />
@@ -154,26 +151,25 @@ export function FooterCMS({
             </div>
           </div>
 
-          {/* Social Links */}
-          <div className="space-y-4 pt-2 border-t border-slate-100">
-            <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500">Social Media Links</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <InputField
-                label="Facebook URL"
-                value={formData.facebookUrl}
-                onChange={(e) => setFormData({ ...formData, facebookUrl: e.target.value })}
-              />
-              <InputField
-                label="Instagram URL"
-                value={formData.instagramUrl}
-                onChange={(e) => setFormData({ ...formData, instagramUrl: e.target.value })}
-              />
-              <InputField
-                label="LinkedIn URL"
-                value={formData.linkedinUrl}
-                onChange={(e) => setFormData({ ...formData, linkedinUrl: e.target.value })}
-              />
+          {/* Social Media Links notice */}
+          <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA]">
+                Global Social Media
+              </span>
+              <h4 className="text-sm font-black text-slate-900 mt-0.5">
+                Social Media Links & Handles
+              </h4>
+              <p className="text-xs text-slate-500 mt-0.5 max-w-xl">
+                Social media links (LinkedIn, YouTube, Instagram, Facebook) and labels are centrally managed in the <strong>Navigation → Social Media</strong> tab and automatically sync with the footer across the website.
+              </p>
             </div>
+            <a
+              href="/navigation/social-media"
+              className="shrink-0 px-4 py-2 bg-white hover:bg-slate-100 border border-slate-200 text-[#2D6FBA] rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5"
+            >
+              Manage Social Media →
+            </a>
           </div>
 
           {/* Copyright Statement */}

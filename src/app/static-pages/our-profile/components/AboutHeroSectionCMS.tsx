@@ -24,10 +24,12 @@ export function AboutHeroSectionCMS({
   onToggle: controlledOnToggle,
 }: AboutHeroSectionCMSProps) {
   const [internalIsOpen, setInternalIsOpen] = useState(false);
-  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const isOpen =
+    controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
   const setIsOpen = (val: any) => {
     if (controlledOnToggle) controlledOnToggle();
-    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+    else
+      setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
   };
 
   const [isSaving, setIsSaving] = useState(false);
@@ -59,7 +61,12 @@ export function AboutHeroSectionCMS({
           if (hero && typeof hero === "object") {
             setFormData((prev) => ({
               ...prev,
-              ...Object.fromEntries(Object.entries(hero).filter(([k]) => k in prev)),
+              ...Object.fromEntries(
+                Object.entries(hero).filter(
+                  ([k]) =>
+                    k in prev && hero[k] !== undefined && hero[k] !== null,
+                ),
+              ),
             }));
           }
         }
@@ -95,8 +102,8 @@ export function AboutHeroSectionCMS({
   return (
     <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
-        title="1. Hero Intro Section ('Know About Kumar Power')"
-        description="Manage the top overview title, subtitle, facility showcase image, and introductory paragraphs."
+        title="1. Hero Intro Section"
+        description="Manage the top overview title, subtitle, facility showcase image, introductory paragraphs, and social media handles."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
       />
@@ -113,12 +120,16 @@ export function AboutHeroSectionCMS({
             <InputField
               label="Main Heading"
               value={formData.title}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, title: e.target.value })
+              }
             />
             <InputField
               label="Subtitle Tagline"
               value={formData.subtitle}
-              onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, subtitle: e.target.value })
+              }
             />
           </div>
 
@@ -131,30 +142,63 @@ export function AboutHeroSectionCMS({
           <TextAreaField
             label="Paragraph 1 (Establishment & Background)"
             value={formData.paragraph1}
-            onChange={(e) => setFormData({ ...formData, paragraph1: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, paragraph1: e.target.value })
+            }
             rows={3}
           />
           <TextAreaField
             label="Paragraph 2 (SITC & Power Solutions)"
             value={formData.paragraph2}
-            onChange={(e) => setFormData({ ...formData, paragraph2: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, paragraph2: e.target.value })
+            }
             rows={3}
           />
           <TextAreaField
             label="Paragraph 3 (Authorized Dealer & Service)"
             value={formData.paragraph3}
-            onChange={(e) => setFormData({ ...formData, paragraph3: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, paragraph3: e.target.value })
+            }
             rows={3}
           />
           <TextAreaField
             label="Paragraph 4 (Delivery & Customer Approach)"
             value={formData.paragraph4}
-            onChange={(e) => setFormData({ ...formData, paragraph4: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, paragraph4: e.target.value })
+            }
             rows={3}
           />
 
+          {/* Social Media Links notice */}
+          <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA]">
+                Global Social Media
+              </span>
+              <h4 className="text-sm font-black text-slate-900 mt-0.5">
+                Connect With Us Buttons
+              </h4>
+              <p className="text-xs text-slate-500 mt-0.5 max-w-xl">
+                Social media handles (LinkedIn, YouTube, Instagram, Facebook) and the "Connect with us:" button label are managed centrally in the <strong>Navigation → Social Media</strong> tab and sync across the entire site.
+              </p>
+            </div>
+            <a
+              href="/navigation/social-media"
+              className="shrink-0 px-4 py-2 bg-white hover:bg-slate-100 border border-slate-200 text-[#2D6FBA] rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5"
+            >
+              Manage Social Media →
+            </a>
+          </div>
+
           <div className="flex justify-end pt-4 border-t border-slate-100">
-            <SaveButton isSaving={isSaving} saved={saved} onClick={handleSave} />
+            <SaveButton
+              isSaving={isSaving}
+              saved={saved}
+              onClick={handleSave}
+            />
           </div>
         </div>
       </div>
