@@ -61,7 +61,8 @@ async function main() {
         socialLinks: {
           facebook: "https://www.facebook.com/kumargenerator/",
           instagram: "https://www.instagram.com/Kumarpowerlimitless",
-          linkedin: "https://www.linkedin.com/company/kumar-generator-house---india/",
+          linkedin:
+            "https://www.linkedin.com/company/kumar-generator-house---india/",
           youtube: "https://youtube.com/@kumarpowertv?si=mFgisAy9mp6Uu0LE",
         },
         headingOptions: "h1",
@@ -1701,7 +1702,7 @@ async function main() {
             inputSubtext: "Including any jerk load, if any",
             presets: [10, 25, 50, 100, 150, 250, 500],
             powerFactor: 0.8,
-            surgeMarginPercent: 20,
+            surgeMarginPercent: 30,
             complianceBadge: "Kirloskar CPCB IV+ Compliant DG Set",
             availableRatings: [
               7.5, 10, 12.5, 15, 20, 25, 30, 35, 40, 45, 50, 62.5, 75, 82.5,
@@ -1986,6 +1987,37 @@ async function main() {
             resumeTitle: "Drop Your Resume",
             resumeSubtitle:
               "Didn't find your role? We're always looking for great talent to join our team. Submit your resume and we'll contact you when a suitable position opens up.",
+            perks: [
+              {
+                id: "perk-1",
+                title: "Industry Leading Company",
+                description:
+                  "One of India's most respected power generation brands",
+              },
+              {
+                id: "perk-2",
+                title: "Career Growth",
+                description:
+                  "Continuous learning and advancement opportunities",
+              },
+              {
+                id: "perk-3",
+                title: "Comprehensive Benefits",
+                description: "Sales incentives, PF, and more",
+              },
+            ],
+          },
+        },
+        {
+          id: "sec-contact-map",
+          type: "map",
+          order: 4,
+          content: {
+            cardTitle: "Our Office",
+            address:
+              "New Address: 904, 9th Floor, Westend Mall,\nJanakpuri, New Delhi - 110058",
+            embedUrl:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.002710082035!2d77.07707537557323!3d28.629680875666285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04bf7f6ae361%3A0x88c15da012435142!2sWestend%20Mall%20Janakpuri%20West%20Delhi!5e0!3m2!1sen!2sin!4v1756473543698!5m2!1sen!2sin",
           },
         },
       ],

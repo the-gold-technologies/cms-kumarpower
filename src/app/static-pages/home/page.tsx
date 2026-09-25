@@ -27,6 +27,7 @@ export default function HomeCMSPage() {
       <HeroSectionCMS />
       <PositioningStatementCMS />
       <ElectricalEcosystemCMS />
+      <DGCalculatorCMS />
       <SolutionPortfolioCMS />
       <FeaturedSolutionsCMS />
       <IndustriesServedCMS />
@@ -35,7 +36,6 @@ export default function HomeCMSPage() {
       <SelectedProjectsCMS />
       <PartnerCertificationsCMS />
       <LandingTestimonialsCMS />
-      <DGCalculatorCMS />
       <ConsultationFormCMS />
       <FooterCMS />
     </section>

@@ -52,44 +52,44 @@ export default function BESSCMSPage() {
   const [savedExtra, setSavedExtra] = useState(false);
 
   // Why Choose Section
-  const [whyChooseTitle, setWhyChooseTitle] = useState("Why Choose Kumar Power BESS?");
-  const [whyChooseCard1Title, setWhyChooseCard1Title] = useState("Tier-1 LFP Chemistry");
-  const [whyChooseCard1Desc, setWhyChooseCard1Desc] = useState("High safety Lithium Iron Phosphate (LiFePO4) cells with 6,000+ lifecycle and zero thermal runaway risk.");
-  const [whyChooseCard2Title, setWhyChooseCard2Title] = useState("Instant Zero-Break Switchover");
-  const [whyChooseCard2Desc, setWhyChooseCard2Desc] = useState("Sub-20 millisecond automatic grid failover eliminates downtime for critical mission loads and IT servers.");
-  const [whyChooseCard3Title, setWhyChooseCard3Title] = useState("Peak Shaving & Cost Reduction");
-  const [whyChooseCard3Desc, setWhyChooseCard3Desc] = useState("Stores power during off-peak hours and discharges during peak tariff periods to drastically cut electricity bills.");
-  const [whyChooseCard4Title, setWhyChooseCard4Title] = useState("Solar & DG Synchronization");
-  const [whyChooseCard4Desc, setWhyChooseCard4Desc] = useState("Seamlessly integrates with on-grid/off-grid solar inverters and diesel gensets to optimize fuel consumption.");
-  const [whyChooseCard5Title, setWhyChooseCard5Title] = useState("Intelligent Cloud BMS");
-  const [whyChooseCard5Desc, setWhyChooseCard5Desc] = useState("Real-time cell level temperature and voltage telemetry with cloud analytics and predictive diagnostics.");
-  const [whyChooseCard6Title, setWhyChooseCard6Title] = useState("Modular Scalability");
-  const [whyChooseCard6Desc, setWhyChooseCard6Desc] = useState("Easily expandable from 20 kWh commercial systems up to multi-megawatt utility installations.");
+  const [whyChooseTitle, setWhyChooseTitle] = useState("");
+  const [whyChooseCard1Title, setWhyChooseCard1Title] = useState("");
+  const [whyChooseCard1Desc, setWhyChooseCard1Desc] = useState("");
+  const [whyChooseCard2Title, setWhyChooseCard2Title] = useState("");
+  const [whyChooseCard2Desc, setWhyChooseCard2Desc] = useState("");
+  const [whyChooseCard3Title, setWhyChooseCard3Title] = useState("");
+  const [whyChooseCard3Desc, setWhyChooseCard3Desc] = useState("");
+  const [whyChooseCard4Title, setWhyChooseCard4Title] = useState("");
+  const [whyChooseCard4Desc, setWhyChooseCard4Desc] = useState("");
+  const [whyChooseCard5Title, setWhyChooseCard5Title] = useState("");
+  const [whyChooseCard5Desc, setWhyChooseCard5Desc] = useState("");
+  const [whyChooseCard6Title, setWhyChooseCard6Title] = useState("");
+  const [whyChooseCard6Desc, setWhyChooseCard6Desc] = useState("");
 
   // Certifications Section
-  const [certTitle, setCertTitle] = useState("Certified Excellence");
-  const [cert1Title, setCert1Title] = useState("ISO 9001:2015");
-  const [cert2Title, setCert2Title] = useState("CE & IEC 62619");
-  const [cert3Title, setCert3Title] = useState("UL 9540A Tested");
+  const [certTitle, setCertTitle] = useState("");
+  const [cert1Title, setCert1Title] = useState("");
+  const [cert2Title, setCert2Title] = useState("");
+  const [cert3Title, setCert3Title] = useState("");
 
   // Help Section
-  const [helpTitle, setHelpTitle] = useState("Need Help Choosing the Right Electrical Solution?");
-  const [helpSub, setHelpSub] = useState("Our team of experts will help you select the perfect solution based on your industry and budget.");
-  const [helpBtnText, setHelpBtnText] = useState("Talk to an Expert");
+  const [helpTitle, setHelpTitle] = useState("");
+  const [helpSub, setHelpSub] = useState("");
+  const [helpBtnText, setHelpBtnText] = useState("");
 
   // Hero Section
-  const [heroHeadingPart1, setHeroHeadingPart1] = useState("Battery Energy");
-  const [heroHeadingPart2, setHeroHeadingPart2] = useState("Storage Systems (BESS)");
+  const [heroHeadingPart1, setHeroHeadingPart1] = useState("");
+  const [heroHeadingPart2, setHeroHeadingPart2] = useState("");
   const [heroHeading, setHeroHeading] = useState("");
   const [heroSub, setHeroSub] = useState(
-    "Next-generation Lithium Iron Phosphate (LiFePO4) energy storage solutions engineered for commercial, industrial, and renewable synchronization."
+    "Next-generation Lithium Iron Phosphate (LiFePO4) energy storage solutions engineered for commercial, industrial, and renewable synchronization.",
   );
   const [heroBg, setHeroBg] = useState<string | File>("");
 
   // Section Header
-  const [sectionTitle, setSectionTitle] = useState("Battery Energy Storage Range");
+  const [sectionTitle, setSectionTitle] = useState("");
   const [sectionDesc, setSectionDesc] = useState(
-    "High-efficiency, zero-emission BESS units engineered for seamless backup, peak demand shaving, DG synchronization, and solar hybridization."
+    "High-efficiency, zero-emission BESS units engineered for seamless backup, peak demand shaving, DG synchronization, and solar hybridization.",
   );
 
   // BESS Products List
@@ -99,29 +99,46 @@ export default function BESSCMSPage() {
     fetchWithCache(API_ENDPOINT)
       .then((json) => {
         if (json.success && json.data) {
-          const data = json.data[SECTION_TYPE] || json.data.products || json.data;
-          if (data.heroHeadingPart1 !== undefined) setHeroHeadingPart1(data.heroHeadingPart1);
-          if (data.heroHeadingPart2 !== undefined) setHeroHeadingPart2(data.heroHeadingPart2);
+          const data =
+            json.data[SECTION_TYPE] || json.data.products || json.data;
+          if (data.heroHeadingPart1 !== undefined)
+            setHeroHeadingPart1(data.heroHeadingPart1);
+          if (data.heroHeadingPart2 !== undefined)
+            setHeroHeadingPart2(data.heroHeadingPart2);
           if (data.heroHeading !== undefined) setHeroHeading(data.heroHeading);
           if (data.heroSub !== undefined) setHeroSub(data.heroSub);
           if (data.heroBg !== undefined) setHeroBg(data.heroBg);
-          if (data.sectionTitle !== undefined) setSectionTitle(data.sectionTitle);
+          if (data.sectionTitle !== undefined)
+            setSectionTitle(data.sectionTitle);
           if (data.sectionDesc !== undefined) setSectionDesc(data.sectionDesc);
           if (Array.isArray(data.products)) setProducts(data.products);
           // Why Choose
-          if (data.whyChooseTitle !== undefined) setWhyChooseTitle(data.whyChooseTitle);
-          if (data.whyChooseCard1Title !== undefined) setWhyChooseCard1Title(data.whyChooseCard1Title);
-          if (data.whyChooseCard1Desc !== undefined) setWhyChooseCard1Desc(data.whyChooseCard1Desc);
-          if (data.whyChooseCard2Title !== undefined) setWhyChooseCard2Title(data.whyChooseCard2Title);
-          if (data.whyChooseCard2Desc !== undefined) setWhyChooseCard2Desc(data.whyChooseCard2Desc);
-          if (data.whyChooseCard3Title !== undefined) setWhyChooseCard3Title(data.whyChooseCard3Title);
-          if (data.whyChooseCard3Desc !== undefined) setWhyChooseCard3Desc(data.whyChooseCard3Desc);
-          if (data.whyChooseCard4Title !== undefined) setWhyChooseCard4Title(data.whyChooseCard4Title);
-          if (data.whyChooseCard4Desc !== undefined) setWhyChooseCard4Desc(data.whyChooseCard4Desc);
-          if (data.whyChooseCard5Title !== undefined) setWhyChooseCard5Title(data.whyChooseCard5Title);
-          if (data.whyChooseCard5Desc !== undefined) setWhyChooseCard5Desc(data.whyChooseCard5Desc);
-          if (data.whyChooseCard6Title !== undefined) setWhyChooseCard6Title(data.whyChooseCard6Title);
-          if (data.whyChooseCard6Desc !== undefined) setWhyChooseCard6Desc(data.whyChooseCard6Desc);
+          if (data.whyChooseTitle !== undefined)
+            setWhyChooseTitle(data.whyChooseTitle);
+          if (data.whyChooseCard1Title !== undefined)
+            setWhyChooseCard1Title(data.whyChooseCard1Title);
+          if (data.whyChooseCard1Desc !== undefined)
+            setWhyChooseCard1Desc(data.whyChooseCard1Desc);
+          if (data.whyChooseCard2Title !== undefined)
+            setWhyChooseCard2Title(data.whyChooseCard2Title);
+          if (data.whyChooseCard2Desc !== undefined)
+            setWhyChooseCard2Desc(data.whyChooseCard2Desc);
+          if (data.whyChooseCard3Title !== undefined)
+            setWhyChooseCard3Title(data.whyChooseCard3Title);
+          if (data.whyChooseCard3Desc !== undefined)
+            setWhyChooseCard3Desc(data.whyChooseCard3Desc);
+          if (data.whyChooseCard4Title !== undefined)
+            setWhyChooseCard4Title(data.whyChooseCard4Title);
+          if (data.whyChooseCard4Desc !== undefined)
+            setWhyChooseCard4Desc(data.whyChooseCard4Desc);
+          if (data.whyChooseCard5Title !== undefined)
+            setWhyChooseCard5Title(data.whyChooseCard5Title);
+          if (data.whyChooseCard5Desc !== undefined)
+            setWhyChooseCard5Desc(data.whyChooseCard5Desc);
+          if (data.whyChooseCard6Title !== undefined)
+            setWhyChooseCard6Title(data.whyChooseCard6Title);
+          if (data.whyChooseCard6Desc !== undefined)
+            setWhyChooseCard6Desc(data.whyChooseCard6Desc);
           // Certifications
           if (data.certTitle !== undefined) setCertTitle(data.certTitle);
           if (data.cert1Title !== undefined) setCert1Title(data.cert1Title);
@@ -140,7 +157,8 @@ export default function BESSCMSPage() {
     const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
-      heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
+      heroHeading:
+        `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
       heroSub,
       heroBg,
       sectionTitle,
@@ -170,7 +188,8 @@ export default function BESSCMSPage() {
 
     const payload = await uploadFilesDeep(rawPayload);
 
-    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
+    if (payload.heroBg && typeof payload.heroBg === "string")
+      setHeroBg(payload.heroBg);
     if (payload.products) setProducts(payload.products);
 
     const res = await fetch(API_ENDPOINT, {
@@ -220,7 +239,9 @@ export default function BESSCMSPage() {
   };
 
   const handleProductChange = (id: string, field: keyof BESSCard, val: any) => {
-    setProducts((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)));
+    setProducts((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, [field]: val } : p)),
+    );
   };
 
   const addProduct = () => {
@@ -268,17 +289,42 @@ export default function BESSCMSPage() {
           isOpen={isHeroOpen}
           onToggle={() => setIsHeroOpen(!isHeroOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Hero Heading (Regular Part)" value={heroHeadingPart1} onChange={(e) => setHeroHeadingPart1(e.target.value)} placeholder="Battery Energy" />
-              <InputField label="Hero Heading (Colored Part)" value={heroHeadingPart2} onChange={(e) => setHeroHeadingPart2(e.target.value)} placeholder="Storage Systems (BESS)" />
+              <InputField
+                label="Hero Heading (Regular Part)"
+                value={heroHeadingPart1}
+                onChange={(e) => setHeroHeadingPart1(e.target.value)}
+                placeholder="Battery Energy"
+              />
+              <InputField
+                label="Hero Heading (Colored Part)"
+                value={heroHeadingPart2}
+                onChange={(e) => setHeroHeadingPart2(e.target.value)}
+                placeholder="Storage Systems (BESS)"
+              />
             </div>
-            <TextAreaField label="Hero Tagline Subtitle" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
-            <ImageUploadField label="Hero Banner Image Graphic" value={heroBg} onChange={(val) => setHeroBg(val)} />
+            <TextAreaField
+              label="Hero Tagline Subtitle"
+              value={heroSub}
+              onChange={(e) => setHeroSub(e.target.value)}
+              rows={2}
+            />
+            <ImageUploadField
+              label="Hero Banner Image Graphic"
+              value={heroBg}
+              onChange={(val) => setHeroBg(val)}
+            />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingHero} saved={savedHero} onClick={handleSaveHero} />
+              <SaveButton
+                isSaving={savingHero}
+                saved={savedHero}
+                onClick={handleSaveHero}
+              />
             </div>
           </div>
         </div>
@@ -292,13 +338,29 @@ export default function BESSCMSPage() {
           isOpen={isSectionOpen}
           onToggle={() => setIsSectionOpen(!isSectionOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isSectionOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isSectionOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            <InputField label="Section Title" value={sectionTitle} onChange={(e) => setSectionTitle(e.target.value)} placeholder="Battery Energy Storage Range" />
-            <TextAreaField label="Section Description" value={sectionDesc} onChange={(e) => setSectionDesc(e.target.value)} rows={2} />
+            <InputField
+              label="Section Title"
+              value={sectionTitle}
+              onChange={(e) => setSectionTitle(e.target.value)}
+              placeholder="Battery Energy Storage Range"
+            />
+            <TextAreaField
+              label="Section Description"
+              value={sectionDesc}
+              onChange={(e) => setSectionDesc(e.target.value)}
+              rows={2}
+            />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingSection} saved={savedSection} onClick={handleSaveSection} />
+              <SaveButton
+                isSaving={savingSection}
+                saved={savedSection}
+                onClick={handleSaveSection}
+              />
             </div>
           </div>
         </div>
@@ -312,7 +374,9 @@ export default function BESSCMSPage() {
           isOpen={isProductsOpen}
           onToggle={() => setIsProductsOpen(!isProductsOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isProductsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isProductsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="flex justify-end">
               <button
@@ -326,46 +390,152 @@ export default function BESSCMSPage() {
 
             <div className="space-y-4">
               {products.map((p, idx) => (
-                <div key={p.id} className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4">
+                <div
+                  key={p.id}
+                  className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4"
+                >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA] bg-blue-50 px-2 py-0.5 rounded-md">
                       BESS Model #{idx + 1}
                     </span>
-                    <button type="button" onClick={() => removeProduct(p.id)} className="text-slate-400 hover:text-red-500 transition cursor-pointer">
+                    <button
+                      type="button"
+                      onClick={() => removeProduct(p.id)}
+                      className="text-slate-400 hover:text-red-500 transition cursor-pointer"
+                    >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <InputField label="Model Name" value={p.name} onChange={(e) => handleProductChange(p.id, "name", e.target.value)} placeholder="e.g. 20 kW Industrial BESS" />
-                    <InputField label="Power Rating (e.g. 20 kW)" value={p.powerRating || p.range} onChange={(e) => { handleProductChange(p.id, "powerRating", e.target.value); handleProductChange(p.id, "range", e.target.value); }} placeholder="20 kW" />
+                    <InputField
+                      label="Model Name"
+                      value={p.name}
+                      onChange={(e) =>
+                        handleProductChange(p.id, "name", e.target.value)
+                      }
+                      placeholder="e.g. 20 kW Industrial BESS"
+                    />
+                    <InputField
+                      label="Power Rating (e.g. 20 kW)"
+                      value={p.powerRating || p.range}
+                      onChange={(e) => {
+                        handleProductChange(
+                          p.id,
+                          "powerRating",
+                          e.target.value,
+                        );
+                        handleProductChange(p.id, "range", e.target.value);
+                      }}
+                      placeholder="20 kW"
+                    />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <InputField label="Capacity (kWh)" value={p.capacityRange} onChange={(e) => handleProductChange(p.id, "capacityRange", e.target.value)} placeholder="40 - 80 kWh" />
-                    <InputField label="Chemistry" value={p.chemistry} onChange={(e) => handleProductChange(p.id, "chemistry", e.target.value)} placeholder="LFP (LiFePO4)" />
-                    <InputField label="Voltage Range" value={p.voltage} onChange={(e) => handleProductChange(p.id, "voltage", e.target.value)} placeholder="400V - 600V" />
+                    <InputField
+                      label="Capacity (kWh)"
+                      value={p.capacityRange}
+                      onChange={(e) =>
+                        handleProductChange(
+                          p.id,
+                          "capacityRange",
+                          e.target.value,
+                        )
+                      }
+                      placeholder="40 - 80 kWh"
+                    />
+                    <InputField
+                      label="Chemistry"
+                      value={p.chemistry}
+                      onChange={(e) =>
+                        handleProductChange(p.id, "chemistry", e.target.value)
+                      }
+                      placeholder="LFP (LiFePO4)"
+                    />
+                    <InputField
+                      label="Voltage Range"
+                      value={p.voltage}
+                      onChange={(e) =>
+                        handleProductChange(p.id, "voltage", e.target.value)
+                      }
+                      placeholder="400V - 600V"
+                    />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <InputField label="Cooling System" value={p.cooling} onChange={(e) => handleProductChange(p.id, "cooling", e.target.value)} placeholder="Liquid Cooled / Air Cooled" />
-                    <InputField label="Phase" value={p.phase} onChange={(e) => handleProductChange(p.id, "phase", e.target.value)} placeholder="Three Phase" />
+                    <InputField
+                      label="Cooling System"
+                      value={p.cooling}
+                      onChange={(e) =>
+                        handleProductChange(p.id, "cooling", e.target.value)
+                      }
+                      placeholder="Liquid Cooled / Air Cooled"
+                    />
+                    <InputField
+                      label="Phase"
+                      value={p.phase}
+                      onChange={(e) =>
+                        handleProductChange(p.id, "phase", e.target.value)
+                      }
+                      placeholder="Three Phase"
+                    />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <ImageUploadField label="Model Image Graphic" value={p.image} onChange={(val) => handleProductChange(p.id, "image", val)} />
-                    <PDFUploadField label="Brochure PDF Document" value={p.brochurePdf || ""} onChange={(val) => handleProductChange(p.id, "brochurePdf", val)} />
+                    <ImageUploadField
+                      label="Model Image Graphic"
+                      value={p.image}
+                      onChange={(val) =>
+                        handleProductChange(p.id, "image", val)
+                      }
+                    />
+                    <PDFUploadField
+                      label="Brochure PDF Document"
+                      value={p.brochurePdf || ""}
+                      onChange={(val) =>
+                        handleProductChange(p.id, "brochurePdf", val)
+                      }
+                    />
                   </div>
 
-                  <TextAreaField label="Description" value={p.description} onChange={(e) => handleProductChange(p.id, "description", e.target.value)} rows={2} />
-                  <TextAreaField label="Technical Specifications Detail" value={p.technicalSpecs} onChange={(e) => handleProductChange(p.id, "technicalSpecs", e.target.value)} rows={4} />
-                  <InputField label="Recommended Applications" value={p.applications || ""} onChange={(e) => handleProductChange(p.id, "applications", e.target.value)} placeholder="Hotels, Campuses, Hospitals, Manufacturing" />
+                  <TextAreaField
+                    label="Description"
+                    value={p.description}
+                    onChange={(e) =>
+                      handleProductChange(p.id, "description", e.target.value)
+                    }
+                    rows={2}
+                  />
+                  <TextAreaField
+                    label="Technical Specifications Detail"
+                    value={p.technicalSpecs}
+                    onChange={(e) =>
+                      handleProductChange(
+                        p.id,
+                        "technicalSpecs",
+                        e.target.value,
+                      )
+                    }
+                    rows={4}
+                  />
+                  <InputField
+                    label="Recommended Applications"
+                    value={p.applications || ""}
+                    onChange={(e) =>
+                      handleProductChange(p.id, "applications", e.target.value)
+                    }
+                    placeholder="Hotels, Campuses, Hospitals, Manufacturing"
+                  />
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingProducts} saved={savedProducts} onClick={handleSaveProducts} />
+              <SaveButton
+                isSaving={savingProducts}
+                saved={savedProducts}
+                onClick={handleSaveProducts}
+              />
             </div>
           </div>
         </div>
@@ -378,7 +548,9 @@ export default function BESSCMSPage() {
           isOpen={isExtraOpen}
           onToggle={() => setIsExtraOpen(!isExtraOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isExtraOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isExtraOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <InputField
               label="Why Choose Section Title"
@@ -388,28 +560,82 @@ export default function BESSCMSPage() {
             />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                <InputField label="Card 1 Title" value={whyChooseCard1Title} onChange={(e) => setWhyChooseCard1Title(e.target.value)} />
-                <TextAreaField label="Card 1 Description" value={whyChooseCard1Desc} onChange={(e) => setWhyChooseCard1Desc(e.target.value)} rows={2} />
+                <InputField
+                  label="Card 1 Title"
+                  value={whyChooseCard1Title}
+                  onChange={(e) => setWhyChooseCard1Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 1 Description"
+                  value={whyChooseCard1Desc}
+                  onChange={(e) => setWhyChooseCard1Desc(e.target.value)}
+                  rows={2}
+                />
               </div>
               <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                <InputField label="Card 2 Title" value={whyChooseCard2Title} onChange={(e) => setWhyChooseCard2Title(e.target.value)} />
-                <TextAreaField label="Card 2 Description" value={whyChooseCard2Desc} onChange={(e) => setWhyChooseCard2Desc(e.target.value)} rows={2} />
+                <InputField
+                  label="Card 2 Title"
+                  value={whyChooseCard2Title}
+                  onChange={(e) => setWhyChooseCard2Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 2 Description"
+                  value={whyChooseCard2Desc}
+                  onChange={(e) => setWhyChooseCard2Desc(e.target.value)}
+                  rows={2}
+                />
               </div>
               <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                <InputField label="Card 3 Title" value={whyChooseCard3Title} onChange={(e) => setWhyChooseCard3Title(e.target.value)} />
-                <TextAreaField label="Card 3 Description" value={whyChooseCard3Desc} onChange={(e) => setWhyChooseCard3Desc(e.target.value)} rows={2} />
+                <InputField
+                  label="Card 3 Title"
+                  value={whyChooseCard3Title}
+                  onChange={(e) => setWhyChooseCard3Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 3 Description"
+                  value={whyChooseCard3Desc}
+                  onChange={(e) => setWhyChooseCard3Desc(e.target.value)}
+                  rows={2}
+                />
               </div>
               <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                <InputField label="Card 4 Title" value={whyChooseCard4Title} onChange={(e) => setWhyChooseCard4Title(e.target.value)} />
-                <TextAreaField label="Card 4 Description" value={whyChooseCard4Desc} onChange={(e) => setWhyChooseCard4Desc(e.target.value)} rows={2} />
+                <InputField
+                  label="Card 4 Title"
+                  value={whyChooseCard4Title}
+                  onChange={(e) => setWhyChooseCard4Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 4 Description"
+                  value={whyChooseCard4Desc}
+                  onChange={(e) => setWhyChooseCard4Desc(e.target.value)}
+                  rows={2}
+                />
               </div>
               <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                <InputField label="Card 5 Title" value={whyChooseCard5Title} onChange={(e) => setWhyChooseCard5Title(e.target.value)} />
-                <TextAreaField label="Card 5 Description" value={whyChooseCard5Desc} onChange={(e) => setWhyChooseCard5Desc(e.target.value)} rows={2} />
+                <InputField
+                  label="Card 5 Title"
+                  value={whyChooseCard5Title}
+                  onChange={(e) => setWhyChooseCard5Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 5 Description"
+                  value={whyChooseCard5Desc}
+                  onChange={(e) => setWhyChooseCard5Desc(e.target.value)}
+                  rows={2}
+                />
               </div>
               <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                <InputField label="Card 6 Title" value={whyChooseCard6Title} onChange={(e) => setWhyChooseCard6Title(e.target.value)} />
-                <TextAreaField label="Card 6 Description" value={whyChooseCard6Desc} onChange={(e) => setWhyChooseCard6Desc(e.target.value)} rows={2} />
+                <InputField
+                  label="Card 6 Title"
+                  value={whyChooseCard6Title}
+                  onChange={(e) => setWhyChooseCard6Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 6 Description"
+                  value={whyChooseCard6Desc}
+                  onChange={(e) => setWhyChooseCard6Desc(e.target.value)}
+                  rows={2}
+                />
               </div>
             </div>
 
@@ -421,9 +647,21 @@ export default function BESSCMSPage() {
                 placeholder="Certified Excellence"
               />
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
-                <InputField label="Badge 1 Label" value={cert1Title} onChange={(e) => setCert1Title(e.target.value)} />
-                <InputField label="Badge 2 Label" value={cert2Title} onChange={(e) => setCert2Title(e.target.value)} />
-                <InputField label="Badge 3 Label" value={cert3Title} onChange={(e) => setCert3Title(e.target.value)} />
+                <InputField
+                  label="Badge 1 Label"
+                  value={cert1Title}
+                  onChange={(e) => setCert1Title(e.target.value)}
+                />
+                <InputField
+                  label="Badge 2 Label"
+                  value={cert2Title}
+                  onChange={(e) => setCert2Title(e.target.value)}
+                />
+                <InputField
+                  label="Badge 3 Label"
+                  value={cert3Title}
+                  onChange={(e) => setCert3Title(e.target.value)}
+                />
               </div>
             </div>
 
@@ -451,7 +689,11 @@ export default function BESSCMSPage() {
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingExtra} saved={savedExtra} onClick={handleSaveExtra} />
+              <SaveButton
+                isSaving={savingExtra}
+                saved={savedExtra}
+                onClick={handleSaveExtra}
+              />
             </div>
           </div>
         </div>

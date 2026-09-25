@@ -22,61 +22,59 @@ export function DGCalculatorCMS({
   onToggle: controlledOnToggle,
 }: DGCalculatorCMSProps) {
   const [internalIsOpen, setInternalIsOpen] = useState(false);
-  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const isOpen =
+    controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
   const setIsOpen = (val: any) => {
     if (controlledOnToggle) controlledOnToggle();
-    else setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
+    else
+      setInternalIsOpen(typeof val === "function" ? val(internalIsOpen) : val);
   };
 
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
   const [formData, setFormData] = useState({
-    badge: "DG Sizing Calculator",
-    heading: "Calculate Your Ideal DG Capacity",
-    subheading: "Enter your facility connected load to instantly calculate the recommended DG capacity.",
-    inputLabel: "Total Load (kW)",
-    inputSubtext: "Including any jerk load, if any",
-    presets: "10, 25, 50, 100, 150, 250, 500",
+    badge: "",
+    heading: "",
+    subheading: "",
+    inputLabel: "",
+    inputSubtext: "",
+    presets: "",
     powerFactor: 0.8,
-    surgeMarginPercent: 20,
-    complianceBadge: "Kirloskar CPCB IV+ Compliant DG Set",
-    availableRatings:
-      "7.5, 10, 12.5, 15, 20, 25, 30, 35, 40, 45, 50, 62.5, 75, 82.5, 100, 125, 160, 200, 250, 320, 380, 400, 500, 600, 625, 750, 1010, 1250, 1500, 2000",
-    ctaButtonText: "Get Instant Quote for {kva} kVA",
-    specsButtonText: "View Specs",
-    specsButtonUrl: "/products/kirloskar-diesel-generator",
+    surgeMarginPercent: 30,
+    complianceBadge: "",
+    availableRatings: "",
+    ctaButtonText: "",
+    specsButtonText: "",
+    specsButtonUrl: "",
   });
 
   useEffect(() => {
     fetchWithCache(saveUrl)
       .then((json) => {
         if (json.success && json.data) {
-          const sectionData = responseKey ? json.data?.[responseKey] : json.data;
+          const sectionData = responseKey
+            ? json.data?.[responseKey]
+            : json.data;
           if (sectionData && typeof sectionData === "object") {
             setFormData({
-              badge: sectionData.badge ?? "DG Sizing Calculator",
-              heading: sectionData.heading ?? "Calculate Your Ideal DG Capacity",
-              subheading:
-                sectionData.subheading ??
-                "Enter your facility connected load to instantly calculate the recommended DG capacity.",
-              inputLabel: sectionData.inputLabel ?? "Total Load (kW)",
-              inputSubtext: sectionData.inputSubtext ?? "Including any jerk load, if any",
+              badge: sectionData.badge ?? "",
+              heading: sectionData.heading ?? "",
+              subheading: sectionData.subheading ?? "",
+              inputLabel: sectionData.inputLabel ?? "",
+              inputSubtext: sectionData.inputSubtext ?? "",
               presets: Array.isArray(sectionData.presets)
                 ? sectionData.presets.join(", ")
-                : (sectionData.presets ?? "10, 25, 50, 100, 150, 250, 500"),
+                : (sectionData.presets ?? ""),
               powerFactor: Number(sectionData.powerFactor ?? 0.8),
-              surgeMarginPercent: Number(sectionData.surgeMarginPercent ?? 20),
-              complianceBadge:
-                sectionData.complianceBadge ?? "Kirloskar CPCB IV+ Compliant DG Set",
+              surgeMarginPercent: Number(sectionData.surgeMarginPercent ?? 30),
+              complianceBadge: sectionData.complianceBadge ?? "",
               availableRatings: Array.isArray(sectionData.availableRatings)
                 ? sectionData.availableRatings.join(", ")
-                : (sectionData.availableRatings ??
-                  "7.5, 10, 12.5, 15, 20, 25, 30, 35, 40, 45, 50, 62.5, 75, 82.5, 100, 125, 160, 200, 250, 320, 380, 400, 500, 600, 625, 750, 1010, 1250, 1500, 2000"),
-              ctaButtonText: sectionData.ctaButtonText ?? "Get Instant Quote for {kva} kVA",
-              specsButtonText: sectionData.specsButtonText ?? "View Specs",
-              specsButtonUrl:
-                sectionData.specsButtonUrl ?? "/products/kirloskar-diesel-generator",
+                : (sectionData.availableRatings ?? ""),
+              ctaButtonText: sectionData.ctaButtonText ?? "",
+              specsButtonText: sectionData.specsButtonText ?? "",
+              specsButtonUrl: sectionData.specsButtonUrl ?? "",
             });
           }
         }
@@ -119,7 +117,7 @@ export function DGCalculatorCMS({
   return (
     <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
       <SectionHeader
-        title="12. DG Sizing Calculator Section"
+        title="4. DG Sizing Calculator Section"
         description="Manage the DG load sizing calculator copy, presets, calculation parameters, and available generator ratings."
         isOpen={isOpen}
         onToggle={() => setIsOpen(!isOpen)}
@@ -142,20 +140,26 @@ export function DGCalculatorCMS({
               <InputField
                 label="Badge"
                 value={formData.badge}
-                onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, badge: e.target.value })
+                }
                 placeholder="e.g. DG Sizing Calculator"
               />
               <InputField
                 label="Section Heading"
                 value={formData.heading}
-                onChange={(e) => setFormData({ ...formData, heading: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, heading: e.target.value })
+                }
                 placeholder="e.g. Calculate Your Ideal DG Capacity"
               />
             </div>
             <TextAreaField
               label="Subheading Description"
               value={formData.subheading}
-              onChange={(e) => setFormData({ ...formData, subheading: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, subheading: e.target.value })
+              }
               placeholder="e.g. Enter your facility connected load..."
               rows={2}
             />
@@ -170,13 +174,17 @@ export function DGCalculatorCMS({
               <InputField
                 label="Input Label"
                 value={formData.inputLabel}
-                onChange={(e) => setFormData({ ...formData, inputLabel: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, inputLabel: e.target.value })
+                }
                 placeholder="e.g. Total Load (kW)"
               />
               <InputField
                 label="Input Subtext / Hint"
                 value={formData.inputSubtext}
-                onChange={(e) => setFormData({ ...formData, inputSubtext: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, inputSubtext: e.target.value })
+                }
                 placeholder="e.g. Including any jerk load, if any"
               />
             </div>
@@ -188,7 +196,10 @@ export function DGCalculatorCMS({
                 step="0.05"
                 value={formData.powerFactor.toString()}
                 onChange={(e) =>
-                  setFormData({ ...formData, powerFactor: parseFloat(e.target.value) || 0.8 })
+                  setFormData({
+                    ...formData,
+                    powerFactor: parseFloat(e.target.value) || 0.8,
+                  })
                 }
                 placeholder="0.8"
               />
@@ -200,17 +211,19 @@ export function DGCalculatorCMS({
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    surgeMarginPercent: parseFloat(e.target.value) || 20,
+                    surgeMarginPercent: parseFloat(e.target.value) || 30,
                   })
                 }
-                placeholder="20"
+                placeholder="30"
               />
             </div>
 
             <InputField
               label="Quick Presets (kW, comma-separated)"
               value={formData.presets}
-              onChange={(e) => setFormData({ ...formData, presets: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, presets: e.target.value })
+              }
               placeholder="10, 25, 50, 100, 150, 250, 500"
             />
           </div>
@@ -267,7 +280,11 @@ export function DGCalculatorCMS({
           </div>
 
           <div className="flex justify-end pt-4 border-t border-slate-100">
-            <SaveButton isSaving={isSaving} saved={saved} onClick={handleSave} />
+            <SaveButton
+              isSaving={isSaving}
+              saved={saved}
+              onClick={handleSave}
+            />
           </div>
         </div>
       </div>
