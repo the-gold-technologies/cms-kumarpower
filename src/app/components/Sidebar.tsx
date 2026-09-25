@@ -52,6 +52,11 @@ const sidebarLinks: SidebarLink[] = [
       { title: "Photo Gallery", href: "/static-pages/photo-gallery" },
       { title: "Certifications", href: "/static-pages/certifications" },
       { title: "Blogs", href: "/static-pages/blog" },
+      { title: "Privacy Policy", href: "/static-pages/privacy-policy" },
+      {
+        title: "Terms & Conditions",
+        href: "/static-pages/terms-and-conditions",
+      },
       { title: "Contact", href: "/static-pages/contact" },
     ],
   },
@@ -64,7 +69,10 @@ const sidebarLinks: SidebarLink[] = [
         href: "/static-pages/products/generators",
       },
       { title: "Electrical Panels", href: "/static-pages/products/panels" },
-      { title: "Battery Energy Storage (BESS)", href: "/static-pages/products/bess" },
+      {
+        title: "Battery Energy Storage (BESS)",
+        href: "/static-pages/products/bess",
+      },
       { title: "Solar Panels", href: "/static-pages/products/solar" },
       {
         title: "Servo Stabilizers",

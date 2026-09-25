@@ -4,11 +4,41 @@ import { getPageSlugForUrl } from "@/lib/utils";
 
 // Additional pages in footer/site (AMC and Emergency Support removed)
 const FOOTER_ADDITIONAL_PAGES = [
-  { url: "/about/Testimonials", label: "Testimonials", pageSlug: "testimonials" },
-  { url: "/about/PhotoGallery", label: "Photo Gallery", pageSlug: "photo-gallery" },
-  { url: "/about/Certifications", label: "Certifications & Awards", pageSlug: "certifications" },
-  { url: "/services/installation", label: "Installation Services", pageSlug: "installation" },
-  { url: "/services/repair-overhaul", label: "Repair & Overhaul", pageSlug: "repair-overhaul" },
+  {
+    url: "/about/Testimonials",
+    label: "Testimonials",
+    pageSlug: "testimonials",
+  },
+  {
+    url: "/about/PhotoGallery",
+    label: "Photo Gallery",
+    pageSlug: "photo-gallery",
+  },
+  {
+    url: "/about/Certifications",
+    label: "Certifications & Awards",
+    pageSlug: "certifications",
+  },
+  {
+    url: "/services/installation",
+    label: "Installation Services",
+    pageSlug: "installation",
+  },
+  {
+    url: "/services/repair-overhaul",
+    label: "Repair & Overhaul",
+    pageSlug: "repair-overhaul",
+  },
+  {
+    url: "/privacy-policy",
+    label: "Privacy Policy",
+    pageSlug: "privacy-policy",
+  },
+  {
+    url: "/terms-and-conditions",
+    label: "Terms & Conditions",
+    pageSlug: "terms-and-conditions",
+  },
 ];
 
 export async function GET() {
@@ -35,7 +65,8 @@ export async function GET() {
       const matchedPage = pages.find(
         (p: any) =>
           p.slug.toLowerCase() === canonicalSlug.toLowerCase() ||
-          p.slug.toLowerCase() === link.url.replace(/^\/+|\/+$/g, "").toLowerCase()
+          p.slug.toLowerCase() ===
+            link.url.replace(/^\/+|\/+$/g, "").toLowerCase(),
       );
 
       return {
@@ -66,7 +97,7 @@ export async function GET() {
         const matchedPage = pages.find(
           (p: any) =>
             p.slug.toLowerCase() === canonicalSlug.toLowerCase() ||
-            p.slug.toLowerCase() === item.pageSlug.toLowerCase()
+            p.slug.toLowerCase() === item.pageSlug.toLowerCase(),
         );
 
         footerData.push({
@@ -94,7 +125,7 @@ export async function GET() {
     console.error("Error fetching pages for SEO:", error);
     return NextResponse.json(
       { success: false, error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

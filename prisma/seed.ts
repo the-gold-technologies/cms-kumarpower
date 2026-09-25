@@ -308,9 +308,11 @@ async function main() {
       metaTitle: "Repair & Overhaul Services - Kumar Power",
       metaDescription:
         "Professional restoration and renewal of power systems for optimal performance and reliability",
-      keywords: "generator repair, overhaul services, DG set repair, power system maintenance, Kumar Power",
+      keywords:
+        "generator repair, overhaul services, DG set repair, power system maintenance, Kumar Power",
       ogTitle: "Repair & Overhaul Services - Kumar Power",
-      ogDescription: "Professional restoration and renewal of power systems for optimal performance and reliability.",
+      ogDescription:
+        "Professional restoration and renewal of power systems for optimal performance and reliability.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -553,9 +555,11 @@ async function main() {
       metaTitle: "Installation Services - Kumar Power",
       metaDescription:
         "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
-      keywords: "generator installation, power system installation, commissioning services, Kumar Power Delhi",
+      keywords:
+        "generator installation, power system installation, commissioning services, Kumar Power Delhi",
       ogTitle: "Installation Services - Kumar Power",
-      ogDescription: "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
+      ogDescription:
+        "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -930,9 +934,12 @@ async function main() {
         "Kirloskar Generator Dealer | Authorized Distributor in Delhi NCR",
       metaDescription:
         "Looking for a reliable Kirloskar Generator dealer? Explore affordable prices, expert installation, 24/7 service support & high-efficiency DG sets.",
-      keywords: "Kirloskar generator dealer, generator distributor Delhi NCR, DG set dealer, diesel generator, Kumar Power",
-      ogTitle: "Kirloskar Generator Dealer | Authorized Distributor in Delhi NCR",
-      ogDescription: "Looking for a reliable Kirloskar Generator dealer? Explore affordable prices, expert installation, 24/7 service support & high-efficiency DG sets.",
+      keywords:
+        "Kirloskar generator dealer, generator distributor Delhi NCR, DG set dealer, diesel generator, Kumar Power",
+      ogTitle:
+        "Kirloskar Generator Dealer | Authorized Distributor in Delhi NCR",
+      ogDescription:
+        "Looking for a reliable Kirloskar Generator dealer? Explore affordable prices, expert installation, 24/7 service support & high-efficiency DG sets.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -1789,9 +1796,11 @@ async function main() {
       metaTitle: "Our Profile & Company History - Kumar Power",
       metaDescription:
         "Learn about our 30+ years of power generation legacy in India.",
-      keywords: "Kumar Power company profile, generator company history Delhi, power solutions India, authorized Kirloskar dealer",
+      keywords:
+        "Kumar Power company profile, generator company history Delhi, power solutions India, authorized Kirloskar dealer",
       ogTitle: "Our Profile & Company History - Kumar Power",
-      ogDescription: "Learn about our 30+ years of power generation legacy in India.",
+      ogDescription:
+        "Learn about our 30+ years of power generation legacy in India.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -1962,7 +1971,8 @@ async function main() {
       metaTitle: "Contact Us - Kumar Power",
       metaDescription:
         "Reach out for generator quotes, support, or site visits.",
-      keywords: "contact Kumar Power, generator quote Delhi, DG set support, site visit, power solutions inquiry",
+      keywords:
+        "contact Kumar Power, generator quote Delhi, DG set support, site visit, power solutions inquiry",
       ogTitle: "Contact Us - Kumar Power",
       ogDescription: "Reach out for generator quotes, support, or site visits.",
       headingOptions: "h1",
@@ -2050,9 +2060,11 @@ async function main() {
       metaTitle: "Photo Gallery - Kumar Power",
       metaDescription:
         "A visual showcase of our generator installations, events, and industrial projects.",
-      keywords: "Kumar Power photo gallery, generator installation photos, industrial projects gallery, DG set images",
+      keywords:
+        "Kumar Power photo gallery, generator installation photos, industrial projects gallery, DG set images",
       ogTitle: "Photo Gallery - Kumar Power",
-      ogDescription: "A visual showcase of our generator installations, events, and industrial projects.",
+      ogDescription:
+        "A visual showcase of our generator installations, events, and industrial projects.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -2400,9 +2412,11 @@ async function main() {
       metaTitle: "Certifications & Awards - Kumar Power",
       metaDescription:
         "Authorization certificates and awards demonstrating our commitment to quality.",
-      keywords: "Kumar Power certifications, Kirloskar authorized dealer, ISO certified generator company, power industry awards",
+      keywords:
+        "Kumar Power certifications, Kirloskar authorized dealer, ISO certified generator company, power industry awards",
       ogTitle: "Certifications & Awards - Kumar Power",
-      ogDescription: "Authorization certificates and awards demonstrating our commitment to quality.",
+      ogDescription:
+        "Authorization certificates and awards demonstrating our commitment to quality.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -2546,9 +2560,11 @@ async function main() {
       metaTitle: "Kirloskar Generators Distributor | Kumar Power",
       metaDescription:
         "Explore Kirloskar-certified generators from Kumar Power, engineered for superior performance, reliability, and full compliance with CPCB norms.",
-      keywords: "Kirloskar generator distributor, diesel generator dealer Delhi, CPCB IV+ genset, DG set price, Kumar Power generators",
+      keywords:
+        "Kirloskar generator distributor, diesel generator dealer Delhi, CPCB IV+ genset, DG set price, Kumar Power generators",
       ogTitle: "Kirloskar Generators Distributor | Kumar Power",
-      ogDescription: "Explore Kirloskar-certified generators engineered for superior performance, reliability, and full CPCB compliance.",
+      ogDescription:
+        "Explore Kirloskar-certified generators engineered for superior performance, reliability, and full CPCB compliance.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -2801,9 +2817,11 @@ async function main() {
       metaTitle: "Electrical Control Panels Dealer in Delhi | Kumar Power",
       metaDescription:
         "Explore our range of high-quality electrical control panels for power distribution, control, and protection of electrical systems trusted by industries",
-      keywords: "electrical control panels Delhi, power distribution panels, LT panels dealer, electrical panel manufacturer, Kumar Power",
+      keywords:
+        "electrical control panels Delhi, power distribution panels, LT panels dealer, electrical panel manufacturer, Kumar Power",
       ogTitle: "Electrical Control Panels Dealer in Delhi | Kumar Power",
-      ogDescription: "Explore high-quality electrical control panels for power distribution, control, and protection trusted by industries.",
+      ogDescription:
+        "Explore high-quality electrical control panels for power distribution, control, and protection trusted by industries.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -2936,9 +2954,11 @@ async function main() {
       metaTitle: "Servo Stabilizers Dealer in Delhi | Kumar Power",
       metaDescription:
         "Protect equipment from voltage fluctuations with servo stabilizers.",
-      keywords: "servo stabilizer dealer Delhi, voltage stabilizer, servo controlled voltage stabilizer, servo stabilizer price, Kumar Power",
+      keywords:
+        "servo stabilizer dealer Delhi, voltage stabilizer, servo controlled voltage stabilizer, servo stabilizer price, Kumar Power",
       ogTitle: "Servo Stabilizers Dealer in Delhi | Kumar Power",
-      ogDescription: "Protect your equipment from voltage fluctuations with high-quality servo stabilizers from Kumar Power.",
+      ogDescription:
+        "Protect your equipment from voltage fluctuations with high-quality servo stabilizers from Kumar Power.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -3036,9 +3056,11 @@ async function main() {
       metaTitle: "Transformers Dealer - Kumar Power",
       metaDescription:
         "Explore Kumar Power’s transformer range: Distribution, Power, Cast Resin, and Unitized Package Substations, built for efficiency, safety, and reliability",
-      keywords: "transformer dealer Delhi, distribution transformer, power transformer, cast resin transformer, Kumar Power transformers",
+      keywords:
+        "transformer dealer Delhi, distribution transformer, power transformer, cast resin transformer, Kumar Power transformers",
       ogTitle: "Transformers Dealer - Kumar Power",
-      ogDescription: "Explore distribution, power, cast resin, and unitized package substations built for efficiency, safety, and reliability.",
+      ogDescription:
+        "Explore distribution, power, cast resin, and unitized package substations built for efficiency, safety, and reliability.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -3168,7 +3190,8 @@ async function main() {
       description: "Kumar Power Client Directory",
       metaTitle: "Our Clients - Kumar Power",
       metaDescription: "Trusted by over 500+ corporate clients across India.",
-      keywords: "Kumar Power clients, corporate clients India, generator company clients, power solutions clients Delhi",
+      keywords:
+        "Kumar Power clients, corporate clients India, generator company clients, power solutions clients Delhi",
       ogTitle: "Our Clients - Kumar Power",
       ogDescription: "Trusted by over 500+ corporate clients across India.",
       headingOptions: "h1",
@@ -6331,7 +6354,8 @@ async function main() {
       description: "Customer Reviews and Testimonials",
       metaTitle: "Testimonials - Kumar Power",
       metaDescription: "Read feedback and reviews from our valued clients.",
-      keywords: "Kumar Power testimonials, generator company reviews, client feedback, power solutions reviews India",
+      keywords:
+        "Kumar Power testimonials, generator company reviews, client feedback, power solutions reviews India",
       ogTitle: "Testimonials - Kumar Power",
       ogDescription: "Read feedback and reviews from our valued clients.",
       headingOptions: "h1",
@@ -6516,9 +6540,11 @@ async function main() {
       metaTitle: "Blogs & Articles - Kumar Power",
       metaDescription:
         "Explore expert articles, case studies, and latest trends in industrial power solutions.",
-      keywords: "power solutions blog, generator articles, industrial power trends, Kumar Power blog, DG set tips",
+      keywords:
+        "power solutions blog, generator articles, industrial power trends, Kumar Power blog, DG set tips",
       ogTitle: "Blogs & Articles - Kumar Power",
-      ogDescription: "Explore expert articles, case studies, and latest trends in industrial power solutions.",
+      ogDescription:
+        "Explore expert articles, case studies, and latest trends in industrial power solutions.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -6708,9 +6734,11 @@ async function main() {
       metaTitle: "Battery Energy Storage Systems (BESS) | Kumar Power",
       metaDescription:
         "Explore Kumar Power Battery Energy Storage Systems (BESS) from 5 kW to 1 MW+ containerized solutions. Tier-1 LFP chemistry for clean commercial and industrial energy backup.",
-      keywords: "BESS dealer India, battery energy storage system, LFP battery storage, industrial energy backup, Kumar Power BESS",
+      keywords:
+        "BESS dealer India, battery energy storage system, LFP battery storage, industrial energy backup, Kumar Power BESS",
       ogTitle: "Battery Energy Storage Systems (BESS) | Kumar Power",
-      ogDescription: "Explore BESS from 5 kW to 1 MW+ containerized solutions with Tier-1 LFP chemistry for clean industrial energy backup.",
+      ogDescription:
+        "Explore BESS from 5 kW to 1 MW+ containerized solutions with Tier-1 LFP chemistry for clean industrial energy backup.",
       headingOptions: "h1",
       visibility: "published",
       sections: [
@@ -6896,9 +6924,11 @@ async function main() {
         "Tier-1 Commercial Solar Panels & Rooftop Systems | Kumar Power",
       metaDescription:
         "Explore high-efficiency Tier-1 Mono PERC and TOPCon Bifacial solar panels from Kumar Power. Seamless DG synchronization and BESS integration.",
-      keywords: "solar panels dealer India, Tier-1 solar panels, rooftop solar system, BESS integration, Kumar Power solar",
+      keywords:
+        "solar panels dealer India, Tier-1 solar panels, rooftop solar system, BESS integration, Kumar Power solar",
       ogTitle: "Tier-1 Commercial Solar Panels & Rooftop Systems | Kumar Power",
-      ogDescription: "Explore high-efficiency Tier-1 Mono PERC and TOPCon Bifacial solar panels with seamless DG synchronization and BESS integration.",
+      ogDescription:
+        "Explore high-efficiency Tier-1 Mono PERC and TOPCon Bifacial solar panels with seamless DG synchronization and BESS integration.",
       headingOptions: "h1",
       visibility: "published",
       sections: [
@@ -7040,6 +7070,213 @@ async function main() {
                   "Industrial Sheds, Factory Roofs, Commercial Towers, Hospitals, Educational Campuses",
               },
             ],
+          },
+        },
+      ],
+    },
+    {
+      title: "Privacy Policy",
+      slug: "privacy-policy",
+      description:
+        "Official Privacy Policy of Kumar Power Solutions, Authorised Kirloskar Channel Partner.",
+      metaTitle: "Privacy Policy | Kumar Power Solutions",
+      metaDescription:
+        "Learn how Kumar Power collects, safeguards, and processes commercial, technical, and personal information in compliance with Indian IT laws.",
+      keywords:
+        "Kumar Power privacy policy, Kirloskar generator dealer privacy, data protection, electrical contractor India",
+      ogTitle: "Privacy Policy | Kumar Power Solutions",
+      ogDescription:
+        "Official Privacy Policy detailing data handling and compliance for Kumar Power Solutions.",
+      ogImage:
+        "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+      canonicalUrl: "https://www.kumarpower.com/privacy-policy",
+      headingOptions: "h1",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-privacy-policy-main",
+          type: "privacy-policy",
+          order: 0,
+          content: {
+            title: "Privacy Policy",
+            badge: "Legal & Privacy Assurance",
+            heroBg:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+            subtitle:
+              "How Kumar Power collects, safeguards, and processes your commercial, technical, and personal data.",
+            lastUpdated: "September 25, 2026",
+            effectiveDate: "January 1, 2026",
+            contactEmail: "info@kumarpower.com",
+            contactPhone: "+91 97738 51767",
+            content: `<p>Welcome to <strong>Kumar Power</strong> (Kumar Power Solutions & Services), an Authorised Kirloskar Channel Partner. We are committed to protecting the personal and commercial data of our clients, prospective customers, suppliers, and website visitors. This Privacy Policy details how we collect, store, process, and safeguard your information in accordance with applicable laws in India, including the Information Technology Act, 2000 and the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011.</p>
+
+<h2>1. Scope and Applicability</h2>
+<p>This Privacy Policy applies to personal and commercial data collected through:</p>
+<ul>
+  <li>Our primary website at <a href="https://www.kumarpower.com">www.kumarpower.com</a> and associated sub-domains.</li>
+  <li>Digital quotation, sizing, and commercial inquiry forms.</li>
+  <li>Technical consultation and emergency electrical maintenance requests.</li>
+  <li>Job applications, resumes, and career submissions.</li>
+  <li>Direct business interactions including phone, WhatsApp, email, and on-site engineering consultations.</li>
+</ul>
+
+<h2>2. Information We Collect</h2>
+<p>Depending on how you interact with our services, we may collect the following categories of information:</p>
+<ul>
+  <li><strong>Contact and Corporate Information:</strong> Your name, official email address, phone/mobile numbers, corporate name, job designation, and registered office or installation site address.</li>
+  <li><strong>Technical and Project Requirements:</strong> Power capacity demands (kVA / kW), generator requirements (CPCB IV+ compliant diesel gensets), electrical panel specifications (HT/LT, APFC, AMF panels), transformer configurations, solar rooftop specs, and BESS requirements.</li>
+  <li><strong>Maintenance and Service Logs:</strong> Engine serial numbers, generator run hours, service log histories, and technical failure logs.</li>
+  <li><strong>Recruitment Data:</strong> Curriculum Vitae (CV), academic credentials, employment history, and technical certifications submitted via our careers portal.</li>
+  <li><strong>Automated Digital Data:</strong> Device IP address, browser type, operating system, referrer URLs, page engagement metrics, and session duration captured via cookies and standard analytical tools.</li>
+</ul>
+
+<h2>3. Purpose and Legal Basis for Processing</h2>
+<p>We process your personal information strictly for legitimate business objectives, including:</p>
+<ul>
+  <li>Formulating and delivering customized commercial quotations and technical proposals.</li>
+  <li>Fulfilling product procurement orders for Kirloskar generators, solar power setups, servo stabilizers, and transformers.</li>
+  <li>Coordinating on-site delivery, civil foundation assessments, mechanical installation, and commissioning.</li>
+  <li>Executing Annual Maintenance Contracts (AMC) and dispatching rapid-response breakdown technicians.</li>
+  <li>Registering OEM warranties with Kirloskar Oil Engines Ltd. (KOEL) and affiliated manufacturing partners.</li>
+  <li>Evaluating candidate suitability for engineering and corporate job openings.</li>
+  <li>Complying with statutory guidelines issued by the Central Pollution Control Board (CPCB), Ministry of Power, and GST authorities.</li>
+</ul>
+
+<h2>4. Disclosure of Information to Third Parties</h2>
+<p>We respect the confidentiality of your information. Kumar Power <strong>does not sell, rent, or trade your personal or business data</strong> to third-party advertisers. Disclosures are limited to:</p>
+<ul>
+  <li><strong>Original Equipment Manufacturers (OEMs):</strong> Specifically Kirloskar Oil Engines Ltd. and allied equipment partners exclusively for warranty registration, genuine spare parts dispatch, and quality audits.</li>
+  <li><strong>Logistics and Crane Contractors:</strong> Trusted freight and crane operators required to deliver heavy power generation equipment to your facility.</li>
+  <li><strong>Statutory Authorities:</strong> When required by lawful process, court order, or regulatory mandate under Indian law.</li>
+</ul>
+
+<h2>5. Data Security and Confidentiality</h2>
+<p>We deploy robust physical, electronic, and managerial safeguards to protect your personal information from unauthorized access, alteration, disclosure, or destruction. All data exchanges on our website are encrypted using industry-standard Secure Socket Layer (SSL/TLS) technology. Internal access to client databases is restricted strictly to authorized engineering and customer care personnel.</p>
+
+<h2>6. Retention of Data</h2>
+<p>We retain your personal data only as long as necessary to fulfill the purposes outlined in this policy, satisfy contractual warranty and AMC obligations, or comply with statutory financial and audit requirements under Indian law.</p>
+
+<h2>7. Cookies and Tracking Technologies</h2>
+<p>Our website utilizes essential and performance cookies to maintain session states and analyze traffic trends. You can configure your browser preferences to reject or prompt before accepting cookies. Disabling cookies will not restrict your ability to browse our equipment catalog.</p>
+
+<h2>8. Your Rights and Choices</h2>
+<p>You have the right to request access to your personal information stored with us, request updates or corrections to inaccuracies, or ask for deletion of your non-statutory records. You may also opt out of informational communications at any time.</p>
+
+<h2>9. Grievance Officer and Contact Details</h2>
+<p>In accordance with the Information Technology Act, 2000 and the Rules made thereunder, if you have any questions, concerns, or grievances regarding this Privacy Policy, please contact our designated Grievance Officer:</p>
+<blockquote>
+  <strong>Grievance Officer:</strong> Kumar Power Solutions<br/>
+  <strong>Email:</strong> info@kumarpower.com / sales@kumarpower.com<br/>
+  <strong>Helpline:</strong> +91 97738 51767 / +91 99711 66630<br/>
+  <strong>Address:</strong> Kumar Power Solutions, Authorized Kirloskar Channel Partner, India
+</blockquote>
+
+<h2>10. Updates to this Policy</h2>
+<p>We reserve the right to amend this Privacy Policy periodically to reflect technological advances, operational changes, or legal updates. Any revisions will be published immediately on this page with an updated Last Modified date.</p>`,
+          },
+        },
+      ],
+    },
+    {
+      title: "Terms & Conditions",
+      slug: "terms-and-conditions",
+      description:
+        "Official Terms and Conditions for equipment procurement, engineering services, and AMC with Kumar Power Solutions.",
+      metaTitle: "Terms & Conditions | Kumar Power Solutions",
+      metaDescription:
+        "Read the official terms and conditions for purchasing generators, electrical panels, solar equipment, and AMC from Kumar Power.",
+      keywords:
+        "Kumar Power terms, generator warranty terms, Kirloskar AMC terms, commercial power equipment India",
+      ogTitle: "Terms & Conditions | Kumar Power Solutions",
+      ogDescription:
+        "Official Terms & Conditions governing equipment sales, commissioning, and services by Kumar Power.",
+      ogImage:
+        "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+      canonicalUrl: "https://www.kumarpower.com/terms-and-conditions",
+      headingOptions: "h1",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-terms-and-conditions-main",
+          type: "terms-and-conditions",
+          order: 0,
+          content: {
+            title: "Terms & Conditions",
+            badge: "Commercial & Legal Terms",
+            heroBg:
+              "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+            subtitle:
+              "Standard terms and conditions governing the supply of equipment, engineering services, and website usage.",
+            lastUpdated: "September 25, 2026",
+            effectiveDate: "January 1, 2026",
+            contactEmail: "sales@kumarpower.com",
+            contactPhone: "+91 97738 51767",
+            content: `<p>These Terms and Conditions ("Terms") govern your access to and use of the website, products, and engineering services provided by <strong>Kumar Power</strong> (Kumar Power Solutions & Services), an Authorised Kirloskar Channel Partner. By accessing our website, requesting a quotation, or purchasing equipment and engineering services, you agree to be bound by these Terms.</p>
+
+<h2>1. Commercial Offerings & Product Specifications</h2>
+<p>Kumar Power specializes in the supply, installation, testing, commissioning, and maintenance of:</p>
+<ul>
+  <li>Kirloskar CPCB IV+ compliant Silent Diesel Generator Sets (ranging from small commercial to heavy industrial kVA ratings).</li>
+  <li>Custom LT & HT Electrical Panels (including AMF panels, APFC panels, synchronization panels, and distribution boards).</li>
+  <li>Industrial Servo Voltage Stabilizers (air-cooled and oil-cooled configurations).</li>
+  <li>Distribution and Power Transformers.</li>
+  <li>Solar Photovoltaic (PV) rooftop and ground-mounted energy systems.</li>
+  <li>Battery Energy Storage Systems (BESS) and hybrid power management setups.</li>
+</ul>
+<p>All technical specifications, dimensions, acoustic decibel ratings, and fuel consumption curves shown on this website are indicative. Official technical data sheets accompany formal commercial proposals and are subject to OEM engineering refinements.</p>
+
+<h2>2. Quotations, Pricing & Validity</h2>
+<ul>
+  <li>Formal quotations issued by Kumar Power are valid for the timeframe stated on the proposal (typically 15 to 30 calendar days) due to market fluctuations in copper, steel, and diesel commodities.</li>
+  <li>All prices quoted are exclusive of Goods and Services Tax (GST), freight, in-transit insurance, civil work, and unloading charges unless explicitly stated in writing.</li>
+  <li>Purchase orders are confirmed only upon receipt of written acceptance and the stipulated advance payment.</li>
+</ul>
+
+<h2>3. Site Readiness, Delivery & Commissioning</h2>
+<ul>
+  <li>Estimated delivery timelines commence from the date of final technical sign-off and receipt of advance payment.</li>
+  <li>The client is responsible for site readiness prior to equipment arrival, including adequate civil foundation, suitable ventilation/ducting, exhaust piping pathways, earthing pits, and necessary electrical inspectorate approvals.</li>
+  <li>Initial commissioning must be performed exclusively by authorized Kumar Power service engineers to validate OEM warranties.</li>
+</ul>
+
+<h2>4. Warranty Terms & Exclusions</h2>
+<p>All new equipment supplied by Kumar Power is protected by the manufacturer standard warranty (e.g., Kirloskar Oil Engines Limited warranty for diesel engines and alternators).</p>
+<p><strong>Warranty exclusions include:</strong></p>
+<ul>
+  <li>Damage caused by improper fuel quality, contaminated diesel, or unapproved coolant/lubricants.</li>
+  <li>Operation of equipment beyond rated electrical capacity or under unbalanced phase loads exceeding permissible limits.</li>
+  <li>Interventions, repairs, or modifications carried out by unauthorized third-party technicians.</li>
+  <li>Normal wear-and-tear items such as filters, V-belts, fuses, and gaskets.</li>
+</ul>
+
+<h2>5. Annual Maintenance Contracts (AMC) & Emergency Support</h2>
+<p>Preventive and comprehensive Annual Maintenance Contracts are governed by dedicated Service Level Agreements (SLAs). Kumar Power commits to providing certified technicians, scheduled periodic check-ups, and genuine OEM spare parts. Emergency breakdown support is prioritized based on the active AMC tier.</p>
+
+<h2>6. Payment Terms & Title of Goods</h2>
+<ul>
+  <li>Standard commercial terms require specified advance payments upon PO confirmation, with the balance payable against Proforma Invoice prior to dispatch.</li>
+  <li>Title of ownership to all equipment remains with Kumar Power until full payment has been cleared.</li>
+</ul>
+
+<h2>7. Intellectual Property</h2>
+<p>All brand marks, logos, technical write-ups, product photographs, diagrams, and website designs are the proprietary assets of Kumar Power or licensed from respective manufacturer partners (such as Kirloskar). Unauthorized reproduction or distribution is strictly prohibited.</p>
+
+<h2>8. Limitation of Liability & Force Majeure</h2>
+<p>Kumar Power shall not be held liable for any indirect, incidental, punitive, or consequential damages resulting from power failures, grid irregularities, or operational downtime. Neither party shall be liable for failure to perform contractual obligations if caused by events beyond reasonable control (Force Majeure), including floods, fires, natural disasters, national emergencies, or supply-chain embargos.</p>
+
+<h2>9. Governing Law & Jurisdiction</h2>
+<p>These Terms and all commercial contracts entered into with Kumar Power shall be governed by and construed in accordance with the laws of the Republic of India. Any disputes arising hereunder shall be subject to the exclusive jurisdiction of the competent courts in Delhi / Haryana, India.</p>
+
+<h2>10. Inquiries and Clarifications</h2>
+<p>For questions or assistance regarding these Terms and Conditions, please contact our commercial department:</p>
+<blockquote>
+  <strong>Kumar Power Commercial Department</strong><br/>
+  <strong>Email:</strong> sales@kumarpower.com / info@kumarpower.com<br/>
+  <strong>Phone:</strong> +91 97738 51767 / +91 99711 66630<br/>
+  <strong>Registered Office:</strong> Kumar Power Solutions, India
+</blockquote>`,
           },
         },
       ],
