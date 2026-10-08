@@ -8,20 +8,22 @@ export async function GET() {
       select: { sitemapEnabled: true, sitemapCustomContent: true },
     });
 
-    if (config?.sitemapEnabled === false) {
-      return new NextResponse("Sitemap disabled", { status: 404 });
-    }
-
+    // Serve custom uploaded sitemap if available (regardless of sitemapEnabled flag)
     if (config?.sitemapCustomContent && config.sitemapCustomContent.trim().length > 0) {
       return new NextResponse(config.sitemapCustomContent, {
         headers: {
           "Content-Type": "application/xml",
-          "Cache-Control": "s-maxage=3600, stale-while-revalidate=59",
+          "Cache-Control": "no-cache, no-store, must-revalidate",
         },
       });
     }
 
-    // Generate dynamic sitemap
+    // If sitemap is explicitly disabled and no custom content, return 404
+    if (config?.sitemapEnabled === false) {
+      return new NextResponse("Sitemap disabled", { status: 404 });
+    }
+
+    // Generate dynamic sitemap from published pages
     const pages = await prisma.page.findMany({
       where: {
         visibility: "published",
@@ -58,7 +60,7 @@ ${pages
     return new NextResponse(sitemap, {
       headers: {
         "Content-Type": "application/xml",
-        "Cache-Control": "s-maxage=3600, stale-while-revalidate=59",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
       },
     });
   } catch (error) {

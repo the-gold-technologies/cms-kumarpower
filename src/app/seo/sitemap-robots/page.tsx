@@ -146,7 +146,7 @@ export default function SitemapRobotsPage() {
           robotsTxt: text,
         }));
         toast.success(
-          "Robots rules loaded to editor! Review and Save to apply changes."
+          "Robots rules loaded to editor! Review and Save to apply changes.",
         );
       }
     };
@@ -156,8 +156,7 @@ export default function SitemapRobotsPage() {
     reader.readAsText(file);
   };
 
-  const websiteUrl =
-    process.env.NEXT_PUBLIC_WEBSITE_URL || "https://www.kumarpower.com";
+  const websiteUrl = process.env.NEXT_PUBLIC_WEBSITE_URL || "";
 
   if (isLoading) {
     return (
@@ -308,7 +307,7 @@ export default function SitemapRobotsPage() {
                           sitemapCustomContent: null,
                         }));
                         toast.success(
-                          "Custom sitemap cleared. Auto-generation restored!"
+                          "Custom sitemap cleared. Auto-generation restored!",
                         );
                       }}
                       className="flex items-center gap-1.5 py-2 px-3 bg-red-50 hover:bg-red-100 border border-red-100 rounded-xl text-[11px] font-bold text-red-600 transition-colors cursor-pointer"
