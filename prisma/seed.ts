@@ -170,10 +170,60 @@ async function main() {
       isActive: true,
     },
     {
+      id: "nav-products",
+      label: "Products",
+      url: "/products",
+      order: 4,
+      type: "Dropdown",
+      parent: "-",
+      isStatic: true,
+      isActive: true,
+    },
+    {
+      id: "nav-products-1",
+      label: "Kirloskar Diesel Generator",
+      url: "/products/kirloskar-diesel-generator",
+      order: 1,
+      type: "Sub Link",
+      parent: "nav-products",
+      isStatic: true,
+      isActive: true,
+    },
+    {
+      id: "nav-products-2",
+      label: "Kirloskar Gas Generator",
+      url: "/products/kirloskar-gas-generator",
+      order: 2,
+      type: "Sub Link",
+      parent: "nav-products",
+      isStatic: true,
+      isActive: true,
+    },
+    {
+      id: "nav-products-3",
+      label: "Kirloskar Portable Generator",
+      url: "/products/kirloskar-portable-generator",
+      order: 3,
+      type: "Sub Link",
+      parent: "nav-products",
+      isStatic: true,
+      isActive: true,
+    },
+    {
+      id: "nav-products-4",
+      label: "Optiprime",
+      url: "/products/optiprime",
+      order: 4,
+      type: "Sub Link",
+      parent: "nav-products",
+      isStatic: true,
+      isActive: true,
+    },
+    {
       id: "nav-4",
       label: "Our Clients",
       url: "/about/OurClients",
-      order: 4,
+      order: 5,
       type: "Main Link",
       parent: "-",
       isStatic: true,
@@ -183,7 +233,7 @@ async function main() {
       id: "nav-6",
       label: "Insights",
       url: "/blogs",
-      order: 5,
+      order: 6,
       type: "Main Link",
       parent: "-",
       isStatic: true,
@@ -339,6 +389,7 @@ async function main() {
   const staticPages = [
     {
       slug: "repair-overhaul",
+      canonicalUrl: "https://www.kumarpower.com/services/repair-overhaul",
       description: "Repair & Overhaul Services",
       metaTitle: "Repair & Overhaul Services - Kumar Power",
       metaDescription:
@@ -586,6 +637,7 @@ async function main() {
     },
     {
       slug: "installation",
+      canonicalUrl: "https://www.kumarpower.com/services/installation",
       description: "Installation & Commissioning Services",
       metaTitle: "Installation Services - Kumar Power",
       metaDescription:
@@ -964,6 +1016,7 @@ async function main() {
     {
       title: "Home Page",
       slug: "home",
+      canonicalUrl: "https://www.kumarpower.com/",
       description: "Kumar Power Home Page",
       metaTitle:
         "Kirloskar Generator Dealer | Authorized Distributor in Delhi NCR",
@@ -1827,6 +1880,7 @@ async function main() {
     {
       title: "Our Profile",
       slug: "our-profile",
+      canonicalUrl: "https://www.kumarpower.com/about/OurProfile",
       description: "About Kumar Power",
       metaTitle: "Our Profile & Company History - Kumar Power",
       metaDescription:
@@ -2002,6 +2056,7 @@ async function main() {
     {
       title: "Contact Us",
       slug: "contact",
+      canonicalUrl: "https://www.kumarpower.com/contact",
       description: "Contact Kumar Power",
       metaTitle: "Contact Us - Kumar Power",
       metaDescription:
@@ -2091,6 +2146,7 @@ async function main() {
     {
       title: "Photo Gallery",
       slug: "photo-gallery",
+      canonicalUrl: "https://www.kumarpower.com/about/PhotoGallery",
       description: "Kumar Power Photo Gallery",
       metaTitle: "Photo Gallery - Kumar Power",
       metaDescription:
@@ -2443,6 +2499,7 @@ async function main() {
     {
       title: "Certifications & Awards",
       slug: "certifications",
+      canonicalUrl: "https://www.kumarpower.com/about/Certifications",
       description: "Kumar Power Certifications",
       metaTitle: "Certifications & Awards - Kumar Power",
       metaDescription:
@@ -2591,6 +2648,7 @@ async function main() {
     {
       title: "Kirloskar Generators",
       slug: "generators",
+      canonicalUrl: "https://www.kumarpower.com/products/generators",
       description: "Kirloskar Generators range from 2.1 kVA to 2000 kVA",
       metaTitle: "Kirloskar Generators Distributor | Kumar Power",
       metaDescription:
@@ -2845,8 +2903,569 @@ async function main() {
       ],
     },
     {
+      title: "Products",
+      slug: "products",
+      canonicalUrl: "https://www.kumarpower.com/products",
+      description: "Kumar Power Products Showcase",
+      metaTitle: "Products - Kumar Power",
+      metaDescription:
+        "Explore our full range of Kirloskar-certified diesel generators, gas generators, portable generators, electrical panels, servo stabilizers, and transformers.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-products-main",
+          type: "products",
+          order: 1,
+          content: {
+            heroHeadingPart1: "Powering Progress,",
+            heroHeadingPart2: "One Generator at a Time",
+            heroHeading: "Powering Progress, One Generator at a Time",
+            heroSub:
+              "Explore our full range of Kirloskar-certified diesel generators, trusted across India's most demanding industries.",
+            heroBg:
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
+            btn1Text: "Request a Quote",
+            btn1Url: "/contact",
+            btn2Text: "Download Product Catalogue",
+            btn2Url:
+              "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967041/KumarPower-Assets/brochures/c9fq282mtmaczrfvh5ut.pdf",
+
+            stickyTextPart1: "Kumar Power:",
+            stickyTextPart2:
+              "India's Most Trusted Kirloskar-Certified Generator Brand!",
+            downloadBtn1Label: "Download Bharat Rajpatra",
+            downloadBtn1Url:
+              "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
+            downloadBtn2Label: "Download Direction 76",
+            downloadBtn2Url:
+              "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
+            talkBtnLabel: "Talk to Power Expert",
+            requestBtnLabel: "Request Quote",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+
+            sectionTitle: "ALL Products",
+            sectionDesc:
+              "We offer a complete range of power and electrical solutions including Kirloskar Diesel Generators, Kirloskar Gas Generators, Kirloskar Portable Generators, Electrical Panels, Servo Voltage Stabilizers, and Transformers, engineered for reliable performance across residential, commercial, and industrial applications.",
+            certTitle: "Certified Excellence",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            helpBtnText: "Talk to an Expert",
+            whyChooseTitle: "Why Choose Kirloskar Generators?",
+
+            whyChooseCard1Title: "Unmatched Reliability",
+            whyChooseCard1Desc:
+              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard2Title: "Fuel Efficiency",
+            whyChooseCard2Desc:
+              "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            whyChooseCard3Title: "Rapid Response",
+            whyChooseCard3Desc:
+              "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard4Title: "Low Noise Operation",
+            whyChooseCard4Desc:
+              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard5Title: "Easy Maintenance",
+            whyChooseCard5Desc:
+              "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard6Title: "Smart Controls",
+            whyChooseCard6Desc:
+              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            // cert properties removed as they are duplicates
+
+            categories: [
+              {
+                id: "cat-1",
+                range: "7.5 kVA to 20 kVA",
+                name: "Kirloskar Diesel Generators",
+                fuelType: "Diesel",
+                cpcbNorm: "CPCB-IV+",
+                cooling: "Liquid",
+                phase: "Three Phase",
+                ratingCount: 153,
+                rating: 4.8,
+                category: "diesel",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/zhnxnwqqlflixb79r0ag.jpg",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967023/KumarPower-Assets/mfzttuhvon8rmp6qnlb0",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                technicalSpecs:
+                  "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power.",
+                productLink: "/products/kirloskar-diesel-generator",
+              },
+              {
+                id: "cat-2",
+                range: "15 kVA to 250 kVA",
+                name: "Kirloskar Gas Generators",
+                fuelType: "Natural Gas/CNG",
+                cpcbNorm: "CPCB-IV+",
+                cooling: "Liquid",
+                phase: "Single/Three Phase",
+                ratingCount: 145,
+                rating: 4.6,
+                category: "gas",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967026/KumarPower-Assets/rmnw9kop5rsj2xjadclz.jpg",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967027/KumarPower-Assets/goagxwwkbsdmlrkiagez",
+                description:
+                  "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
+                technicalSpecs:
+                  "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses.",
+                productLink: "/products/kirloskar-gas-generator",
+              },
+              {
+                id: "cat-3",
+                range: "2.1 kVA to 5 kVA",
+                name: "Kirloskar Portable Generators",
+                fuelType: "Gasoline",
+                cpcbNorm: "CPCB-IV+",
+                cooling: "Air",
+                phase: "Single Phase",
+                ratingCount: 210,
+                rating: 4.5,
+                category: "portable",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967027/KumarPower-Assets/gq0rlktblfjugazhcdgy.jpg",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967027/KumarPower-Assets/bhgdmhdzu8uk8ued0jub",
+                description:
+                  "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
+                technicalSpecs:
+                  "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools.",
+                productLink: "/products/generators",
+              },
+              {
+                id: "cat-4",
+                range: "100 kVA",
+                name: "Kirloskar Optiprime Generator",
+                fuelType: "Diesel",
+                cpcbNorm: "CPCB-IV+",
+                cooling: "Liquid",
+                phase: "Three Phase",
+                ratingCount: 195,
+                rating: 4.8,
+                category: "optiprime",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967027/KumarPower-Assets/us7kljbdt1uc0dxeiorb.jpg",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967028/KumarPower-Assets/v7jjpbhcvcdsi6l43wkx",
+                description:
+                  "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+                technicalSpecs:
+                  "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns.",
+                productLink: "/products/optiprime",
+              },
+              {
+                id: "cat-5",
+                range: "Various",
+                name: "AMF Panels",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Fan/Natural",
+                phase: "Three Phase",
+                ratingCount: 112,
+                rating: 4.7,
+                category: "electrical",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967028/KumarPower-Assets/y4upy9xydzodqkdohoay.png",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967041/KumarPower-Assets/brochures/c9fq282mtmaczrfvh5ut.pdf",
+                description:
+                  "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
+                technicalSpecs:
+                  "Our Auto Mains Failure (AMF) panels are engineered for seamless power transition, featuring a microprocessor-based controller that manages automatic start/stop logic with precision. The panels utilize high-quality contactors or motorized breakers for reliable changeover operations. Comprehensive protection logic safeguards the load from voltage fluctuations, phase reversals, and frequency errors. The interface includes clear LED/LCD indications for Mains and DG status, ensuring operators have full visibility of the power system at all times.",
+                productLink: "/products/panels",
+              },
+              {
+                id: "cat-6",
+                range: "5-100 kVA",
+                name: "Oil Cooled Servo Stabilizers",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Air/Oil",
+                phase: "Single Phase",
+                ratingCount: 134,
+                rating: 4.5,
+                category: "servo",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967029/KumarPower-Assets/aecz6nzhgjijhrvwftyv.jpg",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967041/KumarPower-Assets/brochures/c9fq282mtmaczrfvh5ut.pdf",
+                description:
+                  "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
+                technicalSpecs:
+                  "This range delivers precision voltage correction using advanced oil-immersed technology, making it ideal for heavy-duty cycles. It achieves correction speeds greater than 20V per second with an output voltage regulation accuracy of ±1%. The oil-cooled design ensures superior heat dissipation, extending component life. Built with high-grade variacs (toroidal transformers) and buck-boost transformers, it offers comprehensive protection including low/high voltage cutoffs and overload protection, ensuring total safety for connected equipment.",
+                productLink: "/products/servo-stabilizer",
+              },
+              {
+                id: "cat-7",
+                range: "100-2500 kVA",
+                name: "Distribution Transformers",
+                fuelType: "N/A",
+                cpcbNorm: "N/A",
+                cooling: "Oil/Dry",
+                phase: "Three Phase",
+                ratingCount: 88,
+                rating: 4.8,
+                category: "transformers",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967029/KumarPower-Assets/q5qcxe3enxkgywhop6ly.jpg",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967041/KumarPower-Assets/brochures/c9fq282mtmaczrfvh5ut.pdf",
+                description:
+                  "Durable and efficient transformers designed for various industrial and commercial applications.",
+                technicalSpecs:
+                  "These reliable step-down transformers are crafted for utility and industrial use, featuring a core made from CRGO (Cold Rolled Grain Oriented) silicon steel laminations to minimize losses. The windings are constructed from high-quality Electrolytic Copper or Aluminum with robust paper insulation. Utilizing ONAN (Oil Natural Air Natural) cooling and complying with IS 1180 energy efficiency levels, they include an off-circuit tap changer, allowing for precise voltage adjustments to match network requirements.",
+                productLink: "/products/transformers",
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      title: "Kirloskar Diesel Generators",
+      slug: "kirloskar-diesel-generator",
+      canonicalUrl: "https://www.kumarpower.com/products/kirloskar-diesel-generator",
+      description: "Kirloskar Diesel Generators range from 7.5 kVA to 1500 kVA",
+      metaTitle: "Kirloskar Diesel Generators Dealer in Delhi | Kumar Power",
+      metaDescription:
+        "Explore CPCB-IV+ compliant Kirloskar Diesel Generators.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-kirloskar-diesel-generator-main",
+          type: "kirloskar-diesel-generator",
+          order: 1,
+          content: {
+            heroHeadingPart1: "Kirloskar Diesel Generators",
+            heroHeadingPart2: "Dealer in Delhi",
+            heroHeading: "Kirloskar Diesel Generators Dealer in Delhi",
+            heroSub:
+              "Explore Kirloskar Diesel Generators at Kumar Power for reliable backup and prime power solutions. Ideal for industrial and commercial applications in the required power range.",
+            heroBg:
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
+            sectionTitle: "CPCB IV+ Diesel Generators",
+            sectionDesc:
+              "Kirloskar's range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+            certTitle: "Certified Excellence",
+            helpTitle: "Need Help Choosing the Right Electrical Solution?",
+            helpSub:
+              "Our team of experts will help you select the perfect solution based on your industry and budget.",
+            helpBtnText: "Talk to an Expert",
+            whyChooseTitle: "Why Choose Kirloskar Generators?",
+
+            whyChooseCard1Title: "Unmatched Reliability",
+            whyChooseCard1Desc:
+              "Engineered for 24/7 operation with redundant systems and fail-safe mechanisms.",
+            whyChooseCard2Title: "Fuel Efficiency",
+            whyChooseCard2Desc:
+              "Advanced engine technology delivers optimal fuel consumption and lower operating costs.",
+            whyChooseCard3Title: "Rapid Response",
+            whyChooseCard3Desc:
+              "Quick start capability ensures minimal downtime during power outages.",
+            whyChooseCard4Title: "Low Noise Operation",
+            whyChooseCard4Desc:
+              "Acoustic engineering reduces noise levels for urban and sensitive environments.",
+            whyChooseCard5Title: "Easy Maintenance",
+            whyChooseCard5Desc:
+              "Modular design with accessible components simplifies service and maintenance.",
+            whyChooseCard6Title: "Smart Controls",
+            whyChooseCard6Desc:
+              "Advanced digital interfaces with remote monitoring and diagnostic capabilities.",
+            cert1Title: "ISO 9001:2015",
+            cert2Title: "CPCB-IV+",
+            cert3Title: "Kirloskar Authorized",
+
+            gensets: [
+              {
+                id: "dg-1",
+                name: "7.5 kVA to 20 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/zhnxnwqqlflixb79r0ag.jpg",
+                phase: "Three Phase",
+                range: "7.5 kVA to 20 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967023/KumarPower-Assets/mfzttuhvon8rmp6qnlb0",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "153",
+                technicalSpecs:
+                  "Engineered specifically for compact power needs, this range utilizes the robust Kirloskar R550 series engines, known for their naturally aspirated design and reliable G2 class mechanical governing. These units are optimized for low-load operations, consuming approximately 2-3 Liters per hour at 75% load, making them highly economical. The silent canopy design ensures noise levels remain below 75 dBA at 1 meter, making these generators the ideal choice for small retail shops, clinics, residential backup, and small offices where silence is as important as power.",
+              },
+              {
+                id: "dg-2",
+                name: "25 kVA to 58.5 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967023/KumarPower-Assets/pn3b0pr4zhjnmmhnyhlb.jpg",
+                phase: "Three Phase",
+                range: "25 kVA to 58.5 kVA",
+                rating: "4.9",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967023/KumarPower-Assets/zbg7ceuvyl6qirdch4lc",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "132",
+                technicalSpecs:
+                  "These mid-range workhorses are built for stability and endurance, powered by Kirloskar's liquid-cooled 3R1040 and 4R1040 series engines equipped with heavy-duty radiators. The system integrates advanced anti-vibration mounts to ensure smooth operation and minimal structural stress. Featuring a brushless, single-bearing alternator with IP23 protection and managed by the KG545 Digital Controller, these units offer comprehensive remote monitoring capabilities. They are perfectly suited for restaurants, commercial complexes, and small manufacturing units requiring consistent uptime.",
+              },
+              {
+                id: "dg-3",
+                name: "82.5 kVA to 160 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967023/KumarPower-Assets/x2x4gnsznxqsonxuguzn.jpg",
+                phase: "Three Phase",
+                range: "82.5 kVA to 160 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967025/KumarPower-Assets/k6sglj5w8bflug0an2bt",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "118",
+                technicalSpecs:
+                  "Designed for industrial-grade performance, this range utilizes 4 and 6 cylinder inline turbocharged and intercooled engines to handle demanding loads. With G3 Class electronic governing, these generators provide precise frequency regulation and excellent sudden load acceptance, capable of handling 100% block loading. The fuel tanks are sized for 8-10 hours of continuous running, ensuring uninterrupted workflow. These are the preferred power solution for construction sites, medium-scale industries, hospitals, and hotels where power quality cannot be compromised.",
+              },
+              {
+                id: "dg-4",
+                name: "200 kVA to 250 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967024/KumarPower-Assets/htf5iu9ba8x930rayll5.jpg",
+                phase: "Three Phase",
+                range: "200 kVA to 250 kVA",
+                rating: "4.7",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967025/KumarPower-Assets/mfbfnvdbdehe9ecawfb0",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "178",
+                technicalSpecs:
+                  "This series features high-performance Kirloskar DV Series engines (with V-Type configuration options) that deliver robust power for critical infrastructure. They offer best-in-class fluid efficiency, optimizing both fuel and DEF consumption to lower operational costs. Controlled by an advanced ECU for precise engine management and diagnostics, these units include comprehensive safety protections against Over-speed, Low Lube Oil Pressure (LLOP), and High Water Temperature. They are engineered for large commercial hubs, infrastructure projects, and data centers.",
+              },
+              {
+                id: "dg-5",
+                name: "320 kVA - 750 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967024/KumarPower-Assets/vpcqpzmiydhxyx1hfmyw.jpg",
+                phase: "Three Phase",
+                range: "320 kVA - 750 kVA",
+                rating: "4.9",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967026/KumarPower-Assets/lkpatlwtflzsaxeb3jct",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "96",
+                technicalSpecs:
+                  "These heavy-duty powerhouses are designed for 24/7 continuous operations in harsh environments, powered by SL90 and DV Series turbocharged after-cooled engines. The system allows for easy paralleling and synchronization with the grid or other DG sets to create flexible power plants. With GSM/GPRS-enabled controllers for remote monitoring and long service intervals of 500 hours, these generators significantly reduce Opex. They are the standard for heavy engineering industries, malls, mining operations, and large-scale real estate developments.",
+              },
+              {
+                id: "dg-6",
+                name: "750 kVA - 1500 kVA Diesel Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967026/KumarPower-Assets/dfoa9llbkiotw8iwodz5.jpg",
+                phase: "Three Phase",
+                range: "750 kVA - 1500 kVA",
+                rating: "4.9",
+                cooling: "Liquid",
+                category: "diesel",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967026/KumarPower-Assets/fujivv24ujtujyi5dei7",
+                description:
+                  "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
+                ratingCount: "86",
+                technicalSpecs:
+                  "Representing the ultimate in power solutions, this range features the legendary K-Series and DV-Series engines known for massive power density within a compact footprint. They utilize full authority electronic engine management systems for peak performance and can be configured with heavy-duty remote radiator options for specialized installations. Designed for absolute reliability in continuous duty cycles, these generators power critical national assets including power plants, mega-infrastructure projects, international airports, and hyperscale data centers.",
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      title: "Kirloskar Gas Generators",
+      slug: "kirloskar-gas-generator",
+      canonicalUrl: "https://www.kumarpower.com/products/kirloskar-gas-generator",
+      description: "Eco-friendly natural gas and CNG generators",
+      metaTitle: "Kirloskar Gas Generators Dealer in Delhi | Kumar Power",
+      metaDescription: "Eco-friendly gas generators for clean power solutions.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-kirloskar-gas-generator-main",
+          type: "kirloskar-gas-generator",
+          order: 1,
+          content: {
+            heroHeadingPart1: "Kirloskar Gas Generators",
+            heroHeadingPart2: "Dealer in Delhi",
+            heroHeading: "Kirloskar Gas Generators Dealer in Delhi",
+            heroSub:
+              "Kirloskar Oil Engines Ltd (KOEL) offers a range of gas-powered generator sets (gensets) designed to provide reliable and efficient power solutions across various applications.",
+            heroBg:
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
+            sectionTitle: "Gas Generators",
+            sectionDesc:
+              "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
+            gensets: [
+              {
+                id: "gg-1",
+                name: "15 kVA to 250 kVA Gas Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967026/KumarPower-Assets/rmnw9kop5rsj2xjadclz.jpg",
+                phase: "Single/Three Phase",
+                range: "15 kVA to 250 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Natural Gas/CNG",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967027/KumarPower-Assets/goagxwwkbsdmlrkiagez",
+                description:
+                  "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
+                ratingCount: "142",
+                technicalSpecs:
+                  "Utilizing state-of-the-art gas engine technology, this range offers a greener footprint with extremely low NOx and PM emissions that exceed CPCB norms. The engines employ stoichiometric combustion to ensure high thermal efficiency, resulting in operating costs that are 40-50% lower than comparable diesel gensets. With inherent fuel flexibility (compatible with Natural Gas, CNG, and LPG) and a quieter combustion process, these generators are ideal for urban areas with strict pollution norms, green buildings, and cost-conscious businesses.",
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      title: "Kirloskar Portable Generators",
+      slug: "kirloskar-portable-generator",
+      canonicalUrl: "https://www.kumarpower.com/products/kirloskar-portable-generator",
+      description: "Compact portable generators for versatile power needs",
+      metaTitle: "Kirloskar Portable Generators Dealer in Delhi | Kumar Power",
+      metaDescription: "Lightweight and mobile power generators.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-kirloskar-portable-generator-main",
+          type: "kirloskar-portable-generator",
+          order: 1,
+          content: {
+            heroHeadingPart1: "Kirloskar Portable Generators",
+            heroHeadingPart2: "Dealer in Delhi",
+            heroHeading: "Kirloskar Portable Generators Dealer in Delhi",
+            heroSub:
+              "Kirloskar Oil Engines Ltd (KOEL) offers a range of portable generator sets with power outputs from 2.1 kVA to 5 kVA, designed to provide reliable and efficient power solutions for various applications.",
+            heroBg:
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
+            sectionTitle: "Portable Generators",
+            sectionDesc:
+              "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
+            gensets: [
+              {
+                id: "pg-1",
+                name: "2.1 kVA to 5 kVA Portable Generators",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967027/KumarPower-Assets/gq0rlktblfjugazhcdgy.jpg",
+                phase: "Single Phase",
+                range: "2.1 kVA to 5 kVA",
+                rating: "4.7",
+                cooling: "Air",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Gasoline",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967027/KumarPower-Assets/bhgdmhdzu8uk8ued0jub",
+                description:
+                  "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
+                ratingCount: "165",
+                technicalSpecs:
+                  "These lightweight and mobile power solutions are designed for 'on-the-go' reliability. Featuring ergonomic designs with wheels and handles on select models, they offer easy mobility for any user. The units come with options for easy recoil start or electric start and feature copper-wound alternators for stable voltage output. Equipped with circuit breaker protection and oil alert systems to prevent damage, they are ideal for food trucks, camping trips, home backup for lights and fans, and operating small construction tools.",
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      title: "Kirloskar Optiprime Generator",
+      slug: "optiprime",
+      canonicalUrl: "https://www.kumarpower.com/products/optiprime",
+      description:
+        "Advanced Optiprime generators for optimized fuel efficiency",
+      metaTitle: "Optiprime Generators Dealer in Delhi | Kumar Power",
+      metaDescription:
+        "Variable speed and IoT monitoring generator technology.",
+      isStatic: true,
+      visibility: "published",
+      sections: [
+        {
+          id: "sec-optiprime-main",
+          type: "optiprime",
+          order: 1,
+          content: {
+            heroHeadingPart1: "Optiprime Genset Dealer in Delhi -",
+            heroHeadingPart2: "Kumar Power",
+            heroHeading: "Optiprime Genset Dealer in Delhi - Kumar Power",
+            heroSub:
+              "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+            heroBg:
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
+            sectionTitle: "Optiprime",
+            sectionDesc:
+              "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+            gensets: [
+              {
+                id: "op-1",
+                name: "Kirloskar Optiprime Generator",
+                image:
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967027/KumarPower-Assets/us7kljbdt1uc0dxeiorb.jpg",
+                phase: "Three Phase",
+                range: "100 kVA",
+                rating: "4.8",
+                cooling: "Liquid",
+                cpcbNorm: "CPCB-IV+",
+                fuelType: "Diesel",
+                brochurePdf:
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967028/KumarPower-Assets/v7jjpbhcvcdsi6l43wkx",
+                description:
+                  "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
+                ratingCount: "195",
+                technicalSpecs:
+                  "The Optiprime series represents the next evolution in generator efficiency, utilizing variable speed and optimized fuel mapping technology. This advanced system delivers significantly better fuel economy at partial loads compared to standard generators, drastically reducing running costs. It comes integrated with an IoT device for real-time health monitoring and predictive maintenance, ensuring maximum uptime. Housed in an enhanced canopy for superior weather protection, the Optiprime is the perfect solution for telecom towers, ATMs, and remote sites with varying load patterns.",
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
       title: "Electrical Panels",
       slug: "panels",
+      canonicalUrl: "https://www.kumarpower.com/products/panels",
       description:
         "High-quality electrical control panels for power distribution, control, and protection",
       metaTitle: "Electrical Control Panels Dealer in Delhi | Kumar Power",
@@ -2984,6 +3603,7 @@ async function main() {
     {
       title: "Servo Voltage Stabilizers",
       slug: "servo-stabilizer",
+      canonicalUrl: "https://www.kumarpower.com/products/servo-stabilizer",
       description:
         "Precision oil-cooled and air-cooled servo voltage stabilizers",
       metaTitle: "Servo Stabilizers Dealer in Delhi | Kumar Power",
@@ -3086,6 +3706,7 @@ async function main() {
     {
       title: "Transformers",
       slug: "transformers",
+      canonicalUrl: "https://www.kumarpower.com/products/transformers",
       description:
         "Durable and efficient transformers designed for various industrial and commercial applications.",
       metaTitle: "Transformers Dealer - Kumar Power",
@@ -3222,6 +3843,7 @@ async function main() {
     {
       title: "Our Clients",
       slug: "our-clients",
+      canonicalUrl: "https://www.kumarpower.com/about/OurClients",
       description: "Kumar Power Client Directory",
       metaTitle: "Our Clients - Kumar Power",
       metaDescription: "Trusted by over 500+ corporate clients across India.",
@@ -6386,6 +7008,7 @@ async function main() {
     {
       title: "Testimonials",
       slug: "testimonials",
+      canonicalUrl: "https://www.kumarpower.com/about/Testimonials",
       description: "Customer Reviews and Testimonials",
       metaTitle: "Testimonials - Kumar Power",
       metaDescription: "Read feedback and reviews from our valued clients.",
@@ -6765,6 +7388,7 @@ async function main() {
     {
       title: "Battery Energy Storage System (BESS)",
       slug: "bess",
+      canonicalUrl: "https://www.kumarpower.com/products/bess",
       description:
         "High-efficiency Lithium Iron Phosphate (LiFePO4) energy storage solutions engineered for commercial, industrial, and renewable synchronization.",
       metaTitle: "Battery Energy Storage Systems (BESS) | Kumar Power",
@@ -6954,6 +7578,7 @@ async function main() {
     {
       title: "Solar Panels & Systems",
       slug: "solar",
+      canonicalUrl: "https://www.kumarpower.com/products/solar",
       description:
         "Tier-1 Mono PERC & TOPCon Bifacial Solar Panels for Commercial and Industrial Power.",
       metaTitle:

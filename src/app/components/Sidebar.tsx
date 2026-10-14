@@ -61,6 +61,29 @@ const sidebarLinks: SidebarLink[] = [
     ],
   },
   {
+    title: "PRODUCTS",
+    icon: Package,
+    sublinks: [
+      { title: "Products Overview", href: "/static-pages/products" },
+      {
+        title: "Kirloskar Diesel Generator",
+        href: "/static-pages/products/kirloskar-diesel-generator",
+      },
+      {
+        title: "Kirloskar Gas Generator",
+        href: "/static-pages/products/kirloskar-gas-generator",
+      },
+      {
+        title: "Kirloskar Portable Generator",
+        href: "/static-pages/products/kirloskar-portable-generator",
+      },
+      {
+        title: "Optiprime Generator",
+        href: "/static-pages/products/optiprime",
+      },
+    ],
+  },
+  {
     title: "SOLUTIONS",
     icon: Package,
     sublinks: [
