@@ -20,7 +20,7 @@ export function SaveButton({
 }: SaveButtonProps) {
   return (
     <button
-      type="button"
+      type={props.type || (props.onClick ? "button" : "submit")}
       disabled={disabled || isSaving}
       className={cn(
         "flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-xs font-black tracking-wide uppercase transition-all duration-200 shadow-md cursor-pointer active:scale-95 disabled:opacity-70",

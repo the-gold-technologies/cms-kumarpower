@@ -53,18 +53,18 @@ export default function StaticBlogCMSPage() {
   const [isArticlesOpen, setIsArticlesOpen] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [savingArticle, setSavingArticle] = useState(false);
 
   const [formData, setFormData] = useState<Omit<BlogItem, "id">>({
     title: "",
     slug: "",
-    category: "Product Guide",
-    author: "Kumar Power Team",
+    category: "",
+    author: "",
     publishedDate: new Date().toISOString().split("T")[0],
     excerpt: "",
     content: "",
-    image:
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
-    readTime: "4 min read",
+    image: "",
+    readTime: "",
     status: "Published",
   });
 
@@ -92,12 +92,18 @@ export default function StaticBlogCMSPage() {
           if (hero.heroSub !== undefined) setHeroSub(hero.heroSub);
           if (hero.heroBg !== undefined) setHeroBg(hero.heroBg);
           if (hero.ctaTitle !== undefined) setCtaTitle(hero.ctaTitle);
-          if (hero.ctaDescription !== undefined) setCtaDescription(hero.ctaDescription);
-          if (hero.ctaPrimaryLabel !== undefined) setCtaPrimaryLabel(hero.ctaPrimaryLabel);
-          if (hero.ctaPrimaryUrl !== undefined) setCtaPrimaryUrl(hero.ctaPrimaryUrl);
-          if (hero.ctaSecondaryLabel !== undefined) setCtaSecondaryLabel(hero.ctaSecondaryLabel);
-          if (hero.companyProfilePdf !== undefined) setCompanyProfilePdf(hero.companyProfilePdf);
-          if (hero.articlesHeading !== undefined) setArticlesHeading(hero.articlesHeading);
+          if (hero.ctaDescription !== undefined)
+            setCtaDescription(hero.ctaDescription);
+          if (hero.ctaPrimaryLabel !== undefined)
+            setCtaPrimaryLabel(hero.ctaPrimaryLabel);
+          if (hero.ctaPrimaryUrl !== undefined)
+            setCtaPrimaryUrl(hero.ctaPrimaryUrl);
+          if (hero.ctaSecondaryLabel !== undefined)
+            setCtaSecondaryLabel(hero.ctaSecondaryLabel);
+          if (hero.companyProfilePdf !== undefined)
+            setCompanyProfilePdf(hero.companyProfilePdf);
+          if (hero.articlesHeading !== undefined)
+            setArticlesHeading(hero.articlesHeading);
           if (hero.articlesSub !== undefined) setArticlesSub(hero.articlesSub);
         }
       })
@@ -107,14 +113,28 @@ export default function StaticBlogCMSPage() {
   const handleSaveHero = async () => {
     setSavingHero(true);
     try {
-      const rawPayload = { 
-        heroTagline, heroHeading, heroSub, heroBg,
-        ctaTitle, ctaDescription, ctaPrimaryLabel, ctaPrimaryUrl,
-        ctaSecondaryLabel, companyProfilePdf, articlesHeading, articlesSub
+      const rawPayload = {
+        heroTagline,
+        heroHeading,
+        heroSub,
+        heroBg,
+        ctaTitle,
+        ctaDescription,
+        ctaPrimaryLabel,
+        ctaPrimaryUrl,
+        ctaSecondaryLabel,
+        companyProfilePdf,
+        articlesHeading,
+        articlesSub,
       };
       const payload = await uploadFilesDeep(rawPayload);
-      if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
-      if (payload.companyProfilePdf && typeof payload.companyProfilePdf === "string") setCompanyProfilePdf(payload.companyProfilePdf);
+      if (payload.heroBg && typeof payload.heroBg === "string")
+        setHeroBg(payload.heroBg);
+      if (
+        payload.companyProfilePdf &&
+        typeof payload.companyProfilePdf === "string"
+      )
+        setCompanyProfilePdf(payload.companyProfilePdf);
 
       const res = await fetch("/api/pages/blogs", {
         method: "PUT",
@@ -182,17 +202,18 @@ export default function StaticBlogCMSPage() {
   const handleDelete = async (item: BlogItem) => {
     if (confirm(`Are you sure you want to delete article "${item.title}"?`)) {
       const updated = blogList.filter((b) => b.id !== item.id);
-      setBlogList(updated);
-      
+
       try {
-        await fetch("/api/pages/blogs", {
+        const res = await fetch("/api/pages/blogs", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ section: "articles", content: updated }),
         });
+        if (!res.ok) throw new Error("Failed to delete article");
+        setBlogList(updated);
         toast.success("Blog article deleted");
-      } catch {
-        toast.error("Failed to delete article");
+      } catch (err: any) {
+        toast.error(err.message || "Failed to delete article");
       }
     }
   };
@@ -204,40 +225,48 @@ export default function StaticBlogCMSPage() {
       return;
     }
 
-    const finalSlug = formData.slug || generateSlug(formData.title);
-    
-    // Upload image if it's a File
-    const finalFormData = await uploadFilesDeep(formData);
-    
-    let updated;
-
-    if (editingId) {
-      updated = blogList.map((b) =>
-        b.id === editingId
-          ? { ...finalFormData, slug: finalSlug, id: editingId }
-          : b,
-      );
-    } else {
-      const newBlog: BlogItem = {
-        ...finalFormData,
-        id: `blog-${Date.now()}`,
-        slug: finalSlug,
-      };
-      updated = [newBlog, ...blogList];
-    }
-    
-    setBlogList(updated);
-
+    setSavingArticle(true);
     try {
-      await fetch("/api/pages/blogs", {
+      const finalSlug = formData.slug || generateSlug(formData.title);
+      const finalFormData = await uploadFilesDeep(formData);
+
+      let updated: BlogItem[];
+      if (editingId) {
+        updated = blogList.map((b) =>
+          b.id === editingId
+            ? { ...b, ...finalFormData, slug: finalSlug, id: editingId }
+            : b,
+        );
+      } else {
+        const newBlog: BlogItem = {
+          ...finalFormData,
+          id: `blog-${Date.now()}`,
+          slug: finalSlug,
+        };
+        updated = [newBlog, ...blogList];
+      }
+
+      const res = await fetch("/api/pages/blogs", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ section: "articles", content: updated }),
       });
-      toast.success(editingId ? "Blog article updated!" : "New blog article created!");
+
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => null);
+        throw new Error(errJson?.error || "Failed to save article");
+      }
+
+      setBlogList(updated);
+      toast.success(
+        editingId ? "Blog article updated!" : "New blog article created!",
+      );
       setIsModalOpen(false);
-    } catch {
-      toast.error("Failed to save article");
+    } catch (err: any) {
+      console.error("Save article error:", err);
+      toast.error(err.message || "Failed to save article");
+    } finally {
+      setSavingArticle(false);
     }
   };
 
@@ -407,7 +436,9 @@ export default function StaticBlogCMSPage() {
           <div className="overflow-hidden space-y-6 pt-2">
             {/* Articles Header Fields */}
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 space-y-4">
-              <h3 className="text-sm font-bold text-slate-800 border-b border-slate-200 pb-2">Articles Grid Header Text</h3>
+              <h3 className="text-sm font-bold text-slate-800 border-b border-slate-200 pb-2">
+                Articles Grid Header Text
+              </h3>
               <InputField
                 label="Articles Heading"
                 value={articlesHeading}
@@ -664,6 +695,8 @@ export default function StaticBlogCMSPage() {
                   Cancel
                 </button>
                 <SaveButton
+                  type="submit"
+                  isSaving={savingArticle}
                   label={editingId ? "Save Changes" : "Publish Article"}
                 />
               </div>

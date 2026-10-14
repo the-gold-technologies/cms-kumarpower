@@ -2911,6 +2911,7 @@ async function main() {
       metaDescription:
         "Explore our full range of Kirloskar-certified diesel generators, gas generators, portable generators, electrical panels, servo stabilizers, and transformers.",
       isStatic: true,
+      headingOptions: "h1",
       visibility: "published",
       sections: [
         {
