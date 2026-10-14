@@ -52,8 +52,8 @@ async function main() {
         siteTitle: "Kumar Power | Kirloskar Generator Dealer",
         siteDescription:
           "Authorized dealer of Kirloskar Green CPCB IV+ Silent Diesel Generators in Delhi NCR.",
-        googleAnalyticsId: "G-XXXXXXXXXX",
-        gtmId: "GTM-XXXXXXX",
+        googleAnalyticsId: null,
+        gtmId: "GTM-NK6G8KS5",
         searchConsoleId: "google-site-verification-code",
         customHeaderScripts: "<!-- Custom Head Scripts -->",
         customFooterScripts: `<link rel="stylesheet" href="https://sidewidget.vercel.app/react-widget-uv.css">\n<script>window.process = { env: {} };</script>\n<script src="https://sidewidget.vercel.app/react-widget-uv.iife.js"></script>\n<react-widget-uv agent_id="9efb6a86-285d-4201-a1fe-b77b58efa2cf" schema="6af30ad4-a50c-4acc-8996-d5f562b6987f" type="thunderemotionlite"></react-widget-uv>`,
@@ -67,9 +67,9 @@ async function main() {
           youtube: "https://youtube.com/@kumarpowertv?si=mFgisAy9mp6Uu0LE",
         },
         headingOptions: "h1",
-        sitemapEnabled: true,
+        sitemapEnabled: false,
         robotsTxt:
-          "User-agent: *\nAllow: /\n\nSitemap: https://www.kumarpower.com/sitemap.xml",
+          "User-agent: *\nAllow: \n \nSitemap: https://www.kumarpower.com/sitemap.xml",
       },
     });
     console.log("✅ Seeded Global SEO Config with Analytics & Scripts");
@@ -298,6 +298,39 @@ async function main() {
     console.log(`✅ Created ${enquiriesList.length} enquiry entries.`);
   } catch (err) {
     console.warn("Enquiries seed skipped:", err);
+  }
+
+  // 5.5. Create Job Applications (Live from Production)
+  const jobApplicationsList = [
+    {
+      id: "app-1791909276292",
+      fullName: "Dfxdfg",
+      email: "e.v.abeyu.wu.8.27@gmail.com",
+      phone: "3487173534",
+      message: "9501849511",
+      resumeUrl: null,
+      status: "New",
+      createdAt: new Date("2026-10-13T16:34:36.293Z"),
+    },
+    {
+      id: "app-1791587368641",
+      fullName: "Dotbmm",
+      email: "le.w.is.zachar.y16.1@gmail.com",
+      phone: "2559037171",
+      message: "3515456399",
+      resumeUrl: null,
+      status: "New",
+      createdAt: new Date("2026-10-09T23:09:28.642Z"),
+    },
+  ];
+
+  try {
+    for (const app of jobApplicationsList) {
+      await prisma.jobApplication.create({ data: app });
+    }
+    console.log(`✅ Created ${jobApplicationsList.length} job application entries.`);
+  } catch (err) {
+    console.warn("Job applications seed skipped:", err);
   }
 
   // 6. Create Static Pages and Sections with EXACT fields matching CMS forms
@@ -1795,12 +1828,12 @@ async function main() {
       description: "About Kumar Power",
       metaTitle: "Our Profile & Company History - Kumar Power",
       metaDescription:
-        "Learn about our 30+ years of power generation legacy in India.",
+        "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India.",
       keywords:
         "Kumar Power company profile, generator company history Delhi, power solutions India, authorized Kirloskar dealer",
       ogTitle: "Our Profile & Company History - Kumar Power",
       ogDescription:
-        "Learn about our 30+ years of power generation legacy in India.",
+        "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -6537,14 +6570,15 @@ async function main() {
       slug: "blogs",
       description:
         "Explore expert articles, case studies, and latest trends in industrial power solutions.",
-      metaTitle: "Blogs & Articles - Kumar Power",
+      metaTitle: "Kumar Power Blogs - Read and Stay update",
       metaDescription:
-        "Explore expert articles, case studies, and latest trends in industrial power solutions.",
+        "Explore expert blogs on industrial power solutions, diesel generators, AMF panels, Kirloskar DG sets, maintenance, and power industry trends.",
       keywords:
         "power solutions blog, generator articles, industrial power trends, Kumar Power blog, DG set tips",
-      ogTitle: "Blogs & Articles - Kumar Power",
+      canonicalUrl: "https://www.kumarpower.com/blogs",
+      ogTitle: "Kumar Power Blogs - Read and Stay update",
       ogDescription:
-        "Explore expert articles, case studies, and latest trends in industrial power solutions.",
+        "Explore expert blogs on industrial power solutions, diesel generators, AMF panels, Kirloskar DG sets, maintenance, and power industry trends.",
       headingOptions: "h1",
       isStatic: true,
       visibility: "published",
@@ -6586,7 +6620,7 @@ async function main() {
               slug: "amf-panel-for-dg-set",
               category: "Product Guide",
               author: "Kumar Power Team",
-              publishedDate: new Date().toISOString().split("T")[0],
+              publishedDate: "2026-09-28",
               summary:
                 "AMF Panels (Automatic Mains Failure Panels) for DG Sets are essential for ensuring uninterrupted power supply, automatically switching between mains and generator power during outages.",
               image:
@@ -6614,7 +6648,7 @@ async function main() {
               slug: "kirloskar-silent-generator",
               category: "Technical Insights",
               author: "Kumar Power Team",
-              publishedDate: new Date().toISOString().split("T")[0],
+              publishedDate: "2026-09-28",
               summary:
                 "The Kirloskar silent power generator operates at a noise level of less than 75 dBA at 1 metre distance, which is roughly similar to the sound of a normal conversation.",
               image:
@@ -6639,7 +6673,7 @@ async function main() {
               slug: "industrial-kirloskar-dg-set-750-1500kva",
               category: "Industrial Solutions",
               author: "Kumar Power Team",
-              publishedDate: new Date().toISOString().split("T")[0],
+              publishedDate: "2026-09-28",
               summary:
                 "Heavy-duty industrial Kirloskar DG Sets ranging from 750 kVA to 1500 kVA are engineered for continuous, reliable prime and standby power in large-scale manufacturing, infrastructure, and commercial sectors.",
               image:
@@ -6680,7 +6714,7 @@ async function main() {
               slug: "benefits-of-diesel-generator",
               category: "Maintenance",
               author: "Kumar Power Team",
-              publishedDate: new Date().toISOString().split("T")[0],
+              publishedDate: "2026-09-28",
               summary:
                 "A very comprehensive preventive maintenance strategy is one of the most important investments businesses can make to improve generator reliability, operational efficiency, and long-term performance.",
               image:
@@ -6708,7 +6742,7 @@ async function main() {
               slug: "generator-performance",
               category: "Technical Insights",
               author: "Kumar Power Team",
-              publishedDate: new Date().toISOString().split("T")[0],
+              publishedDate: "2026-09-28",
               summary:
                 "Extreme weather conditions can severely impact generator performance if proper precautions aren't taken. In hot weather, ensure proper ventilation.",
               image:
@@ -7274,7 +7308,7 @@ async function main() {
 <blockquote>
   <strong>Kumar Power Commercial Department</strong><br/>
   <strong>Email:</strong> sales@kumarpower.com / info@kumarpower.com<br/>
-  <strong>Phone:</strong> +91 97738 51767 / +91 99711 66630<br/>
+  <strong>Phone:</strong> +91 97738 51767 / +91 9773877796<br/>
   <strong>Registered Office:</strong> Kumar Power Solutions, India
 </blockquote>`,
           },
