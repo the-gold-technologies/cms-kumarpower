@@ -328,7 +328,9 @@ async function main() {
     for (const app of jobApplicationsList) {
       await prisma.jobApplication.create({ data: app });
     }
-    console.log(`✅ Created ${jobApplicationsList.length} job application entries.`);
+    console.log(
+      `✅ Created ${jobApplicationsList.length} job application entries.`,
+    );
   } catch (err) {
     console.warn("Job applications seed skipped:", err);
   }
@@ -607,7 +609,7 @@ async function main() {
             heroSub:
               "Expert power system installation and commissioning services for optimal performance, reliability, and compliance.",
             heroBg:
-              "https://res.cloudinary.com/dmhabztbf/image/upload/v1763639947/f968fc70-2c88-4870-9524-0105525f9de8_jivsd7.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966974/KumarPower-Assets/uxcjegk9rty4csmdio5j.jpg",
             heroCtaLabel: "Schedule a Consultation",
 
             introTagline: "KUMAR POWER EXPERTISE",
@@ -617,7 +619,7 @@ async function main() {
             introP2:
               "Our certified technicians handle everything from site assessment and planning to final commissioning and operator training, delivering turnkey solutions that maximize reliability and minimize downtime across industries.",
             introImage:
-              "https://res.cloudinary.com/dmhabztbf/image/upload/v1763639947/f968fc70-2c88-4870-9524-0105525f9de8_jivsd7.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966974/KumarPower-Assets/uxcjegk9rty4csmdio5j.jpg",
 
             processTagline: "OUR INSTALLATION PROCESS",
             processHeading: "Our Installation Process",
@@ -705,175 +707,175 @@ async function main() {
                 name: "Commercial Power System",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785773/kumarpower_website/installation/guodeq5wfayiqizjosyo.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966974/KumarPower-Assets/mvv11ihb8nih5vrq2wb9.png",
               },
               {
                 id: "p-3",
                 name: "Residential Backup Generator",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785774/kumarpower_website/installation/ycoqx8bsjhsguktp3ytx.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966974/KumarPower-Assets/xofjblirbmylcgsjcoul.png",
               },
               {
                 id: "p-4",
                 name: "Hospital Emergency Power",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785775/kumarpower_website/installation/egue8gfplzzdsoxk5jxm.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966974/KumarPower-Assets/jczy7ynnmsl2zknnjefb.png",
               },
               {
                 id: "p-5",
                 name: "Data Center Installation",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785777/kumarpower_website/installation/xyindqnknrwmp1qoblkt.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966975/KumarPower-Assets/i7h1huyugxxwuy1fge4y.png",
               },
               {
                 id: "p-6",
                 name: "Manufacturing Facility Setup",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785778/kumarpower_website/installation/ylhbdzmjtig05y2kod9n.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966975/KumarPower-Assets/izvaigzjjpswxgzfw7xv.png",
               },
               {
                 id: "p-7",
                 name: "Office Building Generator",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785779/kumarpower_website/installation/gop2i6nud1muuvl3vmnq.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966975/KumarPower-Assets/af4xxfn5hbbhreoxgz8x.png",
               },
               {
                 id: "p-8",
                 name: "Home Standby Power",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785780/kumarpower_website/installation/jzvvgmyaw4mhndywyqmc.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966975/KumarPower-Assets/so5pl2ojbmbasit4joke.png",
               },
               {
                 id: "p-9",
                 name: "Retail Power Solution",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785781/kumarpower_website/installation/tzsy4o5xoq7mqup4jx7x.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966976/KumarPower-Assets/eaxn6ituks463kzln40o.png",
               },
               {
                 id: "p-10",
                 name: "Industrial Complex System",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785782/kumarpower_website/installation/s37sx7vj1tlaamn56yoj.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966976/KumarPower-Assets/ctdmuiarag4ir1kurpxq.png",
               },
               {
                 id: "p-11",
                 name: "Apartment Building Generator",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785784/kumarpower_website/installation/xjuxkmnxyusuaq1phwtm.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966976/KumarPower-Assets/tx1zdjzesb34hzphb0zy.png",
               },
               {
                 id: "p-13",
                 name: "Hotel Backup System",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785785/kumarpower_website/installation/daxn0alf01qxxydgmx1z.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966976/KumarPower-Assets/agthb94annfcg8rpoloj.png",
               },
               {
                 id: "p-14",
                 name: "Residential Power Solution",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785786/kumarpower_website/installation/jnt9eaeqoahtwlhotbb5.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966977/KumarPower-Assets/pky5dewiokxjmwgktqlh.png",
               },
               {
                 id: "p-15",
                 name: "Warehouse Power Setup",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785788/kumarpower_website/installation/dg0ejmbtpjnc7nhdocld.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966977/KumarPower-Assets/vrfh5rvixijiharfzeij.png",
               },
               {
                 id: "p-16",
                 name: "School Generator Installation",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785789/kumarpower_website/installation/bkfdvscjdx39e2nasqls.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966977/KumarPower-Assets/kmylymdkexaz8w653v3l.png",
               },
               {
                 id: "p-17",
                 name: "Single Family Home System",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785790/kumarpower_website/installation/s6ahrbyurixhk0wdmnjt.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966977/KumarPower-Assets/hndyx3wns7xdn1qihjqb.png",
               },
               {
                 id: "p-18",
                 name: "Manufacturing Plant Power",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785796/kumarpower_website/installation/kfls8rdusseihosymvfr.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966978/KumarPower-Assets/myedwzkyo3ek6qiwtwcv.png",
               },
               {
                 id: "p-19",
                 name: "Office Complex Generator",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785798/kumarpower_website/installation/sj4abdq9xq8mwokufkqs.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966978/KumarPower-Assets/rxa9htcwbacqwnlfajx9.png",
               },
               {
                 id: "p-20",
                 name: "Luxury Home Installation",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785801/kumarpower_website/installation/aqf2ezfnpemnpjqpdkvh.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966978/KumarPower-Assets/qyeosw2qyzo8qhe104xg.png",
               },
               {
                 id: "p-21",
                 name: "Industrial Site Power",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785802/kumarpower_website/installation/ujcqfjfnqbqj2upn06gi.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966978/KumarPower-Assets/fq8mkfqqok0keufa4uvm.png",
               },
               {
                 id: "p-22",
                 name: "Retail Center Backup",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785803/kumarpower_website/installation/worwqehowpwyq8bycefk.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966980/KumarPower-Assets/hlpknir1wh5jnecna9w8.png",
               },
               {
                 id: "p-23",
                 name: "Residential Community System",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785804/kumarpower_website/installation/s84kpdvhijphbizzblj9.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966980/KumarPower-Assets/njwintoj94rdnlgaxpze.png",
               },
               {
                 id: "p-24",
                 name: "Production Facility Setup",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785805/kumarpower_website/installation/jonrcctqfhtz2mxppmvz.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966980/KumarPower-Assets/gpgfymn4gpmzmgs2hky6.png",
               },
               {
                 id: "p-25",
                 name: "Medical Center Installation",
                 category: "Commercial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785806/kumarpower_website/installation/ofusnniz7swob84vzezl.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966980/KumarPower-Assets/x3zfjtialo5olhzs7cbu.png",
               },
               {
                 id: "p-26",
                 name: "Suburban Home Generator",
                 category: "Residential",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785808/kumarpower_website/installation/kc8kpugy750domysjros.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966981/KumarPower-Assets/fsl5lpqqobwfn6gc2x9v.png",
               },
               {
                 id: "p-27",
                 name: "Distribution Center Power",
                 category: "Industrial",
                 imageUrl:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784785809/kumarpower_website/installation/tqqoewhovwlt6m14ihwr.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966981/KumarPower-Assets/gxocpfyz1kkugoubrpfv.png",
               },
             ],
 
@@ -983,9 +985,9 @@ async function main() {
           order: 1,
           content: {
             backgroundVideo:
-              "https://res.cloudinary.com/dpa93copz/video/upload/v1787210178/KumarPower-Assets/stiebk7378ocjujciakt.mp4",
+              "https://res.cloudinary.com/jfjvmqfs/video/upload/v1791966981/KumarPower-Assets/mlctizhs3xo5bo3llppp.mp4",
             mobileBackgroundVideo:
-              "https://res.cloudinary.com/dpa93copz/video/upload/v1789972500/KumarPower-Assets/gv1uojtoiqhdfxi2qhwz.mp4",
+              "https://res.cloudinary.com/jfjvmqfs/video/upload/v1791966981/KumarPower-Assets/ihgyzwcl65khybauqb9h.mp4",
           },
         },
         {
@@ -1046,7 +1048,7 @@ async function main() {
                 name: "Power Sources",
                 icon: "Zap",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789117364/kumarpower_website/ecosystem/stage1_power_sources_kirloskar.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966985/KumarPower-Assets/qv5nfmkvvmw3u56smfoh.jpg",
                 headline: "Main Grid, Solar Panels, Gensets & BESS",
                 description:
                   "Accepts high-voltage grid supply, integrates rooftop solar panels, Kirloskar CPCB IV+ diesel gensets, and battery energy storage (BESS).",
@@ -1063,7 +1065,7 @@ async function main() {
                 name: "HT/LT Panels",
                 icon: "ShieldCheck",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294588/kumarpower_website/ecosystem/stage3_panels.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966985/KumarPower-Assets/tmfty1lod1n7u8blvmf1.jpg",
                 headline: "Distribution Panels, AMF & Changeover",
                 description:
                   "Routes power safely across main LT Panels, HT breaker panels, PCC/MCC panels, AMF & ATS Panels.",
@@ -1080,7 +1082,7 @@ async function main() {
                 name: "Power Quality & Protection",
                 icon: "Gauge",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294591/kumarpower_website/ecosystem/stage4_power_quality.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966985/KumarPower-Assets/rubtmjqdnjtcibdgxgc9.jpg",
                 headline: "Power Quality & Protection",
                 description:
                   "Stabilizes fluctuating grid voltages, maintains high power factor via APFC capacitor banks, and filters active harmonic distortion.",
@@ -1097,7 +1099,7 @@ async function main() {
                 name: "Sub-Distribution",
                 icon: "BatteryCharging",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294594/kumarpower_website/ecosystem/stage5_busbar.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966985/KumarPower-Assets/qlpgbpcoac6lscgdte9y.jpg",
                 headline: "Bus Ducts & Feeder Pillars",
                 description:
                   "Transfers clean, protected electrical power through riser busbars, sub-distribution boards, and smart energy monitoring meters.",
@@ -1114,7 +1116,7 @@ async function main() {
                 name: "Final Facility Load",
                 icon: "Factory",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789117733/kumarpower_website/ecosystem/stage5_final_load_crossroads.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966987/KumarPower-Assets/lekiuur6hczfbxumvos9.jpg",
                 headline:
                   "Industrial, Commercial, Residential & Critical Facilities",
                 description:
@@ -1145,7 +1147,7 @@ async function main() {
                 subtitle:
                   "For facilities where downtime causes massive financial loss.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789117364/kumarpower_website/ecosystem/stage1_power_sources_kirloskar.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966985/KumarPower-Assets/qv5nfmkvvmw3u56smfoh.jpg",
                 features: ["CPCB IV+ Gensets", "UPS Inverter"],
                 link: "/products/generators",
               },
@@ -1155,7 +1157,7 @@ async function main() {
                 subtitle:
                   "Safe, controlled power routing from incoming high-voltage grid.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789118874/kumarpower_website/portfolio/heavy_manufacturing_plant_power.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966986/KumarPower-Assets/qbvdxyhntak9vytdhzgq.jpg",
                 features: ["Transformers", "HT/LT Panels"],
                 link: "/products/transformers",
               },
@@ -1165,7 +1167,7 @@ async function main() {
                 subtitle:
                   "Integrating rooftop solar with battery storage and standby DG.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294626/kumarpower_website/portfolio/renewable_integration.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966986/KumarPower-Assets/x9zjbo5yu29codpyblmr.jpg",
                 features: ["Solar Energy", "BESS", "EV Charging Station"],
                 link: "/products",
               },
@@ -1175,7 +1177,7 @@ async function main() {
                 subtitle:
                   "Eliminating voltage sag, harmonics, & power factor penalties.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294629/kumarpower_website/portfolio/power_quality.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966986/KumarPower-Assets/aevpvzjmcodylj8mvb41.jpg",
                 features: [
                   "Servo Stabilizers",
                   "APFC Capacitor Banks",
@@ -1190,7 +1192,7 @@ async function main() {
                 subtitle:
                   "Single-point EPC accountability from concept to commissioning.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294632/kumarpower_website/portfolio/turnkey_projects.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966988/KumarPower-Assets/ybvyk5urfcxxugd1o1yt.jpg",
                 features: [
                   "Design & EPC",
                   "Heavy Cabling",
@@ -1358,7 +1360,7 @@ async function main() {
                 problem:
                   "Uninterrupted power for campus labs, digital classrooms, data centers & auditoriums.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1788776667/kumarpower_website/industries/industry_education.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966987/KumarPower-Assets/sugys7zztvdvletlm9jn.jpg",
               },
               {
                 id: "ind-institutions",
@@ -1367,7 +1369,7 @@ async function main() {
                 problem:
                   "Zero-downtime mission-critical power for government, educational & public institutions.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1788776668/kumarpower_website/industries/industry_registration.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966988/KumarPower-Assets/pjmluzkvgszfnocrrgds.jpg",
               },
               {
                 id: "ind-event",
@@ -1376,7 +1378,7 @@ async function main() {
                 problem:
                   "Silent, synchronized mobile generators and distribution panels for high-profile events & expos.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1788776670/kumarpower_website/industries/industry_event.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966987/KumarPower-Assets/rf2cj71djsoqqfp5xaaq.jpg",
               },
               {
                 id: "ind-construction",
@@ -1385,7 +1387,7 @@ async function main() {
                 problem:
                   "Rugged heavy-duty power, towable DG sets, and distribution boards for demanding work sites.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1788776671/kumarpower_website/industries/industry_construction.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966989/KumarPower-Assets/j2zcx2zhrviuddvfyrwk.jpg",
               },
             ],
           },
@@ -1511,7 +1513,7 @@ async function main() {
                 title: "Critical Ground & Runway Operation Backup",
                 metric: "99.999% Power Uptime",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789118622/kumarpower_website/portfolio/aviation_backup_power_installation.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966989/KumarPower-Assets/jl87beanc9gniihjl2mz.jpg",
                 challenge:
                   "Zero-downtime standby power required for critical flight ground control, terminal lighting, and security infrastructure during grid outages.",
                 solution:
@@ -1528,7 +1530,7 @@ async function main() {
                 title: "Plant Electrical Distribution & Power Quality",
                 metric: "85% Breakdown Cut",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294622/kumarpower_website/portfolio/electrical_distribution.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966989/KumarPower-Assets/afd7qpplgvjrzpofovjy.jpg",
                 challenge:
                   "Frequent utility voltage fluctuations, poor power factor penalties, and unorganized floor power distribution causing frequent machine trips.",
                 solution:
@@ -1545,7 +1547,7 @@ async function main() {
                 title: "Hybrid Solar-BESS Cost Reduction & Backup",
                 metric: "38% Energy Bill Cut",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1787294626/kumarpower_website/portfolio/renewable_integration.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966986/KumarPower-Assets/x9zjbo5yu29codpyblmr.jpg",
                 challenge:
                   "High daytime electricity grid tariffs, strict diesel generator emission caps, and low solar self-consumption without storage.",
                 solution:
@@ -1567,137 +1569,137 @@ async function main() {
             logos: [
               {
                 id: "cl-1",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712863/kumarpower_website/pages/rpsj6uyhi7kl2gdsc8ng.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966989/KumarPower-Assets/yo8scjr7jlnrgstzdwva.jpg",
                 alt: "GMR Infrastructure",
               },
               {
                 id: "cl-2",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712895/kumarpower_website/pages/oyqudkfjkh1b3quulplh.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/qpk2xo3xp5lgvkhqcml6.png",
                 alt: "Honeywell India",
               },
               {
                 id: "cl-3",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712896/kumarpower_website/pages/esahf0nbza5bbekpynjy.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/ctydqzqqeqddnzkb7yst.png",
                 alt: "Suez Water",
               },
               {
                 id: "cl-4",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712898/kumarpower_website/pages/bhpjqp3anzsiowfrltvt.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/e9wdbcds49y95ougaglq.png",
                 alt: "Adani Group",
               },
               {
                 id: "cl-5",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712899/kumarpower_website/pages/fia6l5umqisbfn184vix.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/rbojgu85rgnsghjnmgjg.jpg",
                 alt: "S&P Infra",
               },
               {
                 id: "cl-6",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712900/kumarpower_website/pages/xbt3t4r0bsw48y1oaucl.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/vdyp4vwwefy8iqgcnobz.png",
                 alt: "Apollo Hospitals",
               },
               {
                 id: "cl-7",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712872/kumarpower_website/pages/wzn7iloxksjdn9vdl9nz.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/q8uwnpqbfczhkexnzzac.jpg",
                 alt: "CEC",
               },
               {
                 id: "cl-8",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712902/kumarpower_website/pages/srgu3xp1bqpt0j0owygp.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/yvpy9qer8u6xz9bdkg75.png",
                 alt: "Seasons",
               },
               {
                 id: "cl-9",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712903/kumarpower_website/pages/ots16de8ab4ep5y2qtvm.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/j8nxyfckxpbm7xkg8fuq.jpg",
                 alt: "NCC Limited",
               },
               {
                 id: "cl-10",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712905/kumarpower_website/pages/iuibicnolojsadd28sp4.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/ellbzh1wvbhlc3vei7uz.png",
                 alt: "Air India",
               },
               {
                 id: "cl-11",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712906/kumarpower_website/pages/rbcdges456kvxuzujc9l.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/ezpuxj5oic5vzkb02s0f.jpg",
                 alt: "British Paints",
               },
               {
                 id: "cl-12",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712908/kumarpower_website/pages/eqgmlclkhvgd3brunbit.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/pxgknktiqh7ljtnwowqn.png",
                 alt: "NBCC Limited",
               },
               {
                 id: "cl-13",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712909/kumarpower_website/pages/mznhggiitrdnbyvwxlea.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/g8jitllfqwwa6c1fnsho.png",
                 alt: "Afcons Infrastructure",
               },
               {
                 id: "cl-14",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712910/kumarpower_website/pages/bpexoloid3d5rgpf2qju.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/hco6fseuwhecleuhco95.jpg",
                 alt: "KEC International",
               },
               {
                 id: "cl-15",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712912/kumarpower_website/pages/veflyibxqbnymwlrndng.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/indqfuisk1aopps4wefz.jpg",
                 alt: "OJC",
               },
               {
                 id: "cl-16",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712913/kumarpower_website/pages/h4qlwyke69y5ou0uvhwy.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/utd6nsbmdpj0yiz7zypc.jpg",
                 alt: "Mapple Hotels",
               },
               {
                 id: "cl-17",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712914/kumarpower_website/pages/npeoktrvuao1tzhnyf2b.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/kcebfd4yxko9dol1owbw.jpg",
                 alt: "Comed",
               },
               {
                 id: "cl-18",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712917/kumarpower_website/pages/n9fiiakuoeyxtlldrasz.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/wcu8zl5dpi8cynsm0zzd.jpg",
                 alt: "Rai Foundation",
               },
               {
                 id: "cl-19",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712920/kumarpower_website/pages/onlo0n5zhobds9eolqzu.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/owxr62rtsljkcehvzudg.png",
                 alt: "PWC",
               },
               {
                 id: "cl-20",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712921/kumarpower_website/pages/olmrtpm51ks5emr2eyok.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/xut9etbsagc3lvblnulg.jpg",
                 alt: "Daikin",
               },
               {
                 id: "cl-21",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712923/kumarpower_website/pages/aefj0djwk27dqj8antl2.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/alhdwcwsn8fovdbci6kp.png",
                 alt: "IGNOU",
               },
               {
                 id: "cl-22",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712924/kumarpower_website/pages/l9bjz9xrufsdvyurjidz.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/xezo8zt4imdruh8ocnyx.jpg",
                 alt: "Vistara",
               },
               {
                 id: "cl-23",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712874/kumarpower_website/pages/mxqbgjryo9awqzfjzyei.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/pcbtvf5hw2t0vihoxwwc.jpg",
                 alt: "Ace Construction",
               },
               {
                 id: "cl-24",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712878/kumarpower_website/pages/pxzw9z3efrvmt4xqrgo6.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/c1x5garrvfsxwobyhp1q.png",
                 alt: "Clarion",
               },
               {
                 id: "cl-25",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712881/kumarpower_website/pages/l7vudrgnj0wn8x6geidl.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/ybw6errazswzmfzbtxei.jpg",
                 alt: "DPS",
               },
               {
                 id: "cl-26",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712883/kumarpower_website/pages/babowmbn5turkicygkbr.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/vfzkxzxu0vmmwzpzsyeo.jpg",
                 alt: "GEPL",
               },
               {
                 id: "cl-27",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712884/kumarpower_website/pages/elr86cg9o5ehtbvtn2ks.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/jmeplbmudjt6norprusc.jpg",
                 alt: "Adidas",
               },
             ],
@@ -1717,7 +1719,7 @@ async function main() {
                 headerText: "TESTIMONIAL BY POOJA JAIN - SHIKHERJEE",
                 authorName: "Pooja Jain",
                 companyName: "Shikherjee Jewellers",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376352/kumarpower_website/testimonials/shikherjee.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/yuzulnznpdqyz5vp8dix.png",
                 quote:
                   "At Vilandi, we make bespoke Polki jewellery with the finest syndicate polkis, coloured gemstones and even finer details. We are extremely conscious about quality and create pieces that will be cherished for generations. We manufacture all of our jewellery pieces in-house and cater to both B2B and B2C clients. Recently, I referred Mr. R. S. Kumar from M/S Kumar Generator House to Mr Abhishek Jain of Jainco Sphere, a real estate company developing luxury homes in Delhi NCR. They had a detailed meeting and were really impressed with the knowledge and command he had on his industry. He suggested some important changes in their existing selection of material and design of LT panels and also, some value-added services which would enrich the experience of their customers. He was so convincing and transparent with his pricing and product detailing that Mr Abhishek gave an order for 2 of his under-construction buildings for Distribution panels, LT panels and chemical earthings. Also, the execution of work at the site was carried out with thorough professionalism and in a really time-bound manner. Mr Jain was very happy to work with M/s Kumar Generator House and highly recommends his services for Best quality, Best pricing and Best services.",
               },
@@ -1726,7 +1728,7 @@ async function main() {
                 headerText: "TESTIMONIAL BY AANCHAL SAINI, AARK WORLD",
                 authorName: "Aanchal Saini",
                 companyName: "AARK World Pvt. Ltd.",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376353/kumarpower_website/testimonials/aark-world.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/ua1ukv02barbq47ahijs.png",
                 quote:
                   "RENT IT BAE is a luxury fashion rental service offering Ethnic, Western & Accessories from designer labels at a fraction of MRP. Servicing 15 cities via Website, m-site, Android & iOS apps. First to introduce Monthly Fashion Subscription in the country. The company has its 2 Flagship Stores in New Delhi (Rajouri Garden and Greater Kailash-1). RENT IT BAE has taken the media limelight for building the country's first tech-driven store. We highly appreciate the fast and seamless service provided by your company. The installation of inverters for RENT IT BAE's South Delhi Flagship Store at Greater Kailash seemed a fluid task with your service. The requirement for a power backup is a must for all companies nowadays, especially in the retail sector. You understood the requirement and delivered the apt products at a reasonable price. All was done post one phone call. No follow ups were required. The products were delivered and installed within 24 hours. We would be happy to recommend your products and service.",
               },
@@ -1735,7 +1737,7 @@ async function main() {
                 headerText: "TESTIMONIAL BY BHARAT ANAND - BROWNGOLD",
                 authorName: "Bharat Anand",
                 companyName: "Browngold",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789376354/kumarpower_website/testimonials/brown-gold.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966998/KumarPower-Assets/gzxh8p9pldb1a1igrv3a.png",
                 quote:
                   "We at BROWNGOLD are a team of young & dynamic interior designers engaged in the business of providing complete design solutions for our clients, be it individuals, architects or corporate for the last 3 decades. We have a passion of interiors which enables us in providing quality & timely delivery of our design services & products for our clients pan India. We would like to place on record our appreciation for Mr. R.S. Kumar of Kumar Generator House. We had taken their services for our 40 kva kirloskar generator & a small generator of 7 kva. We would like to take this opportunity to thank you for providing excellent advice, excellent products & excellent service. We would not hesitate to recommend Kumar Generator House to prospective clients, looking for a high level of professional service, with attention on a long term client focused relationship. We are extremely pleased & look forward to increasing our level of business with yourselves in the coming years.",
               },
@@ -1846,7 +1848,7 @@ async function main() {
             title: "Know About Kumar Power",
             subtitle: "–Trusted Name in Power Solutions Industry",
             image:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1789121108/kumarpower_website/ourprofile/ourprofile_hero.png",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966998/KumarPower-Assets/tvfyr7moukrsqaeo2xmx.png",
             paragraph1:
               "Kumar Power is a premier Kirloskar-certified power partner with over 30+ years of excellence in providing comprehensive power solutions across India. Established in 1995, we have grown to become one of the most trusted names in power generation equipment and services.",
             paragraph2:
@@ -1873,7 +1875,7 @@ async function main() {
                 description:
                   "Kumar Power was established with a vision to provide reliable power solutions to businesses across India.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121109/kumarpower_website/ourprofile/timeline_1995_foundation.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966998/KumarPower-Assets/qrvbxkr6fcyjkvbtkgat.png",
               },
               {
                 id: "time-2",
@@ -1882,7 +1884,7 @@ async function main() {
                 description:
                   "Became an authorized partner of Kirloskar, expanding our product range and technical capabilities.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789979602/kumarpower_website/ourprofile/timeline_2001_kirloskar_partnership_1789979600653.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966998/KumarPower-Assets/z1yvoophu4ktwuc303h9.jpg",
               },
               {
                 id: "time-3",
@@ -1891,7 +1893,7 @@ async function main() {
                 description:
                   "Achieved ISO 9001:2015 certification, validating our commitment to quality management systems.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121111/kumarpower_website/ourprofile/timeline_2012_iso_certification.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966999/KumarPower-Assets/wqcvy6oipmgl9fkgxdkm.png",
               },
               {
                 id: "time-4",
@@ -1900,7 +1902,7 @@ async function main() {
                 description:
                   "Expanded operations to all major cities in India with service centers and technical support teams.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789122116/kumarpower_website/ourprofile/timeline_2020_nationwide_expansion.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966999/KumarPower-Assets/c8rr5bgecihcqoqjedyi.jpg",
               },
             ],
           },
@@ -1918,7 +1920,7 @@ async function main() {
                 role: "(Founder)",
                 bio: "RS Kumar is the Founder of Kumar Generator House, a company he established with a vision to provide reliable and sustainable power solutions. With decades of industry experience, he has been the driving force behind the company's growth and success. His leadership is centered on innovation, customer satisfaction, and a commitment to excellence. Under his guidance, Kumar Generator House has become a trusted name in the industry, focused on empowering businesses and communities with top-quality solutions.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121113/kumarpower_website/ourprofile/team_rs_kumar.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966999/KumarPower-Assets/twhktsaigib2fqnyk43u.png",
               },
               {
                 id: "team-2",
@@ -1926,7 +1928,7 @@ async function main() {
                 role: "(Director)",
                 bio: "MS Kumar (Manjot Singh Kumar) is the director of Kumar Generator House, a company with a rich legacy of over 30 years in providing reliable power solutions. With a keen focus on growth, innovation, and sustainability, he leads the company towards achieving excellence in every aspect of its operations. His leadership style emphasizes customer satisfaction, operational efficiency, and long-term business relationships, ensuring that Kumar Generator House remains a trusted name in the industry.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121114/kumarpower_website/ourprofile/team_ms_kumar.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966999/KumarPower-Assets/ddufxjh23zvqjqgt97d7.png",
               },
               {
                 id: "team-3",
@@ -1934,7 +1936,7 @@ async function main() {
                 role: "(Director)",
                 bio: "JS Kumar is a director at Kumar Generator House, where he plays a pivotal role in overseeing business strategy, operations, and growth initiatives. With a focus on enhancing internal processes and fostering partnerships, he is committed to driving the company's expansion and ensuring the delivery of efficient, high-quality service to clients. His strategic approach and dedication to innovation continue to shape the company's success in the power solutions sector.",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1789121116/kumarpower_website/ourprofile/team_js_kumar.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967000/KumarPower-Assets/tgjoowjfchrl4nzgthne.png",
               },
             ],
           },
@@ -1976,9 +1978,9 @@ async function main() {
             bullet3: "Continuous improvement through customer feedback",
             bullet4: "Regular training and skill enhancement for our team",
             isoCertImg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1789121111/kumarpower_website/ourprofile/timeline_2012_iso_certification.png",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966999/KumarPower-Assets/wqcvy6oipmgl9fkgxdkm.png",
             kirloskarCertImg:
-              "https://res.cloudinary.com/dmhabztbf/image/upload/v1757064221/Screenshot_2025-06-02_at_12.44.43_PM_lxdedo_tuh3qm.png",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967000/KumarPower-Assets/lerbt1qb9odblv14zwfq.png",
             isoCertTitle: "ISO 9001:2015",
             kirloskarCertTitle: "Kirloskar Authorized",
           },
@@ -2021,7 +2023,7 @@ async function main() {
             bannerSubtitle:
               "Let's build something extraordinary. Talk to our experts today.",
             bannerBgImage:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1790074906/KumarPower-Assets/rqqfeyh4a2s0qqiypyjs.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967000/KumarPower-Assets/mftuogxwgwjalfu7dfyr.jpg",
             primaryBtnLabel: "Start Your Inquiry",
             whatsappBtnLabel: "Connect on WhatsApp",
             whatsappNumber: "+919773851767",
@@ -2112,296 +2114,296 @@ async function main() {
               subtitle:
                 "A visual showcase of our installations, innovations, and industrial excellence across India",
               bgImage:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1784712926/kumarpower_website/pages/cmhdtexux4t9hf0c7eo8.png",
+                "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967000/KumarPower-Assets/oysvxihldvdmqiokvmlz.png",
             },
             photos: [
               {
                 id: "g-2",
                 alt: "Kirloskar Generator Installation 3",
                 category: "installations",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713096/kumarpower_website/pages/ikyj9qxbves5g2vzfqi6.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/h1ao2ro5dhixudaqippj.jpg",
               },
               {
                 id: "g-3",
                 alt: "Kirloskar Generator Installation 4",
                 category: "installations",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713097/kumarpower_website/pages/jhkaubhzzyegimfwujao.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/llbzu14htj9wdxqeiegc.jpg",
               },
               {
                 id: "g-4",
                 alt: "Kirloskar Generator Installation 5",
                 category: "installations",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713098/kumarpower_website/pages/zxellajmsguby11rn3kx.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/oruswz9busfhkn8j35mt.jpg",
               },
               {
                 id: "g-5",
                 alt: "Kirloskar Generator Installation 6",
                 category: "installations",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713099/kumarpower_website/pages/ie7rz6jlndxbeag8m40f.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/rdikzzeklqzkqdxuiybf.jpg",
               },
               {
                 id: "g-6",
                 alt: "Kirloskar Generator Installation 7",
                 category: "installations",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713101/kumarpower_website/pages/xwgvfolwnrwrvycmyfil.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/skcm7shmyiscowi1yex6.jpg",
               },
               {
                 id: "g-21",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712956/kumarpower_website/pages/qt8loinzrnq50syaujdv.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/xkazp5ytq5jxliwqk9ev.jpg",
               },
               {
                 id: "g-22",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712958/kumarpower_website/pages/swrdixw71xzk13zytxwi.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/ujodrzik3acmgtmdkl2i.jpg",
               },
               {
                 id: "g-23",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712961/kumarpower_website/pages/nv1coti0pbt9updj9zem.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/omi1mzlrnjwo3l69et1m.jpg",
               },
               {
                 id: "g-24",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712964/kumarpower_website/pages/gg2shdmfvkk0i5qrjodh.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/ontzmw12l6cpc4njwm77.jpg",
               },
               {
                 id: "g-25",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712967/kumarpower_website/pages/cvsmedinsicc7qciyvim.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/cd7jpbsrdchqzdmg4xct.jpg",
               },
               {
                 id: "g-26",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712970/kumarpower_website/pages/madcl8k7zhfsmo9ucts0.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/x3b9szf3p7m45vzelsw4.jpg",
               },
               {
                 id: "g-27",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712973/kumarpower_website/pages/miolur5mveja7yw0rl8l.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/pa6q7fchprvaayip5odq.jpg",
               },
               {
                 id: "g-28",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712976/kumarpower_website/pages/zzr4gqgedwmppk7duidl.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/vwi52uqrjjwztvgpiuaf.jpg",
               },
               {
                 id: "g-29",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712979/kumarpower_website/pages/rgzhffoi0hx09m72pzvx.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/phjok8onijiucrl9e5pv.jpg",
               },
               {
                 id: "g-30",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712982/kumarpower_website/pages/lmzbwpyfadbvcuho7lek.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/sufbdn3egf8qv8froph5.jpg",
               },
               {
                 id: "g-31",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712986/kumarpower_website/pages/k223hwqie50ggnqzdt78.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/cttwyrc6dlwcho4fbup8.jpg",
               },
               {
                 id: "g-32",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712989/kumarpower_website/pages/nk6xkui0cm9ynjy5vbpq.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/itcs11jwo6wmhwznjc7a.jpg",
               },
               {
                 id: "g-33",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712992/kumarpower_website/pages/vbbvbtx9t8zzu0en4akt.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/l00aafnnfnxn7ae4qtbx.jpg",
               },
               {
                 id: "g-34",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712995/kumarpower_website/pages/xugoluyfihyajmkumrjx.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/f92cfcojqodmzdogrhxa.jpg",
               },
               {
                 id: "g-35",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712998/kumarpower_website/pages/yudvlnbchlxu8mtwl4c1.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/gfiwj3acw0zspiury0vp.jpg",
               },
               {
                 id: "g-36",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713001/kumarpower_website/pages/ox3adev6neffgw8c9sxd.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967009/KumarPower-Assets/zohx5pkqko6cwfzpwigc.jpg",
               },
               {
                 id: "g-37",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713004/kumarpower_website/pages/avprzvnmqxcdzr2uafhp.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967008/KumarPower-Assets/hi9ioivkgg8r1qwb1bnq.jpg",
               },
               {
                 id: "g-38",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713007/kumarpower_website/pages/s63zsrq2o63qq0nkz0pg.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967008/KumarPower-Assets/pdivp3c5dhd9m1stn5pq.jpg",
               },
               {
                 id: "g-39",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713010/kumarpower_website/pages/y8jsme7h59hllzwonl7h.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967009/KumarPower-Assets/p0sydxmns8uqgm7zmka1.jpg",
               },
               {
                 id: "g-40",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713013/kumarpower_website/pages/yvmkazbsvsbtkcmj4dih.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/hkknjmyd5un6vhowarup.jpg",
               },
               {
                 id: "g-41",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713016/kumarpower_website/pages/jketih93qcrdpxrvtmf3.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/dscslhqpsricbp7zpd0j.jpg",
               },
               {
                 id: "g-42",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713019/kumarpower_website/pages/jfdnccb81yneb83yer7l.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/p0bakaifszvqmsza9o7d.jpg",
               },
               {
                 id: "g-43",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713028/kumarpower_website/pages/lnuiwaiwcvxfelztnsso.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/ewuitziirjffzz7zpo4w.jpg",
               },
               {
                 id: "g-44",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713034/kumarpower_website/pages/hfcszjbsbyi1iwzvziqz.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/ufjrexbxme6ek7gf0f0n.jpg",
               },
               {
                 id: "g-45",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713037/kumarpower_website/pages/rltviaqeaqm9ot2au053.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/zqjbkpwjop40odxmnduy.jpg",
               },
               {
                 id: "g-46",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713041/kumarpower_website/pages/gf2k0wr7drka29n0acwc.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/xp6bkbjaridsuy5boj5x.jpg",
               },
               {
                 id: "g-47",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713044/kumarpower_website/pages/gdrjvvk9f90zvoadqpwa.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/uil6e7t4vtn2euoxsopr.jpg",
               },
               {
                 id: "g-48",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713047/kumarpower_website/pages/bh3icegv40evgebek8ag.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/ohcwvtkfe0skzsehskbf.jpg",
               },
               {
                 id: "g-49",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713050/kumarpower_website/pages/icaxvtbwczzhgsvcvc70.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/krpfahhp2baxapuzi4nv.jpg",
               },
               {
                 id: "g-50",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713053/kumarpower_website/pages/xz2eeoog5r65hwgewnfc.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/jg2kzi1kzrthatgbjy2z.jpg",
               },
               {
                 id: "g-51",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713056/kumarpower_website/pages/ubeyjv6tyhthshuz60jl.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/b3mizhzfkhqzfwxflnpt.jpg",
               },
               {
                 id: "g-52",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713059/kumarpower_website/pages/ojp0f0wkemp5xku0yamr.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967013/KumarPower-Assets/rgi6enpqlzzuxvnwnk81.jpg",
               },
               {
                 id: "g-53",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713062/kumarpower_website/pages/naoiko106181rzzppvnz.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967014/KumarPower-Assets/xkioazy0db5nqhsoporw.jpg",
               },
               {
                 id: "g-54",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713065/kumarpower_website/pages/uswf2qfqembwzbxmapm4.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967014/KumarPower-Assets/zzbmyi8l3ene91xmadhe.jpg",
               },
               {
                 id: "g-55",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713068/kumarpower_website/pages/bouwkmloxqr2wozu6eaq.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967013/KumarPower-Assets/zuk5c66ricrilmfqq3oi.jpg",
               },
               {
                 id: "g-56",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713071/kumarpower_website/pages/ygivfklnolxphk6bhsd8.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/unf0o3jpsvinweivdzpr.jpg",
               },
               {
                 id: "g-57",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713075/kumarpower_website/pages/dvennlfd24b2g23vhyop.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/ef9ixpdf2f1zngvv5tlk.jpg",
               },
               {
                 id: "g-58",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713077/kumarpower_website/pages/mhnmskiuvnua37epcfks.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/qggc2hbfgf7rsgsxlamm.jpg",
               },
               {
                 id: "g-59",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713080/kumarpower_website/pages/cvo1k2qifwxhq7ea4kt5.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/scdpp6144inynubgajbu.jpg",
               },
               {
                 id: "g-60",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713083/kumarpower_website/pages/fiyy3sf7ookg4pbof3r6.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/ek6b2dmogjcwkqkj3h1y.jpg",
               },
               {
                 id: "g-61",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713085/kumarpower_website/pages/nbc8kbi3opluohr0h2j2.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/acgi8drhr4ckcrtu65vt.jpg",
               },
               {
                 id: "g-62",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713088/kumarpower_website/pages/tal91jbd1llqctfuix8u.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/lmhdnyt2kifmizqjb6sf.jpg",
               },
               {
                 id: "g-63",
                 alt: "Diwali Celebration Event",
                 category: "events",
-                src: "https://res.cloudinary.com/dpa93copz/image/upload/v1784713091/kumarpower_website/pages/nqysgnrnvrilohhu57yh.jpg",
+                src: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/sqxlph7y9sskhderdlkb.jpg",
               },
             ],
             seeMoreLabel: "See More",
@@ -2411,9 +2413,9 @@ async function main() {
               description:
                 "Ready to transform your power infrastructure with industry-leading generator solutions? Our team of experts is ready to guide you through every step.",
               bgImage:
-                "https://res.cloudinary.com/dmhabztbf/image/upload/v1763019219/Group_9_cc74ol.png",
+                "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967017/KumarPower-Assets/eyrnw0nng0nw9hqohsl7.png",
               profilePdf:
-                "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
+                "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
               btn1Label: "Book Your Consultation →",
               btn1Url: "/contact",
               btn2Label: "Download Company Profile",
@@ -2424,10 +2426,10 @@ async function main() {
                 "India's Most Trusted Kirloskar-Certified Generator Brand!",
               downloadBtn1Label: "Download Bharat Rajpatra",
               downloadBtn1Url:
-                "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
+                "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
               downloadBtn2Label: "Download Direction 76",
               downloadBtn2Url:
-                "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
+                "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
               talkBtnLabel: "Talk to Power Expert",
               requestBtnLabel: "Request Quote",
               cert1Title: "ISO 9001:2015",
@@ -2473,7 +2475,7 @@ async function main() {
                   "Kumar Generator House is our authorised KOEL Green Dealer for sale of KOEL Green Diesel Generating Sets and Chhota Chilli Range of generators",
                 issuer: "Authorization certificate",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714152/kumarpower_website/products_and_certs/glrlbbblktcu31rtsgdq.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967017/KumarPower-Assets/ns0rylgwqcakmx8vovqc.jpg",
               },
               {
                 id: "cert-2",
@@ -2483,7 +2485,7 @@ async function main() {
                   "Environmental Management System certification, demonstrating our commitment to environmental responsibility.",
                 issuer: "KOEL Pune",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714153/kumarpower_website/products_and_certs/ajfrxxpc7fjhfm49efh2.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967017/KumarPower-Assets/vopzqrmz6wwcn4624wmd.jpg",
               },
               {
                 id: "cert-3",
@@ -2493,7 +2495,7 @@ async function main() {
                   "Presented to M/s Kumar Generator House, Delhi for highest growth & highest nos. of KIRLOSKAR GREEN DG sets sold in FY 2013.",
                 issuer: "KOEL-JAKPOWER-KGD Conference, Goa",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714154/kumarpower_website/products_and_certs/jf46y3vwkmu0wmaps8q7.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967021/KumarPower-Assets/fw9jv9ibnl3phpbqq0k9.jpg",
               },
               {
                 id: "cert-4",
@@ -2503,7 +2505,7 @@ async function main() {
                   "Awarded to Kumar Generator House, Delhi for highest volume in MHP generators in FY 14.",
                 issuer: "Kirloskar Conference Awards - Pune",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714156/kumarpower_website/products_and_certs/w0no32nuna1dumo6rgxq.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967021/KumarPower-Assets/jcoyqij4ybpupvydytgl.jpg",
               },
               {
                 id: "cert-5",
@@ -2513,7 +2515,7 @@ async function main() {
                   "Awarded to Kumar Generator House, Delhi for highest volume in HHP generators in FY 14.",
                 issuer: "Kirloskar Conference Awards - Pune",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714157/kumarpower_website/products_and_certs/jwmcrg2fr5nmhofjoomj.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967021/KumarPower-Assets/pdzlkzxzgoebbbpnfzht.jpg",
               },
               {
                 id: "cert-6",
@@ -2523,7 +2525,7 @@ async function main() {
                   "Presented to M/s Kumar Generator House, Delhi for highest nos. of KIRLOSKAR GREEN DG sets sold in FY 15.",
                 issuer: "KOEL JAKPOWER KGD & SD Conference Awards Rajasthan",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714158/kumarpower_website/products_and_certs/ff6mtao7uacsqfevimnm.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967021/KumarPower-Assets/fu8bdcrcvhuqbqnjvanl.jpg",
               },
               {
                 id: "cert-7",
@@ -2533,7 +2535,7 @@ async function main() {
                   "Presented to M/s Kumar Generator House, Delhi for highest nos. of KIRLOSKAR GREEN DG sets sold in FY 18-19.",
                 issuer: "KOEL JAKPOWER KGD & SD Conference Awards Gangtok",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714160/kumarpower_website/products_and_certs/q9o29pkkudtdfahynvbx.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/zpoc6undoyjczhaux3eu.jpg",
               },
               {
                 id: "cert-8",
@@ -2543,7 +2545,7 @@ async function main() {
                   "Presented to M/s Kumar Generator House, Delhi for highest nos. of KIRLOSKAR GREEN DG sets sold in FY 16-17.",
                 issuer: "KOEL JAKPOWER KGD & SD Conference Awards Rajasthan",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714161/kumarpower_website/products_and_certs/cd4yb3lc8ppznmxftwhf.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/lot35jhzcg0vnaouose8.jpg",
               },
             ],
             whyTitlePart1: "Why",
@@ -2573,10 +2575,10 @@ async function main() {
               "India's Most Trusted Kirloskar-Certified Generator Brand!",
             downloadBtn1Label: "Download Bharat Rajpatra",
             downloadBtn1Url:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
+              "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
             downloadBtn2Label: "Download Direction 76",
             downloadBtn2Url:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318759/kumarpower_website/brochures_raw/Portfolio.pdf",
+              "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
             talkBtnLabel: "Talk to Power Expert",
             requestBtnLabel: "Request Quote",
             cert1Title: "ISO 9001:2015",
@@ -2608,13 +2610,13 @@ async function main() {
           order: 1,
           content: {
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
             gensets: [
               {
                 id: "dg-1",
                 name: "7.5 kVA to 20 kVA Diesel Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714180/kumarpower_website/products_and_certs/xrrqjdwx727kuavykav3.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/zhnxnwqqlflixb79r0ag.jpg",
                 phase: "Three Phase",
                 range: "7.5 kVA to 20 kVA",
                 rating: "4.8",
@@ -2623,7 +2625,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790083929/KumarPower-Assets/rbllwma73evgjbffxz9s",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967023/KumarPower-Assets/mfzttuhvon8rmp6qnlb0",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "153",
@@ -2634,7 +2636,7 @@ async function main() {
                 id: "dg-2",
                 name: "25 kVA to 58.5 kVA Diesel Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714184/kumarpower_website/products_and_certs/xdwoqirxbqvzwz5sllkq.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967023/KumarPower-Assets/pn3b0pr4zhjnmmhnyhlb.jpg",
                 phase: "Three Phase",
                 range: "25 kVA to 58.5 kVA",
                 rating: "4.9",
@@ -2643,7 +2645,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084591/KumarPower-Assets/egsmsy23slugigikxi5o",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967023/KumarPower-Assets/zbg7ceuvyl6qirdch4lc",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "132",
@@ -2654,7 +2656,7 @@ async function main() {
                 id: "dg-3",
                 name: "82.5 kVA to 160 kVA Diesel Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714178/kumarpower_website/products_and_certs/j9vig3utu86xmqjukvl4.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967023/KumarPower-Assets/x2x4gnsznxqsonxuguzn.jpg",
                 phase: "Three Phase",
                 range: "82.5 kVA to 160 kVA",
                 rating: "4.8",
@@ -2663,7 +2665,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084689/KumarPower-Assets/ckrbz4wxuxxi7n0iekfn",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967025/KumarPower-Assets/k6sglj5w8bflug0an2bt",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "118",
@@ -2674,7 +2676,7 @@ async function main() {
                 id: "dg-4",
                 name: "200 kVA to 250 kVA Diesel Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714165/kumarpower_website/products_and_certs/n0s7hl3qm65qyueqpkra.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967024/KumarPower-Assets/htf5iu9ba8x930rayll5.jpg",
                 phase: "Three Phase",
                 range: "200 kVA to 250 kVA",
                 rating: "4.7",
@@ -2683,7 +2685,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084789/KumarPower-Assets/uzhow5cneafasbsv3rm3",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967025/KumarPower-Assets/mfbfnvdbdehe9ecawfb0",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "178",
@@ -2694,7 +2696,7 @@ async function main() {
                 id: "dg-5",
                 name: "320 kVA - 750 kVA Diesel Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714169/kumarpower_website/products_and_certs/rdvkcepag17r62vonbao.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967024/KumarPower-Assets/vpcqpzmiydhxyx1hfmyw.jpg",
                 phase: "Three Phase",
                 range: "320 kVA - 750 kVA",
                 rating: "4.9",
@@ -2703,7 +2705,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084792/KumarPower-Assets/g8ywf9silx7ktnaxsoqc",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967026/KumarPower-Assets/lkpatlwtflzsaxeb3jct",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "96",
@@ -2714,7 +2716,7 @@ async function main() {
                 id: "dg-6",
                 name: "750 kVA - 1500 kVA Diesel Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714186/kumarpower_website/products_and_certs/lfs4vcyoxue0s64vlpt3.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967026/KumarPower-Assets/dfoa9llbkiotw8iwodz5.jpg",
                 phase: "Three Phase",
                 range: "750 kVA - 1500 kVA",
                 rating: "4.9",
@@ -2723,7 +2725,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790084917/KumarPower-Assets/sd3omycvfdgemmjflpyn",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967026/KumarPower-Assets/fujivv24ujtujyi5dei7",
                 description:
                   "Our range of diesel generators are designed for maximum performance and reliability. Our generators meet the latest CPCB norms and are built for Indian conditions.",
                 ratingCount: "86",
@@ -2745,7 +2747,7 @@ async function main() {
                 id: "gg-1",
                 name: "15 kVA to 250 kVA Gas Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714172/kumarpower_website/products_and_certs/jok8mlfzuk4ycexlywjo.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967026/KumarPower-Assets/rmnw9kop5rsj2xjadclz.jpg",
                 phase: "Single/Three Phase",
                 range: "15 kVA to 250 kVA",
                 rating: "4.8",
@@ -2753,7 +2755,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Natural Gas/CNG",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790085241/KumarPower-Assets/t3uipriazgldl3iwcb52",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967027/KumarPower-Assets/goagxwwkbsdmlrkiagez",
                 description:
                   "Eco-friendly and efficient, our gas generators provide clean power with lower emissions and reduced operating costs.",
                 ratingCount: "142",
@@ -2775,7 +2777,7 @@ async function main() {
                 id: "pg-1",
                 name: "2.1 kVA to 5 kVA Portable Generators",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714188/kumarpower_website/products_and_certs/gw95efnw5vjihttymsdf.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967027/KumarPower-Assets/gq0rlktblfjugazhcdgy.jpg",
                 phase: "Single Phase",
                 range: "2.1 kVA to 5 kVA",
                 rating: "4.7",
@@ -2783,7 +2785,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Gasoline",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790086236/KumarPower-Assets/f9mwdncknibilne2gcyo",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967027/KumarPower-Assets/bhgdmhdzu8uk8ued0jub",
                 description:
                   "Compact and versatile generators perfect for homes, small businesses, construction sites, and outdoor events.",
                 ratingCount: "165",
@@ -2798,7 +2800,7 @@ async function main() {
                 id: "op-1",
                 name: "Kirloskar Optiprime Generator",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714167/kumarpower_website/products_and_certs/gnoy4jyfav3qis3leaey.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967027/KumarPower-Assets/us7kljbdt1uc0dxeiorb.jpg",
                 phase: "Three Phase",
                 range: "100 kVA",
                 rating: "4.8",
@@ -2806,7 +2808,7 @@ async function main() {
                 cpcbNorm: "CPCB-IV+",
                 fuelType: "Diesel",
                 brochurePdf:
-                  "https://res.cloudinary.com/dpa93copz/raw/upload/v1790085930/KumarPower-Assets/jrhopuzhwpvezb64fgdp",
+                  "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967028/KumarPower-Assets/v7jjpbhcvcdsi6l43wkx",
                 description:
                   "Kirloskar Optiprime series are advanced generators offering superior fuel efficiency and smart monitoring for optimized performance.",
                 ratingCount: "195",
@@ -2870,7 +2872,7 @@ async function main() {
             heroSub:
               "We offer a comprehensive range of electrical panels designed for power distribution, control, and protection across industrial and commercial installations.",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
             sectionTitle: "Electrical Panel",
             sectionDesc:
               "Browse our complete range of generators, panels, stabilizers and transformers.",
@@ -2913,7 +2915,7 @@ async function main() {
                 rating: "4.7",
                 ratingCount: "112",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714197/kumarpower_website/products_and_certs/wzzvqr27kooz9g6f6jnb.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967028/KumarPower-Assets/y4upy9xydzodqkdohoay.png",
                 description:
                   "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
                 technicalSpecs:
@@ -2931,7 +2933,7 @@ async function main() {
                 rating: "4.6",
                 ratingCount: "98",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714191/kumarpower_website/products_and_certs/bkgweet29lfsnlpcz3xm.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967028/KumarPower-Assets/a31e1wcq24fjs22ax2s0.png",
                 description:
                   "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
                 technicalSpecs:
@@ -2949,7 +2951,7 @@ async function main() {
                 rating: "4.6",
                 ratingCount: "98",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714198/kumarpower_website/products_and_certs/n08ka6m8bmiwhgl7iez4.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967028/KumarPower-Assets/dnkidpzaw4cftzf0hy9s.png",
                 description:
                   "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
                 technicalSpecs:
@@ -2967,7 +2969,7 @@ async function main() {
                 rating: "4.6",
                 ratingCount: "98",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714200/kumarpower_website/products_and_certs/n5yfp0gp7jzgdcdaahno.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967029/KumarPower-Assets/ahwfj5uoqo0jhe2lyzy8.png",
                 description:
                   "High-quality electrical panels for power distribution, control, and protection of your electrical systems.",
                 technicalSpecs:
@@ -3006,7 +3008,7 @@ async function main() {
             heroSub:
               "We provide servo voltage stabilizers designed to correct voltage fluctuations and deliver consistent output power across India. Ideal for industrial, commercial, and technical environments, our stabilizers help protect equipment, ensure reliable operation, and improve overall performance with Pan-India availability and support..",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
             sectionTitle: "Servo Stabilizers",
             sectionDesc:
               "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
@@ -3050,7 +3052,7 @@ async function main() {
                 ratingCount: "134",
                 category: "servo",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703263/kumarpower_website/jx1vnoi0vmtz5rxutgao.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967029/KumarPower-Assets/aecz6nzhgjijhrvwftyv.jpg",
                 description:
                   "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
                 technicalSpecs:
@@ -3069,7 +3071,7 @@ async function main() {
                 ratingCount: "122",
                 category: "servo",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784703265/kumarpower_website/ymrmhvqbilpfle4uf0pr.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967029/KumarPower-Assets/nkp40pytdnjtyzoulrm0.jpg",
                 description:
                   "Reliable servo stabilizers to protect your equipment from voltage fluctuations and ensure consistent power supply.",
                 technicalSpecs:
@@ -3108,7 +3110,7 @@ async function main() {
             heroSub:
               "At Kumar Power, we offer a diverse range of transformers designed to meet various industrial and commercial needs across India. Our product lineup includes Distribution Transformers, Power Transformers, Cast Resin Transformers, and Unitized Package Substations. With a strong Pan-India presence, we are committed to delivering reliable, efficient, and high-quality transformer solutions to customers across the country.",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784714163/kumarpower_website/products_and_certs/htfecupmwgbydkqudwji.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967022/KumarPower-Assets/egfk9pjq4jjf6acjysch.jpg",
             sectionTitle: "Transformers",
             sectionDesc:
               "Durable and efficient transformers designed for various industrial and commercial applications.",
@@ -3151,7 +3153,7 @@ async function main() {
                 rating: "4.8",
                 ratingCount: "88",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714204/kumarpower_website/products_and_certs/zae649ckiadypi91wztf.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967029/KumarPower-Assets/q5qcxe3enxkgywhop6ly.jpg",
                 description:
                   "Durable and efficient transformers designed for various industrial and commercial applications.",
                 technicalSpecs:
@@ -3169,7 +3171,7 @@ async function main() {
                 rating: "4.9",
                 ratingCount: "76",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714206/kumarpower_website/products_and_certs/vjb5xintrvujvimj3k0u.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967030/KumarPower-Assets/dptlwfpop6ehk285zizv.jpg",
                 description:
                   "Durable and efficient transformers designed for various industrial and commercial applications.",
                 technicalSpecs:
@@ -3187,7 +3189,7 @@ async function main() {
                 rating: "4.9",
                 ratingCount: "76",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714207/kumarpower_website/products_and_certs/owpwf1vifk0qdpgnr3dd.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967030/KumarPower-Assets/yilps7dhfpujziypr2bg.jpg",
                 description:
                   "Durable and efficient transformers designed for various industrial and commercial applications.",
                 technicalSpecs:
@@ -3205,7 +3207,7 @@ async function main() {
                 rating: "4.6",
                 ratingCount: "98",
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1784714194/kumarpower_website/products_and_certs/ucbookmf7ze3cqc1ruwb.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967030/KumarPower-Assets/z7c4mnugtawgdwcpfx4l.png",
                 description:
                   "Complete electrical substation solution with integrated transformer, panels, and protection systems.",
                 technicalSpecs:
@@ -3240,7 +3242,7 @@ async function main() {
             heroDesc:
               "For over three decades, Kumar Generator House has been the trusted power partner for India's most demanding institutions.",
             heroImage:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1785144132/kumarpower_website/pages/ourc-handshake.png",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967030/KumarPower-Assets/dbccam22c2f3ydqiigov.png",
             heroCtaText: "Explore our client portfolio",
             esteemedTitle: "Our Esteemed Clients",
             stat1Num: "500+",
@@ -3422,7 +3424,7 @@ async function main() {
                 id: "c-cont-13",
                 name: "Ace Pipeline Contracts (P) Ltd.",
                 category: "Contractors/Govt Offices",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361082/KumarPower-Assets/clients/zta6skgxv8gg0uncebiq.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967031/KumarPower-Assets/qyaofuvguomazgi34ufu.jpg",
               },
               {
                 id: "c-cont-14",
@@ -3746,7 +3748,7 @@ async function main() {
                 id: "c-ind-19",
                 name: "Comed Chemicals Ltd.",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712914/kumarpower_website/pages/npeoktrvuao1tzhnyf2b.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/kcebfd4yxko9dol1owbw.jpg",
               },
               {
                 id: "c-ind-20",
@@ -3957,43 +3959,43 @@ async function main() {
                 id: "c-ind-63",
                 name: "Honeywell India",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712895/kumarpower_website/pages/oyqudkfjkh1b3quulplh.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/qpk2xo3xp5lgvkhqcml6.png",
               },
               {
                 id: "c-ind-64",
                 name: "Air India",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712905/kumarpower_website/pages/iuibicnolojsadd28sp4.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/ellbzh1wvbhlc3vei7uz.png",
               },
               {
                 id: "c-ind-65",
                 name: "British Paints",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712906/kumarpower_website/pages/rbcdges456kvxuzujc9l.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/ezpuxj5oic5vzkb02s0f.jpg",
               },
               {
                 id: "c-ind-66",
                 name: "PWC",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712920/kumarpower_website/pages/onlo0n5zhobds9eolqzu.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/owxr62rtsljkcehvzudg.png",
               },
               {
                 id: "c-ind-67",
                 name: "Vistara",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712924/kumarpower_website/pages/l9bjz9xrufsdvyurjidz.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/xezo8zt4imdruh8ocnyx.jpg",
               },
               {
                 id: "c-ind-68",
                 name: "GEPL",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712883/kumarpower_website/pages/babowmbn5turkicygkbr.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/vfzkxzxu0vmmwzpzsyeo.jpg",
               },
               {
                 id: "c-ind-69",
                 name: "OJC",
                 category: "Industries",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712912/kumarpower_website/pages/veflyibxqbnymwlrndng.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/indqfuisk1aopps4wefz.jpg",
               },
               // Retail Outlets
               {
@@ -4015,7 +4017,7 @@ async function main() {
                 id: "c-ret-4",
                 name: "ADI Sports (1) (P) Ltd.",
                 category: "Retail Outlets",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712884/kumarpower_website/pages/elr86cg9o5ehtbvtn2ks.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/jmeplbmudjt6norprusc.jpg",
               },
               {
                 id: "c-ret-5",
@@ -4296,7 +4298,7 @@ async function main() {
                 id: "c-edu-10",
                 name: "Vikas Publication (P) Ltd",
                 category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789360387/KumarPower-Assets/clients/fnrvyj8ogyovcan0rnt4.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967031/KumarPower-Assets/d29qoqbpj9xbed7or1zj.jpg",
               },
               {
                 id: "c-edu-11",
@@ -4332,7 +4334,7 @@ async function main() {
                 id: "c-edu-17",
                 name: "ARMY PUBLIC SCHOOL",
                 category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361119/KumarPower-Assets/clients/wgjepbfjtanbei9tsrnq.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967031/KumarPower-Assets/awnzzesqetac9spvlkhr.png",
               },
               {
                 id: "c-edu-18",
@@ -4405,7 +4407,7 @@ async function main() {
                 id: "c-edu-31",
                 name: "Rai Foundation",
                 category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712917/kumarpower_website/pages/n9fiiakuoeyxtlldrasz.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/wcu8zl5dpi8cynsm0zzd.jpg",
               },
               {
                 id: "c-edu-32",
@@ -4416,7 +4418,7 @@ async function main() {
                 id: "c-edu-33",
                 name: "IGNOU, Regional Centre, NCT of Delhi",
                 category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712923/kumarpower_website/pages/aefj0djwk27dqj8antl2.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/alhdwcwsn8fovdbci6kp.png",
               },
               {
                 id: "c-edu-34",
@@ -4477,7 +4479,7 @@ async function main() {
                 id: "c-edu-45",
                 name: "DPS School",
                 category: "Educational Institutions",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712881/kumarpower_website/pages/l7vudrgnj0wn8x6geidl.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/ybw6errazswzmfzbtxei.jpg",
               },
               {
                 id: "c-edu-46",
@@ -4649,7 +4651,7 @@ async function main() {
                 id: "c-med-32",
                 name: "Apollo Hospitals",
                 category: "Medical Facilities",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712900/kumarpower_website/pages/xbt3t4r0bsw48y1oaucl.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/vdyp4vwwefy8iqgcnobz.png",
               },
               // Construction
               {
@@ -4676,7 +4678,7 @@ async function main() {
                 id: "c-con-5",
                 name: "S&P Infrastructure Developers (P) ltd.",
                 category: "Construction",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712899/kumarpower_website/pages/fia6l5umqisbfn184vix.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/rbojgu85rgnsghjnmgjg.jpg",
               },
               {
                 id: "c-con-6",
@@ -4752,7 +4754,7 @@ async function main() {
                 id: "c-con-20",
                 name: "KEC International Ltd.",
                 category: "Construction",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712910/kumarpower_website/pages/bpexoloid3d5rgpf2qju.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/hco6fseuwhecleuhco95.jpg",
               },
               {
                 id: "c-con-21",
@@ -4828,13 +4830,13 @@ async function main() {
                 id: "c-con-35",
                 name: "Continental Engineering Corporation",
                 category: "Construction",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712872/kumarpower_website/pages/wzn7iloxksjdn9vdl9nz.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/q8uwnpqbfczhkexnzzac.jpg",
               },
               {
                 id: "c-con-36",
                 name: "CEC",
                 category: "Construction",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712872/kumarpower_website/pages/wzn7iloxksjdn9vdl9nz.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/q8uwnpqbfczhkexnzzac.jpg",
               },
               {
                 id: "c-con-37",
@@ -4865,19 +4867,19 @@ async function main() {
                 id: "c-con-42",
                 name: "Ace Construction",
                 category: "Construction",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712874/kumarpower_website/pages/mxqbgjryo9awqzfjzyei.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/pcbtvf5hw2t0vihoxwwc.jpg",
               },
               {
                 id: "c-con-43",
                 name: "NCC Limited",
                 category: "Construction",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712903/kumarpower_website/pages/ots16de8ab4ep5y2qtvm.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/j8nxyfckxpbm7xkg8fuq.jpg",
               },
               {
                 id: "c-con-44",
                 name: "NBCC Limited",
                 category: "Construction",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712908/kumarpower_website/pages/eqgmlclkhvgd3brunbit.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/pxgknktiqh7ljtnwowqn.png",
               },
               // Spiritual & NGOs
               {
@@ -5166,19 +5168,19 @@ async function main() {
                 id: "c-hot-25",
                 name: "Seasons",
                 category: "Hospitality & Hotels",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712902/kumarpower_website/pages/srgu3xp1bqpt0j0owygp.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/yvpy9qer8u6xz9bdkg75.png",
               },
               {
                 id: "c-hot-26",
                 name: "Mapple Hotels",
                 category: "Hospitality & Hotels",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712913/kumarpower_website/pages/h4qlwyke69y5ou0uvhwy.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/utd6nsbmdpj0yiz7zypc.jpg",
               },
               {
                 id: "c-hot-27",
                 name: "Clarion",
                 category: "Hospitality & Hotels",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712878/kumarpower_website/pages/pxzw9z3efrvmt4xqrgo6.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/c1x5garrvfsxwobyhp1q.png",
               },
               // Exporters
               {
@@ -5285,7 +5287,7 @@ async function main() {
                 id: "c-mfg-6",
                 name: "Suez India (P) Ltd.",
                 category: "Manufacturers/Wholesalers/Suppliers",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712896/kumarpower_website/pages/esahf0nbza5bbekpynjy.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/ctydqzqqeqddnzkb7yst.png",
               },
               {
                 id: "c-mfg-7",
@@ -5371,7 +5373,7 @@ async function main() {
                 id: "c-mfg-23",
                 name: "APL Apollo Tubes Ltd.",
                 category: "Manufacturers/Wholesalers/Suppliers",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789361127/KumarPower-Assets/clients/qjbhjxwcwgoyar2h1hqx.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967031/KumarPower-Assets/bzbr8phqf87jpewjb1hv.jpg",
               },
               {
                 id: "c-mfg-24",
@@ -5448,7 +5450,7 @@ async function main() {
                 id: "c-mfg-38",
                 name: "Daikin Airconditioning India (P) Ltd.",
                 category: "Manufacturers/Wholesalers/Suppliers",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712921/kumarpower_website/pages/olmrtpm51ks5emr2eyok.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/xut9etbsagc3lvblnulg.jpg",
               },
               {
                 id: "c-mfg-39",
@@ -5570,7 +5572,7 @@ async function main() {
                 id: "c-inf-2",
                 name: "Sikka Infrastructure (P) Ltd",
                 category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789360386/KumarPower-Assets/clients/uzckdtlrwvqvkl3j1ggg.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967033/KumarPower-Assets/znznq304jy9kycia6m7r.jpg",
               },
               {
                 id: "c-inf-3",
@@ -5586,7 +5588,7 @@ async function main() {
                 id: "c-inf-5",
                 name: "Afcons Infrastructure Ltd.",
                 category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712909/kumarpower_website/pages/mznhggiitrdnbyvwxlea.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/g8jitllfqwwa6c1fnsho.png",
               },
               {
                 id: "c-inf-6",
@@ -5597,7 +5599,7 @@ async function main() {
                 id: "c-inf-7",
                 name: "Kashyapi Infrastructure (P) Ltd.",
                 category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1789360388/KumarPower-Assets/clients/oyjyponductweikdbzef.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/smckr2iyjaxihtzr9j8f.png",
               },
               {
                 id: "c-inf-8",
@@ -5613,13 +5615,13 @@ async function main() {
                 id: "c-inf-10",
                 name: "GMR Infrastructure",
                 category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712863/kumarpower_website/pages/rpsj6uyhi7kl2gdsc8ng.jpg",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966989/KumarPower-Assets/yo8scjr7jlnrgstzdwva.jpg",
               },
               {
                 id: "c-inf-11",
                 name: "Adani Group",
                 category: "Infrastructure",
-                logo: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712898/kumarpower_website/pages/bhpjqp3anzsiowfrltvt.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/e9wdbcds49y95ougaglq.png",
               },
               // Beauty Salon
               {
@@ -6243,137 +6245,137 @@ async function main() {
             logos: [
               {
                 id: "cl-1",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712863/kumarpower_website/pages/rpsj6uyhi7kl2gdsc8ng.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966989/KumarPower-Assets/yo8scjr7jlnrgstzdwva.jpg",
                 alt: "GMR Infrastructure",
               },
               {
                 id: "cl-2",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712895/kumarpower_website/pages/oyqudkfjkh1b3quulplh.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/qpk2xo3xp5lgvkhqcml6.png",
                 alt: "Honeywell India",
               },
               {
                 id: "cl-3",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712896/kumarpower_website/pages/esahf0nbza5bbekpynjy.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/ctydqzqqeqddnzkb7yst.png",
                 alt: "Suez Water",
               },
               {
                 id: "cl-4",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712898/kumarpower_website/pages/bhpjqp3anzsiowfrltvt.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/e9wdbcds49y95ougaglq.png",
                 alt: "Adani Group",
               },
               {
                 id: "cl-5",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712899/kumarpower_website/pages/fia6l5umqisbfn184vix.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966990/KumarPower-Assets/rbojgu85rgnsghjnmgjg.jpg",
                 alt: "S&P Infra",
               },
               {
                 id: "cl-6",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712900/kumarpower_website/pages/xbt3t4r0bsw48y1oaucl.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/vdyp4vwwefy8iqgcnobz.png",
                 alt: "Apollo Hospitals",
               },
               {
                 id: "cl-7",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712872/kumarpower_website/pages/wzn7iloxksjdn9vdl9nz.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/q8uwnpqbfczhkexnzzac.jpg",
                 alt: "CEC",
               },
               {
                 id: "cl-8",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712902/kumarpower_website/pages/srgu3xp1bqpt0j0owygp.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/yvpy9qer8u6xz9bdkg75.png",
                 alt: "Seasons",
               },
               {
                 id: "cl-9",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712903/kumarpower_website/pages/ots16de8ab4ep5y2qtvm.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966991/KumarPower-Assets/j8nxyfckxpbm7xkg8fuq.jpg",
                 alt: "NCC Limited",
               },
               {
                 id: "cl-10",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712905/kumarpower_website/pages/iuibicnolojsadd28sp4.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/ellbzh1wvbhlc3vei7uz.png",
                 alt: "Air India",
               },
               {
                 id: "cl-11",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712906/kumarpower_website/pages/rbcdges456kvxuzujc9l.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/ezpuxj5oic5vzkb02s0f.jpg",
                 alt: "British Paints",
               },
               {
                 id: "cl-12",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712908/kumarpower_website/pages/eqgmlclkhvgd3brunbit.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/pxgknktiqh7ljtnwowqn.png",
                 alt: "NBCC Limited",
               },
               {
                 id: "cl-13",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712909/kumarpower_website/pages/mznhggiitrdnbyvwxlea.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966992/KumarPower-Assets/g8jitllfqwwa6c1fnsho.png",
                 alt: "Afcons Infrastructure",
               },
               {
                 id: "cl-14",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712910/kumarpower_website/pages/bpexoloid3d5rgpf2qju.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/hco6fseuwhecleuhco95.jpg",
                 alt: "KEC International",
               },
               {
                 id: "cl-15",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712912/kumarpower_website/pages/veflyibxqbnymwlrndng.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/indqfuisk1aopps4wefz.jpg",
                 alt: "OJC",
               },
               {
                 id: "cl-16",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712913/kumarpower_website/pages/h4qlwyke69y5ou0uvhwy.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/utd6nsbmdpj0yiz7zypc.jpg",
                 alt: "Mapple Hotels",
               },
               {
                 id: "cl-17",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712914/kumarpower_website/pages/npeoktrvuao1tzhnyf2b.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966993/KumarPower-Assets/kcebfd4yxko9dol1owbw.jpg",
                 alt: "Comed",
               },
               {
                 id: "cl-18",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712917/kumarpower_website/pages/n9fiiakuoeyxtlldrasz.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/wcu8zl5dpi8cynsm0zzd.jpg",
                 alt: "Rai Foundation",
               },
               {
                 id: "cl-19",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712920/kumarpower_website/pages/onlo0n5zhobds9eolqzu.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/owxr62rtsljkcehvzudg.png",
                 alt: "PWC",
               },
               {
                 id: "cl-20",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712921/kumarpower_website/pages/olmrtpm51ks5emr2eyok.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/xut9etbsagc3lvblnulg.jpg",
                 alt: "Daikin",
               },
               {
                 id: "cl-21",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712923/kumarpower_website/pages/aefj0djwk27dqj8antl2.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966995/KumarPower-Assets/alhdwcwsn8fovdbci6kp.png",
                 alt: "IGNOU",
               },
               {
                 id: "cl-22",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712924/kumarpower_website/pages/l9bjz9xrufsdvyurjidz.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/xezo8zt4imdruh8ocnyx.jpg",
                 alt: "Vistara",
               },
               {
                 id: "cl-23",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712874/kumarpower_website/pages/mxqbgjryo9awqzfjzyei.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/pcbtvf5hw2t0vihoxwwc.jpg",
                 alt: "Ace Construction",
               },
               {
                 id: "cl-24",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712878/kumarpower_website/pages/pxzw9z3efrvmt4xqrgo6.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/c1x5garrvfsxwobyhp1q.png",
                 alt: "Clarion",
               },
               {
                 id: "cl-25",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712881/kumarpower_website/pages/l7vudrgnj0wn8x6geidl.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966996/KumarPower-Assets/ybw6errazswzmfzbtxei.jpg",
                 alt: "DPS",
               },
               {
                 id: "cl-26",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712883/kumarpower_website/pages/babowmbn5turkicygkbr.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/vfzkxzxu0vmmwzpzsyeo.jpg",
                 alt: "GEPL",
               },
               {
                 id: "cl-27",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784712884/kumarpower_website/pages/elr86cg9o5ehtbvtn2ks.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791966997/KumarPower-Assets/jmeplbmudjt6norprusc.jpg",
                 alt: "Adidas",
               },
             ],
@@ -6405,7 +6407,7 @@ async function main() {
 
             heroSubtitle: "Testimonials from industry leaders",
             heroBgImage:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/sqgz8lseqtxqb9fbt0su.jpg",
             storiesTitle: "Client Success Stories",
             filterText: "Filter by industry...",
             trustedTitle: "Trusted by India's Leading Organizations",
@@ -6414,7 +6416,7 @@ async function main() {
                 id: "test-1",
                 authorName: "Khushi Aggarwal",
                 roleCompany: "Founder, Platter Me Crazy",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902468/Screenshot_2025-10-31_144115_lybhem.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/qul3vq3yxmxshvq0nov5.png",
                 quote:
                   "I, Khushi Aggarwal, Founder of Platter Me Crazy, a brand synonymous with culinary artistry and luxury dining experiences. We curate exquisite charcuterie boards and handcrafted artisanal foods that elevate every occasion into a memorable indulgence. Our signature creations include gourmet flavoured butters, silky-smooth hummus blends, and wholesome baked crisps, each crafted with uncompromising freshness and zero preservatives. Whether for intimate soirées, premium gifting, or grand corporate gatherings, we bring an unmatched blend of flavor, finesse and sophistication to the table.",
               },
@@ -6422,7 +6424,7 @@ async function main() {
                 id: "test-2",
                 authorName: "Kaustubh Jain",
                 roleCompany: "TEAM Construction Chemicals (TEAMCC)",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902466/Screenshot_2025-10-31_144303_wgqqaq.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967034/KumarPower-Assets/pulj7ib9ty60yqqem99u.png",
                 quote:
                   "I am Kaustubh Jain representing the category marble adhesives and coatings. At TEAMCC we specialise in high-performance epoxy adhesives, polyester adhesives, tile adhesives and marble coatings. I have had the pleasure of knowing Mr. Jasjot Singh, and I can confidently say he is a true professional in the generator industry. Representing the trusted Kirloskar brand, Jasjot ensures top-quality products backed by exceptional service. His deep knowledge of power solutions, combined with his commitment to delivering the right generator for every requirement, makes him a go-to expert.",
                 dateText: "Kaustubh Jain / BNI Lakshay",
@@ -6431,7 +6433,7 @@ async function main() {
                 id: "test-3",
                 authorName: "Atul Jewellers",
                 roleCompany: "Proprietor, New Delhi",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_144354_iiu1nu.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967034/KumarPower-Assets/nmy4jndudiaev0cibjqx.png",
                 quote:
                   "We at Atul Jewellers are engaged in retail & wholesale of precious gemstones, diamonds & fine jewellery for almost five decades. We are the only jewellery house in Delhi, with in-house state of art gem testing & diamond grading laboratory, and we also provide this facility to almost 500 retailers across Delhi NCR. I wish to record our appreciation and acknowledgement, for R.S. Kumar of Kumar Generator House, who has provided gensets for our new store at Defence Colony. Mr. Kumar and his team are extremely professional in their approach.",
                 dateText: "Dated: 28th Dec. 2018",
@@ -6440,7 +6442,7 @@ async function main() {
                 id: "test-4",
                 authorName: "Brown Gold",
                 roleCompany: "Bharat Anand, Director",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902474/Gemini_Generated_Image_1je1r11je1r11je1_ksybnh.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967034/KumarPower-Assets/oikafi7xne0onffiqsng.png",
                 quote:
                   "We at Brown Gold are a team of young and dynamic interior designers. We would like to place on record our appreciation for Mr. R. S. Kumar of Kumar Generator House. We had taken their services for our 40 KVA Kirloskar generator & a small genset of 7 KVA. We would like to take this opportunity to thank you for providing excellent advice, excellent products & excellent service.",
                 dateText: "Bharat Anand, Director, Brown Gold",
@@ -6449,7 +6451,7 @@ async function main() {
                 id: "test-5",
                 authorName: "RENT IT BAE",
                 roleCompany: "Luxury Fashion Rental Service",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_144806_gklejh.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967033/KumarPower-Assets/ohnavdhgjddcsix6t5nd.png",
                 quote:
                   "RENT IT BAE is a luxury fashion rental service offering Ethnic, Western & Accessories from designer labels. We highly appreciate the fast and seamless service provided by your company. The installation of inverters for RENT IT BAE's South Delhi Flagship Store at Greater Kailash seemed a fluid task with your service.",
               },
@@ -6457,7 +6459,7 @@ async function main() {
                 id: "test-6",
                 authorName: "K.K. Setia",
                 roleCompany: "Olympus, Intown Realtors Pvt Ltd",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1761902462/Screenshot_2025-10-31_145022_ffeb43.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967035/KumarPower-Assets/nkimkjaoufnnifmbgbg7.png",
                 quote:
                   "I K.K. Setia, Director of Intown Realtors, have been in the commercial real estate business for the last 18 years. I recently needed a generator for my Sector 18 office building and reached out to Mr. Manjot Singh Kumar. His team promptly inspected the site, provided a tailored solution, and even assisted with necessary approvals.",
                 dateText: "3rd March, 2025",
@@ -6466,7 +6468,7 @@ async function main() {
                 id: "test-7",
                 authorName: "Shivani Saini",
                 roleCompany: "Owner, Anytime Fitness",
-                logo: "https://res.cloudinary.com/dmhabztbf/image/upload/v1762064945/Screenshot_2025-11-02_115831_lgqzrn.png",
+                logo: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967035/KumarPower-Assets/kki57ggqgrcvlkneqkna.png",
                 quote:
                   "During the setting up of Anytime Fitness Sec 29, Gurugram, I got the reference of Mr Jasjot Singh of M/s Kumar Generator House. I write this testimonial to express my deep gratitude to Mr Jasjot Singh for guiding me towards the trusted Kirloskar Brand. The equipment is top notch and customer support has been outstanding.",
                 dateText: "26 Sep 25 / SCO Market, Sec 29, Gurugram",
@@ -6475,72 +6477,72 @@ async function main() {
             clientLogos: [
               {
                 id: "logo-1",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967035/KumarPower-Assets/pwcm6kqgyvr1jcwncfvj.jpg",
                 alt: "Seasons",
               },
               {
                 id: "logo-2",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703672/kumarpower_website/egvye1xjbviosybczmy5.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967035/KumarPower-Assets/pwcm6kqgyvr1jcwncfvj.jpg",
                 alt: "SIS",
               },
               {
                 id: "logo-3",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703674/kumarpower_website/vo2ekpdop7dovku0rc8n.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967035/KumarPower-Assets/i2juughjotlodczdcmyq.jpg",
                 alt: "Vistara",
               },
               {
                 id: "logo-4",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703675/kumarpower_website/gbtxkuml1jukdiu4wlyh.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967037/KumarPower-Assets/l34vxfwr8vge8twrygn7.jpg",
                 alt: "GMR",
               },
               {
                 id: "logo-5",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703677/kumarpower_website/xs3x2tpwjztqwrmhb3py.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967037/KumarPower-Assets/mm2eaela9xhphf0bd5fw.png",
                 alt: "Honeywell",
               },
               {
                 id: "logo-6",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967037/KumarPower-Assets/t2n8ooz4i9lqvkyq9l5d.jpg",
                 alt: "Kashyapi",
               },
               {
                 id: "logo-7",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704211/kumarpower_website/ec5cfnqrretpdprsbbm1.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967038/KumarPower-Assets/vbka6v2mismu09hbhu5y.png",
                 alt: "Caritas",
               },
               {
                 id: "logo-8",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784704210/kumarpower_website/nacxi10gr8csg6edjohn.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967037/KumarPower-Assets/t2n8ooz4i9lqvkyq9l5d.jpg",
                 alt: "CEC",
               },
               {
                 id: "logo-9",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703682/kumarpower_website/cvntuob1pan8lodaj37k.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967039/KumarPower-Assets/k9clyv9qpmrv6eeh0ir1.jpg",
                 alt: "Adidas",
               },
               {
                 id: "logo-10",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703688/kumarpower_website/pgpf5ubc3ylvzfnjn7my.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967039/KumarPower-Assets/oninfpkswvfvkxgwoigh.jpg",
                 alt: "GEPL",
               },
               {
                 id: "logo-11",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703686/kumarpower_website/uhmlaewcidzkrefpnl8g.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967039/KumarPower-Assets/kqsjbeuiw5xjcnooyrq4.jpg",
                 alt: "DPS",
               },
               {
                 id: "logo-12",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703685/kumarpower_website/i2hcjyehbydll3hg67nf.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967039/KumarPower-Assets/ob1azjgpyzc1hatdnpqp.jpg",
                 alt: "Comed",
               },
               {
                 id: "logo-13",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703679/kumarpower_website/gjm6k7mwcmvnsewffrsc.jpg",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967040/KumarPower-Assets/uwwdt2in0tw0ogdhx1oz.jpg",
                 alt: "Ace Construction",
               },
               {
                 id: "logo-14",
-                url: "https://res.cloudinary.com/dpa93copz/image/upload/v1784703681/kumarpower_website/qvwibw8fuw4gmlkk9n4c.png",
+                url: "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967040/KumarPower-Assets/amqiqafbmgxivzhtygmp.png",
                 alt: "Clarion",
               },
             ],
@@ -6560,7 +6562,7 @@ async function main() {
             whatsappPhone: "+919773877796",
             helplinePhone: "01140191273",
             brochurePdf:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318463/kumarpower_website/brochures_raw/7.5-20_kVA.pdf",
+              "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967041/KumarPower-Assets/brochures/c9fq282mtmaczrfvh5ut.pdf",
           },
         },
       ],
@@ -6594,7 +6596,7 @@ async function main() {
             heroSub:
               "Kumar Power provides expert insights on industrial power generation, focusing on Kirloskar generator efficiency, CPCB IV+ compliance, and energy management for continuous operations. The blog serves as a resource for manufacturing, commercial, and healthcare sectors seeking to optimize power infrastructure and reduce downtime. Read more at Kumar Power.",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/sqgz8lseqtxqb9fbt0su.jpg",
             articlesHeading: "Blogs",
             articlesSub:
               "Explore expert articles, case studies, and latest trends in industrial power solutions.",
@@ -6605,7 +6607,7 @@ async function main() {
             ctaPrimaryUrl: "/contact",
             ctaSecondaryLabel: "Download Our Company Profile",
             companyProfilePdf:
-              "https://res.cloudinary.com/dpa93copz/raw/upload/v1785318761/kumarpower_website/brochures_raw/4.Kirloskar%20powergen_Sentinel%20series%20Genset.pdf",
+              "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967535/KumarPower-Assets/brochures/bnbjtryeommhea5dj3qg.pdf",
           },
         },
         {
@@ -6624,7 +6626,7 @@ async function main() {
               summary:
                 "AMF Panels (Automatic Mains Failure Panels) for DG Sets are essential for ensuring uninterrupted power supply, automatically switching between mains and generator power during outages.",
               image:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1784983053/KumarPower-Assets/brtcoxyzckxg84qqk8lk.jpg",
+                "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967048/KumarPower-Assets/gk8fbect2zj7kq98fmi1.jpg",
               readTime: "5 min read",
               status: "Published",
               content: `<h2>How Does an AMF Panel Work?</h2>
@@ -6632,14 +6634,14 @@ async function main() {
 <blockquote>
 <p>Think of an AMF panel as the brain of your backup power system. It continuously monitors the main power supply and takes action without any human intervention.</p>
 </blockquote>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137532/kumarpower_website/blog_migrated/amf-panel-for-dg-set-electrical-control-panel.jpg" alt="AMF Panel For DG Set - Modern Power Solutions" /></p>
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967049/KumarPower-Assets/feljc8qx80wgp4empfuh.jpg" alt="AMF Panel For DG Set - Modern Power Solutions" /></p>
 <p>1. Monitoring: The AMF panel constantly monitors the incoming mains supply voltage and frequency.<br>
 2. Detecting Failure: If the mains supply fails, drops below a certain voltage, or experiences a phase loss, the AMF panel detects this anomaly instantly.<br>
 3. Starting the Generator: It sends a start signal to the generator's engine control unit (ECU).<br>
 4. Switching Load: Once the generator reaches the correct speed and voltage, the AMF panel's changeover contactor switches the load from the mains to the generator.<br>
 5. Restoring Power: When the mains power returns and stabilizes, the panel switches the load back to the mains.<br>
 6. Shutting Down: The panel allows the generator to run for a short cool-down period before shutting it off completely.</p>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137407/kumarpower_website/blog_migrated/amf-panel-for-generator-feature-image.jpg" alt="AMF Control Panel For DG Set - Kumar Power ISO 9001:2015" /></p>`,
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967049/KumarPower-Assets/rngmn7nuplslik4c7sm0.jpg" alt="AMF Control Panel For DG Set - Kumar Power ISO 9001:2015" /></p>`,
             },
             {
               id: "blog-2",
@@ -6652,19 +6654,19 @@ async function main() {
               summary:
                 "The Kirloskar silent power generator operates at a noise level of less than 75 dBA at 1 metre distance, which is roughly similar to the sound of a normal conversation.",
               image:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1784983055/KumarPower-Assets/v3kwtoml4ltegduz27in.jpg",
+                "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967049/KumarPower-Assets/pbgpbxykb7scgyyujzrp.jpg",
               readTime: "4 min read",
               status: "Published",
               content: `<h2>What Is a Silent Generator?</h2>
 <p>A silent generator is a standard diesel or <strong>gas generator</strong> fitted inside a specially designed acoustic enclosure that is called a canopy. This canopy is built with sound-absorbing material like high-density foam or glass wool, which keeps the noise level low. It not only reduces noise but also saves the genset from dust, rain, and sunlight.</p>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg" alt="The Power of Silence" /></p>
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/sqgz8lseqtxqb9fbt0su.jpg" alt="The Power of Silence" /></p>
 <p>A canopy can only reduce sound; it can't totally silence the generator. When a generator is used to make electricity, the engine inside it starts running on its rated RPM (Revolutions Per Minute). In a generator, RPM is directly linked to its power generation capacity and engine speed.</p>
 <blockquote>
 <p>As in India, 50 Hz is the standard frequency for electricity. When the alternator inside the generator rotates, it generates AC electricity. To maintain the frequency of 50Hz, the piston of the engine has to run at a specific speed, such as 1500RPM or 3000RPM. When the engine runs at this speed, it generates a lot of noise.</p>
 </blockquote>
 <h2>Why Choose Kirloskar?</h2>
 <p>Whether you need a compact 15 kVA generator for a commercial building or office, or a heavy-duty 1500 kVA DG set for your large industrial facility, when people search for a reliable silent generator in India, the name Kirloskar comes up for good reason. Kirloskar Oil Engines Limited (KOEL) (1946) carries over a century (starting of Kirloskar 1888) of engineering heritage and currently operates one of the largest genset fleets in the country, serving 50+ countries globally.</p>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1784983055/KumarPower-Assets/v3kwtoml4ltegduz27in.jpg" alt="Power That Blends Into the Background" /></p>`,
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967049/KumarPower-Assets/pbgpbxykb7scgyyujzrp.jpg" alt="Power That Blends Into the Background" /></p>`,
             },
             {
               id: "blog-3",
@@ -6677,7 +6679,7 @@ async function main() {
               summary:
                 "Heavy-duty industrial Kirloskar DG Sets ranging from 750 kVA to 1500 kVA are engineered for continuous, reliable prime and standby power in large-scale manufacturing, infrastructure, and commercial sectors.",
               image:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1784983056/KumarPower-Assets/dgdqgwswk8cxs4awcfvs.jpg",
+                "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967050/KumarPower-Assets/q9ytne34ymocoln72z09.jpg",
               readTime: "6 min read",
               status: "Published",
               content: `<p>Even metro cities face constant power cuts due to rising electricity demands alongside growing needs. Heavy-duty industrial Kirloskar DG sets ranging from 750 kVA to 1500 kVA are engineered for continuous, reliable prime and standby power in large-scale manufacturing, infrastructure, IT, data centres, hospitals, and commercial sectors.</p>
@@ -6686,12 +6688,12 @@ async function main() {
 <p>Sitting worklessly during a power outage, looking at the machinery shutting down, it's a scene that feels like a very painful story from a business owner's POV. A small amount of time that causes production halts can affect the revenue and the reputation of the industry in the market, turning into a very big amount of loss for businesses.</p>
 </blockquote>
 <p>We can't control the grid electricity. In peak summertimes, well, not only summertime, but it's every time, there is always high power demand. The machines we use in our daily life, for commercial buildings, as well as in industrial sectors, everything depends on power. Due to this additional power load, power maintenance shutdowns and grid power failures are to be expected. Even the weather contributes to this, too. And then it strikes us: Yes! We do need a backup.</p>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137559/kumarpower_website/blog_migrated/industrial-kirloskar-dg-set-750-1500kva.jpg" alt="High Capacity Industrial Kirloskar DG Set 750 kVA to 1500 kVA" /></p>
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967051/KumarPower-Assets/vcw3i4ejs7tyotzqimhu.jpg" alt="High Capacity Industrial Kirloskar DG Set 750 kVA to 1500 kVA" /></p>
 <h2>Understanding Heavy-Duty Industrial Power Requirements</h2>
 <p>Heavy-duty power requirements are significantly different from standard commercial and residential backup applications. Because industrial facilities operate multiple high-capacity machines, motor-driven equipment, HVAC systems, process loads, and critical infrastructure simultaneously. From production in the industry to the warehouse shifting, machines work continuously. As a result, power demand can fluctuate throughout the day, particularly during equipment startup and peak production cycles.</p>
 <h2>Which Industries Require 750 kVA to 1500 kVA KOEL DG Sets?</h2>
 <p>In this high-capacity industrial segment, the available range is 750 kVA (600kW), 900 kVA (720kW), 1010 kVA (808kW), 1250 kVA (1000kW), and 1500 kVA (1200kW) with 0.8 lagging power factor. Provide a reliable and uninterrupted power supply. Various industries require a stable power backup connection for seamless operations.</p>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137358/kumarpower_website/blog_migrated/industrial-kirloskar-dg-set-750-1500kva-feature-image.jpg" alt="High-Capacity Industrial Kirloskar DG Set 750 kVA to 1500 kVA - Keep Running Industries 24/7" /></p>
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967051/KumarPower-Assets/bkpla6hwhnkdnn3veq8z.jpg" alt="High-Capacity Industrial Kirloskar DG Set 750 kVA to 1500 kVA - Keep Running Industries 24/7" /></p>
 <h3>Manufacturing Plants (1000 kVA to 1500 kVA)</h3>
 <p>Manufacturing facilities often experience high starting currents due to CNC machines, compressors, conveyor systems, and heavy-duty motors. In such environments, a 1250 kVA DG set is frequently preferred because it provides sufficient headroom during simultaneous equipment startup while reducing the risk of voltage fluctuations during production hours that a 750 kVA unit may struggle to absorb.</p>
 <h3>Large Data Centres (1000 kVA to 1500 kVA)</h3>
@@ -6705,7 +6707,7 @@ async function main() {
   <li>Advanced Monitoring and Remote Diagnostics</li>
   <li>Built for Demanding Site Conditions</li>
 </ul>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137466/kumarpower_website/blog_migrated/blog1.png" alt="Kirloskar generator" /></p>`,
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967051/KumarPower-Assets/itevz3sddmaautmx6wiy.png" alt="Kirloskar generator" /></p>`,
             },
             {
               id: "blog-4",
@@ -6718,7 +6720,7 @@ async function main() {
               summary:
                 "A very comprehensive preventive maintenance strategy is one of the most important investments businesses can make to improve generator reliability, operational efficiency, and long-term performance.",
               image:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1785137466/kumarpower_website/blog_migrated/blog1.png",
+                "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967051/KumarPower-Assets/itevz3sddmaautmx6wiy.png",
               readTime: "5 min read",
               status: "Published",
               content: `<p>A very comprehensive preventive maintenance strategy is one of the most important investments businesses can make to improve generator reliability, operational efficiency, and long-term performance.</p>
@@ -6731,7 +6733,7 @@ async function main() {
 <h2>Fluid Management</h2>
 <p>Proper oil management and coolant monitoring are critical for preventing overheating and reducing internal engine wear.</p>
 <p>Using manufacturer-recommended lubricants and replacing filters regularly helps generators perform consistently under heavy industrial loads.</p>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137466/kumarpower_website/blog_migrated/blog1.png" alt="Kirloskar generator" /></p>
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967051/KumarPower-Assets/itevz3sddmaautmx6wiy.png" alt="Kirloskar generator" /></p>
 <h2>Smart Monitoring Systems</h2>
 <p>Modern monitoring systems use IoT and predictive analytics to track performance in real time. These intelligent systems notify operators about maintenance requirements before failures occur.</p>`,
             },
@@ -6746,7 +6748,7 @@ async function main() {
               summary:
                 "Extreme weather conditions can severely impact generator performance if proper precautions aren't taken. In hot weather, ensure proper ventilation.",
               image:
-                "https://res.cloudinary.com/dpa93copz/image/upload/v1785137515/kumarpower_website/blog_migrated/blog3.png",
+                "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967052/KumarPower-Assets/hvfesypijt8xfstbnwvp.png",
               readTime: "3 min read",
               status: "Published",
               content: `<p>Extreme weather conditions can severely impact generator performance if proper precautions aren't taken.</p>
@@ -6754,7 +6756,7 @@ async function main() {
 <p>In hot weather, ensure proper ventilation around your generator.</p>
 <h2>Moisture Protection</h2>
 <p>Rain and humidity can damage electrical components.</p>
-<p><img src="https://res.cloudinary.com/dpa93copz/image/upload/v1785137515/kumarpower_website/blog_migrated/blog3.png" alt="Generator Performance" /></p>`,
+<p><img src="https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967052/KumarPower-Assets/hvfesypijt8xfstbnwvp.png" alt="Generator Performance" /></p>`,
             },
           ],
         },
@@ -6786,7 +6788,7 @@ async function main() {
             heroSub:
               "Next-generation Lithium Iron Phosphate (LiFePO4) energy storage solutions engineered for commercial, industrial, and renewable synchronization.",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1790055702/KumarPower-Assets/bess/dswbao341k3cqikss8dn.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967052/KumarPower-Assets/sszl0ij3on7bqd9s6m1u.jpg",
             sectionTitle: "Battery Energy Storage Range",
             sectionDesc:
               "High-efficiency, zero-emission BESS units engineered for seamless backup, peak demand shaving, DG synchronization, and solar hybridization.",
@@ -6831,7 +6833,7 @@ async function main() {
                 rating: 4.8,
                 ratingCount: 142,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055703/KumarPower-Assets/bess/jsczats2smhch7fft6q8.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967052/KumarPower-Assets/d8pa9p4q2w4iffqxcsyc.png",
                 description:
                   "Compact energy storage system designed for retail showrooms, clinics, and offices requiring reliable backup with zero sound and emissions.",
                 technicalSpecs:
@@ -6852,7 +6854,7 @@ async function main() {
                 rating: 4.8,
                 ratingCount: 168,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055704/KumarPower-Assets/bess/hggwxzkpxwefudvygv2f.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967052/KumarPower-Assets/ppz9x37kdv29m9nq8ipc.png",
                 description:
                   "High-efficiency commercial storage unit designed for critical infrastructure, telecom base stations, and light commercial loads with seamless transfer time.",
                 technicalSpecs:
@@ -6873,7 +6875,7 @@ async function main() {
                 rating: 4.9,
                 ratingCount: 195,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055705/KumarPower-Assets/bess/yj1tx3jr0ycr0qikn8cq.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967053/KumarPower-Assets/lzbva4kzseuz6cvvsooe.png",
                 description:
                   "Robust commercial & industrial energy storage system built for peak shaving, demand charge management, and renewable energy integration.",
                 technicalSpecs:
@@ -6894,7 +6896,7 @@ async function main() {
                 rating: 4.9,
                 ratingCount: 176,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055706/KumarPower-Assets/bess/ypt6j6sta53gq0cifnkc.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967053/KumarPower-Assets/uxq2q2gl6zwq3cpo7fdt.png",
                 description:
                   "High-capacity industrial cabinet engineered for heavy demand shaving, high duty cycles, and seamless integration with existing DG sets.",
                 technicalSpecs:
@@ -6915,7 +6917,7 @@ async function main() {
                 rating: 4.9,
                 ratingCount: 154,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790055707/KumarPower-Assets/bess/aixzlwooixkp4uvxg1ur.png",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967053/KumarPower-Assets/flpupkufqdpkznbrmv4m.png",
                 description:
                   "Engineered for large manufacturing units and commercial hubs. Provides high discharge rates, black start capability, and power quality improvement.",
                 technicalSpecs:
@@ -6936,7 +6938,7 @@ async function main() {
                 rating: 4.9,
                 ratingCount: 220,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790056713/KumarPower-Assets/bess/stho41j0mxcqeh8uleit.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967053/KumarPower-Assets/txxdkpeogergqvnh4nkz.jpg",
                 description:
                   "Turnkey modular containerized battery energy storage solution ready for utility substations, solar farms, microgrids, and large-scale industrial plants.",
                 technicalSpecs:
@@ -6976,7 +6978,7 @@ async function main() {
             heroSub:
               "Tier-1 Mono PERC and TOPCon Bifacial solar photovoltaic panels engineered for commercial, industrial, and residential rooftop clean energy generation.",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1790057405/KumarPower-Assets/solar/z9t1nchzpb9zozfilo1g.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967055/KumarPower-Assets/xcdljy3yyqwgg6tkqi13.jpg",
             sectionTitle: "Solar Photovoltaic Panel Range",
             sectionDesc:
               "Harness clean solar energy with Tier-1 high-efficiency panels engineered for maximum yield, DG synchronization, and seamless integration with Kumar Power BESS.",
@@ -7019,7 +7021,7 @@ async function main() {
                 rating: 4.8,
                 ratingCount: 162,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057845/KumarPower-Assets/solar/afsys6bopq2q7rpkp6uv.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967055/KumarPower-Assets/knmifrzzzdipvtma9wqa.jpg",
                 description:
                   "High-power Mono PERC module engineered for commercial and industrial rooftops. Minimizes hotspot risk and maximizes energy yield even under partial shading.",
                 technicalSpecs:
@@ -7038,7 +7040,7 @@ async function main() {
                 rating: 4.9,
                 ratingCount: 184,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057847/KumarPower-Assets/solar/uhlp3fchrpddbytbv68c.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967055/KumarPower-Assets/xpibnqc7w3s35w3xefj9.jpg",
                 description:
                   "Cutting-edge N-Type TOPCon bifacial module capturing reflected light from the rear surface. Generates up to 30% additional power on reflective rooftops and ground mounts.",
                 technicalSpecs:
@@ -7057,7 +7059,7 @@ async function main() {
                 rating: 4.8,
                 ratingCount: 140,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057848/KumarPower-Assets/solar/bhqbwisfvj4puo6fgnhz.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967055/KumarPower-Assets/yzdfsqrhptdcpuyruckb.jpg",
                 description:
                   "Engineered for large utility projects and high-load industrial plants. Lowers BOS (Balance of System) costs and reduces structural racking requirements.",
                 technicalSpecs:
@@ -7076,7 +7078,7 @@ async function main() {
                 rating: 4.9,
                 ratingCount: 156,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057849/KumarPower-Assets/solar/mrpeevfzr2n1nkchlpsv.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967056/KumarPower-Assets/y9babagqvufntpied2j5.jpg",
                 description:
                   "High-efficiency on-grid string inverter with dynamic DG reverse power protection and smart export limitation, maximizing fuel savings when DG operates.",
                 technicalSpecs:
@@ -7095,7 +7097,7 @@ async function main() {
                 rating: 4.9,
                 ratingCount: 220,
                 image:
-                  "https://res.cloudinary.com/dpa93copz/image/upload/v1790057850/KumarPower-Assets/solar/glny66g28gewsvydagkh.jpg",
+                  "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967056/KumarPower-Assets/fo6qlkzb4yl1ker4drhy.jpg",
                 description:
                   "Complete end-to-end solar EPC package including shadow-free structure design, Tier-1 panels, BOS components, DISCOM net-metering approvals, and commissioning.",
                 technicalSpecs:
@@ -7122,7 +7124,7 @@ async function main() {
       ogDescription:
         "Official Privacy Policy detailing data handling and compliance for Kumar Power Solutions.",
       ogImage:
-        "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+        "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/sqgz8lseqtxqb9fbt0su.jpg",
       canonicalUrl: "https://www.kumarpower.com/privacy-policy",
       headingOptions: "h1",
       isStatic: true,
@@ -7136,7 +7138,7 @@ async function main() {
             title: "Privacy Policy",
             badge: "Legal & Privacy Assurance",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/sqgz8lseqtxqb9fbt0su.jpg",
             subtitle:
               "How Kumar Power collects, safeguards, and processes your commercial, technical, and personal data.",
             lastUpdated: "September 25, 2026",
@@ -7226,7 +7228,7 @@ async function main() {
       ogDescription:
         "Official Terms & Conditions governing equipment sales, commissioning, and services by Kumar Power.",
       ogImage:
-        "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+        "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/sqgz8lseqtxqb9fbt0su.jpg",
       canonicalUrl: "https://www.kumarpower.com/terms-and-conditions",
       headingOptions: "h1",
       isStatic: true,
@@ -7240,7 +7242,7 @@ async function main() {
             title: "Terms & Conditions",
             badge: "Commercial & Legal Terms",
             heroBg:
-              "https://res.cloudinary.com/dpa93copz/image/upload/v1784712861/kumarpower_website/pages/mijnbqaaframtgxjcszo.jpg",
+              "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967032/KumarPower-Assets/sqgz8lseqtxqb9fbt0su.jpg",
             subtitle:
               "Standard terms and conditions governing the supply of equipment, engineering services, and website usage.",
             lastUpdated: "September 25, 2026",
