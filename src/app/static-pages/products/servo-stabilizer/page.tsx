@@ -149,6 +149,8 @@ export default function ServoStabilizersCMSPage() {
         "Explore Kirloskar-certified servo stabilizers from Kumar Power, engineered for high performance, reliability, and full compliance with latest CPCB norms.",
       servos,
       whyChooseTitle,
+      whyChoosePara1,
+      whyChoosePara2,
       whyChooseCard1Title,
       whyChooseCard1Desc,
       whyChooseCard2Title,

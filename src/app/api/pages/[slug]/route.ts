@@ -75,9 +75,20 @@ export async function PUT(
 
     let savedSection;
     if (existingSection) {
+      const existingContent =
+        existingSection.content &&
+        typeof existingSection.content === "object" &&
+        !Array.isArray(existingSection.content)
+          ? (existingSection.content as Record<string, unknown>)
+          : {};
       savedSection = await prisma.section.update({
         where: { id: existingSection.id },
-        data: { content },
+        data: {
+          content: {
+            ...existingContent,
+            ...content,
+          },
+        },
       });
     } else {
       const sectionCount = await prisma.section.count({

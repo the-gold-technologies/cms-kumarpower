@@ -150,6 +150,8 @@ export default function DistributionTransformersCMSPage() {
         "Durable and efficient transformers designed for various industrial and commercial applications.",
       transformers,
       whyChooseTitle,
+      whyChoosePara1,
+      whyChoosePara2,
       whyChooseCard1Title,
       whyChooseCard1Desc,
       whyChooseCard2Title,

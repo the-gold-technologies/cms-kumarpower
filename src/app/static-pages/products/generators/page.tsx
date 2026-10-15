@@ -502,6 +502,8 @@ export default function GeneratorsCMS() {
     try {
       await saveToGenerators({
         whyChooseTitle,
+        whyChoosePara1,
+        whyChoosePara2,
         whyChooseCard1Title,
         whyChooseCard1Desc,
         whyChooseCard2Title,
@@ -556,6 +558,8 @@ export default function GeneratorsCMS() {
         optiprimeSectionDesc,
         optiprimeGensets,
         whyChooseTitle,
+        whyChoosePara1,
+        whyChoosePara2,
         whyChooseCard1Title,
         whyChooseCard1Desc,
         whyChooseCard2Title,

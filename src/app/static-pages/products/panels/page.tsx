@@ -149,6 +149,8 @@ export default function ElectricalPanelsCMSPage() {
         "Browse our range of AMF panels, synchronization panels, and custom power distribution boards.",
       panels,
       whyChooseTitle,
+      whyChoosePara1,
+      whyChoosePara2,
       whyChooseCard1Title,
       whyChooseCard1Desc,
       whyChooseCard2Title,

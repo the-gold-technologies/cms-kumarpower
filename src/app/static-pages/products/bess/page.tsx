@@ -171,6 +171,8 @@ export default function BESSCMSPage() {
       sectionDesc,
       products,
       whyChooseTitle,
+      whyChoosePara1,
+      whyChoosePara2,
       whyChooseCard1Title,
       whyChooseCard1Desc,
       whyChooseCard2Title,
