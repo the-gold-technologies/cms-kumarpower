@@ -255,6 +255,8 @@ export default function GeneratorsCMS() {
 
   // 6. Extra / Why Choose / Certifications
   const [whyChooseTitle, setWhyChooseTitle] = useState("");
+  const [whyChoosePara1, setWhyChoosePara1] = useState("");
+  const [whyChoosePara2, setWhyChoosePara2] = useState("");
   const [whyChooseCard1Title, setWhyChooseCard1Title] = useState("");
   const [whyChooseCard1Desc, setWhyChooseCard1Desc] = useState("");
   const [whyChooseCard2Title, setWhyChooseCard2Title] = useState("");
@@ -348,6 +350,10 @@ export default function GeneratorsCMS() {
           // Extra / Why Choose / Certifications / Help
           if (data.whyChooseTitle !== undefined)
             setWhyChooseTitle(data.whyChooseTitle);
+          if (data.whyChoosePara1 !== undefined)
+            setWhyChoosePara1(data.whyChoosePara1);
+          if (data.whyChoosePara2 !== undefined)
+            setWhyChoosePara2(data.whyChoosePara2);
           if (data.whyChooseCard1Title !== undefined)
             setWhyChooseCard1Title(data.whyChooseCard1Title);
           if (data.whyChooseCard1Desc !== undefined)
@@ -1066,6 +1072,18 @@ export default function GeneratorsCMS() {
               onChange={(e) => setWhyChooseTitle(e.target.value)}
               placeholder="Why Choose Kirloskar Generators?"
             />
+            <TextAreaField
+              label="Why Choose Paragraph 1"
+              value={whyChoosePara1}
+              onChange={(e) => setWhyChoosePara1(e.target.value)}
+              rows={5}
+            />
+            <TextAreaField
+              label="Why Choose Paragraph 2"
+              value={whyChoosePara2}
+              onChange={(e) => setWhyChoosePara2(e.target.value)}
+              rows={5}
+            />{" "}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
                 <InputField
@@ -1146,7 +1164,6 @@ export default function GeneratorsCMS() {
                 />
               </div>
             </div>
-
             <div className="pt-4 border-t border-slate-200">
               <InputField
                 label="Certifications Section Title"
@@ -1172,7 +1189,6 @@ export default function GeneratorsCMS() {
                 />
               </div>
             </div>
-
             <div className="pt-4 border-t border-slate-200 space-y-4">
               <InputField
                 label="Help Section Title"
@@ -1195,7 +1211,6 @@ export default function GeneratorsCMS() {
                 />
               </div>
             </div>
-
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <SaveButton
                 isSaving={savingExtra}

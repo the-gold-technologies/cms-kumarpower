@@ -34,6 +34,8 @@ export default function ProductsStaticPageCMS() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
   const [isGridOpen, setIsGridOpen] = useState(false);
   const [isCatsOpen, setIsCatsOpen] = useState(false);
+  const [isWhyOpen, setIsWhyOpen] = useState(false);
+  const [isStickyOpen, setIsStickyOpen] = useState(false);
 
   // Saving states
   const [savingHero, setSavingHero] = useState(false);
@@ -53,7 +55,6 @@ export default function ProductsStaticPageCMS() {
   const [btn1Url, setBtn1Url] = useState("");
   const [btn2Text, setBtn2Text] = useState("");
   const [btn2Url, setBtn2Url] = useState<string | File>("");
-
 
   // Sticky Bar
   const [stickyTextPart1, setStickyTextPart1] = useState("");
@@ -81,6 +82,9 @@ export default function ProductsStaticPageCMS() {
   const [helpBtnText, setHelpBtnText] = useState("");
   const [whyChooseTitle, setWhyChooseTitle] = useState("");
 
+  // Why Choose Paragraphs (NEW)
+  const [whyChoosePara1, setWhyChoosePara1] = useState("");
+  const [whyChoosePara2, setWhyChoosePara2] = useState("");
 
   // Why Choose Cards
   const [whyChooseCard1Title, setWhyChooseCard1Title] = useState("");
@@ -103,10 +107,14 @@ export default function ProductsStaticPageCMS() {
     fetchWithCache("/api/products")
       .then((json) => {
         if (json.success && json.data) {
-          const prods = json.data.products || json.data["products"] || json.data;
-          if (prods.heroHeadingPart1 !== undefined) setHeroHeadingPart1(prods.heroHeadingPart1);
-          if (prods.heroHeadingPart2 !== undefined) setHeroHeadingPart2(prods.heroHeadingPart2);
-          if (prods.heroHeading !== undefined) setHeroHeading(prods.heroHeading);
+          const prods =
+            json.data.products || json.data["products"] || json.data;
+          if (prods.heroHeadingPart1 !== undefined)
+            setHeroHeadingPart1(prods.heroHeadingPart1);
+          if (prods.heroHeadingPart2 !== undefined)
+            setHeroHeadingPart2(prods.heroHeadingPart2);
+          if (prods.heroHeading !== undefined)
+            setHeroHeading(prods.heroHeading);
           if (prods.heroSub !== undefined) setHeroSub(prods.heroSub);
           if (prods.heroBg !== undefined) setHeroBg(prods.heroBg);
           if (prods.btn1Text !== undefined) setBtn1Text(prods.btn1Text);
@@ -114,37 +122,67 @@ export default function ProductsStaticPageCMS() {
           if (prods.btn2Text !== undefined) setBtn2Text(prods.btn2Text);
           if (prods.btn2Url !== undefined) setBtn2Url(prods.btn2Url);
 
-          if (prods.stickyTextPart1 !== undefined) setStickyTextPart1(prods.stickyTextPart1);
-          if (prods.stickyTextPart2 !== undefined) setStickyTextPart2(prods.stickyTextPart2);
-          if (prods.downloadBtn1Label !== undefined) setDownloadBtn1Label(prods.downloadBtn1Label);
-          if (prods.downloadBtn1Url !== undefined) setDownloadBtn1Url(prods.downloadBtn1Url);
-          if (prods.downloadBtn2Label !== undefined) setDownloadBtn2Label(prods.downloadBtn2Label);
-          if (prods.downloadBtn2Url !== undefined) setDownloadBtn2Url(prods.downloadBtn2Url);
-          if (prods.talkBtnLabel !== undefined) setTalkBtnLabel(prods.talkBtnLabel);
-          if (prods.requestBtnLabel !== undefined) setRequestBtnLabel(prods.requestBtnLabel);
+          if (prods.stickyTextPart1 !== undefined)
+            setStickyTextPart1(prods.stickyTextPart1);
+          if (prods.stickyTextPart2 !== undefined)
+            setStickyTextPart2(prods.stickyTextPart2);
+          if (prods.downloadBtn1Label !== undefined)
+            setDownloadBtn1Label(prods.downloadBtn1Label);
+          if (prods.downloadBtn1Url !== undefined)
+            setDownloadBtn1Url(prods.downloadBtn1Url);
+          if (prods.downloadBtn2Label !== undefined)
+            setDownloadBtn2Label(prods.downloadBtn2Label);
+          if (prods.downloadBtn2Url !== undefined)
+            setDownloadBtn2Url(prods.downloadBtn2Url);
+          if (prods.talkBtnLabel !== undefined)
+            setTalkBtnLabel(prods.talkBtnLabel);
+          if (prods.requestBtnLabel !== undefined)
+            setRequestBtnLabel(prods.requestBtnLabel);
           if (prods.cert1Title !== undefined) setCert1Title(prods.cert1Title);
           if (prods.cert2Title !== undefined) setCert2Title(prods.cert2Title);
           if (prods.cert3Title !== undefined) setCert3Title(prods.cert3Title);
-          if (prods.sectionTitle !== undefined) setSectionTitle(prods.sectionTitle);
-          if (prods.sectionDesc !== undefined) setSectionDesc(prods.sectionDesc);
+          if (prods.sectionTitle !== undefined)
+            setSectionTitle(prods.sectionTitle);
+          if (prods.sectionDesc !== undefined)
+            setSectionDesc(prods.sectionDesc);
           if (prods.certTitle !== undefined) setCertTitle(prods.certTitle);
           if (prods.helpTitle !== undefined) setHelpTitle(prods.helpTitle);
           if (prods.helpSub !== undefined) setHelpSub(prods.helpSub);
-          if (prods.helpBtnText !== undefined) setHelpBtnText(prods.helpBtnText);
-          if (prods.whyChooseTitle !== undefined) setWhyChooseTitle(prods.whyChooseTitle);
+          if (prods.helpBtnText !== undefined)
+            setHelpBtnText(prods.helpBtnText);
+          if (prods.whyChooseTitle !== undefined)
+            setWhyChooseTitle(prods.whyChooseTitle);
 
-          if (prods.whyChooseCard1Title !== undefined) setWhyChooseCard1Title(prods.whyChooseCard1Title);
-          if (prods.whyChooseCard1Desc !== undefined) setWhyChooseCard1Desc(prods.whyChooseCard1Desc);
-          if (prods.whyChooseCard2Title !== undefined) setWhyChooseCard2Title(prods.whyChooseCard2Title);
-          if (prods.whyChooseCard2Desc !== undefined) setWhyChooseCard2Desc(prods.whyChooseCard2Desc);
-          if (prods.whyChooseCard3Title !== undefined) setWhyChooseCard3Title(prods.whyChooseCard3Title);
-          if (prods.whyChooseCard3Desc !== undefined) setWhyChooseCard3Desc(prods.whyChooseCard3Desc);
-          if (prods.whyChooseCard4Title !== undefined) setWhyChooseCard4Title(prods.whyChooseCard4Title);
-          if (prods.whyChooseCard4Desc !== undefined) setWhyChooseCard4Desc(prods.whyChooseCard4Desc);
-          if (prods.whyChooseCard5Title !== undefined) setWhyChooseCard5Title(prods.whyChooseCard5Title);
-          if (prods.whyChooseCard5Desc !== undefined) setWhyChooseCard5Desc(prods.whyChooseCard5Desc);
-          if (prods.whyChooseCard6Title !== undefined) setWhyChooseCard6Title(prods.whyChooseCard6Title);
-          if (prods.whyChooseCard6Desc !== undefined) setWhyChooseCard6Desc(prods.whyChooseCard6Desc);
+          // NEW: paragraphs
+          if (prods.whyChoosePara1 !== undefined)
+            setWhyChoosePara1(prods.whyChoosePara1);
+          if (prods.whyChoosePara2 !== undefined)
+            setWhyChoosePara2(prods.whyChoosePara2);
+
+          if (prods.whyChooseCard1Title !== undefined)
+            setWhyChooseCard1Title(prods.whyChooseCard1Title);
+          if (prods.whyChooseCard1Desc !== undefined)
+            setWhyChooseCard1Desc(prods.whyChooseCard1Desc);
+          if (prods.whyChooseCard2Title !== undefined)
+            setWhyChooseCard2Title(prods.whyChooseCard2Title);
+          if (prods.whyChooseCard2Desc !== undefined)
+            setWhyChooseCard2Desc(prods.whyChooseCard2Desc);
+          if (prods.whyChooseCard3Title !== undefined)
+            setWhyChooseCard3Title(prods.whyChooseCard3Title);
+          if (prods.whyChooseCard3Desc !== undefined)
+            setWhyChooseCard3Desc(prods.whyChooseCard3Desc);
+          if (prods.whyChooseCard4Title !== undefined)
+            setWhyChooseCard4Title(prods.whyChooseCard4Title);
+          if (prods.whyChooseCard4Desc !== undefined)
+            setWhyChooseCard4Desc(prods.whyChooseCard4Desc);
+          if (prods.whyChooseCard5Title !== undefined)
+            setWhyChooseCard5Title(prods.whyChooseCard5Title);
+          if (prods.whyChooseCard5Desc !== undefined)
+            setWhyChooseCard5Desc(prods.whyChooseCard5Desc);
+          if (prods.whyChooseCard6Title !== undefined)
+            setWhyChooseCard6Title(prods.whyChooseCard6Title);
+          if (prods.whyChooseCard6Desc !== undefined)
+            setWhyChooseCard6Desc(prods.whyChooseCard6Desc);
           if (Array.isArray(prods.categories)) setCategories(prods.categories);
         }
       })
@@ -155,7 +193,8 @@ export default function ProductsStaticPageCMS() {
     const rawPayload = {
       heroHeadingPart1,
       heroHeadingPart2,
-      heroHeading: `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
+      heroHeading:
+        `${heroHeadingPart1} ${heroHeadingPart2}`.trim() || heroHeading,
       heroSub,
       heroBg,
       btn1Text,
@@ -194,16 +233,22 @@ export default function ProductsStaticPageCMS() {
       whyChooseCard6Title,
       whyChooseCard6Desc,
       whyChooseTitle,
+      whyChoosePara1,
+      whyChoosePara2,
       categories,
     };
 
     const payload = await uploadFilesDeep(rawPayload);
 
     // Sync state
-    if (payload.heroBg && typeof payload.heroBg === "string") setHeroBg(payload.heroBg);
-    if (payload.btn2Url && typeof payload.btn2Url === "string") setBtn2Url(payload.btn2Url);
-    if (payload.downloadBtn1Url && typeof payload.downloadBtn1Url === "string") setDownloadBtn1Url(payload.downloadBtn1Url);
-    if (payload.downloadBtn2Url && typeof payload.downloadBtn2Url === "string") setDownloadBtn2Url(payload.downloadBtn2Url);
+    if (payload.heroBg && typeof payload.heroBg === "string")
+      setHeroBg(payload.heroBg);
+    if (payload.btn2Url && typeof payload.btn2Url === "string")
+      setBtn2Url(payload.btn2Url);
+    if (payload.downloadBtn1Url && typeof payload.downloadBtn1Url === "string")
+      setDownloadBtn1Url(payload.downloadBtn1Url);
+    if (payload.downloadBtn2Url && typeof payload.downloadBtn2Url === "string")
+      setDownloadBtn2Url(payload.downloadBtn2Url);
     if (payload.categories) setCategories(payload.categories);
 
     const res = await fetch("/api/products", {
@@ -244,8 +289,14 @@ export default function ProductsStaticPageCMS() {
     setTimeout(() => setSavedCats(false), 2000);
   };
 
-  const handleCategoryChange = (id: string, field: keyof ProductCategory, val: string | File) => {
-    setCategories((prev) => prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)));
+  const handleCategoryChange = (
+    id: string,
+    field: keyof ProductCategory,
+    val: string | File,
+  ) => {
+    setCategories((prev) =>
+      prev.map((c) => (c.id === id ? { ...c, [field]: val } : c)),
+    );
   };
 
   const addCategory = () => {
@@ -288,58 +339,148 @@ export default function ProductsStaticPageCMS() {
           isOpen={isHeroOpen}
           onToggle={() => setIsHeroOpen(!isHeroOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isHeroOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Hero Heading (Regular Part)" value={heroHeadingPart1} onChange={(e) => setHeroHeadingPart1(e.target.value)} placeholder="Powering Progress," />
-              <InputField label="Hero Heading (Colored Part)" value={heroHeadingPart2} onChange={(e) => setHeroHeadingPart2(e.target.value)} placeholder="One Generator at a Time" />
+              <InputField
+                label="Hero Heading (Regular Part)"
+                value={heroHeadingPart1}
+                onChange={(e) => setHeroHeadingPart1(e.target.value)}
+                placeholder="Powering Progress,"
+              />
+              <InputField
+                label="Hero Heading (Colored Part)"
+                value={heroHeadingPart2}
+                onChange={(e) => setHeroHeadingPart2(e.target.value)}
+                placeholder="One Generator at a Time"
+              />
             </div>
-            <TextAreaField label="Hero Subtitle Tagline" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
-            <ImageUploadField label="Hero Background Graphic" value={heroBg} onChange={(val) => setHeroBg(val)} />
+            <TextAreaField
+              label="Hero Subtitle Tagline"
+              value={heroSub}
+              onChange={(e) => setHeroSub(e.target.value)}
+              rows={2}
+            />
+            <ImageUploadField
+              label="Hero Background Graphic"
+              value={heroBg}
+              onChange={(val) => setHeroBg(val)}
+            />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Button 1 Text" value={btn1Text} onChange={(e) => setBtn1Text(e.target.value)} />
-              <InputField label="Button 1 Link" value={btn1Url} onChange={(e) => setBtn1Url(e.target.value)} />
-              <InputField label="Button 2 Text" value={btn2Text} onChange={(e) => setBtn2Text(e.target.value)} />
-              <PDFUploadField label="Catalogue PDF Link" value={btn2Url} onChange={(val) => setBtn2Url(val)} />
+              <InputField
+                label="Button 1 Text"
+                value={btn1Text}
+                onChange={(e) => setBtn1Text(e.target.value)}
+              />
+              <InputField
+                label="Button 1 Link"
+                value={btn1Url}
+                onChange={(e) => setBtn1Url(e.target.value)}
+              />
+              <InputField
+                label="Button 2 Text"
+                value={btn2Text}
+                onChange={(e) => setBtn2Text(e.target.value)}
+              />
+              <PDFUploadField
+                label="Catalogue PDF Link"
+                value={btn2Url}
+                onChange={(val) => setBtn2Url(val)}
+              />
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingHero} saved={savedHero} onClick={handleSaveHero} />
+              <SaveButton
+                isSaving={savingHero}
+                saved={savedHero}
+                onClick={handleSaveHero}
+              />
             </div>
           </div>
         </div>
       </div>
-
 
       {/* 1.5. Sticky Bar & Certifications */}
       <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
         <SectionHeader
           title="1.5. Sticky Bar & Certifications"
           description="Manage sticky bar text and certification badges."
-          isOpen={true}
-          onToggle={() => {}}
+          isOpen={isStickyOpen}
+          onToggle={() => setIsStickyOpen(!isStickyOpen)}
         />
-        <div className="grid transition-all duration-300 grid-rows-[1fr] opacity-100 mt-6">
+        <div
+          className={`grid transition-all duration-300 ${isStickyOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Sticky Text Part 1" value={stickyTextPart1} onChange={(e) => setStickyTextPart1(e.target.value)} />
-              <InputField label="Sticky Text Part 2" value={stickyTextPart2} onChange={(e) => setStickyTextPart2(e.target.value)} />
+              <InputField
+                label="Sticky Text Part 1"
+                value={stickyTextPart1}
+                onChange={(e) => setStickyTextPart1(e.target.value)}
+              />
+              <InputField
+                label="Sticky Text Part 2"
+                value={stickyTextPart2}
+                onChange={(e) => setStickyTextPart2(e.target.value)}
+              />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Download Btn 1 Label" value={downloadBtn1Label} onChange={(e) => setDownloadBtn1Label(e.target.value)} />
-              <PDFUploadField label="Download Btn 1 PDF" value={downloadBtn1Url} onChange={(val) => setDownloadBtn1Url(val)} />
-              <InputField label="Download Btn 2 Label" value={downloadBtn2Label} onChange={(e) => setDownloadBtn2Label(e.target.value)} />
-              <PDFUploadField label="Download Btn 2 PDF" value={downloadBtn2Url} onChange={(val) => setDownloadBtn2Url(val)} />
-              <InputField label="Talk Btn Label" value={talkBtnLabel} onChange={(e) => setTalkBtnLabel(e.target.value)} />
-              <InputField label="Request Btn Label" value={requestBtnLabel} onChange={(e) => setRequestBtnLabel(e.target.value)} />
+              <InputField
+                label="Download Btn 1 Label"
+                value={downloadBtn1Label}
+                onChange={(e) => setDownloadBtn1Label(e.target.value)}
+              />
+              <PDFUploadField
+                label="Download Btn 1 PDF"
+                value={downloadBtn1Url}
+                onChange={(val) => setDownloadBtn1Url(val)}
+              />
+              <InputField
+                label="Download Btn 2 Label"
+                value={downloadBtn2Label}
+                onChange={(e) => setDownloadBtn2Label(e.target.value)}
+              />
+              <PDFUploadField
+                label="Download Btn 2 PDF"
+                value={downloadBtn2Url}
+                onChange={(val) => setDownloadBtn2Url(val)}
+              />
+              <InputField
+                label="Talk Btn Label"
+                value={talkBtnLabel}
+                onChange={(e) => setTalkBtnLabel(e.target.value)}
+              />
+              <InputField
+                label="Request Btn Label"
+                value={requestBtnLabel}
+                onChange={(e) => setRequestBtnLabel(e.target.value)}
+              />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <InputField label="Cert 1 Title" value={cert1Title} onChange={(e) => setCert1Title(e.target.value)} />
-              <InputField label="Cert 2 Title" value={cert2Title} onChange={(e) => setCert2Title(e.target.value)} />
-              <InputField label="Cert 3 Title" value={cert3Title} onChange={(e) => setCert3Title(e.target.value)} />
+              <InputField
+                label="Cert 1 Title"
+                value={cert1Title}
+                onChange={(e) => setCert1Title(e.target.value)}
+              />
+              <InputField
+                label="Cert 2 Title"
+                value={cert2Title}
+                onChange={(e) => setCert2Title(e.target.value)}
+              />
+              <InputField
+                label="Cert 3 Title"
+                value={cert3Title}
+                onChange={(e) => setCert3Title(e.target.value)}
+              />
             </div>
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingGrid} saved={savedGrid} onClick={handleSaveGrid} />
+              <SaveButton
+                isSaving={savingGrid}
+                saved={savedGrid}
+                onClick={handleSaveGrid}
+              />
             </div>
           </div>
         </div>
@@ -353,69 +494,66 @@ export default function ProductsStaticPageCMS() {
           isOpen={isGridOpen}
           onToggle={() => setIsGridOpen(!isGridOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isGridOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isGridOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <InputField label="Section Title" value={sectionTitle} onChange={(e) => setSectionTitle(e.target.value)} placeholder="ALL Products" />
-              <TextAreaField label="Section Description" value={sectionDesc} onChange={(e) => setSectionDesc(e.target.value)} rows={2} />
+              <InputField
+                label="Section Title"
+                value={sectionTitle}
+                onChange={(e) => setSectionTitle(e.target.value)}
+                placeholder="ALL Products"
+              />
+              <TextAreaField
+                label="Section Description"
+                value={sectionDesc}
+                onChange={(e) => setSectionDesc(e.target.value)}
+                rows={2}
+              />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <InputField label="Certifications Title" value={certTitle} onChange={(e) => setCertTitle(e.target.value)} placeholder="Certified Excellence" />
-              <InputField label="Help Section Title" value={helpTitle} onChange={(e) => setHelpTitle(e.target.value)} placeholder="Need Help Choosing the Right Electrical Solution?" />
+              <InputField
+                label="Certifications Title"
+                value={certTitle}
+                onChange={(e) => setCertTitle(e.target.value)}
+                placeholder="Certified Excellence"
+              />
+              <InputField
+                label="Help Section Title"
+                value={helpTitle}
+                onChange={(e) => setHelpTitle(e.target.value)}
+                placeholder="Need Help Choosing the Right Electrical Solution?"
+              />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <TextAreaField label="Help Section Description" value={helpSub} onChange={(e) => setHelpSub(e.target.value)} rows={2} />
-              <InputField label="Help Section Button Text" value={helpBtnText} onChange={(e) => setHelpBtnText(e.target.value)} placeholder="Talk to an Expert" />
+              <TextAreaField
+                label="Help Section Description"
+                value={helpSub}
+                onChange={(e) => setHelpSub(e.target.value)}
+                rows={2}
+              />
+              <InputField
+                label="Help Section Button Text"
+                value={helpBtnText}
+                onChange={(e) => setHelpBtnText(e.target.value)}
+                placeholder="Talk to an Expert"
+              />
             </div>
-            <InputField label="Why Choose Section Title" value={whyChooseTitle} onChange={(e) => setWhyChooseTitle(e.target.value)} placeholder="Why Choose Kirloskar Generators?" />
+            <InputField
+              label="Why Choose Section Title"
+              value={whyChooseTitle}
+              onChange={(e) => setWhyChooseTitle(e.target.value)}
+              placeholder="Why Choose Kirloskar Generators?"
+            />
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingGrid} saved={savedGrid} onClick={handleSaveGrid} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      {/* 2.5. Why Choose Cards */}
-      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
-        <SectionHeader
-          title="2.5. Why Choose Kirloskar Cards"
-          description="Manage the 6 feature cards for the Why Choose section."
-          isOpen={false}
-          onToggle={() => {}}
-        />
-        <div className="grid transition-all duration-300 grid-rows-[1fr] opacity-100 mt-6">
-          <div className="overflow-hidden flex flex-col gap-4 pt-1">
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Card 1 Title" value={whyChooseCard1Title} onChange={(e) => setWhyChooseCard1Title(e.target.value)} />
-              <TextAreaField label="Card 1 Description" value={whyChooseCard1Desc} onChange={(e) => setWhyChooseCard1Desc(e.target.value)} rows={2} />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Card 2 Title" value={whyChooseCard2Title} onChange={(e) => setWhyChooseCard2Title(e.target.value)} />
-              <TextAreaField label="Card 2 Description" value={whyChooseCard2Desc} onChange={(e) => setWhyChooseCard2Desc(e.target.value)} rows={2} />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Card 3 Title" value={whyChooseCard3Title} onChange={(e) => setWhyChooseCard3Title(e.target.value)} />
-              <TextAreaField label="Card 3 Description" value={whyChooseCard3Desc} onChange={(e) => setWhyChooseCard3Desc(e.target.value)} rows={2} />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Card 4 Title" value={whyChooseCard4Title} onChange={(e) => setWhyChooseCard4Title(e.target.value)} />
-              <TextAreaField label="Card 4 Description" value={whyChooseCard4Desc} onChange={(e) => setWhyChooseCard4Desc(e.target.value)} rows={2} />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Card 5 Title" value={whyChooseCard5Title} onChange={(e) => setWhyChooseCard5Title(e.target.value)} />
-              <TextAreaField label="Card 5 Description" value={whyChooseCard5Desc} onChange={(e) => setWhyChooseCard5Desc(e.target.value)} rows={2} />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InputField label="Card 6 Title" value={whyChooseCard6Title} onChange={(e) => setWhyChooseCard6Title(e.target.value)} />
-              <TextAreaField label="Card 6 Description" value={whyChooseCard6Desc} onChange={(e) => setWhyChooseCard6Desc(e.target.value)} rows={2} />
-            </div>
-
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingGrid} saved={savedGrid} onClick={handleSaveGrid} />
+              <SaveButton
+                isSaving={savingGrid}
+                saved={savedGrid}
+                onClick={handleSaveGrid}
+              />
             </div>
           </div>
         </div>
@@ -429,7 +567,9 @@ export default function ProductsStaticPageCMS() {
           isOpen={isCatsOpen}
           onToggle={() => setIsCatsOpen(!isCatsOpen)}
         />
-        <div className={`grid transition-all duration-300 ${isCatsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}>
+        <div
+          className={`grid transition-all duration-300 ${isCatsOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
           <div className="overflow-hidden flex flex-col gap-6 pt-1">
             <div className="flex justify-end">
               <button
@@ -443,33 +583,283 @@ export default function ProductsStaticPageCMS() {
 
             <div className="space-y-4">
               {categories.map((cat, idx) => (
-                <div key={cat.id} className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4">
+                <div
+                  key={cat.id}
+                  className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4"
+                >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#2D6FBA] bg-blue-50 px-2 py-0.5 rounded-md">
                       Category #{idx + 1}
                     </span>
-                    <button type="button" onClick={() => removeCategory(cat.id)} className="text-slate-400 hover:text-red-500 transition cursor-pointer">
+                    <button
+                      type="button"
+                      onClick={() => removeCategory(cat.id)}
+                      className="text-slate-400 hover:text-red-500 transition cursor-pointer"
+                    >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <InputField label="Category Name" value={cat.name} onChange={(e) => handleCategoryChange(cat.id, "name", e.target.value)} placeholder="e.g. Kirloskar Diesel Generators" />
-                    <InputField label="Power Range" value={cat.range} onChange={(e) => handleCategoryChange(cat.id, "range", e.target.value)} placeholder="e.g. 7.5 kVA to 20 kVA" />
-                    <InputField label="Target Link URL" value={cat.productLink} onChange={(e) => handleCategoryChange(cat.id, "productLink", e.target.value)} placeholder="/products/kirloskar-diesel-generator" />
-                    <InputField label="Fuel Type" value={cat.fuelType || ""} onChange={(e) => handleCategoryChange(cat.id, "fuelType", e.target.value)} placeholder="e.g. Diesel" />
+                    <InputField
+                      label="Category Name"
+                      value={cat.name}
+                      onChange={(e) =>
+                        handleCategoryChange(cat.id, "name", e.target.value)
+                      }
+                      placeholder="e.g. Kirloskar Diesel Generators"
+                    />
+                    <InputField
+                      label="Power Range"
+                      value={cat.range}
+                      onChange={(e) =>
+                        handleCategoryChange(cat.id, "range", e.target.value)
+                      }
+                      placeholder="e.g. 7.5 kVA to 20 kVA"
+                    />
+                    <InputField
+                      label="Target Link URL"
+                      value={cat.productLink}
+                      onChange={(e) =>
+                        handleCategoryChange(
+                          cat.id,
+                          "productLink",
+                          e.target.value,
+                        )
+                      }
+                      placeholder="/products/kirloskar-diesel-generator"
+                    />
+                    <InputField
+                      label="Fuel Type"
+                      value={cat.fuelType || ""}
+                      onChange={(e) =>
+                        handleCategoryChange(cat.id, "fuelType", e.target.value)
+                      }
+                      placeholder="e.g. Diesel"
+                    />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <ImageUploadField label="Category Image" value={cat.image} onChange={(val) => handleCategoryChange(cat.id, "image", val)} />
-                    <PDFUploadField label="Brochure PDF Document" value={cat.brochurePdf || ""} onChange={(val) => handleCategoryChange(cat.id, "brochurePdf", val)} />
+                    <ImageUploadField
+                      label="Category Image"
+                      value={cat.image}
+                      onChange={(val) =>
+                        handleCategoryChange(cat.id, "image", val)
+                      }
+                    />
+                    <PDFUploadField
+                      label="Brochure PDF Document"
+                      value={cat.brochurePdf || ""}
+                      onChange={(val) =>
+                        handleCategoryChange(cat.id, "brochurePdf", val)
+                      }
+                    />
                   </div>
-                  <TextAreaField label="Description" value={cat.description} onChange={(e) => handleCategoryChange(cat.id, "description", e.target.value)} rows={2} />
-                  <TextAreaField label="Technical Specifications" value={cat.technicalSpecs || ""} onChange={(e) => handleCategoryChange(cat.id, "technicalSpecs", e.target.value)} rows={3} />
+                  <TextAreaField
+                    label="Description"
+                    value={cat.description}
+                    onChange={(e) =>
+                      handleCategoryChange(
+                        cat.id,
+                        "description",
+                        e.target.value,
+                      )
+                    }
+                    rows={2}
+                  />
+                  <TextAreaField
+                    label="Technical Specifications"
+                    value={cat.technicalSpecs || ""}
+                    onChange={(e) =>
+                      handleCategoryChange(
+                        cat.id,
+                        "technicalSpecs",
+                        e.target.value,
+                      )
+                    }
+                    rows={3}
+                  />
                 </div>
               ))}
             </div>
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton isSaving={savingCats} saved={savedCats} onClick={handleSaveCats} />
+              <SaveButton
+                isSaving={savingCats}
+                saved={savedCats}
+                onClick={handleSaveCats}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. Why Choose, Certifications & Help Section */}
+      <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-100/50">
+        <SectionHeader
+          title="4. Why Choose, Certifications & Help Section"
+          description="Manage Why Choose Us title, two intro paragraphs, the 6 feature cards, certification badges, and consultation helpline text."
+          isOpen={isWhyOpen}
+          onToggle={() => setIsWhyOpen(!isWhyOpen)}
+        />
+        <div
+          className={`grid transition-all duration-300 ${isWhyOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"}`}
+        >
+          <div className="overflow-hidden flex flex-col gap-6 pt-1">
+            <InputField
+              label="Why Choose Section Title"
+              value={whyChooseTitle}
+              onChange={(e) => setWhyChooseTitle(e.target.value)}
+              placeholder="Why Choose Kirloskar Gas Generators?"
+            />
+
+            <TextAreaField
+              label="Why Choose Paragraph 1"
+              value={whyChoosePara1}
+              onChange={(e) => setWhyChoosePara1(e.target.value)}
+              rows={5}
+            />
+            <TextAreaField
+              label="Why Choose Paragraph 2"
+              value={whyChoosePara2}
+              onChange={(e) => setWhyChoosePara2(e.target.value)}
+              rows={5}
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField
+                  label="Card 1 Title"
+                  value={whyChooseCard1Title}
+                  onChange={(e) => setWhyChooseCard1Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 1 Description"
+                  value={whyChooseCard1Desc}
+                  onChange={(e) => setWhyChooseCard1Desc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField
+                  label="Card 2 Title"
+                  value={whyChooseCard2Title}
+                  onChange={(e) => setWhyChooseCard2Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 2 Description"
+                  value={whyChooseCard2Desc}
+                  onChange={(e) => setWhyChooseCard2Desc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField
+                  label="Card 3 Title"
+                  value={whyChooseCard3Title}
+                  onChange={(e) => setWhyChooseCard3Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 3 Description"
+                  value={whyChooseCard3Desc}
+                  onChange={(e) => setWhyChooseCard3Desc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField
+                  label="Card 4 Title"
+                  value={whyChooseCard4Title}
+                  onChange={(e) => setWhyChooseCard4Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 4 Description"
+                  value={whyChooseCard4Desc}
+                  onChange={(e) => setWhyChooseCard4Desc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField
+                  label="Card 5 Title"
+                  value={whyChooseCard5Title}
+                  onChange={(e) => setWhyChooseCard5Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 5 Description"
+                  value={whyChooseCard5Desc}
+                  onChange={(e) => setWhyChooseCard5Desc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+              <div className="space-y-2 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <InputField
+                  label="Card 6 Title"
+                  value={whyChooseCard6Title}
+                  onChange={(e) => setWhyChooseCard6Title(e.target.value)}
+                />
+                <TextAreaField
+                  label="Card 6 Description"
+                  value={whyChooseCard6Desc}
+                  onChange={(e) => setWhyChooseCard6Desc(e.target.value)}
+                  rows={2}
+                />
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200">
+              <InputField
+                label="Certifications Section Title"
+                value={certTitle}
+                onChange={(e) => setCertTitle(e.target.value)}
+                placeholder="Certified Excellence"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+                <InputField
+                  label="Badge 1 Label"
+                  value={cert1Title}
+                  onChange={(e) => setCert1Title(e.target.value)}
+                />
+                <InputField
+                  label="Badge 2 Label"
+                  value={cert2Title}
+                  onChange={(e) => setCert2Title(e.target.value)}
+                />
+                <InputField
+                  label="Badge 3 Label"
+                  value={cert3Title}
+                  onChange={(e) => setCert3Title(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200 space-y-4">
+              <InputField
+                label="Help Section Title"
+                value={helpTitle}
+                onChange={(e) => setHelpTitle(e.target.value)}
+                placeholder="Need Help Choosing the Right Diesel Generator?"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <TextAreaField
+                  label="Help Section Description"
+                  value={helpSub}
+                  onChange={(e) => setHelpSub(e.target.value)}
+                  rows={2}
+                />
+                <InputField
+                  label="Help Button Label"
+                  value={helpBtnText}
+                  onChange={(e) => setHelpBtnText(e.target.value)}
+                  placeholder="Talk to an Expert"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end pt-4 border-t border-slate-100">
+              <SaveButton
+                isSaving={savingGrid}
+                saved={savedGrid}
+                onClick={handleSaveGrid}
+              />
             </div>
           </div>
         </div>
