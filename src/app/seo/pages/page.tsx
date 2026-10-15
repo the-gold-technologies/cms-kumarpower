@@ -170,7 +170,7 @@ export default function PageSEODashboard() {
                           </div>
                         </td>
                         <td className="px-6 py-5">
-                          {root.type === "Dropdown" ? (
+                          {(!root.slug || root.slug === "#") ? (
                             <span className="text-[10px] font-bold text-gray-300 uppercase tracking-widest">
                               Group Container
                             </span>
@@ -215,7 +215,7 @@ export default function PageSEODashboard() {
                         </td>
                         <td className="px-6 py-5">
                           <div className="flex items-center gap-3">
-                            {root.type !== "Dropdown" && (
+                            {root.slug && root.slug !== "#" && (
                               <Link
                                 href={`/seo/pages/${root.slug}`}
                                 className="p-2 bg-gray-50 text-slate-700 rounded-xl hover:bg-[#2D6FBA] hover:text-white transition-all group"
