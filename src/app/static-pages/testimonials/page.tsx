@@ -338,10 +338,11 @@ export default function TestimonialsStaticPageCMS() {
                 placeholder="SUCCESS STORIES"
               />
             </div>
-            <InputField
+            <TextAreaField
               label="Hero Subtitle"
               value={heroSubtitle}
               onChange={(e) => setHeroSubtitle(e.target.value)}
+              rows={2}
             />
             <ImageUploadField
               label="Hero Banner Background Image"

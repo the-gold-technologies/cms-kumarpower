@@ -471,8 +471,9 @@ export default function SolarCMSPage() {
                       }
                       placeholder="25 Yrs Performance"
                     />
-                    <InputField
+                    <TextAreaField
                       label="Recommended Applications"
+                      rows={2}
                       value={p.applications || ""}
                       onChange={(e) =>
                         handleProductChange(

@@ -45,10 +45,11 @@ export default function RentalsStaticPageCMS() {
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
 
-        <InputField
+        <TextAreaField
           label="Subtitle"
           value={formData.subtitle}
           onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
+          rows={2}
         />
 
         <TextAreaField

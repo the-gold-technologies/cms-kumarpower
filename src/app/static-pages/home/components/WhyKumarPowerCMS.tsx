@@ -279,12 +279,13 @@ export function WhyKumarPowerCMS({
                 }
                 placeholder="e.g. Head Office & Regional Reach"
               />
-              <InputField
+              <TextAreaField
                 label="Office Location / Reach"
                 value={formData.modalOfficeDescription}
                 onChange={(e) =>
                   setFormData({ ...formData, modalOfficeDescription: e.target.value })
                 }
+                rows={2}
                 placeholder="e.g. Delhi NCR • Pan-India Project Execution & Service Support"
               />
             </div>

@@ -211,12 +211,13 @@ export function ContactResumeSectionCMS({
                         }
                         placeholder="e.g. Industry Leading Company"
                       />
-                      <InputField
+                      <TextAreaField
                         label="Subtitle / Description"
                         value={perk.description}
                         onChange={(e) =>
                           updatePerk(idx, "description", e.target.value)
                         }
+                        rows={2}
                         placeholder="e.g. One of India's most respected power generation brands"
                       />
                     </div>

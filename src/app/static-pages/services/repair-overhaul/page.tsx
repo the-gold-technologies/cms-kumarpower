@@ -238,7 +238,7 @@ export default function RepairOverhaulCMSPage() {
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <InputField label="Hero Badge" value={heroBadge} onChange={(e) => setHeroBadge(e.target.value)} />
             <InputField label="Hero Heading" value={heroHeading} onChange={(e) => setHeroHeading(e.target.value)} />
-            <InputField label="Hero Subheading" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} />
+            <TextAreaField label="Hero Subheading" value={heroSub} onChange={(e) => setHeroSub(e.target.value)} rows={2} />
             <InputField label="Hero CTA Label" value={heroCtaLabel} onChange={(e) => setHeroCtaLabel(e.target.value)} />
             <SaveButton
               onClick={() => handleSave("Hero Section")}
@@ -291,7 +291,7 @@ export default function RepairOverhaulCMSPage() {
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <InputField label="Tagline" value={diffTagline} onChange={(e) => setDiffTagline(e.target.value)} />
             <InputField label="Heading" value={diffHeading} onChange={(e) => setDiffHeading(e.target.value)} />
-            <InputField label="Description" value={diffDesc} onChange={(e) => setDiffDesc(e.target.value)} />
+            <TextAreaField label="Description" value={diffDesc} onChange={(e) => setDiffDesc(e.target.value)} rows={2} />
             <SaveButton
               onClick={() => handleSave("Repair vs Overhaul")}
               isSaving={savingSection === "Repair vs Overhaul"}
@@ -315,7 +315,7 @@ export default function RepairOverhaulCMSPage() {
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <InputField label="Tagline" value={faqTagline} onChange={(e) => setFaqTagline(e.target.value)} />
             <InputField label="Heading" value={faqHeading} onChange={(e) => setFaqHeading(e.target.value)} />
-            <InputField label="Description" value={faqDesc} onChange={(e) => setFaqDesc(e.target.value)} />
+            <TextAreaField label="Description" value={faqDesc} onChange={(e) => setFaqDesc(e.target.value)} rows={2} />
 
             <div className="mt-4 border-t pt-4">
               <h4 className="mb-2 font-medium">FAQ Items</h4>
@@ -358,7 +358,7 @@ export default function RepairOverhaulCMSPage() {
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <InputField label="Tagline" value={servicesTagline} onChange={(e) => setServicesTagline(e.target.value)} />
             <InputField label="Heading" value={servicesHeading} onChange={(e) => setServicesHeading(e.target.value)} />
-            <InputField label="Description" value={servicesDesc} onChange={(e) => setServicesDesc(e.target.value)} />
+            <TextAreaField label="Description" value={servicesDesc} onChange={(e) => setServicesDesc(e.target.value)} rows={2} />
             
             <div className="mt-4 border-t pt-4">
               <h4 className="mb-2 font-medium">Services Items</h4>
@@ -407,7 +407,7 @@ export default function RepairOverhaulCMSPage() {
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <InputField label="Tagline" value={benefitsTagline} onChange={(e) => setBenefitsTagline(e.target.value)} />
             <InputField label="Heading" value={benefitsHeading} onChange={(e) => setBenefitsHeading(e.target.value)} />
-            <InputField label="Description" value={benefitsDesc} onChange={(e) => setBenefitsDesc(e.target.value)} />
+            <TextAreaField label="Description" value={benefitsDesc} onChange={(e) => setBenefitsDesc(e.target.value)} rows={2} />
             <InputField label="CTA Label" value={benefitsCtaLabel} onChange={(e) => setBenefitsCtaLabel(e.target.value)} />
             
             <div className="mt-4 border-t pt-4">
@@ -454,7 +454,7 @@ export default function RepairOverhaulCMSPage() {
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <InputField label="Tagline" value={processTagline} onChange={(e) => setProcessTagline(e.target.value)} />
             <InputField label="Heading" value={processHeading} onChange={(e) => setProcessHeading(e.target.value)} />
-            <InputField label="Description" value={processDesc} onChange={(e) => setProcessDesc(e.target.value)} />
+            <TextAreaField label="Description" value={processDesc} onChange={(e) => setProcessDesc(e.target.value)} rows={2} />
             
             <div className="mt-4 border-t pt-4">
               <h4 className="mb-2 font-medium">Process Steps</h4>
@@ -500,7 +500,7 @@ export default function RepairOverhaulCMSPage() {
           <div className="overflow-hidden flex flex-col gap-4 pt-1">
             <InputField label="Hotline Label" value={hotlineLabel} onChange={(e) => setHotlineLabel(e.target.value)} />
             <InputField label="Help Title" value={helpTitle} onChange={(e) => setHelpTitle(e.target.value)} />
-            <InputField label="Help Subheading" value={helpSub} onChange={(e) => setHelpSub(e.target.value)} />
+            <TextAreaField label="Help Subheading" value={helpSub} onChange={(e) => setHelpSub(e.target.value)} rows={2} />
             <InputField label="Help Button Label" value={helpBtnLabel} onChange={(e) => setHelpBtnLabel(e.target.value)} />
             <InputField label="Emergency Phone" value={emergencyPhone} onChange={(e) => setEmergencyPhone(e.target.value)} />
             <SaveButton
