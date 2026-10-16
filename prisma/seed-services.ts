@@ -836,6 +836,520 @@ const repairOverhaulData = {
   emergencyPhone: "+919773851767"
 };
 
+
+const photoGalleryData = {
+  "hero": {
+    "bgImage": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967000/KumarPower-Assets/oysvxihldvdmqiokvmlz.png",
+    "heading": "Explore Our Legacy in Action",
+    "subtitle": "A visual showcase of our installations, innovations, and industrial excellence across India"
+  },
+  "photos": [
+    {
+      "id": "g-2",
+      "alt": "Kirloskar Generator Installation 3",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/h1ao2ro5dhixudaqippj.jpg",
+      "category": "installations"
+    },
+    {
+      "id": "g-3",
+      "alt": "Kirloskar Generator Installation 4",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/llbzu14htj9wdxqeiegc.jpg",
+      "category": "installations"
+    },
+    {
+      "id": "g-4",
+      "alt": "Kirloskar Generator Installation 5",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/oruswz9busfhkn8j35mt.jpg",
+      "category": "installations"
+    },
+    {
+      "id": "g-5",
+      "alt": "Kirloskar Generator Installation 6",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967001/KumarPower-Assets/rdikzzeklqzkqdxuiybf.jpg",
+      "category": "installations"
+    },
+    {
+      "id": "g-6",
+      "alt": "Kirloskar Generator Installation 7",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/skcm7shmyiscowi1yex6.jpg",
+      "category": "installations"
+    },
+    {
+      "id": "g-21",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/xkazp5ytq5jxliwqk9ev.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-22",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/ujodrzik3acmgtmdkl2i.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-23",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967003/KumarPower-Assets/omi1mzlrnjwo3l69et1m.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-24",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/ontzmw12l6cpc4njwm77.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-25",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/cd7jpbsrdchqzdmg4xct.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-26",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/x3b9szf3p7m45vzelsw4.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-27",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967004/KumarPower-Assets/pa6q7fchprvaayip5odq.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-28",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/vwi52uqrjjwztvgpiuaf.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-29",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/phjok8onijiucrl9e5pv.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-30",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/sufbdn3egf8qv8froph5.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-31",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967006/KumarPower-Assets/cttwyrc6dlwcho4fbup8.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-32",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/itcs11jwo6wmhwznjc7a.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-33",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/l00aafnnfnxn7ae4qtbx.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-34",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/f92cfcojqodmzdogrhxa.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-35",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967007/KumarPower-Assets/gfiwj3acw0zspiury0vp.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-36",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967009/KumarPower-Assets/zohx5pkqko6cwfzpwigc.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-37",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967008/KumarPower-Assets/hi9ioivkgg8r1qwb1bnq.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-38",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967008/KumarPower-Assets/pdivp3c5dhd9m1stn5pq.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-39",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967009/KumarPower-Assets/p0sydxmns8uqgm7zmka1.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-40",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/hkknjmyd5un6vhowarup.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-41",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/dscslhqpsricbp7zpd0j.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-42",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/p0bakaifszvqmsza9o7d.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-43",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967010/KumarPower-Assets/ewuitziirjffzz7zpo4w.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-44",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/ufjrexbxme6ek7gf0f0n.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-45",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/zqjbkpwjop40odxmnduy.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-46",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/xp6bkbjaridsuy5boj5x.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-47",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967011/KumarPower-Assets/uil6e7t4vtn2euoxsopr.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-48",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/ohcwvtkfe0skzsehskbf.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-49",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/krpfahhp2baxapuzi4nv.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-50",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/jg2kzi1kzrthatgbjy2z.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-51",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967012/KumarPower-Assets/b3mizhzfkhqzfwxflnpt.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-52",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967013/KumarPower-Assets/rgi6enpqlzzuxvnwnk81.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-53",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967014/KumarPower-Assets/xkioazy0db5nqhsoporw.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-54",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967014/KumarPower-Assets/zzbmyi8l3ene91xmadhe.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-55",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967013/KumarPower-Assets/zuk5c66ricrilmfqq3oi.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-56",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/unf0o3jpsvinweivdzpr.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-57",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/ef9ixpdf2f1zngvv5tlk.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-58",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/qggc2hbfgf7rsgsxlamm.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-59",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967015/KumarPower-Assets/scdpp6144inynubgajbu.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-60",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/ek6b2dmogjcwkqkj3h1y.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-61",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/acgi8drhr4ckcrtu65vt.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-62",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/lmhdnyt2kifmizqjb6sf.jpg",
+      "category": "events"
+    },
+    {
+      "id": "g-63",
+      "alt": "Diwali Celebration Event",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967016/KumarPower-Assets/sqxlph7y9sskhderdlkb.jpg",
+      "category": "events"
+    },
+    {
+      "id": "inst-instal10",
+      "alt": "Generator Installation 10",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147707/KumarPower-Assets/gallery/installations/instal10.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal11",
+      "alt": "Generator Installation 11",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147707/KumarPower-Assets/gallery/installations/instal11.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal13",
+      "alt": "Generator Installation 13",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147708/KumarPower-Assets/gallery/installations/instal13.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal14",
+      "alt": "Generator Installation 14",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147709/KumarPower-Assets/gallery/installations/instal14.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal15",
+      "alt": "Generator Installation 15",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147710/KumarPower-Assets/gallery/installations/instal15.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal16",
+      "alt": "Generator Installation 16",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147711/KumarPower-Assets/gallery/installations/instal16.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal17",
+      "alt": "Generator Installation 17",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147712/KumarPower-Assets/gallery/installations/instal17.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal18",
+      "alt": "Generator Installation 18",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147714/KumarPower-Assets/gallery/installations/instal18.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal19",
+      "alt": "Generator Installation 19",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147715/KumarPower-Assets/gallery/installations/instal19.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal2",
+      "alt": "Generator Installation 2",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147716/KumarPower-Assets/gallery/installations/instal2.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal20",
+      "alt": "Generator Installation 20",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147717/KumarPower-Assets/gallery/installations/instal20.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal21",
+      "alt": "Generator Installation 21",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147718/KumarPower-Assets/gallery/installations/instal21.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal22",
+      "alt": "Generator Installation 22",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147719/KumarPower-Assets/gallery/installations/instal22.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal23",
+      "alt": "Generator Installation 23",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147720/KumarPower-Assets/gallery/installations/instal23.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal24",
+      "alt": "Generator Installation 24",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147721/KumarPower-Assets/gallery/installations/instal24.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal25",
+      "alt": "Generator Installation 25",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147722/KumarPower-Assets/gallery/installations/instal25.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal26",
+      "alt": "Generator Installation 26",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147723/KumarPower-Assets/gallery/installations/instal26.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal27",
+      "alt": "Generator Installation 27",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147724/KumarPower-Assets/gallery/installations/instal27.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal28",
+      "alt": "Generator Installation 28",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147725/KumarPower-Assets/gallery/installations/instal28.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal3",
+      "alt": "Generator Installation 3",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147726/KumarPower-Assets/gallery/installations/instal3.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal4",
+      "alt": "Generator Installation 4",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147726/KumarPower-Assets/gallery/installations/instal4.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal5",
+      "alt": "Generator Installation 5",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147728/KumarPower-Assets/gallery/installations/instal5.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal6",
+      "alt": "Generator Installation 6",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147729/KumarPower-Assets/gallery/installations/instal6.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal7",
+      "alt": "Generator Installation 7",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147730/KumarPower-Assets/gallery/installations/instal7.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal8",
+      "alt": "Generator Installation 8",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147731/KumarPower-Assets/gallery/installations/instal8.png",
+      "category": "installations"
+    },
+    {
+      "id": "inst-instal9",
+      "alt": "Generator Installation 9",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147732/KumarPower-Assets/gallery/installations/instal9.png",
+      "category": "installations"
+    },
+    {
+      "id": "award-1",
+      "alt": "Excellence in Power Generation Award",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147679/KumarPower-Assets/gallery/awards/award1.png",
+      "category": "Award"
+    },
+    {
+      "id": "award-2",
+      "alt": "Kirloskar Best Dealer Award",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147680/KumarPower-Assets/gallery/awards/award2.png",
+      "category": "Award"
+    },
+    {
+      "id": "award-3",
+      "alt": "Industry Leadership Award",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147681/KumarPower-Assets/gallery/awards/award3.png",
+      "category": "Award"
+    },
+    {
+      "id": "award-4",
+      "alt": "Best Power Solutions Provider",
+      "src": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1792147685/KumarPower-Assets/gallery/awards/award4.png",
+      "category": "Award"
+    },
+    {
+      "id": "award-5",
+      "alt": "Kumar Power Industry Recognition",
+      "src": "https://res.cloudinary.com/dmhabztbf/image/upload/v1763018711/gallery4_nwutsh_wg8ygw.png",
+      "category": "Award"
+    },
+    {
+      "id": "award-6",
+      "alt": "Kumar Power Achievement Award",
+      "src": "https://res.cloudinary.com/dmhabztbf/image/upload/v1763018711/gallery3_dcqffp_geri2t.png",
+      "category": "Award"
+    }
+  ],
+  "experience": {
+    "title": "Experience Power Excellence",
+    "bgImage": "https://res.cloudinary.com/jfjvmqfs/image/upload/v1791967017/KumarPower-Assets/eyrnw0nng0nw9hqohsl7.png",
+    "btn1Url": "/contact",
+    "btn2Url": "",
+    "btn1Label": "Book Your Consultation →",
+    "btn2Label": "Download Company Profile",
+    "cert1Title": "ISO 9001:2015",
+    "cert2Title": "CPCB-IV+",
+    "cert3Title": "Kirloskar Authorized",
+    "profilePdf": "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
+    "description": "Ready to transform your power infrastructure with industry-leading generator solutions? Our team of experts is ready to guide you through every step.",
+    "talkBtnLabel": "Talk to Power Expert",
+    "downloadBtn1Url": "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
+    "downloadBtn2Url": "https://res.cloudinary.com/jfjvmqfs/raw/upload/v1791967570/KumarPower-Assets/brochures/j5duwqwuw9cq6yjifwcb.pdf",
+    "requestBtnLabel": "Request Quote",
+    "stickyTextPart1": "Kumar Power:",
+    "stickyTextPart2": "India's Most Trusted Kirloskar-Certified Generator Brand!",
+    "downloadBtn1Label": "Download Bharat Rajpatra",
+    "downloadBtn2Label": "Download Direction 76"
+  },
+  "seeMoreLabel": "See More",
+  "showLessLabel": "Show Less"
+};
+
 async function seedServices() {
   console.log("Seeding Annual Maintenance and Emergency Support with single introDesc...");
 
@@ -1012,6 +1526,54 @@ async function seedServices() {
     }
   });
   console.log("✅ Seeded Repair & Overhaul with unified introDesc.");
+
+  // 5. Photo Gallery (80 images: 31 installations, 43 events, 6 awards)
+  const photoGalleryPage = await prisma.page.upsert({
+    where: { slug: "photo-gallery" },
+    create: {
+      title: "Photo Gallery",
+      slug: "photo-gallery",
+      type: "static",
+      visibility: "published",
+      metaTitle: "Photo Gallery - Kumar Power",
+      metaDescription:
+        "A visual showcase of our generator installations, events, and industrial projects.",
+      keywords:
+        "Kumar Power photo gallery, generator installation photos, industrial projects gallery, DG set images",
+      canonicalUrl: "https://www.kumarpower.com/about/PhotoGallery",
+      ogTitle: "Photo Gallery - Kumar Power",
+      ogDescription:
+        "A visual showcase of our generator installations, events, and industrial projects.",
+      headingOptions: "h1"
+    },
+    update: {
+      title: "Photo Gallery",
+      metaTitle: "Photo Gallery - Kumar Power",
+      metaDescription:
+        "A visual showcase of our generator installations, events, and industrial projects.",
+      keywords:
+        "Kumar Power photo gallery, generator installation photos, industrial projects gallery, DG set images",
+      canonicalUrl: "https://www.kumarpower.com/about/PhotoGallery",
+      ogTitle: "Photo Gallery - Kumar Power",
+      ogDescription:
+        "A visual showcase of our generator installations, events, and industrial projects.",
+      headingOptions: "h1"
+    }
+  });
+
+  await prisma.section.deleteMany({
+    where: { pageId: photoGalleryPage.id }
+  });
+
+  await prisma.section.create({
+    data: {
+      pageId: photoGalleryPage.id,
+      type: "photo-gallery",
+      content: photoGalleryData,
+      order: 0
+    }
+  });
+  console.log("✅ Seeded Photo Gallery with 80 Cloudinary images.");
 
 }
 
