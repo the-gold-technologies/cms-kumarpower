@@ -4,17 +4,55 @@ import type { NextRequest } from "next/server";
 const AUTH_TOKEN = process.env.AUTH_TOKEN ?? "";
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(",") ?? [];
 
+// Public API endpoints that allow unauthenticated POST requests from the main website
+const PUBLIC_POST_ENDPOINTS = [
+  "/api/auth/login",
+  "/api/auth/logout",
+  "/api/contact",
+  "/api/leads",
+  "/api/enquiries",
+  "/api/applications",
+  "/api/upload", // Internal checks strictly limit unauthenticated upload to resumes <= 5MB
+];
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const origin = request.headers.get("origin");
+  const method = request.method.toUpperCase();
+
+  const authToken = request.cookies.get("auth_token")?.value;
+  const authHeader = request.headers.get("authorization");
+  const bearerToken = authHeader?.startsWith("Bearer ") ? authHeader.substring(7) : null;
+  const isAuthenticated = AUTH_TOKEN !== "" && (authToken === AUTH_TOKEN || bearerToken === AUTH_TOKEN);
 
   // ─────────────────────────────────────────────────────────────
-  // 1. API routes — always allow (used by the public website)
-  //    Add CORS headers so the website domain can call these.
+  // 1. API routes
   // ─────────────────────────────────────────────────────────────
   if (pathname.startsWith("/api/")) {
-    const response = NextResponse.next();
+    // Handle CORS preflight (OPTIONS)
+    if (method === "OPTIONS") {
+      const response = new NextResponse(null, { status: 204 });
+      if (origin && (ALLOWED_ORIGINS.includes(origin) || ALLOWED_ORIGINS.includes("*"))) {
+        response.headers.set("Access-Control-Allow-Origin", origin);
+        response.headers.set("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
+        response.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        response.headers.set("Access-Control-Allow-Credentials", "true");
+      }
+      return response;
+    }
 
+    // Security Check: Block unauthenticated mutations (PUT, DELETE, PATCH, or non-public POST)
+    const isMutation = ["POST", "PUT", "PATCH", "DELETE"].includes(method);
+    const isPublicPost = method === "POST" && PUBLIC_POST_ENDPOINTS.some((p) => pathname.startsWith(p));
+
+    if (isMutation && !isPublicPost && !isAuthenticated) {
+      return NextResponse.json(
+        { success: false, error: "Unauthorized: Authentication required to modify content." },
+        { status: 401 }
+      );
+    }
+
+    const response = NextResponse.next();
     if (origin && (ALLOWED_ORIGINS.includes(origin) || ALLOWED_ORIGINS.includes("*"))) {
       response.headers.set("Access-Control-Allow-Origin", origin);
       response.headers.set("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
@@ -44,9 +82,6 @@ export function middleware(request: NextRequest) {
   // ─────────────────────────────────────────────────────────────
   // 3. CMS page routes — require auth cookie
   // ─────────────────────────────────────────────────────────────
-  const authToken = request.cookies.get("auth_token");
-  const isAuthenticated = AUTH_TOKEN !== "" && authToken?.value === AUTH_TOKEN;
-
   // /login page: redirect to dashboard if already logged in
   if (pathname === "/login") {
     if (isAuthenticated) {
@@ -64,7 +99,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Exclude api, static, and image routes from middleware processing
-  // Only CMS page routes go through the auth check above
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  // Process all routes except Next.js internals and favicon
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
