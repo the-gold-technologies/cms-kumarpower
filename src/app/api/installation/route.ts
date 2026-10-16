@@ -22,8 +22,28 @@ export async function GET() {
     for (const section of page.sections) {
       sectionsMap[section.type] = section.content;
     }
+    const primaryContent = sectionsMap[PAGE_SLUG] || sectionsMap["services"] || {};
+    sectionsMap[PAGE_SLUG] = primaryContent;
+    sectionsMap["services"] = primaryContent;
 
-    return NextResponse.json({ success: true, data: sectionsMap, page: page ? { metaTitle: page.metaTitle, metaDescription: page.metaDescription, keywords: page.keywords, canonicalUrl: page.canonicalUrl, noIndex: page.noIndex, ogTitle: page.ogTitle, ogDescription: page.ogDescription, ogImage: page.ogImage, schema: page.schema, headingOptions: page.headingOptions } : undefined });
+    return NextResponse.json({
+      success: true,
+      data: sectionsMap,
+      page: page
+        ? {
+            metaTitle: page.metaTitle,
+            metaDescription: page.metaDescription,
+            keywords: page.keywords,
+            canonicalUrl: page.canonicalUrl,
+            noIndex: page.noIndex,
+            ogTitle: page.ogTitle,
+            ogDescription: page.ogDescription,
+            ogImage: page.ogImage,
+            schema: page.schema,
+            headingOptions: page.headingOptions,
+          }
+        : undefined,
+    });
   } catch (error) {
     console.error("Error fetching installation content:", error);
     return NextResponse.json(
@@ -44,7 +64,7 @@ export async function PUT(request: Request) {
     const page = await prisma.page.upsert({
       where: { slug: PAGE_SLUG },
       create: {
-        title: "Generator Installation & Commissioning",
+        title: "Installation & Commissioning",
         slug: PAGE_SLUG,
         type: "static",
         visibility: "published",
@@ -72,6 +92,27 @@ export async function PUT(request: Request) {
           type: sectionType,
           content: sectionContent,
           order: sectionCount,
+        },
+      });
+    }
+
+    // Keep "services" and "installation" sections in sync
+    const altType = sectionType === "services" ? PAGE_SLUG : "services";
+    const existingAlt = await prisma.section.findFirst({
+      where: { pageId: page.id, type: altType },
+    });
+    if (existingAlt) {
+      await prisma.section.update({
+        where: { id: existingAlt.id },
+        data: { content: sectionContent },
+      });
+    } else {
+      await prisma.section.create({
+        data: {
+          pageId: page.id,
+          type: altType,
+          content: sectionContent,
+          order: 1,
         },
       });
     }

@@ -116,6 +116,14 @@ const sidebarLinks: SidebarLink[] = [
         title: "Repair & Overhaul",
         href: "/static-pages/services/repair-overhaul",
       },
+      {
+        title: "Annual Maintenance",
+        href: "/static-pages/services/annual-maintenance",
+      },
+      {
+        title: "Emergency Support",
+        href: "/static-pages/services/emergency-support",
+      },
     ],
   },
   {

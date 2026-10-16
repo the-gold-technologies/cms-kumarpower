@@ -74,13 +74,17 @@ export default function InstallationServicesCMSPage() {
   const [heroSub, setHeroSub] = useState("");
   const [heroBg, setHeroBg] = useState<string | File>("");
   const [heroCtaLabel, setHeroCtaLabel] = useState("");
+  const [heroCtaLink, setHeroCtaLink] = useState("");
 
   // Intro Section State
   const [introTagline, setIntroTagline] = useState("");
   const [introHeading, setIntroHeading] = useState("");
-  const [introP1, setIntroP1] = useState("");
-  const [introP2, setIntroP2] = useState("");
+  const [introDesc, setIntroDesc] = useState("");
   const [introImage, setIntroImage] = useState<string | File>("");
+  const [introBtn1Label, setIntroBtn1Label] = useState("");
+  const [introBtn1Link, setIntroBtn1Link] = useState("");
+  const [introBtn2Label, setIntroBtn2Label] = useState("");
+  const [introBtn2Link, setIntroBtn2Link] = useState("");
 
   // Process Steps & Header State
   const [processTagline, setProcessTagline] = useState("");
@@ -93,6 +97,7 @@ export default function InstallationServicesCMSPage() {
   const [portfolioHeading, setPortfolioHeading] = useState("");
   const [portfolioDesc, setPortfolioDesc] = useState("");
   const [portfolioCtaLabel, setPortfolioCtaLabel] = useState("");
+  const [portfolioCtaLink, setPortfolioCtaLink] = useState("");
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
   const bulkInputRef = useRef<HTMLInputElement>(null);
 
@@ -118,12 +123,16 @@ export default function InstallationServicesCMSPage() {
             setHeroSub(content.heroSub || "");
             setHeroBg(content.heroBg || "");
             setHeroCtaLabel(content.heroCtaLabel || "");
+            setHeroCtaLink(content.heroCtaLink || "");
 
             setIntroTagline(content.introTagline || "");
             setIntroHeading(content.introHeading || "");
-            setIntroP1(content.introP1 || "");
-            setIntroP2(content.introP2 || "");
+            setIntroDesc(content.introDesc || "");
             setIntroImage(content.introImage || "");
+            setIntroBtn1Label(content.introBtn1Label || "");
+            setIntroBtn1Link(content.introBtn1Link || "");
+            setIntroBtn2Label(content.introBtn2Label || "");
+            setIntroBtn2Link(content.introBtn2Link || "");
 
             setProcessTagline(content.processTagline || "");
             setProcessHeading(content.processHeading || "");
@@ -134,6 +143,7 @@ export default function InstallationServicesCMSPage() {
             setPortfolioHeading(content.portfolioHeading || "");
             setPortfolioDesc(content.portfolioDesc || "");
             setPortfolioCtaLabel(content.portfolioCtaLabel || "");
+            setPortfolioCtaLink(content.portfolioCtaLink || "");
             setPortfolio(content.portfolio || []);
 
             setFaqTagline(content.faqTagline || "");
@@ -281,7 +291,7 @@ export default function InstallationServicesCMSPage() {
 
   const handleSaveHero = () => {
     saveToServer(
-      { heroBadge, heroHeading, heroSub, heroBg, heroCtaLabel },
+      { heroBadge, heroHeading, heroSub, heroBg, heroCtaLabel, heroCtaLink },
       setSavingHero,
       setSavedHero,
       "Hero section saved!",
@@ -290,7 +300,7 @@ export default function InstallationServicesCMSPage() {
 
   const handleSaveIntro = () => {
     saveToServer(
-      { introTagline, introHeading, introP1, introP2, introImage },
+      { introTagline, introHeading, introDesc, introImage, introBtn1Label, introBtn1Link, introBtn2Label, introBtn2Link },
       setSavingIntro,
       setSavedIntro,
       "Expertise Intro section saved!",
@@ -313,6 +323,7 @@ export default function InstallationServicesCMSPage() {
         portfolioHeading,
         portfolioDesc,
         portfolioCtaLabel,
+        portfolioCtaLink,
         portfolio,
       },
       setSavingPortfolio,
@@ -374,24 +385,31 @@ export default function InstallationServicesCMSPage() {
               onChange={(e) => setHeroSub(e.target.value)}
               rows={2}
             />
-            <InputField
-              label="Primary CTA Button Label"
-              value={heroCtaLabel}
-              onChange={(e) => setHeroCtaLabel(e.target.value)}
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <InputField
+                label="Primary CTA Button Label"
+                value={heroCtaLabel}
+                onChange={(e) => setHeroCtaLabel(e.target.value)}
+              />
+              <InputField
+                label="Primary CTA Button Link"
+                value={heroCtaLink}
+                onChange={(e) => setHeroCtaLink(e.target.value)}
+                placeholder="e.g. /contact"
+              />
+            </div>
             <ImageUploadField
               label="Hero Background Graphic"
               value={heroBg}
               onChange={(val) => setHeroBg(val)}
             />
 
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton
-                isSaving={savingHero}
-                saved={savedHero}
-                onClick={handleSaveHero}
-              />
-            </div>
+            <SaveButton
+              isSaving={savingHero}
+              saved={savedHero}
+              onClick={handleSaveHero}
+              className="w-full mt-2"
+            />
           </div>
         </div>
       </div>
@@ -419,30 +437,52 @@ export default function InstallationServicesCMSPage() {
               onChange={(e) => setIntroHeading(e.target.value)}
             />
             <TextAreaField
-              label="Paragraph 1"
-              value={introP1}
-              onChange={(e) => setIntroP1(e.target.value)}
-              rows={3}
+              label="Intro Description (Use Enter for new paragraphs)"
+              value={introDesc}
+              onChange={(e) => setIntroDesc(e.target.value)}
+              placeholder="Explain end-to-end installation and commissioning. Press Enter for separate paragraphs."
+              rows={6}
             />
-            <TextAreaField
-              label="Paragraph 2"
-              value={introP2}
-              onChange={(e) => setIntroP2(e.target.value)}
-              rows={3}
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <InputField
+                label="Button 1 Label"
+                value={introBtn1Label}
+                onChange={(e) => setIntroBtn1Label(e.target.value)}
+                placeholder="e.g. Schedule Installation"
+              />
+              <InputField
+                label="Button 1 Link"
+                value={introBtn1Link}
+                onChange={(e) => setIntroBtn1Link(e.target.value)}
+                placeholder="e.g. /contact"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <InputField
+                label="Button 2 Label"
+                value={introBtn2Label}
+                onChange={(e) => setIntroBtn2Label(e.target.value)}
+                placeholder="e.g. View all Products"
+              />
+              <InputField
+                label="Button 2 Link"
+                value={introBtn2Link}
+                onChange={(e) => setIntroBtn2Link(e.target.value)}
+                placeholder="e.g. /products/generators"
+              />
+            </div>
             <ImageUploadField
               label="Side Showcase Graphic"
               value={introImage}
               onChange={(val) => setIntroImage(val)}
             />
 
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton
-                isSaving={savingIntro}
-                saved={savedIntro}
-                onClick={handleSaveIntro}
-              />
-            </div>
+            <SaveButton
+              isSaving={savingIntro}
+              saved={savedIntro}
+              onClick={handleSaveIntro}
+              className="w-full mt-2"
+            />
           </div>
         </div>
       </div>
@@ -554,13 +594,12 @@ export default function InstallationServicesCMSPage() {
               ))}
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton
-                isSaving={savingSteps}
-                saved={savedSteps}
-                onClick={handleSaveSteps}
-              />
-            </div>
+            <SaveButton
+              isSaving={savingSteps}
+              saved={savedSteps}
+              onClick={handleSaveSteps}
+              className="w-full mt-2"
+            />
           </div>
         </div>
       </div>
@@ -678,13 +717,12 @@ export default function InstallationServicesCMSPage() {
               ))}
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton
-                isSaving={savingPortfolio}
-                saved={savedPortfolio}
-                onClick={handleSavePortfolio}
-              />
-            </div>
+            <SaveButton
+              isSaving={savingPortfolio}
+              saved={savedPortfolio}
+              onClick={handleSavePortfolio}
+              className="w-full mt-2"
+            />
           </div>
         </div>
       </div>
@@ -768,13 +806,12 @@ export default function InstallationServicesCMSPage() {
               ))}
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton
-                isSaving={savingFaqs}
-                saved={savedFaqs}
-                onClick={handleSaveFaqs}
-              />
-            </div>
+            <SaveButton
+              isSaving={savingFaqs}
+              saved={savedFaqs}
+              onClick={handleSaveFaqs}
+              className="w-full mt-2"
+            />
           </div>
         </div>
       </div>
@@ -819,13 +856,12 @@ export default function InstallationServicesCMSPage() {
               ))}
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-slate-100">
-              <SaveButton
-                isSaving={savingBenefits}
-                saved={savedBenefits}
-                onClick={handleSaveBenefits}
-              />
-            </div>
+            <SaveButton
+              isSaving={savingBenefits}
+              saved={savedBenefits}
+              onClick={handleSaveBenefits}
+              className="w-full mt-2"
+            />
           </div>
         </div>
       </div>

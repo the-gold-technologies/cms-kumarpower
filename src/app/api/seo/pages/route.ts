@@ -30,6 +30,16 @@ const FOOTER_ADDITIONAL_PAGES = [
     pageSlug: "repair-overhaul",
   },
   {
+    url: "/services/annual-maintenance",
+    label: "Annual Maintenance Contracts",
+    pageSlug: "annual-maintenance",
+  },
+  {
+    url: "/services/emergency-support",
+    label: "24/7 Emergency Support",
+    pageSlug: "emergency-support",
+  },
+  {
     url: "/privacy-policy",
     label: "Privacy Policy",
     pageSlug: "privacy-policy",
