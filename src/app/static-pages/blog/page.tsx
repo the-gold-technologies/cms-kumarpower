@@ -73,19 +73,13 @@ export default function StaticBlogCMSPage() {
       .then((r) => r.json())
       .then((json) => {
         if (json.success && json.data) {
+          // Robust array extraction supporting both Array and object-values fallback
           if (Array.isArray(json.data.articles)) {
             setBlogList(json.data.articles);
+          } else if (json.data.articles && typeof json.data.articles === "object") {
+            setBlogList(Object.values(json.data.articles) as BlogItem[]);
           }
-        }
-      })
-      .catch(console.error);
-  }, []);
 
-  useEffect(() => {
-    fetch("/api/pages/blogs")
-      .then((r) => r.json())
-      .then((json) => {
-        if (json.success && json.data) {
           const hero = json.data.blogs || json.data;
           if (hero.heroTagline !== undefined) setHeroTagline(hero.heroTagline);
           if (hero.heroHeading !== undefined) setHeroHeading(hero.heroHeading);

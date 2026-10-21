@@ -22,10 +22,44 @@ export async function GET(
 
     const sectionsMap: Record<string, unknown> = {};
     for (const section of page.sections) {
-      sectionsMap[section.type] = section.content;
+      let secContent: any = section.content;
+      // If content was saved as a numeric-keyed object { "0": ..., "1": ... }, convert back to array
+      // and auto-repair in the database so production DB is permanently updated
+      if (secContent && typeof secContent === "object" && !Array.isArray(secContent)) {
+        const keys = Object.keys(secContent);
+        if (keys.length > 0 && keys.every((k) => !isNaN(Number(k)))) {
+          const arrayContent = Object.values(secContent);
+          secContent = arrayContent;
+          // Auto-repair database entry in background
+          prisma.section
+            .update({
+              where: { id: section.id },
+              data: { content: arrayContent as any },
+            })
+            .catch((err) => console.error("Auto-heal section error:", err));
+        }
+      }
+      sectionsMap[section.type] = secContent;
     }
 
-    return NextResponse.json({ success: true, data: sectionsMap, page: page ? { metaTitle: page.metaTitle, metaDescription: page.metaDescription, keywords: page.keywords, canonicalUrl: page.canonicalUrl, noIndex: page.noIndex, ogTitle: page.ogTitle, ogDescription: page.ogDescription, ogImage: page.ogImage, schema: page.schema, headingOptions: page.headingOptions } : undefined });
+    return NextResponse.json({
+      success: true,
+      data: sectionsMap,
+      page: page
+        ? {
+            metaTitle: page.metaTitle,
+            metaDescription: page.metaDescription,
+            keywords: page.keywords,
+            canonicalUrl: page.canonicalUrl,
+            noIndex: page.noIndex,
+            ogTitle: page.ogTitle,
+            ogDescription: page.ogDescription,
+            ogImage: page.ogImage,
+            schema: page.schema,
+            headingOptions: page.headingOptions,
+          }
+        : undefined,
+    });
   } catch (error) {
     console.error(`Error fetching page ${slug}:`, error);
     return NextResponse.json(
@@ -46,14 +80,14 @@ export async function PUT(
 
     if (!section || typeof section !== "string") {
       return NextResponse.json(
-        { success: false, error: "'section' (string) is required" },
+        { success: false, error: "section (string) is required" },
         { status: 400 }
       );
     }
 
     if (!content || typeof content !== "object") {
       return NextResponse.json(
-        { success: false, error: "'content' (object) is required" },
+        { success: false, error: "content (object or array) is required" },
         { status: 400 }
       );
     }
@@ -75,19 +109,29 @@ export async function PUT(
 
     let savedSection;
     if (existingSection) {
-      const existingContent =
-        existingSection.content &&
-        typeof existingSection.content === "object" &&
-        !Array.isArray(existingSection.content)
-          ? (existingSection.content as Record<string, unknown>)
-          : {};
+      let newContent: any;
+      if (Array.isArray(content)) {
+        // If content is an Array, preserve it strictly as an array of objects
+        newContent = content;
+      } else if (typeof content === "object" && content !== null) {
+        const existingContent =
+          existingSection.content &&
+          typeof existingSection.content === "object" &&
+          !Array.isArray(existingSection.content)
+            ? (existingSection.content as Record<string, unknown>)
+            : {};
+        newContent = {
+          ...existingContent,
+          ...content,
+        };
+      } else {
+        newContent = content;
+      }
+
       savedSection = await prisma.section.update({
         where: { id: existingSection.id },
         data: {
-          content: {
-            ...existingContent,
-            ...content,
-          },
+          content: newContent,
         },
       });
     } else {
