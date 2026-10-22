@@ -7,7 +7,7 @@ export async function GET(
 ) {
   const { slug } = await params;
   try {
-    const page = await prisma.page.findUnique({
+    let page = await prisma.page.findUnique({
       where: { slug },
       include: {
         sections: {
@@ -15,6 +15,17 @@ export async function GET(
         },
       },
     });
+
+    if (!page) {
+      page = await prisma.page.findUnique({
+        where: { slug: `blog/${slug}` },
+        include: {
+          sections: {
+            orderBy: { order: "asc" },
+          },
+        },
+      });
+    }
 
     if (!page) {
       return NextResponse.json({ success: true, data: {} });

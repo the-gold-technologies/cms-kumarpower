@@ -96,9 +96,88 @@ export async function GET() {
       };
     });
 
-    // 2. Process Footer / Additional Pages at the bottom (excluding AMC & Emergency Support)
+    // 2. Process Blog Articles (as dropdown children under Blogs / Insights)
+    const blogsPage = await prisma.page.findUnique({
+      where: { slug: "blogs" },
+      include: { sections: true },
+    });
+    const articlesSection = blogsPage?.sections.find(
+      (s: any) => s.type === "articles",
+    );
+    const rawArticles = Array.isArray(articlesSection?.content)
+      ? articlesSection.content
+      : typeof articlesSection?.content === "object" &&
+          articlesSection?.content !== null
+        ? Object.values(articlesSection.content)
+        : [];
+    const articles = (rawArticles as any[]).filter((a: any) => a && a.slug);
+
+    // Find the blogs link in navigation
+    const blogsLink = links.find(
+      (l: any) =>
+        l.url === "/blogs" ||
+        l.url === "blogs" ||
+        l.label?.toLowerCase() === "insights" ||
+        l.label?.toLowerCase() === "blogs",
+    );
+
+    const blogParentId = blogsLink ? blogsLink.id : "parent-blogs";
+
+    const blogArticlesData = articles.map((article: any, idx: number) => {
+      const cleanSlug = article.slug.replace(/^\/+|\/+$/g, "");
+      const blogSlug = `blog/${cleanSlug}`;
+      const matchedPage = pages.find(
+        (p: any) =>
+          p.slug.toLowerCase() === blogSlug.toLowerCase() ||
+          p.slug.toLowerCase() === cleanSlug.toLowerCase(),
+      );
+
+      return {
+        id: `blog-item-${article.id || cleanSlug}`,
+        pageId: matchedPage?.id || null,
+        title: article.title || cleanSlug,
+        slug: blogSlug,
+        metaTitle: matchedPage?.metaTitle || null,
+        metaDescription: matchedPage?.metaDescription || null,
+        type: "Blog Post",
+        visibility: article.status === "Published" ? "published" : "draft",
+        parent: blogParentId,
+        order: idx + 1,
+        description: article.excerpt || null,
+        navTitle: article.title,
+        isStatic: false,
+      };
+    });
+
+    // Mark the parent blogs link as a Dropdown so it renders with expand/collapse chevron
+    if (blogsLink && articles.length > 0) {
+      const foundMain = mainNavData.find((m: any) => m.id === blogsLink.id);
+      if (foundMain) {
+        foundMain.type = "Dropdown";
+      }
+    } else if (!blogsLink && articles.length > 0) {
+      // If no blogs link was in NavLink, create a parent Blogs group row
+      const matchedBlogsPage = pages.find((p: any) => p.slug === "blogs");
+      mainNavData.push({
+        id: "parent-blogs",
+        pageId: matchedBlogsPage?.id || null,
+        title: "Blogs & Articles",
+        slug: "blogs",
+        metaTitle: matchedBlogsPage?.metaTitle || null,
+        metaDescription: matchedBlogsPage?.metaDescription || null,
+        type: "Dropdown",
+        visibility: "published",
+        parent: "-",
+        order: 99,
+        description: "Blog Articles and Insights",
+        navTitle: "Blogs",
+        isStatic: false,
+      });
+    }
+
+    // 3. Process Footer / Additional Pages at the bottom (excluding AMC & Emergency Support)
     const existingUrls = new Set(links.map((l: any) => l.url.toLowerCase()));
-    let nextOrder = links.length + 1;
+    let nextOrder = links.length + articles.length + 1;
 
     const footerData: any[] = [];
     for (const item of FOOTER_ADDITIONAL_PAGES) {
@@ -128,7 +207,7 @@ export async function GET() {
       }
     }
 
-    const finalData = [...mainNavData, ...footerData];
+    const finalData = [...mainNavData, ...blogArticlesData, ...footerData];
 
     return NextResponse.json({ success: true, data: finalData });
   } catch (error) {

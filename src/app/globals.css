@@ -8,10 +8,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-primary: #2D6FBA;
-  --color-brand-dark: #0B0F29;
+  --color-brand-primary: #2d6fba;
+  --color-brand-dark: #0b0f29;
   --color-brand-accent: #2563eb;
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -35,4 +37,111 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+
+/* Rich Text ContentEditable Styling (Overrides Tailwind CSS Preflight) */
+[contenteditable] {
+  line-height: 1.7;
+}
+
+[contenteditable] h1,
+.prose h1 {
+  display: block !important;
+  font-size: 1.875rem !important; /* 30px */
+  font-weight: 800 !important;
+  color: #0b0f29 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.25 !important;
+}
+
+[contenteditable] h2,
+.prose h2 {
+  display: block !important;
+  font-size: 1.5rem !important; /* 24px */
+  font-weight: 700 !important;
+  color: #0b0f29 !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.35 !important;
+}
+
+[contenteditable] h3,
+.prose h3 {
+  display: block !important;
+  font-size: 1.25rem !important; /* 20px */
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.4rem !important;
+  line-height: 1.4 !important;
+}
+
+[contenteditable] p,
+.prose p {
+  display: block !important;
+  margin-top: 0.4rem !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 0.95rem !important;
+  color: #334155 !important;
+  line-height: 1.7 !important;
+}
+
+[contenteditable] ul,
+.prose ul {
+  display: block !important;
+  list-style-type: disc !important;
+  padding-left: 1.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+[contenteditable] ol,
+.prose ol {
+  display: block !important;
+  list-style-type: decimal !important;
+  padding-left: 1.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+[contenteditable] li,
+.prose li {
+  display: list-item !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+  color: #334155 !important;
+}
+
+[contenteditable] blockquote,
+.prose blockquote {
+  display: block !important;
+  border-left: 4px solid #2d6fba !important;
+  padding: 0.6rem 1rem !important;
+  margin: 0.8rem 0 !important;
+  font-style: italic !important;
+  color: #475569 !important;
+  background-color: #f8fafc !important;
+  border-radius: 0 0.5rem 0.5rem 0 !important;
+}
+
+[contenteditable] pre,
+.prose pre {
+  display: block !important;
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 0.5rem !important;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 0.85rem !important;
+  margin: 0.8rem 0 !important;
+  overflow-x: auto !important;
+}
+
+[contenteditable] a,
+.prose a {
+  color: #2d6fba !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
 }
