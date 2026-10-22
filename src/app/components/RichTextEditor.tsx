@@ -13,10 +13,15 @@ import {
   Code,
   Link as LinkIcon,
   Unlink,
+  Image as ImageIcon,
+  Upload,
+  Loader2,
   Undo,
   Redo,
   HelpCircle,
 } from "lucide-react";
+import { uploadFile } from "@/lib/uploadHelpers";
+import toast from "react-hot-toast";
 
 interface RichTextEditorProps {
   label?: string;
@@ -38,8 +43,14 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   minHeight = "280px",
 }) => {
   const editorRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const imageMenuRef = useRef<HTMLDivElement>(null);
+  const savedRangeRef = useRef<Range | null>(null);
+
   const [isFocused, setIsFocused] = useState(false);
   const [htmlContent, setHtmlContent] = useState(value);
+  const [showImageMenu, setShowImageMenu] = useState(false);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
 
   // Active formatting state for highlighting toolbar buttons
   const [activeBlock, setActiveBlock] = useState<string>("p");
@@ -56,6 +67,30 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
       editorRef.current.innerHTML = value || "";
     }
   }, [value]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        imageMenuRef.current &&
+        !imageMenuRef.current.contains(e.target as Node)
+      ) {
+        setShowImageMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const saveSelection = useCallback(() => {
+    const sel = window.getSelection();
+    if (
+      sel &&
+      sel.rangeCount > 0 &&
+      editorRef.current?.contains(sel.anchorNode)
+    ) {
+      savedRangeRef.current = sel.getRangeAt(0).cloneRange();
+    }
+  }, []);
 
   const checkActiveFormats = useCallback(() => {
     try {
@@ -121,9 +156,115 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   };
 
   const handleAddLink = () => {
+    saveSelection();
     const url = prompt("Enter link URL (e.g. https://www.kumarpower.com):");
     if (url) {
       execCmd("createLink", url);
+    }
+  };
+
+  const insertImage = (url: string) => {
+    if (!editorRef.current) return;
+    editorRef.current.focus();
+
+    const sel = window.getSelection();
+    let range = savedRangeRef.current;
+    if (!range || !editorRef.current.contains(range.commonAncestorContainer)) {
+      range = document.createRange();
+      range.selectNodeContents(editorRef.current);
+      range.collapse(false);
+    }
+
+    if (sel && range) {
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = "Article image";
+    img.className = "rounded-xl my-4 max-w-full h-auto shadow-sm block";
+
+    const p = document.createElement("p");
+    p.innerHTML = "<br>";
+
+    if (range) {
+      range.deleteContents();
+      range.insertNode(p);
+      range.insertNode(img);
+
+      const newRange = document.createRange();
+      newRange.setStart(p, 0);
+      newRange.collapse(true);
+      if (sel) {
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+      }
+    } else {
+      document.execCommand("insertImage", false, url);
+    }
+
+    handleInput();
+  };
+
+  const handleImageFileChange = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    e.target.value = "";
+
+    const tid = toast.loading("Uploading image to article...");
+    try {
+      setIsUploadingImage(true);
+      const url = await uploadFile(file);
+      if (url) {
+        insertImage(url);
+        toast.success("Image inserted into article!", { id: tid });
+      } else {
+        toast.error("Failed to upload image", { id: tid });
+      }
+    } catch (err: any) {
+      toast.error(err.message || "Failed to upload image", { id: tid });
+    } finally {
+      setIsUploadingImage(false);
+    }
+  };
+
+  const handleInsertImageUrl = () => {
+    saveSelection();
+    const url = prompt("Enter Image URL (e.g. https://...):");
+    if (url && url.trim()) {
+      insertImage(url.trim());
+    }
+  };
+
+  const handlePaste = async (e: React.ClipboardEvent) => {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type.startsWith("image/")) {
+        const file = items[i].getAsFile();
+        if (file) {
+          e.preventDefault();
+          saveSelection();
+          const tid = toast.loading("Uploading pasted image...");
+          try {
+            setIsUploadingImage(true);
+            const url = await uploadFile(file);
+            if (url) {
+              insertImage(url);
+              toast.success("Pasted image inserted!", { id: tid });
+            }
+          } catch (err: any) {
+            toast.error(err.message || "Failed to upload image", { id: tid });
+          } finally {
+            setIsUploadingImage(false);
+          }
+          return;
+        }
+      }
     }
   };
 
@@ -277,7 +418,10 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
           {/* Link Controls */}
           <button
             type="button"
-            onMouseDown={(e) => e.preventDefault()}
+            onMouseDown={(e) => {
+              e.preventDefault();
+              saveSelection();
+            }}
             onClick={handleAddLink}
             className="p-2 text-slate-600 hover:text-[#2D6FBA] hover:bg-slate-200/60 rounded-xl transition cursor-pointer"
             title="Insert Link"
@@ -293,6 +437,61 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
           >
             <Unlink className="w-4 h-4" />
           </button>
+
+          {/* Image Upload & Insert Controls */}
+          <div className="relative" ref={imageMenuRef}>
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleImageFileChange}
+              accept="image/*"
+              className="hidden"
+            />
+            <button
+              type="button"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                saveSelection();
+              }}
+              onClick={() => setShowImageMenu((prev) => !prev)}
+              className={getBtnClass(showImageMenu)}
+              title="Insert Image (Upload or URL)"
+            >
+              {isUploadingImage ? (
+                <Loader2 className="w-4 h-4 animate-spin text-[#2D6FBA]" />
+              ) : (
+                <ImageIcon className="w-4 h-4" />
+              )}
+            </button>
+
+            {showImageMenu && (
+              <div className="absolute top-full left-0 mt-1.5 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 p-1.5 z-50 flex flex-col gap-1 text-xs font-semibold animate-in fade-in slide-in-from-top-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    saveSelection();
+                    fileInputRef.current?.click();
+                    setShowImageMenu(false);
+                  }}
+                  className="flex items-center gap-2.5 px-3 py-2 text-slate-700 hover:bg-slate-100 rounded-xl transition text-left cursor-pointer"
+                >
+                  <Upload className="w-4 h-4 text-[#2D6FBA]" />
+                  <span>Upload from Device</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowImageMenu(false);
+                    handleInsertImageUrl();
+                  }}
+                  className="flex items-center gap-2.5 px-3 py-2 text-slate-700 hover:bg-slate-100 rounded-xl transition text-left cursor-pointer"
+                >
+                  <LinkIcon className="w-4 h-4 text-emerald-600" />
+                  <span>Insert from URL</span>
+                </button>
+              </div>
+            )}
+          </div>
 
           <div className="w-px h-5 bg-slate-300/60 mx-1" />
 
@@ -322,16 +521,28 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
           ref={editorRef}
           contentEditable
           onInput={handleInput}
+          onPaste={handlePaste}
           onFocus={() => {
             setIsFocused(true);
             checkActiveFormats();
+            saveSelection();
           }}
           onBlur={() => {
             setIsFocused(false);
+            saveSelection();
           }}
-          onKeyUp={checkActiveFormats}
-          onMouseUp={checkActiveFormats}
-          onSelect={checkActiveFormats}
+          onKeyUp={() => {
+            checkActiveFormats();
+            saveSelection();
+          }}
+          onMouseUp={() => {
+            checkActiveFormats();
+            saveSelection();
+          }}
+          onSelect={() => {
+            checkActiveFormats();
+            saveSelection();
+          }}
           style={{ minHeight }}
           className="p-5 text-sm text-slate-800 outline-none prose prose-slate max-w-none focus:outline-none overflow-y-auto"
           data-placeholder={placeholder}

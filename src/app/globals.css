@@ -145,3 +145,13 @@ body {
   text-decoration: underline !important;
   font-weight: 500 !important;
 }
+
+[contenteditable] img,
+.prose img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 0.75rem !important;
+  margin: 1.25rem auto !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
